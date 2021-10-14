@@ -29,10 +29,9 @@ describe("compiler compatibility", function() {
 
     describe("implicit", function() {
 
-        let property = new RecordValueCallback(validator, ValidateKey, And, (v)=>MessageMap(v)
-        );
+        let property = RecordValueCallback(validator, ValidateKey, And, (v)=>MessageMap(v));
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         if(validatable.valid) {
 
@@ -49,13 +48,13 @@ describe("compiler compatibility", function() {
 
         describe("auto", function() {
 
-            let property = new RecordValueCallback<TypeValidatorValue>(validator,
+            let property = RecordValueCallback<TypeValidatorValue>(validator,
                 (value, validators) => ValidateKey(value, validators),
                 (v)=>And(v),
                 (v)=>MessageMap(<globalThis.Record<any, ValidatorValidatable>>v)
             );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             let unknown : unknown = validatable.value;
             let record : Type = validatable.value;
@@ -64,13 +63,13 @@ describe("compiler compatibility", function() {
 
         describe("direct", function() {
 
-            let property = new RecordValueCallback<TypeValidatorValue>(validator,
+            let property = RecordValueCallback<TypeValidatorValue>(validator,
                 (value, validators) => ValidateKey(value, validators),
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 (v)=>MessageMap(<globalThis.Record<any, ValidatorValidatable>>v)
             );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             let unknown : unknown = validatable.value;
             let record : Type = validatable.value;
@@ -80,14 +79,14 @@ describe("compiler compatibility", function() {
 
     describe("implicit partial", function() {
 
-        let property = new RecordValueCallback(validator,
+        let property = RecordValueCallback(validator,
             (value, validators) =>
                 <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
         let val : Type = validatable.value;
@@ -98,7 +97,7 @@ describe("compiler compatibility", function() {
 
         describe("auto", function() {
 
-            let property = new RecordValueCallback<TypeValidatorValue>(
+            let property = RecordValueCallback<TypeValidatorValue>(
                 validator,
                 (value, validators) =>
                     <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
@@ -106,7 +105,7 @@ describe("compiler compatibility", function() {
                 (v)=>MessageMap(<globalThis.Record<any, ValidatorValidatable>>v)
             );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             let unknown : unknown = validatable.value;
             let string : Type = validatable.value;
@@ -115,7 +114,7 @@ describe("compiler compatibility", function() {
 
         describe("direct", function() {
 
-            let property = new RecordValueCallback<TypeValidatorValue>(
+            let property = RecordValueCallback<TypeValidatorValue>(
                 validator,
                 (value, validators) =>
                     <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
@@ -123,7 +122,7 @@ describe("compiler compatibility", function() {
                 (v)=>MessageMap(<globalThis.Record<any, ValidatorValidatable>>v)
             );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             let unknown : unknown = validatable.value;
             let string : Type = validatable.value;

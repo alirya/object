@@ -27,10 +27,9 @@ type Messages = {
 
 describe("implicit complete", function() {
 
-    // TODO FIX FORCED ARROW FUNCTION?
-    let property = new ValueCallback<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue, And, result => MessageMap(result));
+    let property = ValueCallback<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue, And, result => MessageMap(result));
 
-    let validatable = property.validate('data');
+    let validatable = property('data');
 
     describe("implicit complete", function() {
 
@@ -59,13 +58,13 @@ describe("implicit complete", function() {
 
 describe("explicit complete", function() {
 
-    let property = new ValueCallback<string>(validator,
+    let property = ValueCallback<string>(validator,
         (value, validators) => ValidateValue(value, validators),
         (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
         MessageMap
     );
 
-    let validatable = property.validate('data');
+    let validatable = property('data');
 
     if(validatable.valid) {
 
@@ -82,13 +81,13 @@ describe("explicit complete", function() {
 
 describe("implicit partial", function() {
 
-    let property = new ValueCallback(validator,
+    let property = ValueCallback(validator,
         (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
         (v)=>And(<Record<PropertyKey, Validatable>>v),
         MessageMap
     );
 
-    let validatable = property.validate('data');
+    let validatable = property('data');
 
     if(validatable.valid) {
 
@@ -104,13 +103,13 @@ describe("implicit partial", function() {
 
 describe("explicit complete", function() {
 
-    let property = new ValueCallback<unknown, string>(validator,
+    let property = ValueCallback<unknown, string>(validator,
         (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
         (v)=>And(<Record<PropertyKey, Validatable>>v),
         (v) => MessageMap(<Record<PropertyKey, Message>>v)
     );
 
-    let validatable = property.validate('data');
+    let validatable = property('data');
 
     if(validatable.valid) {
 

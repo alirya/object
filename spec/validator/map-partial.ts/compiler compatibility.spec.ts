@@ -35,7 +35,7 @@ describe("explicit typed", function() {
 
         let property = Map(validator, And, MessageMap);
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
 
@@ -52,7 +52,7 @@ describe("explicit typed", function() {
             (v)=>MessageMap(RemoveUndefined(v))
         );
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
         let string : Type = validatable.value;
@@ -63,7 +63,7 @@ describe("explicit typed", function() {
 
         let property = Map<TypeValidator>(validator, And, (v)=>MessageMap(RemoveUndefined(v)));
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
         let string : Type = validatable.value;

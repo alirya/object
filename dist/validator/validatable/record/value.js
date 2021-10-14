@@ -2,7 +2,7 @@ export default function Value(value, validators) {
     let object = {};
     for (let property in validators) {
         const validator = validators[property];
-        object[property] = validator.validate(value);
+        object[property] = validator(value);
     }
     return object;
 }

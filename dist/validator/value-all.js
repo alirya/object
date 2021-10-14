@@ -28,6 +28,6 @@ import ValueCallback from "./value-callback";
  * result after processing {@template Validators} with {@template BaseType} or {@template ValueType}
  */
 export default function ValueAll(validators, validation, message) {
-    return new ValueCallback(validators, ValidateValue, validation, message);
+    return ValueCallback(validators, ValidateValue, validation, message);
 }
 //# sourceMappingURL=value-all.js.map

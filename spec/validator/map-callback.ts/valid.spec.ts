@@ -12,24 +12,23 @@ it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
 describe("flat", function() {
 
-    let validator = {
-        name : Type('string'),
-        address : Type('string'),
-        user : Type('string'),
-    };
-
-
     let value = {
         user : 'user',
         name : 'name',
         address : 'address',
     };
 
-    let property = new MapCallback<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap, And, MessageMap);
-
     it(`and validation`, () => {
 
-        let validatable = property.validate(value);
+        let validator = {
+            name : Type('string'),
+            address : Type('string'),
+            user : Type('string'),
+        };
+
+        let property = MapCallback<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap, And, MessageMap);
+
+        let validatable = property(value);
 
         expect(validatable.valid).toBe(true);
         expect(validatable.value).toEqual(value);
@@ -47,8 +46,15 @@ describe("flat", function() {
 
     it(`or validation`, () => {
 
-        property.validation = (v)=>Or(v);
-        let validatable = property.validate(value);
+        let validator = {
+            name : Type('string'),
+            address : Type('string'),
+            user : Type('string'),
+        };
+
+        let property = MapCallback<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap, Or, MessageMap);
+
+        let validatable = property(value);
 
         expect(validatable.valid).toBe(true);
         expect(validatable.value).toEqual(value);
@@ -69,21 +75,6 @@ describe("flat", function() {
 
 describe("recursive", function() {
 
-
-
-    let validator = {
-        name : Type('string'),
-        address : Type('string'),
-        user : Type('string'),
-        info : MapCallbackFunction({
-                age : Type('number'),
-                hobby : Type('string'),
-                no : Type('number')
-            },
-            (value, validators) => ValidateMapPartial(value, validators),
-            And, MessageMap)
-    };
-
     let value = {
         name : 'name',
         address : 'age',
@@ -95,16 +86,28 @@ describe("recursive", function() {
         }
     };
 
-    let property = new MapCallback(validator,
-        (value, validators) => ValidateMapPartial(value, validators),
-        And,
-        MessageMap
-    );
-
-
     it(`and validation`, () => {
 
-        let validatable = property.validate(value);
+        let validator = {
+            name : Type('string'),
+            address : Type('string'),
+            user : Type('string'),
+            info : MapCallbackFunction({
+                    age : Type('number'),
+                    hobby : Type('string'),
+                    no : Type('number')
+                },
+                (value, validators) => ValidateMapPartial(value, validators),
+                And, MessageMap)
+        };
+
+        let property = MapCallback(validator,
+            (value, validators) => ValidateMapPartial(value, validators),
+            And,
+            MessageMap
+        );
+
+        let validatable = property(value);
 
         expect(validatable.valid).toBe(true);
         expect(validatable.value).toEqual(value);
@@ -166,9 +169,27 @@ describe("recursive", function() {
 
     it(`or validation`, () => {
 
-        property.validation = Or;
-        property.validators.info.validation = (v)=>Or(v);
-        let validatable = property.validate(value);
+
+        let validator = {
+            name : Type('string'),
+            address : Type('string'),
+            user : Type('string'),
+            info : MapCallbackFunction({
+                    age : Type('number'),
+                    hobby : Type('string'),
+                    no : Type('number')
+                },
+                (value, validators) => ValidateMapPartial(value, validators),
+                Or, MessageMap)
+        };
+
+        let property = MapCallback(validator,
+            (value, validators) => ValidateMapPartial(value, validators),
+            Or,
+            MessageMap
+        );
+
+        let validatable = property(value);
 
         expect(validatable.valid).toBe(true);
         expect(validatable.value).not.toBe(value);

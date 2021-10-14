@@ -1,6 +1,6 @@
 import Validator from "@dikac/t-validator/validator";
 import MapInterface from "../../../map";
-import Return from "@dikac/t-validator/validatable/infer";
+import Return from "@dikac/t-validator/validatable/infer-unambiguous";
 
 export default function RecordKey<
     RecordType extends Record<PropertyKey, any>,
@@ -14,7 +14,7 @@ export default function RecordKey<
 
     for(const k of Object.keys(object)) {
 
-        result[k] = value.validate(k)
+        result[k] = value(k)
     }
 
     return < MapInterface<RecordType, Return<Value>>> result;

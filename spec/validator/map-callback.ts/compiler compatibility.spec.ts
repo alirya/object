@@ -33,9 +33,9 @@ let value = {
 
 describe("implicit complete", function() {
 
-    let property = new MapCallback(validator, ValidateMap, And, MessageMap);
+    let property = MapCallback(validator, ValidateMap, And, MessageMap);
 
-    let validatable = property.validate(value);
+    let validatable = property(value);
 
     let unknown : unknown = validatable.value;
 
@@ -47,13 +47,13 @@ describe("explicit complete", function() {
 
     describe("auto", function() {
 
-        let property = new MapCallback<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(validator,
+        let property = MapCallback<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(validator,
             ValidateMap,
             And,
             MessageMap
         );
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
         let record : Type = validatable.value;
@@ -62,13 +62,13 @@ describe("explicit complete", function() {
 
     describe("direct", function() {
 
-        let property = new MapCallback<TypeValidator>(validator,
+        let property = MapCallback<TypeValidator>(validator,
             ValidateMap,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
         let record : Type = validatable.value;
@@ -78,14 +78,14 @@ describe("explicit complete", function() {
 
 describe("implicit partial", function() {
 
-    let property = new MapCallback(validator,
+    let property = MapCallback(validator,
         (value, validators) =>
             <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
         (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
         MessageMap
     );
 
-    let validatable = property.validate(value);
+    let validatable = property(value);
 
     let unknown : unknown = validatable.value;
     let val : Type = validatable.value;
@@ -96,7 +96,7 @@ describe("explicit complete", function() {
 
     describe("auto", function() {
 
-        let property = new MapCallback<globalThis.Record<keyof typeof validator, ValidatorInterface<any, string, Instance<any, string>>>>(
+        let property = MapCallback<globalThis.Record<keyof typeof validator, ValidatorInterface<any, string, Instance<any, string>>>>(
             validator,
             (value, validators) =>
                 <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
@@ -104,7 +104,7 @@ describe("explicit complete", function() {
             MessageMap
         );
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
         let string : Type = validatable.value;
@@ -113,7 +113,7 @@ describe("explicit complete", function() {
 
     describe("direct", function() {
 
-        let property = new MapCallback<TypeValidator>(
+        let property = MapCallback<TypeValidator>(
             validator,
             (value, validators) =>
                 <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
@@ -121,7 +121,7 @@ describe("explicit complete", function() {
             (v)=>MessageMap(<globalThis.Record<any, Message>>v)
         );
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
         let string : Type = validatable.value;

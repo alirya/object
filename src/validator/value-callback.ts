@@ -28,43 +28,64 @@ import Value from "./value";
  * @template ValidatableType
  * final result after processing {@template Validatables}
  */
-export default class ValueCallback<
+// export default class ValueCallback<
+//     BaseType = unknown,
+//     ValueType extends BaseType = BaseType,
+//     MessageType = unknown,
+//     ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+//     Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+//     ValidatableType extends Validatable = Validatable
+// > implements Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType> {
+//     /**
+//      * @param validators
+//      * record of {@link Validator}
+//      *
+//      * @param map
+//      * process value and {@param validators} to list of {@link Instance}
+//      *
+//      * @param validation
+//      * process result of {@param map} to single {@link Validatable}
+//      *
+//      * @param message
+//      * process result of {@param map} to single {@link Message}
+//      */
+//     constructor(
+//         public validators : ValidatorsType,
+//         public map : (base : BaseType, record : ValidatorsType) => Validatables,
+//         public validation : (result : Validatables)=>ValidatableType,
+//         public message : (result : Validatables)=>MessageType
+//     ) {
+//     }
+//
+//     validate<Argument extends ValueType>(argument: Argument)
+//         : Replace<ValidatableValue<Argument, MessageType, ValidatorsType, Validatables, ValidatableType>, true>;
+//     validate<Argument extends BaseType>(argument: Argument)
+//         : Return<BaseType, Argument, ValueType, ValidatableValue<Argument, MessageType, ValidatorsType, Validatables, ValidatableType>>
+//
+//     validate<Argument extends BaseType>(argument: Argument)    {
+//         return <Replace<ValidatableValue<BaseType, MessageType, ValidatorsType, Validatables, ValidatableType>, true> |
+//             Return<BaseType, Argument, ValueType, ValidatableValue<Argument, MessageType, ValidatorsType, Validatables, ValidatableType>>>
+//             new ValidatableValueCallback(argument, this.validators, this.map, this.validation, this.message);
+//     }
+// }
+
+export default function ValueCallback<
     BaseType = unknown,
     ValueType extends BaseType = BaseType,
     MessageType = unknown,
     ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
     Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
     ValidatableType extends Validatable = Validatable
-> implements Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType> {
-    /**
-     * @param validators
-     * record of {@link Validator}
-     *
-     * @param map
-     * process value and {@param validators} to list of {@link Instance}
-     *
-     * @param validation
-     * process result of {@param map} to single {@link Validatable}
-     *
-     * @param message
-     * process result of {@param map} to single {@link Message}
-     */
-    constructor(
-        public validators : ValidatorsType,
-        public map : (base : BaseType, record : ValidatorsType) => Validatables,
-        public validation : (result : Validatables)=>ValidatableType,
-        public message : (result : Validatables)=>MessageType
-    ) {
-    }
+>(
+    validators : ValidatorsType,
+    map : (base : BaseType, record : ValidatorsType) => Validatables,
+    validation : (result : Validatables)=>ValidatableType,
+    message : (result : Validatables)=>MessageType
+) : Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType> {
 
-    validate<Argument extends ValueType>(argument: Argument)
-        : Replace<ValidatableValue<Argument, MessageType, ValidatorsType, Validatables, ValidatableType>, true>;
-    validate<Argument extends BaseType>(argument: Argument)
-        : Return<BaseType, Argument, ValueType, ValidatableValue<Argument, MessageType, ValidatorsType, Validatables, ValidatableType>>
+    return function <Argument extends BaseType, ValueType extends BaseType>(argument: Argument|ValueType) {
 
-    validate<Argument extends BaseType>(argument: Argument)    {
-        return <Replace<ValidatableValue<BaseType, MessageType, ValidatorsType, Validatables, ValidatableType>, true> |
-            Return<BaseType, Argument, ValueType, ValidatableValue<Argument, MessageType, ValidatorsType, Validatables, ValidatableType>>>
-            new ValidatableValueCallback(argument, this.validators, this.map, this.validation, this.message);
-    }
+        return new ValidatableValueCallback(argument, validators, map, validation, message);
+
+    } as Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>
 }

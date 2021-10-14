@@ -1,6 +1,6 @@
 import Validator from "@dikac/t-validator/validator";
 import MapInterface from "../../../map";
-import Return from "@dikac/t-validator/validatable/infer";
+import Return from "@dikac/t-validator/validatable/infer-unambiguous";
 
 export default function RecordVKeyPartial<
     RecordType extends Record<PropertyKey, any>,
@@ -14,7 +14,7 @@ export default function RecordVKeyPartial<
 
     for(const k of Object.keys(object)) {
 
-        const pair = value.validate(k);
+        const pair = value(k);
 
         result[k] = pair
 

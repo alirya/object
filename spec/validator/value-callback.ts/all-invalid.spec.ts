@@ -26,12 +26,12 @@ describe("flat", function() {
         age : string,
     }
 
-    // TODO FIX FORCED ARROW FUNCTION?
-    let property = new ValueCallback<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue, And, result => MessageMap(result));
 
     it(`and validation`, () => {
 
-        let and = property.validate({});
+        let property = ValueCallback<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue, And, result => MessageMap(result));
+
+        let and = property({});
 
         expect<boolean>(and.valid).toBe(false);
         expect(and.value).toEqual({});
@@ -48,9 +48,10 @@ describe("flat", function() {
 
     it(`or validation `, () => {
 
-        property.validation = (v)=>Or(v);
+        let property = ValueCallback<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue, Or, result => MessageMap(result));
 
-        let or = property.validate({});
+        let or = property({});
+
         expect<boolean>(or.valid).toBe(false);
         expect(or.value).toEqual({});
 
@@ -72,29 +73,30 @@ describe("flat", function() {
 
 describe("recursive", function() {
 
-    let validator = {
-        name : Type('string'),
-        age : Type('number'),
-        address : Type('string'),
-        info : new ValueCallback({
-                age : Type('string'),
-                hobby : Type('number'),
-                no : Type('string'),
-            }, (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
-            (v)=>And(v),
-            MessageMap)
-    };
 
-
-    let property = new ValueCallback(validator,
-        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
-        (v)=>And(<Record<PropertyKey, Validatable>>v),
-        MessageMap
-    );
 
     it(`and validation`, () => {
 
-        let and = property.validate({});
+        let validator = {
+            name : Type('string'),
+            age : Type('number'),
+            address : Type('string'),
+            info : ValueCallback({
+                    age : Type('string'),
+                    hobby : Type('number'),
+                    no : Type('string'),
+                }, (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
+                (v)=>And(v),
+                MessageMap)
+        };
+
+        let property = ValueCallback(validator,
+            (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
+            (v)=>And(<Record<PropertyKey, Validatable>>v),
+            MessageMap
+        );
+
+        let and = property({});
 
         expect<boolean>(and.valid).toBe(false);
         expect(and.value).toEqual({});
@@ -124,10 +126,27 @@ describe("recursive", function() {
 
     it(`or validation `, () => {
 
-        property.validation = (v)=>Or(<Record<PropertyKey, Validatable>>v);
-        property.validators.info.validation = (v)=>Or(<Record<PropertyKey, Validatable>>v);
+        let validator = {
+            name : Type('string'),
+            age : Type('number'),
+            address : Type('string'),
+            info : ValueCallback({
+                    age : Type('string'),
+                    hobby : Type('number'),
+                    no : Type('string'),
+                }, (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
+                (v)=>Or(v),
+                MessageMap)
+        };
 
-        let or = property.validate({});
+        let property = ValueCallback(validator,
+            (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
+            (v)=>Or(<Record<PropertyKey, Validatable>>v),
+            MessageMap
+        );
+
+
+        let or = property({});
 
         expect(or.value).toEqual({});
         expect<boolean>(or.valid).toBe(false);

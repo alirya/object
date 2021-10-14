@@ -18,9 +18,9 @@ type RecordValue<
     SimpleValidator<
         Record<PropertyKey, InferBase<ValidatorTemplate>>,
         Record<PropertyKey, InferType<ValidatorTemplate>>,
-        ValidatableRecord<MessageTemplate, Record<PropertyKey, InferBase<ValidatorTemplate>>, ValidatorTemplate, Result, ValidatableTemplate>> &
-    ValidatorContainer<ValidatorTemplate> &
-    Message<(result:Result)=>MessageTemplate> &
-    Validation<(result:Result)=>ValidatableTemplate>
+        ValidatableRecord<MessageTemplate, Record<PropertyKey, InferBase<ValidatorTemplate>>, ValidatorTemplate, Result, ValidatableTemplate>> // &
+    // ValidatorContainer<ValidatorTemplate> &
+    // Message<(result:Result)=>MessageTemplate> &
+    // Validation<(result:Result)=>ValidatableTemplate>
 
 export default RecordValue;

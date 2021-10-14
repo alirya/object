@@ -47,7 +47,7 @@ export default function ValuePartial<
     stop : boolean = false,
 ) : ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType> {
 
-    return <ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType>> new ValueCallback(
+    return <ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType>> ValueCallback(
         validators,
         (value, validators)  => ValidateValuePartial(value, validators, stop),
         validation,

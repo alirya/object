@@ -54,7 +54,7 @@ describe("value callback", function() {
         name : Type('string'),
         address : Type('string'),
         user : Type('string'),
-        info : new ValueCallback({
+        info : ValueCallback({
                 age : Type('string'),
                 hobby : Type('string'),
                 no : Type('string'),
@@ -64,7 +64,7 @@ describe("value callback", function() {
         )
     };
 
-    let property = new ValueCallback(validator,
+    let property = ValueCallback(validator,
         (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
         And,
         Invalid
@@ -106,11 +106,19 @@ describe("value partial", function() {
 
 describe("value callback", function() {
 
+    let c =  MapCallback({
+            age : Type('number'),
+            hobby : Type('string'),
+            no : Type('number')
+        },
+        (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+        And, MessageMap);
+
     let validator = {
         name : Type('string'),
         age : Type('number'),
         address : Type('string'),
-        info : new MapCallback({
+        info : MapCallback({
                 age : Type('number'),
                 hobby : Type('string'),
                 no : Type('number')
@@ -130,7 +138,7 @@ describe("value callback", function() {
         }
     };
 
-    let property = new MapCallback(validator,
+    let property = MapCallback(validator,
         (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
         And,
         MessageMap

@@ -6,7 +6,7 @@ import MessageMap from "../../dist/message/message/record/map";
 import Type from "@dikac/t-type/validator/type-standard";
 import ValidatorInterface from "@dikac/t-validator/simple";
 import Instance from "@dikac/t-validator/validatable/validatable";
-import Callbacks from "@dikac/t-validator/callbacks";
+import Callbacks from "@dikac/t-validator/callback";
 
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
@@ -25,7 +25,7 @@ describe("compiler compatibility", function() {
 
         let property = Value(validator, And, MessageMap);
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
 
@@ -37,7 +37,7 @@ describe("compiler compatibility", function() {
 
         let property = Value/*<Record<PropertyKey, any>, Record<string, any>, TypeValidatorValue>*/(validator, And, MessageMap);
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
 
         let unknown : unknown = validatable.value;
@@ -57,15 +57,15 @@ describe("implicit incomplete", function() {
             user : 'string',
         };
 
-        let property = Value(
-            validator,
-            (v)=>And(<Record<PropertyKey, Validatable>>v),
-            MessageMap
-        );
-
         it(`and validation`, () => {
 
-            let validatable = property.validate(value);
+            let property = Value(
+                validator,
+                (v)=>And(<Record<PropertyKey, Validatable>>v),
+                MessageMap
+            );
+
+            let validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -107,8 +107,13 @@ describe("implicit incomplete", function() {
 
         it(`or validation`, () => {
 
-            property.validation = (v)=>Or(<Record<PropertyKey, Validatable>>v);
-            let validatable = property.validate(value);
+            let property = Value(
+                validator,
+                (v)=>Or(<Record<PropertyKey, Validatable>>v),
+                MessageMap
+            );
+
+            let validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -151,12 +156,6 @@ describe("implicit incomplete", function() {
 
     describe("mixed", function() {
 
-        let validator = new Callbacks<string, string>(function (value) {
-            return  ['name', 'address'].includes(value);
-        }, function (result){
-            return result.value + ' ' + (result.valid ? 'valid' : 'true');
-        }, );
-
         let value = {
             name : true,
             age : 1,
@@ -164,15 +163,21 @@ describe("implicit incomplete", function() {
         };
 
 
-        let property = Value(
-            validator,
-            (v)=>And(<Record<PropertyKey, Validatable>>v),
-            MessageMap
-        );
-
         it(`and validation`, () => {
 
-            let and = property.validate(value);
+            let validator = Callbacks<string, string>(function (value) {
+                return  ['name', 'address'].includes(value);
+            }, function (result){
+                return result.value + ' ' + (result.valid ? 'valid' : 'true');
+            }, );
+
+            let property = Value(
+                validator,
+                (v)=>And(<Record<PropertyKey, Validatable>>v),
+                MessageMap
+            );
+
+            let and = property(value);
 
             expect<boolean>(and.valid).toBe(false);
             expect(and.value).toBe(value);
@@ -201,9 +206,19 @@ describe("implicit incomplete", function() {
 
         it(`or validation `, () => {
 
-            property.validation = (v)=>Or(<Record<PropertyKey, Validatable>>v);
+            let validator = Callbacks<string, string>(function (value) {
+                return  ['name', 'address'].includes(value);
+            }, function (result){
+                return result.value + ' ' + (result.valid ? 'valid' : 'true');
+            }, );
 
-            let or = property.validate(value);
+            let property = Value(
+                validator,
+                (v)=>Or(<Record<PropertyKey, Validatable>>v),
+                MessageMap
+            );
+
+            let or = property(value);
 
             expect(or.value).toBe(value);
             expect(or.valid).toBe(true);
@@ -232,12 +247,6 @@ describe("implicit incomplete", function() {
 
     describe("all invalid", function() {
 
-        let validator = new Callbacks<string, string>(function (value) {
-            return ! ['name', 'age', 'address'].includes(value);
-        },function (result){
-            return result.value + ' ' + (result.valid ? 'valid' : 'true');
-        });
-
         let value = {
             name : 1,
             age : 1,
@@ -245,16 +254,21 @@ describe("implicit incomplete", function() {
         };
 
 
-        let property = Value(
-            validator,
-            (v)=>And(<Record<PropertyKey, Validatable>>v),
-            MessageMap
-        );
-
         it(`and validation`, () => {
 
-            let and = property.validate(value);
+            let validator = Callbacks<string, string>(function (value) {
+                return ! ['name', 'age', 'address'].includes(value);
+            },function (result){
+                return result.value + ' ' + (result.valid ? 'valid' : 'true');
+            });
 
+            let property = Value(
+                validator,
+                (v)=>And(<Record<PropertyKey, Validatable>>v),
+                MessageMap
+            );
+
+            let and = property(value);
 
             expect<boolean>(and.valid).toBe(false);
             expect(and.value).toEqual(value);
@@ -278,9 +292,19 @@ describe("implicit incomplete", function() {
 
         it(`or validation `, () => {
 
-            property.validation = (v)=>Or(<Record<PropertyKey, Validatable>>v);
+            let validator = Callbacks<string, string>(function (value) {
+                return ! ['name', 'age', 'address'].includes(value);
+            },function (result){
+                return result.value + ' ' + (result.valid ? 'valid' : 'true');
+            });
 
-            let or = property.validate(value);
+            let property = Value(
+                validator,
+                (v)=>Or(<Record<PropertyKey, Validatable>>v),
+                MessageMap
+            );
+
+            let or = property(value);
 
             expect(or.value).toEqual(value);
             expect<boolean>(or.valid).toBe(false);

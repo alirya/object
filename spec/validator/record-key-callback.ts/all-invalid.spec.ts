@@ -1,15 +1,14 @@
-import Callbacks from "@dikac/t-validator/callbacks";
+import Callbacks from "@dikac/t-validator/callback";
 import RecordValueCallback from "../../../dist/validator/record-key-callback";
 import ValidateKey from "../../../dist/validator/validatable/record/record-key";
 import And from "../../../dist/validatable/and";
 import MessageMap from "../../../dist/message/message/record/map";
 import Or from "../../../dist/validatable/or";
-import Infer from "@dikac/t-validator/validatable/infer";
+import Infer from "@dikac/t-validator/validatable/infer-unambiguous";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
-
-let validator = new Callbacks<string, string>(function (value) {
+let validator = Callbacks<string, string>(function (value) {
     return ! ['name', 'age', 'address'].includes(value);
 },function (result){
     return result.value + ' ' + (result.valid ? 'valid' : 'true');
@@ -21,11 +20,11 @@ let value = {
     address : 'string',
 };
 
-let property = new RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey, And, MessageMap);
-
 it(`and validation`, () => {
 
-    let and = property.validate(value);
+    let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey, And, MessageMap);
+
+    let and = property(value);
 
     expect<boolean>(and.valid).toBe(false);
     expect(and.value).toEqual(value);
@@ -42,9 +41,9 @@ it(`and validation`, () => {
 
 it(`or validation `, () => {
 
-    property.validation = (v)=>Or(v);
+    let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey, Or, MessageMap);
 
-    let or = property.validate(value);
+    let or = property(value);
     expect<boolean>(or.valid).toBe(false);
     expect(or.value).toEqual(value);
 
