@@ -29,6 +29,6 @@ import ValueCallback from "./value-callback";
  * result after processing {@template Validators} with {@template BaseType} or {@template ValueType}
  */
 export default function ValuePartial(validators, validation, message, stop = false) {
-    return new ValueCallback(validators, (value, validators) => ValidateValuePartial(value, validators, stop), validation, message);
+    return ValueCallback(validators, (value, validators) => ValidateValuePartial(value, validators, stop), validation, message);
 }
 //# sourceMappingURL=value-partial.js.map

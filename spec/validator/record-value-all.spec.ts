@@ -30,7 +30,7 @@ describe("compiler compatibility", function() {
 
         let property = RecordValue(validator, And, MessageMap);
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         if(validatable.valid) {
 
@@ -52,7 +52,7 @@ describe("compiler compatibility", function() {
                 MessageMap
             );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             let unknown : unknown = validatable.value;
             let record : Type = validatable.value;
@@ -66,7 +66,7 @@ describe("compiler compatibility", function() {
                 MessageMap
             );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             let unknown : unknown = validatable.value;
             let record : Type = validatable.value;
@@ -81,7 +81,7 @@ describe("compiler compatibility", function() {
             MessageMap
         );
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
         let val : Type = validatable.value;
@@ -98,7 +98,7 @@ describe("compiler compatibility", function() {
                 MessageMap
             );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             let unknown : unknown = validatable.value;
             let string : Type = validatable.value;
@@ -113,7 +113,7 @@ describe("compiler compatibility", function() {
                 (v)=>MessageMap(<globalThis.Record<any, Message>>v)
             );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             let unknown : unknown = validatable.value;
             let string : Type = validatable.value;
@@ -132,20 +132,20 @@ describe("implicit complete", function() {
 
         let validator = Type('string');
 
-        let property =  RecordValue(validator,
-            (v)=>And(v),
-            MessageMap
-        );
+        let value = {
+            name : 'string',
+            address : 'string',
+            user : 'string',
+        };
 
         it(`and validation`, () => {
 
-            let value = {
-                name : 'string',
-                address : 'string',
-                user : 'string',
-            };
+            let property =  RecordValue(validator,
+                (v)=>And(v),
+                MessageMap
+            );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -163,14 +163,12 @@ describe("implicit complete", function() {
 
         it(`or validation`, () => {
 
-            let value = {
-                name : 'string',
-                address : 'string',
-                user : 'string',
-            };
+            let property =  RecordValue(validator,
+                (v)=>Or(v),
+                MessageMap
+            );
 
-            property.validation = (v)=>Or(v);
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -189,22 +187,22 @@ describe("implicit complete", function() {
 
     describe("mixed", function() {
 
-        let validator = Type('string');
-
         let value = {
             name : 'string',
             age : 1,
             address : 'string',
         };
 
-        let property = RecordValue(validator,
-            (v)=>And(v),
-            MessageMap
-        );
+        let validator = Type('string');
 
         it(`and validation`, () => {
 
-            let and = property.validate(value);
+            let property = RecordValue(validator,
+                (v)=>And(v),
+                MessageMap
+            );
+
+            let and = property(value);
 
             expect<boolean>(and.valid).toBe(false);
 
@@ -223,9 +221,12 @@ describe("implicit complete", function() {
 
         it(`or validation `, () => {
 
-            property.validation = (v)=>Or(v);
+            let property = RecordValue(validator,
+                (v)=>Or(v),
+                MessageMap
+            );
 
-            let or = property.validate(value);
+            let or = property(value);
 
             expect(or.valid).toBe(true);
             expect(or.value).toBe(value);
@@ -245,22 +246,22 @@ describe("implicit complete", function() {
 
     describe("all invalid", function() {
 
-        let validator = Type('string');
-
         let value = {
             name : 2,
             age : 1,
             address : 3,
         };
 
-        let property = RecordValue(validator,
-            (v)=>And(v),
-            MessageMap
-        );
+        let validator = Type('string');
 
         it(`and validation`, () => {
 
-            let and = property.validate(value);
+            let property = RecordValue(validator,
+                (v)=>And(v),
+                MessageMap
+            );
+
+            let and = property(value);
 
             expect<boolean>(and.valid).toBe(false);
             expect(and.value).toEqual(value);
@@ -277,9 +278,12 @@ describe("implicit complete", function() {
 
         it(`or validation `, () => {
 
-            property.validation = (v)=>Or(v);
+            let property = RecordValue(validator,
+                (v)=>Or(v),
+                MessageMap
+            );
 
-            let or = property.validate(value);
+            let or = property(value);
             expect<boolean>(or.valid).toBe(false);
             expect(or.value).toEqual(value);
 

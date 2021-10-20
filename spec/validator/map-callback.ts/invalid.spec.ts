@@ -14,24 +14,23 @@ it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
 describe("flat", function() {
 
-
-    let validator = {
-        name : Type('string'),
-        age : Type('number'),
-        address : Type('string'),
-    };
-
     let value = {
         name : {},
         age : {},
         address : {},
     };
 
-    let property = new MapCallback<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap, And, MessageMap);
-
     it(`and validation`, () => {
 
-        let and = property.validate(value);
+        let validator = {
+            name : Type('string'),
+            age : Type('number'),
+            address : Type('string'),
+        };
+
+        let property = MapCallback<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap, And, MessageMap);
+
+        let and = property(value);
 
         expect(and.valid).toBe(false);
         expect(and.value).toEqual(value);
@@ -48,9 +47,15 @@ describe("flat", function() {
 
     it(`or validation `, () => {
 
-        property.validation = (v)=>Or(v);
+        let validator = {
+            name : Type('string'),
+            age : Type('number'),
+            address : Type('string'),
+        };
 
-        let or = property.validate(value);
+        let property = MapCallback<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap, And, MessageMap);
+
+        let or = property(value);
         expect(or.valid).toBe(false);
         expect(or.value).toEqual(value);
 
@@ -68,19 +73,6 @@ describe("flat", function() {
 
 describe("recursive", function() {
 
-    let validator = {
-        name : Type('string'),
-        age : Type('number'),
-        address : Type('string'),
-        info : MapCallbackFunction({
-                age : Type('number'),
-                hobby : Type('string'),
-                no : Type('number')
-            },
-            (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
-            And, MessageMap)
-    };
-
     let value = {
         name : {},
         age : {},
@@ -92,14 +84,27 @@ describe("recursive", function() {
         }
     };
 
-    let property = new MapCallback(validator,
-        (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
-        (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v), MessageMap
-    );
-
     it(`and validation`, () => {
 
-        let and = property.validate(value);
+        let validator = {
+            name : Type('string'),
+            age : Type('number'),
+            address : Type('string'),
+            info : MapCallbackFunction({
+                    age : Type('number'),
+                    hobby : Type('string'),
+                    no : Type('number')
+                },
+                (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+                And, MessageMap)
+        };
+
+        let property = MapCallback(validator,
+            (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+            (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v), MessageMap
+        );
+
+        let and = property(value);
 
         expect(and.valid).toBe(false);
         expect(and.value).toEqual(value);
@@ -125,10 +130,26 @@ describe("recursive", function() {
 
     it(`or validation `, () => {
 
-        property.validation = (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v);
-        property.validators.info.validation = (v)=>Or(v);
 
-        let or = property.validate(value);
+        let validator = {
+            name : Type('string'),
+            age : Type('number'),
+            address : Type('string'),
+            info : MapCallbackFunction({
+                    age : Type('number'),
+                    hobby : Type('string'),
+                    no : Type('number')
+                },
+                (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+                Or, MessageMap)
+        };
+
+        let property = MapCallback(validator,
+            (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+            (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v), MessageMap
+        );
+
+        let or = property(value);
 
         expect(or.value).toEqual(value);
         expect(or.valid).toBe(false);

@@ -16,7 +16,7 @@ export default function Map<
         const validator = validators[property];
         const value = values[property];
 
-        object[<PropertyKey>property] = validator.validate(value);
+        object[<PropertyKey>property] = validator(value);
     }
 
     return <InferReturn<Validators> > object;

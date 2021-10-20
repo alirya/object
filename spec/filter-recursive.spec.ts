@@ -47,7 +47,20 @@ describe('single dimension', () => {
 
     it('filter not empty string & object', ()=>{
 
-        const filtered = FilterRecursive(object, (v)=>(String(v) && NotEmpty(v)) && (Object(v) && NotEmptyObject(v)));
+        const filtered = FilterRecursive(object, (v)=>{
+
+            if(String(v)) {
+
+                return NotEmpty(v);
+            }
+
+            if(Object(v)) {
+
+                return NotEmptyObject(v);
+            }
+
+            return false;
+        });
 
         expect<any>(filtered).toEqual({
             retain : 'a',

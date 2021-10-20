@@ -9,21 +9,24 @@ import RecordBase from "./base/record/infer";
 import RecordType from "./type/record/infer";
 import Instance from "@dikac/t-validator/validatable/validatable";
 
-export default interface Map<
+type Map<
     ValidatorsType extends Record<PropertyKey, Validator>,
     Result extends Partial<Record<PropertyKey, Instance>>,
     ValidatableType extends Validatable,
     MessageType,
-> extends
+> =
     ValidatorSimple<
         RecordBase<ValidatorsType>,
         RecordType<ValidatorsType>,
         ValidatableMap<MessageType, ValidatorsType, Result, ValidatableType, RecordBase<ValidatorsType>>
-    > ,
+    >/* ,
     Validation<(result:Result)=>ValidatableType> ,
     Validators<ValidatorsType>,
-    Message<(result:Result)=>MessageType>
-{}
+    Message<(result:Result)=>MessageType>*/
+;
+export default Map;
+
+
 
 
 

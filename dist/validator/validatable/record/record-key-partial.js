@@ -1,7 +1,7 @@
 export default function RecordVKeyPartial(object, value) {
     let result = {};
     for (const k of Object.keys(object)) {
-        const pair = value.validate(k);
+        const pair = value(k);
         result[k] = pair;
         if (!pair.valid) {
             return result;

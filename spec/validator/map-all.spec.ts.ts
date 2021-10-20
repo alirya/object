@@ -37,7 +37,7 @@ describe("compiler compatibility", function() {
 
         let property = MapAll(validator, And, MessageMap);
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         let unknown : unknown = validatable.value;
 
@@ -54,7 +54,7 @@ describe("compiler compatibility", function() {
                 MessageMap
             );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             let unknown : unknown = validatable.value;
             let record : Type = validatable.value;
@@ -69,7 +69,7 @@ describe("compiler compatibility", function() {
 
             );
 
-            let validatable = property.validate(value);
+            let validatable = property(value);
 
             let unknown : unknown = validatable.value;
             let record : Type = validatable.value;
@@ -83,23 +83,23 @@ describe("implicit complete", function() {
 
     describe("all valid", function() {
 
-        let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
-        };
-
         let value = {
             user : 'user',
             name : 'name',
             address : 'address',
         };
 
-        let property = MapAll(validator, (v)=>And(v), MessageMap);
-
         it(`and validation`, () => {
 
-            let validatable = property.validate(value);
+            let validator = {
+                name : Type('string'),
+                address : Type('string'),
+                user : Type('string'),
+            };
+
+            let property = MapAll(validator, (v)=>And(v), MessageMap);
+
+            let validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -117,8 +117,16 @@ describe("implicit complete", function() {
 
         it(`or validation`, () => {
 
-            property.validation = (v)=>Or(v);
-            let validatable = property.validate(value);
+
+            let validator = {
+                name : Type('string'),
+                address : Type('string'),
+                user : Type('string'),
+            };
+
+            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+
+            let validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -138,23 +146,23 @@ describe("implicit complete", function() {
 
     describe("mixed", function() {
 
-        let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
-        };
-
         let value = {
             age : "11",
             name : 'name',
             address : 'address',
         };
 
-        let property = MapAll(validator, (v)=>And(v), MessageMap);
-
         it(`and validation`, () => {
 
-            let and = property.validate(value);
+            let validator = {
+                name : Type('string'),
+                age : Type('number'),
+                address : Type('string'),
+            };
+
+            let property = MapAll(validator, (v)=>And(v), MessageMap);
+
+            let and = property(value);
 
             expect(and.valid).toBe(false);
             expect(and.value).toBe(value);
@@ -173,9 +181,15 @@ describe("implicit complete", function() {
 
         it(`or validation `, () => {
 
-            property.validation = (v)=>Or(v);
+            let validator = {
+                name : Type('string'),
+                age : Type('number'),
+                address : Type('string'),
+            };
 
-            let or = property.validate(value);
+            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+
+            let or = property(value);
 
             expect(or.valid).toBe(true);
             expect(or.value).toBe(value);
@@ -195,23 +209,23 @@ describe("implicit complete", function() {
 
     describe("all invalid", function() {
 
-        let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
-        };
-
         let value = {
             name : {},
             age : {},
             address : {},
         };
 
-        let property = MapAll(validator, (v)=>And(v), MessageMap);
-
         it(`and validation`, () => {
 
-            let and = property.validate(value);
+            let validator = {
+                name : Type('string'),
+                age : Type('number'),
+                address : Type('string'),
+            };
+
+            let property = MapAll(validator, (v)=>And(v), MessageMap);
+
+            let and = property(value);
 
             expect(and.valid).toBe(false);
             expect(and.value).toEqual(value);
@@ -228,9 +242,15 @@ describe("implicit complete", function() {
 
         it(`or validation `, () => {
 
-            property.validation = (v)=>Or(v);
+            let validator = {
+                name : Type('string'),
+                age : Type('number'),
+                address : Type('string'),
+            };
 
-            let or = property.validate(value);
+            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+
+            let or = property(value);
             expect(or.valid).toBe(false);
             expect(or.value).toEqual(value);
 
@@ -254,16 +274,6 @@ describe("recursive", function() {
 
     describe("all valid", function() {
 
-        let validator  = {
-            name : new TypeClass('string', TypeString),
-            address : Type('string'),
-            user : Type('string'),
-            info : MapAll({
-                age : Type('number'),
-                hobby : Type('string'),
-                no : Type('number'),
-            },(v)=>And(v), MessageMap) /*as ValidatorSimple<any, ArgSub, Value<any> & Validatable & Validatables<Infer<Sub>> & Message<ArgNsg>>*/
-        };
 
         let value = {
             user : 'user',
@@ -276,14 +286,25 @@ describe("recursive", function() {
             }
         };
 
-
-        let property = MapAll(validator, (v)=>And(v), MessageMap);
-        property.validate(value).validatables.name;
-        property.validate(value).validatables.info;
-
         it(`and validation`, () => {
 
-            let validatable = property.validate(value);
+
+            let validator  = {
+                name : TypeClass('string', TypeString),
+                address : Type('string'),
+                user : Type('string'),
+                info : MapAll({
+                    age : Type('number'),
+                    hobby : Type('string'),
+                    no : Type('number'),
+                },(v)=>And(v), MessageMap) /*as ValidatorSimple<any, ArgSub, Value<any> & Validatable & Validatables<Infer<Sub>> & Message<ArgNsg>>*/
+            };
+
+            let property = MapAll(validator, (v)=>And(v), MessageMap);
+            property(value).validatables.name;
+            property(value).validatables.info;
+
+            let validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -313,10 +334,20 @@ describe("recursive", function() {
 
         it(`or validation`, () => {
 
-            property.validation = (v)=>Or(v);
-            property.validators.info.validation = Or;
+            let validator  = {
+                name : TypeClass('string', TypeString),
+                address : Type('string'),
+                user : Type('string'),
+                info : MapAll({
+                    age : Type('number'),
+                    hobby : Type('string'),
+                    no : Type('number'),
+                },(v)=>Or(v), MessageMap) /*as ValidatorSimple<any, ArgSub, Value<any> & Validatable & Validatables<Infer<Sub>> & Message<ArgNsg>>*/
+            };
 
-            let validatable = property.validate(value);
+            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+
+            let validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -348,17 +379,6 @@ describe("recursive", function() {
 
     describe("mixed", function() {
 
-        let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
-            info : MapAll({
-                age : Type('number'),
-                hobby : Type('string'),
-                no : Type('number'),
-            },(v)=>And(v), MessageMap)
-        };
-
         let value = {
             age : "11",
             name : 'name',
@@ -370,11 +390,23 @@ describe("recursive", function() {
             }
         };
 
-        let property = MapAll(validator, (v)=>And(v), MessageMap);
-
         it(`and validation`, () => {
 
-            let and = property.validate(value);
+            let validator = {
+                name : Type('string'),
+                age : Type('number'),
+                address : Type('string'),
+                info : MapAll({
+                    age : Type('number'),
+                    hobby : Type('string'),
+                    no : Type('number'),
+                },(v)=>And(v), MessageMap)
+            };
+
+            let property = MapAll(validator, (v)=>And(v), MessageMap);
+
+
+            let and = property(value);
 
             expect(and.valid).toBe(false);
             expect(and.value).toBe(value);
@@ -405,10 +437,20 @@ describe("recursive", function() {
 
         it(`or validation `, () => {
 
-            property.validation = (v)=>Or(v);
-            property.validators.info.validation = Or;
+            let validator = {
+                name : Type('string'),
+                age : Type('number'),
+                address : Type('string'),
+                info : MapAll({
+                    age : Type('number'),
+                    hobby : Type('string'),
+                    no : Type('number'),
+                },(v)=>Or(v), MessageMap)
+            };
 
-            let or = property.validate(value);
+            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+
+            let or = property(value);
 
             expect(or.valid).toBe(true);
             expect(or.value).toBe(value);
@@ -440,17 +482,6 @@ describe("recursive", function() {
 
     describe("all invalid", function() {
 
-        let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
-            info : MapAll({
-                age : Type('number'),
-                hobby : Type('string'),
-                no : Type('number'),
-            },(v)=>And(v), MessageMap)
-        };
-
         let value = {
             age : {},
             name : {},
@@ -462,11 +493,22 @@ describe("recursive", function() {
             }
         };
 
-        let property = MapAll(validator, (v)=>And(v), MessageMap);
-
         it(`and validation`, () => {
 
-            let and = property.validate(value);
+            let validator = {
+                name : Type('string'),
+                age : Type('number'),
+                address : Type('string'),
+                info : MapAll({
+                    age : Type('number'),
+                    hobby : Type('string'),
+                    no : Type('number'),
+                },(v)=>And(v), MessageMap)
+            };
+
+            let property = MapAll(validator, (v)=>And(v), MessageMap);
+
+            let and = property(value);
 
             expect(and.valid).toBe(false);
             expect(and.value).toEqual(value);
@@ -495,10 +537,20 @@ describe("recursive", function() {
 
         it(`or validation `, () => {
 
-            property.validation = (v)=>Or(v);
-            property.validators.info.validation = Or;
+            let validator = {
+                name : Type('string'),
+                age : Type('number'),
+                address : Type('string'),
+                info : MapAll({
+                    age : Type('number'),
+                    hobby : Type('string'),
+                    no : Type('number'),
+                },(v)=>Or(v), MessageMap)
+            };
 
-            let or = property.validate(value);
+            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+
+            let or = property(value);
             expect(or.valid).toBe(false);
             expect(or.value).toEqual(value);
 

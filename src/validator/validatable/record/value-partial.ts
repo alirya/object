@@ -16,7 +16,7 @@ export default function ValuePartial<
 
         const validator = validators[property];
 
-        object[<PropertyKey>property] = validator.validate(value);
+        object[<PropertyKey>property] = validator(value);
 
         if(object[<PropertyKey>property].valid === stop) {
 

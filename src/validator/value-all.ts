@@ -42,10 +42,9 @@ export default function ValueAll<
     validators : Validators,
     validation : (result:MapReturn<Validators>) => ValidatableType,
     message : (result:MapReturn<Validators>) => Message,
-
 ) : ValueInterface<Base, Value, Message, Validators, MapReturn<Validators>, ValidatableType> {
 
-    return new ValueCallback(
+    return ValueCallback(
         validators,
         ValidateValue,
         validation,

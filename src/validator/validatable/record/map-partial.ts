@@ -16,7 +16,7 @@ export default function MapPartial<
         const validator = validators[property];
         const value = values[property];
 
-        object[<PropertyKey>property] = validator.validate(value);
+        object[<PropertyKey>property] = validator(value);
 
         if(!object[<PropertyKey>property].valid) {
 

@@ -15,7 +15,7 @@ export default function Value<
 
         const validator = validators[property];
 
-        object[<PropertyKey>property] = validator.validate(value);
+        object[<PropertyKey>property] = validator(value);
     }
 
     return <ValidatableRecord<Validators>> object;

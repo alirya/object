@@ -3,7 +3,7 @@ export default function MapPartial(values, validators) {
     for (let property in validators) {
         const validator = validators[property];
         const value = values[property];
-        object[property] = validator.validate(value);
+        object[property] = validator(value);
         if (!object[property].valid) {
             return object;
         }

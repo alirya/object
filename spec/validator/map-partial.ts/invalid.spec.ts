@@ -9,11 +9,7 @@ it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
 describe("implicit incomplete", function() {
 
-    let validator = {
-        name : Type('string'),
-        age : Type('number'),
-        address : Type('string'),
-    };
+
 
     let value = {
         name : {},
@@ -21,14 +17,20 @@ describe("implicit incomplete", function() {
         address : {},
     };
 
-    let property = Map(validator,
-        (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
-        MessageMap
-    );
+    let validator = {
+        name : Type('string'),
+        age : Type('number'),
+        address : Type('string'),
+    };
 
     it(`and validation`, () => {
 
-        let and = property.validate(value);
+        let property = Map(validator,
+            (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
+            MessageMap
+        );
+
+        let and = property(value);
 
         expect(and.valid).toBe(false);
         expect(and.value).toEqual(value);
@@ -51,9 +53,12 @@ describe("implicit incomplete", function() {
 
     it(`or validation `, () => {
 
-        property.validation = (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v);
+        let property = Map(validator,
+            (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v),
+            MessageMap
+        );
 
-        let or = property.validate(value);
+        let or = property(value);
 
         expect(or.value).toEqual(value);
         expect(or.valid).toBe(false);
@@ -80,18 +85,6 @@ describe("implicit incomplete", function() {
 
 describe("recursive", function() {
 
-
-    let validator = {
-        name : Type('string'),
-        age : Type('number'),
-        address : Type('string'),
-        info : Map({
-            age : Type('number'),
-            hobby : Type('string'),
-            no : Type('number'),
-        },(v)=>And(v), MessageMap)
-    };
-
     let value = {
         name : {},
         age : {},
@@ -103,14 +96,26 @@ describe("recursive", function() {
         }
     };
 
-    let property = Map(validator,
-        (v)=>And(v),
-        MessageMap
-    );
 
     it(`and validation`, () => {
 
-        let and = property.validate(value);
+        let validator = {
+            name : Type('string'),
+            age : Type('number'),
+            address : Type('string'),
+            info : Map({
+                age : Type('number'),
+                hobby : Type('string'),
+                no : Type('number'),
+            },(v)=>And(v), MessageMap)
+        };
+
+        let property = Map(validator,
+            (v)=>And(v),
+            MessageMap
+        );
+
+        let and = property(value);
 
         expect(and.valid).toBe(false);
         expect(and.value).toEqual(value);
@@ -133,10 +138,24 @@ describe("recursive", function() {
 
     it(`or validation `, () => {
 
-        property.validation = (v)=>Or(v);
-        property.validators.info.validation = (v)=>Or(v);
 
-        let or = property.validate(value);
+        let validator = {
+            name : Type('string'),
+            age : Type('number'),
+            address : Type('string'),
+            info : Map({
+                age : Type('number'),
+                hobby : Type('string'),
+                no : Type('number'),
+            },(v)=>Or(v), MessageMap)
+        };
+
+        let property = Map(validator,
+            (v)=>Or(v),
+            MessageMap
+        );
+
+        let or = property(value);
 
         expect(or.value).toEqual(value);
         expect(or.valid).toBe(false);

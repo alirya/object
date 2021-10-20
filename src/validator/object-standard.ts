@@ -1,7 +1,9 @@
 import Object_ from "./object";
 import ObjectString from "../validatable/string/object";
+import Validator from "@dikac/t-validator/simple";
+import Instance from "@dikac/t-validator/validatable/validatable";
 
-export default function ObjectStandard() : Object_<string> {
+export default function ObjectStandard() : Validator<unknown, object, Readonly<Instance<object, string>>>  {
 
-    return new Object_(ObjectString);
+    return Object_(ObjectString);
 }

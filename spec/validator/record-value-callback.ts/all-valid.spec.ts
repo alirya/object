@@ -4,7 +4,7 @@ import ValidateValue from "../../../dist/validator/validatable/record/record-val
 import And from "../../../dist/validatable/and";
 import MessageMap from "../../../dist/message/message/record/map";
 import Or from "../../../dist/validatable/or";
-import Infer from "@dikac/t-validator/validatable/infer";
+import Infer from "@dikac/t-validator/validatable/infer-unambiguous";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -12,17 +12,17 @@ describe("flat", function() {
 
     let validator = Type('string');
 
-    let property = new RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue, And, MessageMap);
+    let value = {
+        name : 'string',
+        address : 'string',
+        user : 'string',
+    };
 
     it(`and validation`, () => {
 
-        let value = {
-            name : 'string',
-            address : 'string',
-            user : 'string',
-        };
+        let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue, And, MessageMap);
 
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         expect(validatable.valid).toBe(true);
         expect(validatable.value).toBe(value);
@@ -40,14 +40,9 @@ describe("flat", function() {
 
     it(`or validation`, () => {
 
-        let value = {
-            name : 'string',
-            address : 'string',
-            user : 'string',
-        };
+        let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue, Or, MessageMap);
 
-        property.validation = (v)=>Or(v);
-        let validatable = property.validate(value);
+        let validatable = property(value);
 
         expect(validatable.valid).toBe(true);
         expect(validatable.value).toBe(value);
