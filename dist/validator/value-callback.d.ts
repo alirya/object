@@ -2,6 +2,9 @@ import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
 import Instance from "@dikac/t-validator/validatable/validatable";
 import Value from "./value";
+import BaseValue from "@dikac/t-value/value";
+import ValidatorsContainer from "./validators/validators";
+import Message from "@dikac/t-message/message";
 /**
  * Base implementation of {@link Value}
  *
@@ -23,4 +26,9 @@ import Value from "./value";
  * @template ValidatableType
  * final result after processing {@template Validatables}
  */
-export default function ValueCallback<BaseType = unknown, ValueType extends BaseType = BaseType, MessageType = unknown, ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>, Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>, ValidatableType extends Validatable = Validatable>(validators: ValidatorsType, map: (base: BaseType, record: ValidatorsType) => Validatables, validation: (result: Validatables) => ValidatableType, message: (result: Validatables) => MessageType): Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>;
+export declare type Argument<BaseType = unknown, ValueType extends BaseType = BaseType, MessageType = unknown, ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>, Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>, ValidatableType extends Validatable = Validatable> = ValidatorsContainer<ValidatorsType> & {
+    map: (argument: BaseValue<BaseType> & ValidatorsContainer<ValidatorsType>) => Validatables;
+} & {
+    validation: (result: Validatables) => ValidatableType;
+} & Message<(result: Validatables) => MessageType>;
+export default function ValueCallback<BaseType = unknown, ValueType extends BaseType = BaseType, MessageType = unknown, ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>, Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>, ValidatableType extends Validatable = Validatable>({ validators, map, validation, message, }: Argument<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>): Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>;

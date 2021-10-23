@@ -9,6 +9,9 @@ import RecordType from "./type/record/infer";
 import Instance from "@dikac/t-validator/validatable/validatable";
 import ValidatableReplace from "@dikac/t-validatable/boolean/replace";
 import Simple from "@dikac/t-validator/validatable/simple";
+import ValidatorsContainer from "./validators/validators";
+import Message from "@dikac/t-message/message";
+import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
 //
 // export default class MapCallback<
 //     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
@@ -41,22 +44,34 @@ import Simple from "@dikac/t-validator/validatable/simple";
 //     }
 // }
 
+export type Argument<
+    Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
+    Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+    ValidatableType extends Validatable = Validatable,
+    MessageType = unknown,
+> =
+    ValidatorsContainer<Validators> &
+    Message<(result:Result)=>MessageType> &
+    // TODO MOVE TO STANDARD VALIDATOR
+    {validation : (result:Result)=>ValidatableType} &
+    {map:(record:RecordParameter<Validators>, validators : Validators)=>Result};
+
 export default function MapCallback<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
     Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
     ValidatableType extends Validatable = Validatable,
     MessageType = unknown,
 >(
-    validators : Validators,
-    map : (record:RecordParameter<Validators>, validators : Validators)=>Result,
-    validation : (result:Result)=>ValidatableType,
-    message : (result:Result)=>MessageType
+    // validators : Validators,
+    // map : (record:RecordParameter<Validators>, validators : Validators)=>Result,
+    // validation : (result:Result)=>ValidatableType,
+    // message : (result:Result)=>MessageType,
+    {validators, map, validation, message} : Argument<Validators, Result, ValidatableType, MessageType>
 ) : Map<Validators, Result, ValidatableType, MessageType> {
 
-    return function <Argument extends RecordBase<Validators>, Type extends RecordType<Validators>>(argument : Argument|Type) {
+    return function (value ) {
 
-        return new ValidatableMapCallback(argument, validators, map, validation, message) as
-            ValidatableReplace<ValidatableMapInterface<MessageType, Validators, Result, ValidatableType, Argument>, true>;
+        return new ValidatableMapCallback({value, validators, map, validation, message});
 
     } as Map<Validators, Result, ValidatableType, MessageType>
 

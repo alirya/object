@@ -7,5 +7,5 @@ export default function Object_(
     error : (value:unknown)=>Error = StringError
 ) : asserts value is object {
 
-    Callback(value, Guard, error);
+    Callback(value, {validation:Guard, error});
 }

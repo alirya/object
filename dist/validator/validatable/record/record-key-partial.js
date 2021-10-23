@@ -1,9 +1,9 @@
-export default function RecordVKeyPartial(object, value) {
+import IteratorRecordKey from "../iterator/record-key";
+export default function RecordVKeyPartial({ value, validator, stop = false, }) {
     let result = {};
-    for (const k of Object.keys(object)) {
-        const pair = value(k);
-        result[k] = pair;
-        if (!pair.valid) {
+    for (const [key, validatable] of IteratorRecordKey({ value, validator })) {
+        result[key] = validatable;
+        if (validatable.valid === stop) {
             return result;
         }
     }

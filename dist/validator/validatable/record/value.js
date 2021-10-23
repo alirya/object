@@ -1,8 +1,11 @@
-export default function Value(value, validators) {
+import IteratorValue from "../iterator/value";
+export default function Value(
+//value : ValueType,
+//validators : Validators
+{ value, validators }) {
     let object = {};
-    for (let property in validators) {
-        const validator = validators[property];
-        object[property] = validator(value);
+    for (const [key, validatable] of IteratorValue({ value, validators })) {
+        object[key] = validatable;
     }
     return object;
 }

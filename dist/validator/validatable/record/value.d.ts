@@ -1,3 +1,5 @@
 import ValidatableRecord from "./infer";
 import Validator from "@dikac/t-validator/validator";
-export default function Value<ValueType, Validators extends Record<PropertyKey, Validator<ValueType>>>(value: ValueType, validators: Validators): ValidatableRecord<Validators>;
+import ValidatorsContainer from "../../validators/validators";
+import Value from "@dikac/t-value/value";
+export default function Value<ValueType, Validators extends Record<PropertyKey, Validator<ValueType>>>({ value, validators }: ValidatorsContainer<Validators> & Value<ValueType>): ValidatableRecord<Validators>;

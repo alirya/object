@@ -9,16 +9,21 @@ export default function MapAll<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
     ValidatableType extends Validatable = Validatable,
     MessageType = unknown
->(
+    >(
     validators : Validators,
     validation : (result:ReturnInfer<Validators>)=>ValidatableType,
     message : (result:ReturnInfer<Validators>)=>MessageType,
 ) : Map<Validators, ReturnInfer<Validators>, ValidatableType, MessageType> {
 
-    return <Map<Validators, ReturnInfer<Validators>, ValidatableType, MessageType>> MapCallback(validators, (record, validators1) => {
+    return <Map<Validators, ReturnInfer<Validators>, ValidatableType, MessageType>> MapCallback({
+        validators,
+        map: ({value, validators})=>
+        {
 
-        return ValidateMap(record, validators1);
+            return ValidateMap({value, validators});
 
-    }, validation, message);
+        },
+        validation, message
+    });
 }
 

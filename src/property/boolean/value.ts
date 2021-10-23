@@ -1,3 +1,6 @@
+import Property from "../property/property";
+import Validation from "@dikac/t-boolean/validation/validation";
+import Guard from "@dikac/t-boolean/validation/guard";
 /**
  * check if property {@param property} in {@param object} type is {@template Type}
  * {@param validation} is use for validate value type
@@ -5,36 +8,47 @@
 
 export default function Value<
     ObjectType extends object,
-    Property extends keyof ObjectType,
-    Type extends ObjectType[Property] = ObjectType[Property],
+    PropertyType extends keyof ObjectType,
+    Type extends ObjectType[PropertyType] = ObjectType[PropertyType],
 >(
     object : ObjectType,
-    property : Property,
-    validation : (value:ObjectType[Property])=>value is Type
-
+    // property : PropertyType,
+    // validation : (value:ObjectType[PropertyType])=>value is Type,
+    {
+        property,
+        validation
+    } : Property<PropertyType> & Guard<ObjectType[PropertyType], Type>
 ) : object is {
-    [Key in keyof ObjectType] : Key extends  Property ? (Type extends ObjectType[Key] ? Type : ObjectType[Key]) : ObjectType[Key]
+    [Key in keyof ObjectType] : Key extends  PropertyType ? (Type extends ObjectType[Key] ? Type : ObjectType[Key]) : ObjectType[Key]
 }
 
 export default function Value<
-    Object extends object = object,
-    Property extends PropertyKey = PropertyKey,
+    ObjectType extends object = object,
+    PropertyType extends PropertyKey = PropertyKey,
     Type = unknown,
 >(
     object : object,
-    property : Property,
-    validation : (value:unknown)=>value is Type
-) : object is Object & {[Key in Property] : Type}
+    //property : PropertyType,
+    //validation : (value:unknown)=>value is Type,
+    {
+        property,
+        validation
+    } : Property<PropertyType> & Guard<unknown, Type>
+) : object is ObjectType & {[Key in PropertyType] : Type}
 
 export default function Value<
-    Object extends object = object,
-    Property extends PropertyKey = PropertyKey,
+    ObjectType extends object = object,
+    PropertyType extends PropertyKey = PropertyKey,
     Type = unknown,
 >(
     object : object,
-    property : Property,
-    validation : (value:unknown)=>value is Type
-) : object is Object & {[Key in Property] : Type} {
+    // property : PropertyType,
+    // validation : (value:unknown)=>value is Type,
+    {
+        property,
+        validation
+    } : Property<PropertyType> & Guard<unknown, Type>
+) : object is ObjectType & {[Key in PropertyType] : Type} {
 
      return validation(object[<PropertyKey>property]);
 }

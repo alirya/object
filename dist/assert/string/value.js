@@ -4,7 +4,11 @@ import Sentence from "@dikac/t-string/message/sentence";
  * {@param property} object property
  * {@param type} expected type
  */
-export default function Value(valid, property, type) {
+export default function Value(
+// valid : boolean,
+// property : PropertyKey,
+// type : string,
+{ valid, property, type, }) {
     const sentence = new Sentence(valid);
     sentence.reject = 'value is not';
     sentence.accept = 'value is';

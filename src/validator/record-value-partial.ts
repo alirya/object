@@ -15,10 +15,10 @@ export default function RecordValuePartial<
     message : (record : Record<PropertyKey, ReturnInfer<ValidatorType>>)=>MessageType,
 ) : RecordValue<ValidatorType, Partial<Record<PropertyKey, ReturnInfer<ValidatorType>>>, ValidatableType, MessageType>  {
 
-    return RecordValueCallback(
-            validator,
-        (value, validators)  =>  ValidateMap(value, validators),
+    return RecordValueCallback({
+        validator,
+        handler:({value, validator}) => ValidateMap({value, validator}),
         validation,
         message
-    ) as RecordValue<ValidatorType, Partial<Record<PropertyKey, ReturnInfer<ValidatorType>>>, ValidatableType, MessageType>;
+}) as RecordValue<ValidatorType, Partial<Record<PropertyKey, ReturnInfer<ValidatorType>>>, ValidatableType, MessageType>;
 }

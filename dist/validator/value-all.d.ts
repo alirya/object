@@ -2,6 +2,8 @@ import Validator from "@dikac/t-validator/simple";
 import Validatable from "@dikac/t-validatable/validatable";
 import MapReturn from "./validatable/record/infer";
 import ValueInterface from "./value";
+import ValidatorsContainer from "./validators/validators";
+import Message from "@dikac/t-message/message";
 /**
  * more specific implementation of {@link ValueCallback}
  *
@@ -29,4 +31,6 @@ import ValueInterface from "./value";
  * @template ValidatableType
  * result after processing {@template Validators} with {@template BaseType} or {@template ValueType}
  */
-export default function ValueAll<Base = unknown, Value extends Base = Base, Message = unknown, Validators extends Record<PropertyKey, Validator<Base, Value>> = Record<PropertyKey, Validator<Base, Value>>, ValidatableType extends Validatable = Validatable>(validators: Validators, validation: (result: MapReturn<Validators>) => ValidatableType, message: (result: MapReturn<Validators>) => Message): ValueInterface<Base, Value, Message, Validators, MapReturn<Validators>, ValidatableType>;
+export default function ValueAll<Base = unknown, Value extends Base = Base, MessageType = unknown, Validators extends Record<PropertyKey, Validator<Base, Value>> = Record<PropertyKey, Validator<Base, Value>>, ValidatableType extends Validatable = Validatable>({ validators, validation, message, }: ValidatorsContainer<Validators> & Message<(result: MapReturn<Validators>) => MessageType> & {
+    validation: (result: MapReturn<Validators>) => ValidatableType;
+}): ValueInterface<Base, Value, MessageType, Validators, MapReturn<Validators>, ValidatableType>;

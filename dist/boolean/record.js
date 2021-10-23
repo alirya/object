@@ -1,8 +1,7 @@
-/**
- * check if {@param object} is certain type of record
- * {@param value} use to validate object value
- */
-export default function Record(object, value, property) {
+export default function Record(object, 
+//value : (value:unknown)=> value is ValueType,
+//property ?: (value:PropertyKey)=> value is KeyType,
+{ value, property }) {
     for (const [prop, val] of Object.entries(object)) {
         if (property) {
             if (!property(prop)) {

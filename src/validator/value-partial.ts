@@ -3,8 +3,11 @@ import Validatable from "@dikac/t-validatable/validatable";
 import ValidateValuePartial from "./validatable/record/value-partial";
 import ReturnInfer from "./validatable/record/infer";
 import MapReturn from "./validatable/record/infer";
+import ValidatorsContainer from "./validators/validators";
 import ValueCallback from "./value-callback";
 import ValueInterface from "./value";
+import ValidatorContainer from "@dikac/t-validator/validator/validator";
+import Message from "@dikac/t-message/message";
 
 /**
  * more specific implementation of {@link ValueCallback}
@@ -34,6 +37,21 @@ import ValueInterface from "./value";
  * @template ValidatableType
  * result after processing {@template Validators} with {@template BaseType} or {@template ValueType}
  */
+
+export type Argument<
+    BaseType = unknown,
+    ValueType extends BaseType = BaseType,
+    MessageType = unknown,
+    Validators extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+    ValidatableType extends Validatable = Validatable
+> =
+    ValidatorsContainer<Validators> &
+    // TODO SWITCH TO VALIDATOR
+    {validation : (result:Partial<ReturnInfer<Validators>>) => ValidatableType} &
+    Message<(result:Partial<ReturnInfer<Validators>>) => MessageType> &
+    {stop ?: boolean}
+;
+
 export default function ValuePartial<
     BaseType = unknown,
     ValueType extends BaseType = BaseType,
@@ -41,16 +59,22 @@ export default function ValuePartial<
     Validators extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
     ValidatableType extends Validatable = Validatable
 >(
-    validators : Validators,
-    validation : (result:Partial<ReturnInfer<Validators>>) => ValidatableType,
-    message : (result:Partial<ReturnInfer<Validators>>) => MessageType,
-    stop : boolean = false,
+    // validators : Validators,
+    // validation : (result:Partial<ReturnInfer<Validators>>) => ValidatableType,
+    // message : (result:Partial<ReturnInfer<Validators>>) => MessageType,
+    // stop : boolean = false,
+    {
+        validators,
+        validation,
+        message,
+        stop = false,
+    } : Argument<BaseType, ValueType, MessageType, Validators, ValidatableType>
 ) : ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType> {
 
-    return <ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType>> ValueCallback(
+    return <ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType>> ValueCallback({
         validators,
-        (value, validators)  => ValidateValuePartial(value, validators, stop),
+        map:({value, validators})  => ValidateValuePartial({value, validators, stop}),
         validation,
         message
-    );
+    });
 }

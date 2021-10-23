@@ -6,8 +6,14 @@
  * @param preprocess
  * @constructor
  */
-export default function GuardedJson<Type>(json: {
-    toString: () => string;
-} | string, validator: (value: unknown) => value is Type, error?: (json: string, object: object) => Error, preprocess?: (result: {
-    [Key in keyof Type]: Type[Key];
-}) => void): Type;
+import Value from "@dikac/t-value/value";
+import ToString from "@dikac/t-string/to-string";
+import Guard from "@dikac/t-boolean/validation/guard";
+export default function GuardedJson<Type>({ value, validation, error, preprocess, }: Value<ToString | string> & Guard<unknown, Type> & {
+    error?: (args: Value<ToString | string> & {
+        object: object;
+    }) => Error;
+    preprocess?: (result: {
+        [Key in keyof Type]: Type[Key];
+    }) => void;
+}): Type;

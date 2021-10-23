@@ -14,11 +14,17 @@
  *
  * @param configurable {@default true}
  */
-export default function SetMethod(object, property, value, writable = true, configurable = true) {
+export default function SetMethod(
+//object : This,
+//property : keyof This,
+//value : Type,
+//writable : boolean = true,
+//configurable : boolean = true,
+{ object, property, value, writable = true, configurable = true, }) {
     return Object.defineProperty(object, property, {
         value: () => value,
-        writable: writable,
-        configurable: configurable
+        writable,
+        configurable
     })[property]();
 }
 //# sourceMappingURL=set-method.js.map

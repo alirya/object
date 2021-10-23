@@ -23,7 +23,13 @@ export default function MemoizeMethod(configuration : Pick<PropertyDescriptor, '
 
         descriptor.value = function (...args) {
 
-            return SetMethod(this, <any>property, this[symbol](args), false, configuration.configurable);
+            return SetMethod({
+                object : this,
+                property,
+                value : this[symbol](args),
+                writable : false,
+                configurable : configuration.configurable
+        });
 
            // return SetGetter(this, <any>property, this[symbol], configuration.configurable);
 

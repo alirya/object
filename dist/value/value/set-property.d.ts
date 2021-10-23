@@ -14,4 +14,12 @@
  *
  * @param configurable {@default true}
  */
-export default function SetProperty<This extends object, Type>(object: This, property: keyof This, value: Type, writable?: boolean, configurable?: boolean): Type;
+import Value from "@dikac/t-value/value";
+import Property from "../../property/property/property";
+export default function SetProperty<This extends object, Type>({ object, property, value, writable, configurable, }: Value<Type> & Property<keyof This> & {
+    object: This;
+} & {
+    writable?: boolean;
+} & {
+    configurable?: boolean;
+}): Type;

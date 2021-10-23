@@ -1,9 +1,14 @@
-export default function ValuePartial(value, validators, stop = false) {
+import IteratorValue from "../iterator/value";
+export default function ValuePartial(
+// value : ValueType,
+// validators : Validators,
+// stop : boolean = false,
+{ value, validators, stop = false, }) {
     let object = {};
-    for (let property in validators) {
-        const validator = validators[property];
-        object[property] = validator(value);
-        if (object[property].valid === stop) {
+    for (const [key, validatable] of IteratorValue({ value, validators })) {
+        //const validator = validators[property];
+        object[key] = validatable;
+        if (validatable.valid === stop) {
             return object;
         }
     }

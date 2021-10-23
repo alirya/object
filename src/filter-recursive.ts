@@ -6,29 +6,6 @@ import Value from "@dikac/t-value/value";
 import InferValue from "@dikac/t-value/value/infer";
 import RecursiveUnion from "./recursive-union";
 
-type Inferz<Type> = Type extends object ? O.UnionOf<{
-    [Key in keyof Type] : Type[Key] extends object ? Inferz<Type[Key]> : Type[Key]
-}> : Type;
-
-
-
-type r = {
-    a : string,
-    b: string,
-    c: {
-        a : boolean,
-        b: string,
-        c: number,
-    },
-}
-
-
-let c2 : Inferz<r> = '{}';
-let c3 : Inferz<r> = 11;
-let c4 : Inferz<r> = true;
-
-type UnionRecursive<Type> = Type extends object ? UnionRecursive<O.UnionOf<Type>> : Type;
-
 export default function FilterRecursive<
     Object extends Record<PropertyKey, any>
 >(

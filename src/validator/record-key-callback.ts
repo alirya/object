@@ -7,8 +7,11 @@ import Replace from "@dikac/t-validatable/boolean/replace";
 import RecordKey from "./record-key";
 import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
 import InferBase from "@dikac/t-validator/base/infer";
-import InferType from "@dikac/t-validator/type/infer";
+import InferType from "@dikac/t-validator/expectation/infer";
 import {ValuesType} from "utility-types";
+import ValidatorContainer from "@dikac/t-validator/validator/validator";
+import Message from "@dikac/t-message/message";
+import Value from "@dikac/t-value/value";
 //
 // export default class RecordKeyCallback<
 //     ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
@@ -42,6 +45,18 @@ import {ValuesType} from "utility-types";
 //     }
 // }
 
+export type Argument<
+    ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
+    Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
+    ValidatableType extends Validatable = Validatable,
+    MessageType = unknown,
+> =
+    ValidatorContainer<ValidatorType> &
+    Message<(result:Result)=>MessageType> &
+    //{ handler: (base: Record<InferBase<ValidatorType>, any>, validator: ValidatorType) => Result } &
+    { handler: (argument : Value<Record<InferBase<ValidatorType>, any>> & ValidatorContainer<ValidatorType>) => Result } &
+    { validation: (result: Result) => ValidatableType }
+;
 
 export default function RecordKeyCallback<
     ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
@@ -49,18 +64,20 @@ export default function RecordKeyCallback<
     ValidatableType extends Validatable = Validatable,
     MessageType = unknown,
 >(
-    validator : ValidatorType,
-    handler : (base:Record<InferBase<ValidatorType>, any>, validator:ValidatorType)=>Result,
-    validation : (result:Result)=>ValidatableType,
-    message : (result:Result)=>MessageType
+   // validator : ValidatorType,
+   // handler : (base:Record<InferBase<ValidatorType>, any>, validator:ValidatorType)=>Result,
+   // validation : (result:Result)=>ValidatableType,
+   // message : (result:Result)=>MessageType,
+    {   validator,
+        handler,
+        validation,
+        message
+    } : Argument<ValidatorType, Result, ValidatableType, MessageType>
 ) : RecordKey<ValidatorType, Result, ValidatableType, MessageType> {
 
-    return function <
-        Argument extends Record<InferBase<ValidatorType>, any>,
-        ValueType extends Record<InferType<ValidatorType>, any>
-    >(argument: Argument|ValueType) {
+    return function (value) {
 
-        return new ValidatableRecordCallback(argument, validator, handler, validation, message);
+        return new ValidatableRecordCallback({value, validator, map:handler, validation, message});
 
     } as RecordKey<ValidatorType, Result, ValidatableType, MessageType>
 }

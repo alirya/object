@@ -2,5 +2,8 @@
  * check if {@param object} is certain type of record
  * {@param value} use to validate object value
  */
-export default function Record<Value>(object: object, value: (value: unknown) => value is Value): object is Record<PropertyKey, Value>;
-export default function Record<Value, Key extends PropertyKey = PropertyKey>(object: object, value: (value: unknown) => value is Value, property: (value: PropertyKey) => value is Key): object is Record<Key, Value>;
+import Value from "@dikac/t-value/value";
+export default function Record<ValueType>(object: object, { value }: Value<(value: unknown) => value is ValueType>): object is Record<PropertyKey, ValueType>;
+export default function Record<ValueType, KeyType extends PropertyKey = PropertyKey>(object: object, { value, property }: Value<(value: unknown) => value is ValueType> & {
+    property: (value: PropertyKey) => value is KeyType;
+}): object is Record<KeyType, ValueType>;

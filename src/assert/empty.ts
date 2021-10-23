@@ -7,5 +7,5 @@ export default function Empty(
     error : (value:object)=>Error = EmptyError
 ) : asserts value is object {
 
-    Callback(value, Guard, error);
+    Callback(value, {validation:Guard, error});
 }

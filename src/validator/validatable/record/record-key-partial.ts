@@ -1,28 +1,32 @@
 import Validator from "@dikac/t-validator/validator";
 import MapInterface from "../../../map";
 import Return from "@dikac/t-validator/validatable/infer-unambiguous";
+import Value from "@dikac/t-value/value";
+import ValidatorContainer from "@dikac/t-validator/validator/validator";
+import IteratorRecordKey from "../iterator/record-key";
 
 export default function RecordVKeyPartial<
     RecordType extends Record<PropertyKey, any>,
-    Value extends Validator<keyof RecordType>,
+    ValidatorType extends Validator<keyof RecordType>,
 >(
-    object : RecordType,
-    value : Value,
-) : Partial<MapInterface<RecordType, Return<Value>>> {
+    {
+        value,
+        validator,
+        stop = false,
+    } : Value<RecordType> & ValidatorContainer<ValidatorType> & {stop ?: boolean}
+) : Partial<MapInterface<RecordType, Return<ValidatorType>>> {
 
     let result = {};
 
-    for(const k of Object.keys(object)) {
+    for(const [key, validatable] of IteratorRecordKey({value, validator})) {
 
-        const pair = value(k);
+        result[key as PropertyKey] = validatable;
 
-        result[k] = pair
-
-        if(!pair.valid) {
+        if(validatable.valid === stop) {
 
             return result;
         }
     }
 
-    return  result;
+    return result;
 }

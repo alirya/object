@@ -27,7 +27,16 @@ import ValueCallback from "./value-callback";
  * @template ValidatableType
  * result after processing {@template Validators} with {@template BaseType} or {@template ValueType}
  */
-export default function ValueAll(validators, validation, message) {
-    return ValueCallback(validators, ValidateValue, validation, message);
+export default function ValueAll(
+// validators : Validators,
+// validation : (result:MapReturn<Validators>) => ValidatableType,
+// message : (result:MapReturn<Validators>) => MessageType,
+{ validators, validation, message, }) {
+    return ValueCallback({
+        validators,
+        map: ValidateValue,
+        validation,
+        message
+    });
 }
 //# sourceMappingURL=value-all.js.map

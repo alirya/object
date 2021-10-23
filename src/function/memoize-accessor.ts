@@ -23,8 +23,12 @@ export default function MemoizeAccessor(configuration : Pick<PropertyDescriptor,
 
         descriptor.get = function () {
 
-            return SetGetter(this, <any>property, this[symbol], configuration.configurable);
-
+            return SetGetter({
+                object:this,
+                property,
+                value:this[symbol],
+                configurable:configuration.configurable
+            });
         };
     };
 }

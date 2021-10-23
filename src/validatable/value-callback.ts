@@ -1,8 +1,28 @@
 import Validator from "@dikac/t-validator/validator";
 import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
 import Validatable from "@dikac/t-validatable/validatable";
+import BaseValue from "@dikac/t-value/value";
 import Value from "./value";
 import MemoizeAccessor from "../function/memoize-accessor";
+import Validators from "../validator/validators/validators";
+import Validation from "@dikac/t-boolean/validation/validation";
+import Message from "@dikac/t-message//message";
+
+export type Argument<
+    ValueType = unknown,
+    MessageType = unknown,
+    RecordType extends Record<PropertyKey, Validator<ValueType>> = Record<PropertyKey, Validator<ValueType>>,
+    Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
+    ValidatableType extends Validatable = Validatable
+> =
+    BaseValue<ValueType> &
+    Validators<RecordType> &
+    //{map : (value:ValueType, validator:RecordType)=>Result} &
+    {map : (argument:BaseValue<ValueType> & Validators<RecordType>)=>Result} &
+    // TODO CHANGE TO VALIDATOR
+    {validation: (result:Result)=>ValidatableType} &
+    Message<(result:Result)=>MessageType>
+;
 
 export default class ValueCallback<
     ValueType = unknown,
@@ -15,18 +35,21 @@ export default class ValueCallback<
     #message : (result:Result)=>MessageType;
     readonly validatable : ValidatableType;
     readonly validatables : Result;
+    readonly value: ValueType;
 
     constructor(
-        readonly value: ValueType,
-        readonly validators : RecordType,
-        readonly map : (value:ValueType, validator:RecordType)=>Result,
-        readonly validation : (result:Result)=>ValidatableType,
-        message : (result:Result)=>MessageType,
+        // readonly value: ValueType,
+        // readonly validators : RecordType,
+        // readonly map : (value:ValueType, validator:RecordType)=>Result,
+        // readonly validation : (result:Result)=>ValidatableType,
+        // message : (result:Result)=>MessageType,
+        {message, value, validators, map, validation} : Argument<ValueType, MessageType, RecordType, Result, ValidatableType>
     ) {
 
+        this.value = value;
         this.#message = message;
-        this.validatables = this.map(this.value, this.validators);
-        this.validatable = this.validation(this.validatables);
+        this.validatables = map({value, validators});
+        this.validatable = validation(this.validatables);
     }
 
     get valid() : boolean {

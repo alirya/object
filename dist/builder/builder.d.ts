@@ -1,5 +1,6 @@
 import Callable from "./function/callable";
 /**
+ * @deprecated
  * simple object container
  */
 export default class Builder<Type extends object, Context extends any = any, Option extends any = any> implements Iterable<[keyof Type, Callable<Type, keyof Type, Context, Option>]> {

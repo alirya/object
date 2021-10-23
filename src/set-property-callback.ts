@@ -53,7 +53,13 @@ export default function SetPropertyCallback<
     return Object.defineProperty(object, property, {
         configurable : true,
         get() {
-            return MemoizeGetter(object, <keyof This>property, factory(), writable, configurable);
+            return MemoizeGetter({
+                object,
+                property:<keyof This> property,
+                value:factory(),
+                writable,
+                configurable
+        });
         }
     });
 }

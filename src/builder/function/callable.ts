@@ -1,3 +1,8 @@
+/**
+ * @deprecated
+ * @param property
+ * @constructor
+ */
 type Callable<
     Type extends object,
     Property extends keyof Type,

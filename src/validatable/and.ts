@@ -5,8 +5,8 @@ import Validatables from "./validatables";
 export default function And<
     Object extends Partial<Record<PropertyKey, Validatable>>
 >(
-    validatable : Object
+    validatables : Object
 ) : Validatables<Object, boolean> {
 
-    return new Validatables(validatable, AndBoolean);
+    return new Validatables({validatables, validation:AndBoolean});
 }

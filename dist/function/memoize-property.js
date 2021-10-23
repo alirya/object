@@ -10,12 +10,14 @@ const defaults = { suffix: '', configurable: true, writable: true };
  * @default {suffix:'', configurable:true, writable:true}
  */
 export default function MemoizeProperty(configuration = defaults) {
-    configuration = Default(configuration, defaults);
+    const { writable, configurable } = Default(configuration, defaults);
     return function (target, property, descriptor) {
         const symbol = Symbol(property + configuration.suffix);
         Object.defineProperty(target, symbol, descriptor);
         descriptor.get = function () {
-            return SetProperty(this, property, this[symbol], configuration.writable, configuration.configurable);
+            return SetProperty({
+                object: this, property: property, value: this[symbol], writable, configurable
+            });
         };
     };
 }

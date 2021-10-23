@@ -1,1 +1,6 @@
-export default function Object_(string: unknown, subject?: string, conversion?: (value: unknown) => string): Error;
+import Value from "@dikac/t-value/value";
+export default function Object_({ value, subject, conversion, }: Value & {
+    subject?: string;
+} & {
+    conversion: (value: unknown) => string;
+}): Error;

@@ -1,20 +1,17 @@
-/**
- * Parse json string to object and check for certain type according to {@param validator}
- * @param json
- * @param validator
- * @param error
- * @param preprocess
- * @constructor
- */
-export default function GuardedJson(json, validator, error = (json, object) => new TypeError('json string is not valid according to validator'), preprocess) {
-    let string = json.toString();
+export default function GuardedJson(
+// json : {toString:()=>string}|string,
+// validator : (value:unknown)=>value is Type,
+// error : (json : string, object : object)=>Error = (json : string, object : object) => new TypeError('json string is not valid according to validator'),
+// preprocess ?: (result:{[Key in keyof Type] : Type[Key]})=>void,
+{ value, validation, error = () => new TypeError('json string is not valid according to validator'), preprocess, }) {
+    let string = value.toString();
     let object = JSON.parse(string);
     if (preprocess) {
         preprocess(object);
     }
-    if (validator(object)) {
+    if (validation(object)) {
         return object;
     }
-    throw error(string, object);
+    throw error({ value: string, object });
 }
 //# sourceMappingURL=guarded-json.js.map

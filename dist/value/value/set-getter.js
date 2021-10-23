@@ -12,7 +12,12 @@
  *
  * @param configurable {@default true}
  */
-export default function SetGetter(object, property, value, configurable = true) {
+export default function SetGetter(
+// object : This,
+// property : keyof This,
+// value : Type,
+// configurable : boolean = true,
+{ object, property, value, configurable = true, }) {
     return Object.defineProperty(object, property, {
         get: () => value,
         configurable: configurable

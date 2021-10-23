@@ -7,7 +7,11 @@ import SentencesMust from "@dikac/t-string/message/sentences-must";
  * @param value
  * @param subject
  */
-export default function Empty(valid, value, subject = '') {
+export default function Empty(
+//valid : boolean,
+//value : object,
+//subject : string = '',
+{ valid, value, subject = '', }) {
     const sentence = SentencesMust(valid);
     sentence.subject.push(subject);
     sentence.subject.push(`"${Name(value)}"`);

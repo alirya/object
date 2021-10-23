@@ -1,3 +1,6 @@
+import Value from "@dikac/t-value/value";
+import Property from "../../property/property/property";
+
 /**
  * set {@param value} for getter value for {@param object}
  * should be used inside getter callback
@@ -18,16 +21,30 @@ export default function SetMethod<
     This extends object,
     Type,
 >(
-    object : This,
-    property : keyof This,
-    value : Type,
-    writable : boolean = true,
-    configurable : boolean = true,
+    //object : This,
+    //property : keyof This,
+    //value : Type,
+    //writable : boolean = true,
+    //configurable : boolean = true,
+
+    {
+        object,
+        property,
+        value,
+        writable = true,
+        configurable = true,
+    } : Value<Type> &
+        Property<keyof This> &
+        {
+            object: This;
+            writable ?: boolean;
+            configurable ?: boolean
+        }
 ) : Type {
 
-    return Object.defineProperty(object, property, {
+    return (Object.defineProperty(object, property, {
         value : ()=>value,
-        writable : writable,
-        configurable : configurable
-    })[property]();
+        writable,
+        configurable
+    }) as Record<keyof This, ()=>Type>)[property]();
 }

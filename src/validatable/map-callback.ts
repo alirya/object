@@ -6,6 +6,10 @@ import Instance from "@dikac/t-validator/validatable/validatable";
 import Map from "./map";
 import Pick from "../pick";
 import MemoizeAccessor from "../function/memoize-accessor";
+import Value from "@dikac/t-value/value";
+import Validators from "../validator/validators/validators";
+import Validation from "@dikac/t-boolean/validation/validation";
+import Message from "@dikac/t-message/message";
 
 export default class MapCallback<
     MessageType = unknown,
@@ -20,13 +24,33 @@ export default class MapCallback<
     readonly validatable : ValidatableType;
     readonly validatables : Result;
 
+    public validators : ValidatorsType;
+    private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result;
+    private validation : (result : Result)=>ValidatableType;
+
     constructor(
-        value: ValueType,
-        public validators : ValidatorsType,
-        private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result,
-        private validation : (result : Result)=>ValidatableType,
-        message : (result : Result)=>MessageType,
+        //value: ValueType,
+        //public validators : ValidatorsType,
+        //private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result,
+        //private validation : (result : Result)=>ValidatableType,
+       //  message : (result : Result)=>MessageType,
+        {
+            value,
+            validators,
+            map,
+            validation,
+            message
+        } : Value<ValueType> &
+            Validators<ValidatorsType> &
+            {map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result} &
+            // TODO CHANGE TO VALIDATOR
+            {validation : (result : Result)=>ValidatableType} &
+            Message<(result : Result)=>MessageType>
     ) {
+
+        this.validators = validators;
+        this.map = map;
+        this.validation = validation;
 
         this.#value = value;
         this.#message = message;

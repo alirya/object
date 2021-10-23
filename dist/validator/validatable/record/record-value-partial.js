@@ -1,9 +1,12 @@
-export default function RecordValue(object, value) {
+import IteratorRecordValue from "../iterator/record-value";
+export default function RecordValuePartial(
+// value : RecordType,
+// validator : ValidatorType,
+{ value, validator, stop = false, }) {
     let result = {};
-    for (const [k, v] of Object.entries(object)) {
-        const pair = value(v);
-        result[k] = pair;
-        if (!pair.valid) {
+    for (const [key, validatable] of IteratorRecordValue({ value, validator })) {
+        result[key] = validatable;
+        if (validatable.valid === stop) {
             return result;
         }
     }

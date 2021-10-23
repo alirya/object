@@ -5,9 +5,15 @@ import Validation from "@dikac/t-boolean/validation/validation";
 import Name from "../../../string/name";
 
 export default function PropertyValue(
-    data : PropertyInterface & Value<string> & Validation<any[]>
+    {property, type, validation} : PropertyInterface & {type : string} & Validation<any[]>
 ) : Error {
 
-    let message = PropertyValueArgumentValidation(false, data.property, data.value, Name(data.validation));
+    let message = PropertyValueArgumentValidation({
+        valid: false,
+        property,
+        type,
+        validation:Name(validation)
+    });
+
     return new Error(message);
 }

@@ -1,21 +1,26 @@
 import Validator from "@dikac/t-validator/validator";
 import MapInterface from "../../../map";
 import Return from "@dikac/t-validator/validatable/infer-unambiguous";
+import IteratorRecordKey from "../iterator/record-key";
+import Value from "@dikac/t-value/value";
+import ValidatorContainer from "@dikac/t-validator/validator/validator";
 
-export default function RecordKey<
+export default function RecordKeyz<
     RecordType extends Record<PropertyKey, any>,
-    Value extends Validator<keyof RecordType>,
+    ValidatorType extends Validator<keyof RecordType>,
 >(
-    object : RecordType,
-    value : Value,
-) : MapInterface<RecordType, Return<Value>>  {
+    {
+        value,
+        validator
+    } : Value<RecordType> & ValidatorContainer<ValidatorType>
+) : MapInterface<RecordType, Return<ValidatorType>>  {
 
     let result = {};
 
-    for(const k of Object.keys(object)) {
+    for(const [key, validatable] of IteratorRecordKey({value, validator})) {
 
-        result[k] = value(k)
+        result[key as PropertyKey] = validatable
     }
 
-    return < MapInterface<RecordType, Return<Value>>> result;
+    return <MapInterface<RecordType, Return<Value>>> result;
 }

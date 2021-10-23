@@ -2,7 +2,9 @@ import Validator from "@dikac/t-validator/simple";
 import Validatable from "@dikac/t-validatable/validatable";
 import ReturnInfer from "./validatable/record/infer";
 import MapReturn from "./validatable/record/infer";
+import ValidatorsContainer from "./validators/validators";
 import ValueInterface from "./value";
+import Message from "@dikac/t-message/message";
 /**
  * more specific implementation of {@link ValueCallback}
  *
@@ -31,4 +33,9 @@ import ValueInterface from "./value";
  * @template ValidatableType
  * result after processing {@template Validators} with {@template BaseType} or {@template ValueType}
  */
-export default function ValuePartial<BaseType = unknown, ValueType extends BaseType = BaseType, MessageType = unknown, Validators extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>, ValidatableType extends Validatable = Validatable>(validators: Validators, validation: (result: Partial<ReturnInfer<Validators>>) => ValidatableType, message: (result: Partial<ReturnInfer<Validators>>) => MessageType, stop?: boolean): ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType>;
+export declare type Argument<BaseType = unknown, ValueType extends BaseType = BaseType, MessageType = unknown, Validators extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>, ValidatableType extends Validatable = Validatable> = ValidatorsContainer<Validators> & {
+    validation: (result: Partial<ReturnInfer<Validators>>) => ValidatableType;
+} & Message<(result: Partial<ReturnInfer<Validators>>) => MessageType> & {
+    stop?: boolean;
+};
+export default function ValuePartial<BaseType = unknown, ValueType extends BaseType = BaseType, MessageType = unknown, Validators extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>, ValidatableType extends Validatable = Validatable>({ validators, validation, message, stop, }: Argument<BaseType, ValueType, MessageType, Validators, ValidatableType>): ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType>;

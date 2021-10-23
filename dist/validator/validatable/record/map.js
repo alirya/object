@@ -1,9 +1,11 @@
-export default function Map(values, validators) {
+import IteratorMap from "../iterator/map";
+export default function Map(
+//values : RecordParameter<Validators>,
+//validators : Validators,
+{ value, validators }) {
     let object = {};
-    for (let property in validators) {
-        const validator = validators[property];
-        const value = values[property];
-        object[property] = validator(value);
+    for (let [property, validatable] of IteratorMap({ value, validators })) {
+        object[property] = validatable;
     }
     return object;
 }

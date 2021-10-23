@@ -1,7 +1,8 @@
-export default function RecordKey(object, value) {
+import IteratorRecordKey from "../iterator/record-key";
+export default function RecordKeyz({ value, validator }) {
     let result = {};
-    for (const k of Object.keys(object)) {
-        result[k] = value(k);
+    for (const [key, validatable] of IteratorRecordKey({ value, validator })) {
+        result[key] = validatable;
     }
     return result;
 }

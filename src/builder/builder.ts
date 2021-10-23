@@ -2,6 +2,7 @@ import HandlerAlreadyExist from "./string/handler-already-exist";
 import Callable from "./function/callable";
 
 /**
+ * @deprecated
  * simple object container
  */
 export default class Builder<

@@ -1,5 +1,6 @@
 import HandlerAlreadyExist from "./string/handler-already-exist";
 /**
+ * @deprecated
  * simple object container
  */
 export default class Builder {

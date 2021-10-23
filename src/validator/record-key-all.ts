@@ -15,12 +15,12 @@ export default function RecordKeyAll<
     message : (record:Record<PropertyKey, ReturnInfer<ValidatorType>>)=>MessageType,
 ) : RecordKey<ValidatorType, Record<PropertyKey, ReturnInfer<ValidatorType>>, ValidatableType, MessageType> {
 
-    return RecordKeyCallback(
+    return RecordKeyCallback({
         validator,
-        ValidateRecordKey,
+        handler:ValidateRecordKey,
         validation,
         message
-    ) as RecordKey<ValidatorType, Record<PropertyKey, ReturnInfer<ValidatorType>>, ValidatableType, MessageType>;
+    }) as RecordKey<ValidatorType, Record<PropertyKey, ReturnInfer<ValidatorType>>, ValidatableType, MessageType>;
 }
 
 
