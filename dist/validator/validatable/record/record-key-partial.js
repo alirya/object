@@ -1,5 +1,11 @@
 import IteratorRecordKey from "../iterator/record-key";
-export default function RecordVKeyPartial({ value, validator, stop = false, }) {
+export default RecordKeyPartial;
+var RecordKeyPartial;
+(function (RecordKeyPartial) {
+    RecordKeyPartial.Parameter = RecordKeyPartialParameter;
+    RecordKeyPartial.Object = RecordKeyPartialObject;
+})(RecordKeyPartial || (RecordKeyPartial = {}));
+export function RecordKeyPartialParameter(value, validator, stop = false) {
     let result = {};
     for (const [key, validatable] of IteratorRecordKey({ value, validator })) {
         result[key] = validatable;
@@ -8,5 +14,8 @@ export default function RecordVKeyPartial({ value, validator, stop = false, }) {
         }
     }
     return result;
+}
+export function RecordKeyPartialObject({ value, validator, stop = false, }) {
+    return RecordKeyPartialParameter(value, validator, stop);
 }
 //# sourceMappingURL=record-key-partial.js.map

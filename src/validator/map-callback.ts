@@ -12,6 +12,7 @@ import Simple from "@dikac/t-validator/validatable/simple";
 import ValidatorsContainer from "./validators/validators";
 import Message from "@dikac/t-message/message";
 import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
+import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
 //
 // export default class MapCallback<
 //     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
@@ -43,8 +44,25 @@ import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
 //             ValidatableReplace<ValidatableMapInterface<MessageType, Validators, Result, ValidatableType, Argument>, true>;
 //     }
 // }
+export default MapCallback;
+namespace MapCallback {
 
-export type Argument<
+    export const Parameter = MapCallbackParameter;
+    export const Object = MapCallbackObject;
+    export type Argument<
+        Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
+        Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+        ValidatableType extends Validatable = Validatable,
+        MessageType = unknown,
+    > = MapCallbackArgument<
+        Validators,
+        Result,
+        ValidatableType,
+        MessageType
+    >;
+}
+
+export type MapCallbackArgument<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
     Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
     ValidatableType extends Validatable = Validatable,
@@ -56,7 +74,27 @@ export type Argument<
     {validation : (result:Result)=>ValidatableType} &
     {map:(record:RecordParameter<Validators>, validators : Validators)=>Result};
 
-export default function MapCallback<
+export function MapCallbackParameter<
+    Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
+    Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+    ValidatableType extends Validatable = Validatable,
+    MessageType = unknown,
+>(
+    validators : Validators,
+    map : (record:RecordParameter<Validators>, validators : Validators)=>Result,
+    validation : (result:Result)=>ValidatableType,
+    message : (result:Result)=>MessageType,
+) : Map<Validators, Result, ValidatableType, MessageType> {
+
+    return function (value ) {
+
+        return new ValidatableMapCallback({value, validators, map, validation, message});
+
+    } as Map<Validators, Result, ValidatableType, MessageType>
+
+}
+
+export function MapCallbackObject<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
     Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
     ValidatableType extends Validatable = Validatable,
@@ -66,14 +104,10 @@ export default function MapCallback<
     // map : (record:RecordParameter<Validators>, validators : Validators)=>Result,
     // validation : (result:Result)=>ValidatableType,
     // message : (result:Result)=>MessageType,
-    {validators, map, validation, message} : Argument<Validators, Result, ValidatableType, MessageType>
+    {validators, map, validation, message} : MapCallbackArgument<Validators, Result, ValidatableType, MessageType>
 ) : Map<Validators, Result, ValidatableType, MessageType> {
 
-    return function (value ) {
-
-        return new ValidatableMapCallback({value, validators, map, validation, message});
-
-    } as Map<Validators, Result, ValidatableType, MessageType>
+    return MapCallbackParameter(validators, map, validation, message);
 
 }
 

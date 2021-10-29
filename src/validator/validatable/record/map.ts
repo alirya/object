@@ -5,15 +5,22 @@ import InferReturn from "./infer";
 import IteratorMap from "../iterator/map";
 import Value from "@dikac/t-value/value";
 
-export default function Map<
+
+export default Map;
+namespace Map {
+    export const Parameter = MapParameter;
+    export const Object = MapObject;
+}
+
+export function MapParameter<
     Validators extends Record<PropertyKey, Validator>
 >(
-    //values : RecordParameter<Validators>,
-    //validators : Validators,
-    {
-        value,
-        validators
-    } : Value<RecordParameter<Validators>> & ValidatorsContainer<Validators>
+    value : RecordParameter<Validators>,
+    validators : Validators,
+    // {
+    //     value,
+    //     validators
+    // } : Value<RecordParameter<Validators>> & ValidatorsContainer<Validators>
 ) : InferReturn<Validators> {
 
     let object = {};
@@ -24,4 +31,18 @@ export default function Map<
     }
 
     return <InferReturn<Validators>> object;
+}
+
+export function MapObject<
+    Validators extends Record<PropertyKey, Validator>
+>(
+    //values : RecordParameter<Validators>,
+    //validators : Validators,
+    {
+        value,
+        validators
+    } : Value<RecordParameter<Validators>> & ValidatorsContainer<Validators>
+) : InferReturn<Validators> {
+
+    return MapParameter(value, validators);
 }

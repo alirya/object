@@ -1,7 +1,20 @@
 import ValidateMap from "./validatable/record/map-partial";
-import MapCallback from "./map-callback";
-export default function MapPartial(validators, validation, message) {
-    return MapCallback({
+export default MapPartial;
+var MapPartial;
+(function (MapPartial) {
+    MapPartial.Parameter = MapPartialParameter;
+    MapPartial.Object = MapPartialObject;
+})(MapPartial || (MapPartial = {}));
+export function MapPartialParameter(validators, validation, message) {
+    return MapPartial({
+        validators,
+        map: ({ value, validators }) => ValidateMap({ value, validators }),
+        validation,
+        message
+    });
+}
+export function MapPartialObject(validators, validation, message) {
+    return MapPartial({
         validators,
         map: ({ value, validators }) => ValidateMap({ value, validators }),
         validation,

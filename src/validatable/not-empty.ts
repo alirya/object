@@ -3,8 +3,11 @@ import Validatable from "@dikac/t-validatable/validatable";
 import Message from "@dikac/t-message/message";
 import NotEmptyArgument from "../boolean/not-empty";
 import MemoizeAccessor from "../function/memoize-accessor";
+import Validator from "@dikac/t-validator/validator";
+import {O} from "ts-toolbelt";
 
-export default class NotEmpty<ValueType extends object, MessageType>
+
+export class NotEmptyParameter<ValueType extends object, MessageType>
     implements
         Readonly<Value<ValueType> & Message<MessageType> & Validatable>
 {
@@ -13,12 +16,12 @@ export default class NotEmpty<ValueType extends object, MessageType>
     readonly value : ValueType;
 
     constructor(
-        // readonly value : ValueType,
-        // private _message : (result:Readonly<Value<ValueType> & Validatable>)=>MessageType,
-        {
-            value,
-            message,
-        } : Value<ValueType> & Message<(result:Readonly<Value<ValueType> & Validatable>)=>MessageType>
+        value : ValueType,
+        message : (result:Readonly<Value<ValueType> & Validatable>)=>MessageType,
+        // {
+        //     value,
+        //     message,
+        // } : Value<ValueType> & Message<(result:Readonly<Value<ValueType> & Validatable>)=>MessageType>
     ) {
 
         this.value = value;
@@ -33,3 +36,40 @@ export default class NotEmpty<ValueType extends object, MessageType>
     }
 }
 
+export type NotEmptyArgument<
+    ValueType extends object,
+    MessageType
+> = Value<ValueType> &
+    Message<(result:Readonly<Value<ValueType> & Validatable>)=>MessageType>
+
+export class NotEmptyObject<
+    ValueType extends object,
+    MessageType
+> extends NotEmptyParameter<
+    ValueType,
+    MessageType
+    > {
+
+    constructor(
+        {
+            value,
+            message,
+        } : NotEmptyArgument<ValueType, MessageType>
+    ) {
+        super(value, message);
+    }
+}
+
+
+namespace NotEmpty {
+
+    export const Parameter = NotEmptyParameter;
+    export const Object = NotEmptyObject;
+    export type Argument<
+        ValueType extends object,
+        MessageType
+        > = NotEmptyArgument<
+        ValueType,
+        MessageType
+        >;
+}

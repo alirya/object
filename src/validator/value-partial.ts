@@ -9,6 +9,26 @@ import ValueInterface from "./value";
 import ValidatorContainer from "@dikac/t-validator/validator/validator";
 import Message from "@dikac/t-message/message";
 
+export default ValuePartial;
+namespace ValuePartial {
+
+    export const Parameter = ValuePartialParameter;
+    export const Object = ValuePartialObject;
+    export type Type = ValuePartialType;
+    export type Argument<
+        BaseType = unknown,
+        ValueType extends BaseType = BaseType,
+        MessageType = unknown,
+        Validators extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+        ValidatableType extends Validatable = Validatable
+    > = ValuePartialArgument<
+        BaseType,
+        ValueType,
+        MessageType,
+        Validators,
+        ValidatableType
+    >;
+}
 /**
  * more specific implementation of {@link ValueCallback}
  *
@@ -38,7 +58,7 @@ import Message from "@dikac/t-message/message";
  * result after processing {@template Validators} with {@template BaseType} or {@template ValueType}
  */
 
-export type Argument<
+export type ValuePartialArgument<
     BaseType = unknown,
     ValueType extends BaseType = BaseType,
     MessageType = unknown,
@@ -52,7 +72,41 @@ export type Argument<
     {stop ?: boolean}
 ;
 
-export default function ValuePartial<
+export type ValuePartialType<
+    BaseType = unknown,
+    ValueType extends BaseType = BaseType,
+    MessageType = unknown,
+    Validators extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+    ValidatableType extends Validatable = Validatable
+> = ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType>
+
+export function ValuePartialParameter<
+    BaseType = unknown,
+    ValueType extends BaseType = BaseType,
+    MessageType = unknown,
+    Validators extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+    ValidatableType extends Validatable = Validatable
+>(
+     validators : Validators,
+     validation : (result:Partial<ReturnInfer<Validators>>) => ValidatableType,
+     message : (result:Partial<ReturnInfer<Validators>>) => MessageType,
+     stop : boolean = false,
+    // {
+    //     validators,
+    //     validation,
+    //     message,
+    //     stop = false,
+    // } : Argument<BaseType, ValueType, MessageType, Validators, ValidatableType>
+) : ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType> {
+
+    return <ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType>> ValueCallback.Parameter(
+        validators,
+        (value, validators)  => ValidateValuePartial.Parameter(value, validators, stop),
+        validation,
+        message
+    );
+}
+export function ValuePartialObject<
     BaseType = unknown,
     ValueType extends BaseType = BaseType,
     MessageType = unknown,
@@ -68,13 +122,14 @@ export default function ValuePartial<
         validation,
         message,
         stop = false,
-    } : Argument<BaseType, ValueType, MessageType, Validators, ValidatableType>
-) : ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType> {
+    } : ValuePartialArgument<BaseType, ValueType, MessageType, Validators, ValidatableType>
+) : ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType> {
 
-    return <ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType>> ValueCallback({
+    return ValuePartialParameter(
         validators,
-        map:({value, validators})  => ValidateValuePartial({value, validators, stop}),
         validation,
-        message
-    });
+        message,
+        stop
+    );
+
 }

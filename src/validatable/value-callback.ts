@@ -6,25 +6,12 @@ import Value from "./value";
 import MemoizeAccessor from "../function/memoize-accessor";
 import Validators from "../validator/validators/validators";
 import Validation from "@dikac/t-boolean/validation/validation";
-import Message from "@dikac/t-message//message";
+import Message from "@dikac/t-message/message";
 
-export type Argument<
-    ValueType = unknown,
-    MessageType = unknown,
-    RecordType extends Record<PropertyKey, Validator<ValueType>> = Record<PropertyKey, Validator<ValueType>>,
-    Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
-    ValidatableType extends Validatable = Validatable
-> =
-    BaseValue<ValueType> &
-    Validators<RecordType> &
-    //{map : (value:ValueType, validator:RecordType)=>Result} &
-    {map : (argument:BaseValue<ValueType> & Validators<RecordType>)=>Result} &
-    // TODO CHANGE TO VALIDATOR
-    {validation: (result:Result)=>ValidatableType} &
-    Message<(result:Result)=>MessageType>
-;
 
-export default class ValueCallback<
+export default ValueCallback;
+
+export class ValueCallbackParameter<
     ValueType = unknown,
     MessageType = unknown,
     RecordType extends Record<PropertyKey, Validator<ValueType>> = Record<PropertyKey, Validator<ValueType>>,
@@ -35,20 +22,20 @@ export default class ValueCallback<
     #message : (result:Result)=>MessageType;
     readonly validatable : ValidatableType;
     readonly validatables : Result;
-    readonly value: ValueType;
+   // readonly value: ValueType;
 
     constructor(
-        // readonly value: ValueType,
-        // readonly validators : RecordType,
-        // readonly map : (value:ValueType, validator:RecordType)=>Result,
-        // readonly validation : (result:Result)=>ValidatableType,
-        // message : (result:Result)=>MessageType,
-        {message, value, validators, map, validation} : Argument<ValueType, MessageType, RecordType, Result, ValidatableType>
+        readonly value: ValueType,
+        readonly validators : RecordType,
+        readonly map : (value:ValueType, validators:RecordType)=>Result,
+        readonly validation : (result:Result)=>ValidatableType,
+        message : (result:Result)=>MessageType,
+       // {message, value, validators, map, validation} : Argument<ValueType, MessageType, RecordType, Result, ValidatableType>
     ) {
 
         this.value = value;
         this.#message = message;
-        this.validatables = map({value, validators});
+        this.validatables = map(value, validators);
         this.validatable = validation(this.validatables);
     }
 
@@ -75,4 +62,62 @@ export default class ValueCallback<
         }
 
     }
+}
+
+
+export type ValueCallbackArgument<
+    ValueType = unknown,
+    MessageType = unknown,
+    RecordType extends Record<PropertyKey, Validator<ValueType>> = Record<PropertyKey, Validator<ValueType>>,
+    Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
+    ValidatableType extends Validatable = Validatable
+> =
+    BaseValue<ValueType> &
+    Validators<RecordType> &
+    //{map : (value:ValueType, validator:RecordType)=>Result} &
+    {map : (argument:BaseValue<ValueType> & Validators<RecordType>)=>Result} &
+    // TODO CHANGE TO VALIDATOR
+    {validation: (result:Result)=>ValidatableType} &
+    Message<(result:Result)=>MessageType>
+
+
+export class ValueCallbackObject<
+    ValueType = unknown,
+    MessageType = unknown,
+    RecordType extends Record<PropertyKey, Validator<ValueType>> = Record<PropertyKey, Validator<ValueType>>,
+    Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
+    ValidatableType extends Validatable = Validatable
+> extends ValueCallbackParameter<ValueType, MessageType, RecordType, Result, ValidatableType> {
+
+    constructor({
+            message,
+            value,
+            validators,
+            map,
+            validation
+        } : ValueCallbackArgument<ValueType, MessageType, RecordType, Result, ValidatableType>
+    ) {
+        super(value, validators, (value, validators)=>map({value, validators}), validation, message);
+    }
+
+}
+
+
+namespace ValueCallback {
+
+    export const Parameter = ValueCallbackParameter;
+    export const Object = ValueCallbackObject;
+    export type Argument<
+        ValueType = unknown,
+        MessageType = unknown,
+        RecordType extends Record<PropertyKey, Validator<ValueType>> = Record<PropertyKey, Validator<ValueType>>,
+        Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
+        ValidatableType extends Validatable = Validatable
+    > = ValueCallbackArgument<
+        ValueType,
+        MessageType,
+        RecordType,
+        Result,
+        ValidatableType
+    >;
 }

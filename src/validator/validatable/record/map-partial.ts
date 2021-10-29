@@ -4,17 +4,25 @@ import InferReturn from "./infer";
 import IteratorMap from "../iterator/map";
 import Value from "@dikac/t-value/value";
 import ValidatorsContainer from "../../validators/validators";
+import {RecordKeyObject, RecordKeyParameter} from "./record-key";
 
-export default function MapPartial<
+export default MapPartial;
+namespace MapPartial {
+    export const Parameter = MapPartialParameter;
+    export const Object = MapPartialObject;
+}
+
+export function MapPartialParameter<
     Validators extends Record<PropertyKey, Validator>
 >(
-    // values : RecordParameter<Validators>,
-    // validators : Validators,
-    {
-        value,
-        validators,
-        stop = false,
-    } : Value<RecordParameter<Validators>> & ValidatorsContainer<Validators> & {stop ?: boolean}
+    value : RecordParameter<Validators>,
+    validators : Validators,
+    stop = false,
+    // {
+    //     value,
+    //     validators,
+    //     stop = false,
+    // } : Value<RecordParameter<Validators>> & ValidatorsContainer<Validators> & {stop ?: boolean}
 ) : Partial<InferReturn<Validators>> {
 
     let object = {};
@@ -45,4 +53,19 @@ export default function MapPartial<
     // }
     //
     // return <InferReturn<Validators>> object;
+}
+
+export function MapPartialObject<
+    Validators extends Record<PropertyKey, Validator>
+>(
+    // values : RecordParameter<Validators>,
+    // validators : Validators,
+    {
+        value,
+        validators,
+        stop = false,
+    } : Value<RecordParameter<Validators>> & ValidatorsContainer<Validators> & {stop ?: boolean}
+) : Partial<InferReturn<Validators>> {
+
+    return MapPartialParameter(value, validators, stop);
 }

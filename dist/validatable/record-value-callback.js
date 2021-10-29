@@ -18,24 +18,26 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _RecordValueCallback_message;
+var _RecordValueCallbackParameter_message;
 import MemoizeAccessor from "../function/memoize-accessor";
-;
-export default class RecordValueCallback {
-    constructor(
-    //readonly value: ValueType,
-    //readonly validator : ValidatorType,
-    //readonly map : (value:ValueType, validators:ValidatorType)=>Result,
-    //readonly validation : (result:Result)=>ValidatableType,
-    //message : (result:Result)=>MessageType,
-    { value, validator, map, validation, message }) {
-        _RecordValueCallback_message.set(this, void 0);
+export default RecordValueCallback;
+export class RecordValueCallbackParameter {
+    // readonly value: ValueType;
+    // readonly validator : ValidatorType;
+    // readonly map : (argument: Value<ValueType> & ValidatorContainer<ValidatorType>)=>Result;
+    // readonly validation : (result:Result)=>ValidatableType;
+    constructor(value, validator, map, validation, message) {
         this.value = value;
         this.validator = validator;
         this.map = map;
         this.validation = validation;
-        __classPrivateFieldSet(this, _RecordValueCallback_message, message, "f");
-        this.validatables = map({ value, validator });
+        _RecordValueCallbackParameter_message.set(this, void 0);
+        this.value = value;
+        this.validator = validator;
+        this.map = map;
+        this.validation = validation;
+        __classPrivateFieldSet(this, _RecordValueCallbackParameter_message, message, "f");
+        this.validatables = map(value, validator);
         this.validatable = validation(this.validatables);
     }
     get messages() {
@@ -46,17 +48,28 @@ export default class RecordValueCallback {
     }
     get message() {
         try {
-            return __classPrivateFieldGet(this, _RecordValueCallback_message, "f").call(this, this.validatables);
+            return __classPrivateFieldGet(this, _RecordValueCallbackParameter_message, "f").call(this, this.validatables);
         }
         catch (e) {
             throw new Error(`error on generating message, ${e}`);
         }
     }
 }
-_RecordValueCallback_message = new WeakMap();
+_RecordValueCallbackParameter_message = new WeakMap();
 __decorate([
     MemoizeAccessor(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [])
-], RecordValueCallback.prototype, "message", null);
+], RecordValueCallbackParameter.prototype, "message", null);
+;
+export class RecordValueCallbackObject extends RecordValueCallbackParameter {
+    constructor({ value, validator, map, validation, message }) {
+        super(value, validator, (value, validator) => map({ value, validator }), validation, message);
+    }
+}
+var RecordValueCallback;
+(function (RecordValueCallback) {
+    RecordValueCallback.Parameter = RecordValueCallbackParameter;
+    RecordValueCallback.Object = RecordValueCallbackObject;
+})(RecordValueCallback || (RecordValueCallback = {}));
 //# sourceMappingURL=record-value-callback.js.map

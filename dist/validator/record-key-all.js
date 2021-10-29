@@ -8,4 +8,12 @@ export default function RecordKeyAll(validator, validation, message) {
         message
     });
 }
+export default function RecordKeyAll(validator, validation, message) {
+    return RecordKeyCallback({
+        validator,
+        handler: ValidateRecordKey,
+        validation,
+        message
+    });
+}
 //# sourceMappingURL=record-key-all.js.map

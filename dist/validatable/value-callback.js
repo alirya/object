@@ -18,20 +18,20 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _ValueCallback_message;
+var _ValueCallbackParameter_message;
 import MemoizeAccessor from "../function/memoize-accessor";
-export default class ValueCallback {
-    constructor(
-    // readonly value: ValueType,
-    // readonly validators : RecordType,
-    // readonly map : (value:ValueType, validator:RecordType)=>Result,
-    // readonly validation : (result:Result)=>ValidatableType,
-    // message : (result:Result)=>MessageType,
-    { message, value, validators, map, validation }) {
-        _ValueCallback_message.set(this, void 0);
+export default ValueCallback;
+export class ValueCallbackParameter {
+    // readonly value: ValueType;
+    constructor(value, validators, map, validation, message) {
         this.value = value;
-        __classPrivateFieldSet(this, _ValueCallback_message, message, "f");
-        this.validatables = map({ value, validators });
+        this.validators = validators;
+        this.map = map;
+        this.validation = validation;
+        _ValueCallbackParameter_message.set(this, void 0);
+        this.value = value;
+        __classPrivateFieldSet(this, _ValueCallbackParameter_message, message, "f");
+        this.validatables = map(value, validators);
         this.validatable = validation(this.validatables);
     }
     get valid() {
@@ -42,17 +42,27 @@ export default class ValueCallback {
     }
     get message() {
         try {
-            return __classPrivateFieldGet(this, _ValueCallback_message, "f").call(this, this.validatables);
+            return __classPrivateFieldGet(this, _ValueCallbackParameter_message, "f").call(this, this.validatables);
         }
         catch (e) {
             throw new Error(`error on generating message, ${e}`);
         }
     }
 }
-_ValueCallback_message = new WeakMap();
+_ValueCallbackParameter_message = new WeakMap();
 __decorate([
     MemoizeAccessor(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [])
-], ValueCallback.prototype, "message", null);
+], ValueCallbackParameter.prototype, "message", null);
+export class ValueCallbackObject extends ValueCallbackParameter {
+    constructor({ message, value, validators, map, validation }) {
+        super(value, validators, (value, validators) => map({ value, validators }), validation, message);
+    }
+}
+var ValueCallback;
+(function (ValueCallback) {
+    ValueCallback.Parameter = ValueCallbackParameter;
+    ValueCallback.Object = ValueCallbackObject;
+})(ValueCallback || (ValueCallback = {}));
 //# sourceMappingURL=value-callback.js.map

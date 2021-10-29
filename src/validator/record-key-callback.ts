@@ -12,6 +12,27 @@ import {ValuesType} from "utility-types";
 import ValidatorContainer from "@dikac/t-validator/validator/validator";
 import Message from "@dikac/t-message/message";
 import Value from "@dikac/t-value/value";
+
+
+export default RecordKeyCallback;
+namespace RecordKeyCallback {
+
+    export const Parameter = RecordKeyCallbackParameter;
+    export const Object = RecordKeyCallbackObject;
+    export type Argument<
+        ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
+        Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
+        ValidatableType extends Validatable = Validatable,
+        MessageType = unknown,
+    > = RecordKeyCallbackArgument<
+        ValidatorType,
+        Result,
+        ValidatableType,
+        MessageType
+    >;
+}
+
+
 //
 // export default class RecordKeyCallback<
 //     ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
@@ -45,7 +66,34 @@ import Value from "@dikac/t-value/value";
 //     }
 // }
 
-export type Argument<
+export function RecordKeyCallbackParameter<
+    ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
+    Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
+    ValidatableType extends Validatable = Validatable,
+    MessageType = unknown,
+>(
+    validator : ValidatorType,
+    handler : (value:Record<InferBase<ValidatorType>, any>, validator:ValidatorType)=>Result,
+    validation : (result:Result)=>ValidatableType,
+    message : (result:Result)=>MessageType,
+    // {   validator,
+    //     handler,
+    //     validation,
+    //     message
+    // } : Argument<ValidatorType, Result, ValidatableType, MessageType>
+) : RecordKey<ValidatorType, Result, ValidatableType, MessageType> {
+
+    return function (value) {
+
+        return new ValidatableRecordCallback({value, validator, map:handler, validation, message});
+
+    } as RecordKey<ValidatorType, Result, ValidatableType, MessageType>
+}
+
+
+
+
+export type RecordKeyCallbackArgument<
     ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
     Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
     ValidatableType extends Validatable = Validatable,
@@ -58,7 +106,7 @@ export type Argument<
     { validation: (result: Result) => ValidatableType }
 ;
 
-export default function RecordKeyCallback<
+export function RecordKeyCallbackObject<
     ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
     Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
     ValidatableType extends Validatable = Validatable,
@@ -72,14 +120,15 @@ export default function RecordKeyCallback<
         handler,
         validation,
         message
-    } : Argument<ValidatorType, Result, ValidatableType, MessageType>
+    } : RecordKeyCallbackArgument<ValidatorType, Result, ValidatableType, MessageType>
 ) : RecordKey<ValidatorType, Result, ValidatableType, MessageType> {
 
-    return function (value) {
-
-        return new ValidatableRecordCallback({value, validator, map:handler, validation, message});
-
-    } as RecordKey<ValidatorType, Result, ValidatableType, MessageType>
+    return RecordKeyCallbackParameter(
+        validator,
+        (value, validator) => handler({value, validator}),
+        validation,
+        message
+    );
 }
 
 

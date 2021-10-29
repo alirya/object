@@ -4,6 +4,12 @@ import MapReturn from "./validatable/record/infer";
 import ValueInterface from "./value";
 import ValidatorsContainer from "./validators/validators";
 import Message from "@dikac/t-message/message";
+export default ValueAll;
+declare namespace ValueAll {
+    const Parameter: typeof ValueAllParameter;
+    const Object: typeof ValueAllObject;
+    type Argument<Base = unknown, Value extends Base = Base, MessageType = unknown, Validators extends Record<PropertyKey, Validator<Base, Value>> = Record<PropertyKey, Validator<Base, Value>>, ValidatableType extends Validatable = Validatable> = ValueAllArgument<Base, Value, MessageType, Validators, ValidatableType>;
+}
 /**
  * more specific implementation of {@link ValueCallback}
  *
@@ -31,6 +37,10 @@ import Message from "@dikac/t-message/message";
  * @template ValidatableType
  * result after processing {@template Validators} with {@template BaseType} or {@template ValueType}
  */
-export default function ValueAll<Base = unknown, Value extends Base = Base, MessageType = unknown, Validators extends Record<PropertyKey, Validator<Base, Value>> = Record<PropertyKey, Validator<Base, Value>>, ValidatableType extends Validatable = Validatable>({ validators, validation, message, }: ValidatorsContainer<Validators> & Message<(result: MapReturn<Validators>) => MessageType> & {
+export declare function ValueAllParameter<Base = unknown, Value extends Base = Base, MessageType = unknown, Validators extends Record<PropertyKey, Validator<Base, Value>> = Record<PropertyKey, Validator<Base, Value>>, ValidatableType extends Validatable = Validatable>(validators: Validators, validation: (result: MapReturn<Validators>) => ValidatableType, message: (result: MapReturn<Validators>) => MessageType): ValueInterface<Base, Value, MessageType, Validators, MapReturn<Validators>, ValidatableType>;
+export declare type ValueAllArgument<Base = unknown, Value extends Base = Base, MessageType = unknown, Validators extends Record<PropertyKey, Validator<Base, Value>> = Record<PropertyKey, Validator<Base, Value>>, ValidatableType extends Validatable = Validatable> = ValidatorsContainer<Validators> & Message<(result: MapReturn<Validators>) => MessageType> & {
+    validation: (result: MapReturn<Validators>) => ValidatableType;
+};
+export declare function ValueAllObject<Base = unknown, Value extends Base = Base, MessageType = unknown, Validators extends Record<PropertyKey, Validator<Base, Value>> = Record<PropertyKey, Validator<Base, Value>>, ValidatableType extends Validatable = Validatable>({ validators, validation, message, }: ValidatorsContainer<Validators> & Message<(result: MapReturn<Validators>) => MessageType> & {
     validation: (result: MapReturn<Validators>) => ValidatableType;
 }): ValueInterface<Base, Value, MessageType, Validators, MapReturn<Validators>, ValidatableType>;

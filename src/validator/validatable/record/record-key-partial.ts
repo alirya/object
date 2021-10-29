@@ -4,16 +4,21 @@ import Return from "@dikac/t-validator/validatable/infer-unambiguous";
 import Value from "@dikac/t-value/value";
 import ValidatorContainer from "@dikac/t-validator/validator/validator";
 import IteratorRecordKey from "../iterator/record-key";
+import {RecordValueObject, RecordValueParameter} from "./record-value";
 
-export default function RecordVKeyPartial<
+export default RecordKeyPartial;
+namespace RecordKeyPartial {
+    export const Parameter = RecordKeyPartialParameter;
+    export const Object = RecordKeyPartialObject;
+}
+
+export function RecordKeyPartialParameter<
     RecordType extends Record<PropertyKey, any>,
     ValidatorType extends Validator<keyof RecordType>,
 >(
-    {
-        value,
-        validator,
-        stop = false,
-    } : Value<RecordType> & ValidatorContainer<ValidatorType> & {stop ?: boolean}
+    value : RecordType,
+    validator : ValidatorType,
+    stop = false,
 ) : Partial<MapInterface<RecordType, Return<ValidatorType>>> {
 
     let result = {};
@@ -29,4 +34,18 @@ export default function RecordVKeyPartial<
     }
 
     return result;
+}
+
+export function RecordKeyPartialObject<
+    RecordType extends Record<PropertyKey, any>,
+    ValidatorType extends Validator<keyof RecordType>,
+>(
+    {
+        value,
+        validator,
+        stop = false,
+    } : Value<RecordType> & ValidatorContainer<ValidatorType> & {stop ?: boolean}
+) : Partial<MapInterface<RecordType, Return<ValidatorType>>> {
+
+    return RecordKeyPartialParameter(value, validator, stop);
 }

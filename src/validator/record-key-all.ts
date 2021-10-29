@@ -23,6 +23,24 @@ export default function RecordKeyAll<
     }) as RecordKey<ValidatorType, Record<PropertyKey, ReturnInfer<ValidatorType>>, ValidatableType, MessageType>;
 }
 
+export default function RecordKeyAll<
+    ValidatorType extends Validator = Validator,
+    ValidatableType extends Validatable = Validatable,
+    MessageType = unknown,
+>(
+    validator : ValidatorType,
+    validation : (record:Record<PropertyKey, ReturnInfer<ValidatorType>>)=>ValidatableType,
+    message : (record:Record<PropertyKey, ReturnInfer<ValidatorType>>)=>MessageType,
+) : RecordKey<ValidatorType, Record<PropertyKey, ReturnInfer<ValidatorType>>, ValidatableType, MessageType> {
+
+    return RecordKeyCallback({
+        validator,
+        handler:ValidateRecordKey,
+        validation,
+        message
+    }) as RecordKey<ValidatorType, Record<PropertyKey, ReturnInfer<ValidatorType>>, ValidatableType, MessageType>;
+}
+
 
 
 
