@@ -1,4 +1,4 @@
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 import Record from "../../../../dist/validator/validatable/record/record-value";
 import Validator from "@dikac/t-validator/validator";
 
@@ -23,7 +23,7 @@ describe("compiler compatibility", function() {
             validator2 : 10,
         };
 
-        Record(record, value);
+        Record.Parameter(record, value);
     });
 
     describe("implicit", function() {
@@ -36,7 +36,7 @@ describe("compiler compatibility", function() {
             validator2 : 10,
         };
 
-        Record(record, value);
+        Record.Parameter(record, value);
     });
 
     describe("auto", function() {
@@ -49,6 +49,6 @@ describe("compiler compatibility", function() {
             validator2 : 10,
         };
 
-        Record(record, value);
+        Record.Parameter(record, value);
     });
 });

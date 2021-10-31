@@ -4,8 +4,8 @@ import EmptyError from "./throwable/empty";
 
 export default function Empty(
     value : object,
-    error : (value:object)=>Error = EmptyError
+    error : (value:object)=>Error = EmptyError.Parameter
 ) : asserts value is object {
 
-    Callback(value, {validation:Guard, error});
+    Callback.Parameter(value, Guard, error);
 }

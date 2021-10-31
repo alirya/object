@@ -25,9 +25,9 @@ export default function MemoizeProperty(
 
         descriptor.get = function () {
 
-            return SetProperty({
-                object:this, property:< any > property, value:this[symbol], writable, configurable
-        });
+            return SetProperty.Parameter(
+                this, property, this[symbol], writable, configurable
+            );
 
         };
     };

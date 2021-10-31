@@ -7,7 +7,7 @@ var ValuePartial;
 })(ValuePartial || (ValuePartial = {}));
 export function ValuePartialParameter(value, validators, stop = false) {
     let object = {};
-    for (const [key, validatable] of IteratorValue({ value, validators })) {
+    for (const [key, validatable] of IteratorValue.Parameter(value, validators)) {
         //const validator = validators[property];
         object[key] = validatable;
         if (validatable.valid === stop) {

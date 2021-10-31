@@ -6,7 +6,7 @@ export default function And<
     Object extends Partial<Record<PropertyKey, Validatable>>
 >(
     validatables : Object
-) : Validatables<Object, boolean> {
+) : Validatables.Type<Object, boolean> {
 
-    return new Validatables({validatables, validation:AndBoolean});
+    return new Validatables.Parameter(validatables, AndBoolean);
 }

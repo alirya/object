@@ -4,8 +4,8 @@ import StringError from "./throwable/object";
 
 export default function Object_(
     value : unknown,
-    error : (value:unknown)=>Error = StringError
+    error : (value:unknown)=>Error = StringError.Parameter
 ) : asserts value is object {
 
-    Callback(value, {validation:Guard, error});
+    Callback.Parameter(value, Guard, error);
 }

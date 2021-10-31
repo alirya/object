@@ -22,7 +22,7 @@ export function RecordKeyParameter<
 
     let result = {};
 
-    for(const [key, validatable] of IteratorRecordKey({value, validator})) {
+    for(const [key, validatable] of IteratorRecordKey.Parameter(value, validator)) {
 
         result[key as PropertyKey] = validatable
     }
@@ -40,12 +40,5 @@ export function RecordKeyObject<
     } : Value<RecordType> & ValidatorContainer<ValidatorType>
 ) : MapInterface<RecordType, Return<ValidatorType>>  {
 
-    let result = {};
-
-    for(const [key, validatable] of IteratorRecordKey({value, validator})) {
-
-        result[key as PropertyKey] = validatable
-    }
-
-    return <MapInterface<RecordType, Return<Value>>> result;
+    return RecordKeyParameter(value, validator);
 }

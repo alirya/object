@@ -18,25 +18,26 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _MapCallback_value, _MapCallback_message;
+var _MapCallbackParameter_value, _MapCallbackParameter_message;
 import Pick from "../pick";
 import MemoizeAccessor from "../function/memoize-accessor";
-export default class MapCallback {
-    constructor(
-    //value: ValueType,
-    //public validators : ValidatorsType,
-    //private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result,
-    //private validation : (result : Result)=>ValidatableType,
-    //  message : (result : Result)=>MessageType,
-    { value, validators, map, validation, message }) {
-        _MapCallback_value.set(this, void 0);
-        _MapCallback_message.set(this, void 0);
+export default MapCallback;
+export class MapCallbackParameter {
+    // public validators : ValidatorsType;
+    // private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result;
+    // private validation : (result : Result)=>ValidatableType;
+    constructor(value, validators, map, validation, message) {
         this.validators = validators;
         this.map = map;
         this.validation = validation;
-        __classPrivateFieldSet(this, _MapCallback_value, value, "f");
-        __classPrivateFieldSet(this, _MapCallback_message, message, "f");
-        this.validatables = this.map(__classPrivateFieldGet(this, _MapCallback_value, "f"), this.validators);
+        _MapCallbackParameter_value.set(this, void 0);
+        _MapCallbackParameter_message.set(this, void 0);
+        this.validators = validators;
+        this.map = map;
+        this.validation = validation;
+        __classPrivateFieldSet(this, _MapCallbackParameter_value, value, "f");
+        __classPrivateFieldSet(this, _MapCallbackParameter_message, message, "f");
+        this.validatables = this.map(__classPrivateFieldGet(this, _MapCallbackParameter_value, "f"), this.validators);
         this.validatable = this.validation(this.validatables);
     }
     get valid() {
@@ -46,26 +47,42 @@ export default class MapCallback {
         return this.validatables;
     }
     get value() {
-        return Pick(__classPrivateFieldGet(this, _MapCallback_value, "f"), ...Object.keys(this.validators));
+        return Pick(__classPrivateFieldGet(this, _MapCallbackParameter_value, "f"), ...Object.keys(this.validators));
     }
     get message() {
         try {
-            return __classPrivateFieldGet(this, _MapCallback_message, "f").call(this, this.validatables);
+            return __classPrivateFieldGet(this, _MapCallbackParameter_message, "f").call(this, this.validatables);
         }
         catch (e) {
             throw new Error(`error on generating message, ${e}`);
         }
     }
 }
-_MapCallback_value = new WeakMap(), _MapCallback_message = new WeakMap();
+_MapCallbackParameter_value = new WeakMap(), _MapCallbackParameter_message = new WeakMap();
 __decorate([
     MemoizeAccessor(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [])
-], MapCallback.prototype, "value", null);
+], MapCallbackParameter.prototype, "value", null);
 __decorate([
     MemoizeAccessor(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [])
-], MapCallback.prototype, "message", null);
+], MapCallbackParameter.prototype, "message", null);
+export class MapCallbackObject extends MapCallbackParameter {
+    constructor(
+    //value: ValueType,
+    //public validators : ValidatorsType,
+    //private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result,
+    //private validation : (result : Result)=>ValidatableType,
+    //  message : (result : Result)=>MessageType,
+    { value, validators, map, validation, message }) {
+        super(value, validators, map, validation, message);
+    }
+}
+var MapCallback;
+(function (MapCallback) {
+    MapCallback.Parameter = MapCallbackParameter;
+    MapCallback.Object = MapCallbackObject;
+})(MapCallback || (MapCallback = {}));
 //# sourceMappingURL=map-callback.js.map

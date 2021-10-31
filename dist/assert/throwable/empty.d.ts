@@ -1,4 +1,12 @@
 import Value from "@dikac/t-value/value";
-export default function Empty({ value, subject, }: Value & {
+export default Empty;
+declare namespace Empty {
+    const Parameter: typeof EmptyParameter;
+    const Object: typeof EmptyObject;
+    type Argument = EmptyArgument;
+}
+export declare function EmptyParameter(value: object, subject?: string): Error;
+export declare type EmptyArgument = Value<object> & {
     subject?: string;
-}): Error;
+};
+export declare function EmptyObject({ value, subject, }: EmptyArgument): Error;

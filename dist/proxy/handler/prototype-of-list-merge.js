@@ -41,7 +41,7 @@ export default class PrototypeOfListMerge extends MultiHandlers {
                 if (buffers.has(key) && IsObject(buffers.get(key))) {
                     if ((Getter(buffers.get(key)) && Setter(descriptor)) ||
                         (Setter(buffers.get(key)) && Getter(descriptor))) {
-                        descriptor = MergeGetterSetter(buffers.get(key), descriptor);
+                        descriptor = MergeGetterSetter.Parameter(buffers.get(key), descriptor);
                     }
                 }
                 buffers.set(key, descriptor);

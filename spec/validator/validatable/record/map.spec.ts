@@ -1,5 +1,5 @@
 import CallValidator from "../../../../dist/validator/validatable/record/map";
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 
 it("force console log", () => spyOn(console, 'log').and.callThrough());
 
@@ -17,7 +17,7 @@ describe("continue on invalid", function() {
             validator2 : 10,
         };
 
-        let result = CallValidator(value, validator);
+        let result = CallValidator.Parameter(value, validator);
         it('match validator1', ()=> expect(result.validator1.valid).toBe(true));
         it('match validator2', ()=> expect(result.validator2.valid).toBe(true));
 
@@ -35,7 +35,7 @@ describe("continue on invalid", function() {
             validator2 : 'str',
         };
 
-        let result = CallValidator(value, validator);
+        let result = CallValidator.Parameter(value, validator);
         it('match validator1', ()=> expect(result.validator1.valid).toBe(false));
         it('match validator2', ()=> expect(result.validator2.valid).toBe(false));
 
@@ -53,7 +53,7 @@ describe("continue on invalid", function() {
             validator2 : 'str',
         };
 
-        let result = CallValidator(value, validator);
+        let result = CallValidator.Parameter(value, validator);
         it('match validator1', ()=> expect(result.validator1.valid).toBe(true));
         it('match validator2', ()=> expect(result.validator2.valid).toBe(false));
 
@@ -92,7 +92,7 @@ describe("extended validatable", function() {
         validator11 : 10,
     };
 
-    let result = CallValidator(value, validator);
+    let result = CallValidator.Parameter(value, validator);
 
     it('match validator1', ()=> expect(result.validator1.valid).toBe(true));
     it('match validator1', ()=> expect(typeof result.validator1.message).toBe('string'));

@@ -13,9 +13,7 @@ export default Validatables;
 export class ValidatablesParameter<
     RecordType extends Partial<Record<PropertyKey, Validatable>> = Partial<Record<PropertyKey, Validatable>>,
     Boolean extends boolean = boolean
-> implements
-    Validatable,
-    ValidatablesInterface<RecordType>
+> implements ValidatablesType<RecordType, Boolean>
 {
 
     // readonly validatables : RecordType;
@@ -36,6 +34,13 @@ export class ValidatablesParameter<
         this.valid = this.validation(this.validatables);
     }
 }
+
+export type ValidatablesType<
+    RecordType extends Partial<Record<PropertyKey, Validatable>> = Partial<Record<PropertyKey, Validatable>>,
+    Boolean extends boolean = boolean
+> = Validatable &
+    ValidatablesInterface<RecordType> &
+    {validation : (value:RecordType)=>Boolean}
 
 export type ValidatablesArgument<
     RecordType extends Partial<Record<PropertyKey, Validatable>> = Partial<Record<PropertyKey, Validatable>>,
@@ -67,6 +72,14 @@ namespace Validatables {
         RecordType extends Partial<Record<PropertyKey, Validatable>> = Partial<Record<PropertyKey, Validatable>>,
         Boolean extends boolean = boolean
     > = ValidatablesArgument<
+        RecordType,
+        Boolean
+    >;
+
+    export type Type<
+        RecordType extends Partial<Record<PropertyKey, Validatable>> = Partial<Record<PropertyKey, Validatable>>,
+        Boolean extends boolean = boolean
+    > = ValidatablesType<
         RecordType,
         Boolean
     >;

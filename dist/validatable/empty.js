@@ -18,27 +18,37 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _Empty_message;
+var _EmptyParameter_message;
 import EmptyArgument from "../boolean/empty";
 import MemoizeAccessor from "../function/memoize-accessor";
-export default class Empty {
-    constructor(
-    //readonly value : Type,
-    //private _message : (result:Readonly<Value<Type> & Validatable>)=>MessageType,
-    { value, message }) {
-        _Empty_message.set(this, void 0);
+export default Empty;
+export class EmptyParameter {
+    //readonly value : Type;
+    constructor(value, message) {
         this.value = value;
-        __classPrivateFieldSet(this, _Empty_message, message, "f");
+        _EmptyParameter_message.set(this, void 0);
+        this.value = value;
+        __classPrivateFieldSet(this, _EmptyParameter_message, message, "f");
         this.valid = EmptyArgument(value);
     }
     get message() {
-        return __classPrivateFieldGet(this, _Empty_message, "f").call(this, this);
+        return __classPrivateFieldGet(this, _EmptyParameter_message, "f").call(this, this.value, this.valid);
     }
 }
-_Empty_message = new WeakMap();
+_EmptyParameter_message = new WeakMap();
 __decorate([
     MemoizeAccessor(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [])
-], Empty.prototype, "message", null);
+], EmptyParameter.prototype, "message", null);
+export class EmptyObject extends EmptyParameter {
+    constructor({ value, message }) {
+        super(value, () => message(this));
+    }
+}
+var Empty;
+(function (Empty) {
+    Empty.Parameter = EmptyParameter;
+    Empty.Object = EmptyObject;
+})(Empty || (Empty = {}));
 //# sourceMappingURL=empty.js.map

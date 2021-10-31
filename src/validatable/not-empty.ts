@@ -6,10 +6,11 @@ import MemoizeAccessor from "../function/memoize-accessor";
 import Validator from "@dikac/t-validator/validator";
 import {O} from "ts-toolbelt";
 
+export default NotEmpty;
 
 export class NotEmptyParameter<ValueType extends object, MessageType>
     implements
-        Readonly<Value<ValueType> & Message<MessageType> & Validatable>
+        NotEmptyType<ValueType, MessageType>
 {
     readonly valid : boolean;
     #message : (result:Readonly<Value<ValueType> & Validatable>)=>MessageType;
@@ -35,6 +36,8 @@ export class NotEmptyParameter<ValueType extends object, MessageType>
         return this.#message(this);
     }
 }
+
+export type NotEmptyType<ValueType extends object, MessageType> = Readonly<Value<ValueType> & Message<MessageType> & Validatable>;
 
 export type NotEmptyArgument<
     ValueType extends object,
@@ -65,11 +68,20 @@ namespace NotEmpty {
 
     export const Parameter = NotEmptyParameter;
     export const Object = NotEmptyObject;
+
+    export type Type<
+        ValueType extends object,
+        MessageType
+    > = NotEmptyType<
+        ValueType,
+        MessageType
+    >
+
     export type Argument<
         ValueType extends object,
         MessageType
-        > = NotEmptyArgument<
+    > = NotEmptyArgument<
         ValueType,
         MessageType
-        >;
+    >;
 }

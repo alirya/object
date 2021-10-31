@@ -11,7 +11,9 @@ const defaults = {suffix:'', configurable:true}
  * @param configuration
  * @default {suffix:'', configurable:true}
  */
-export default function MemoizeAccessor(configuration : Pick<PropertyDescriptor, 'configurable'> & Partial<Suffix> = defaults) : MethodDecorator  {
+export default function MemoizeAccessor(
+    configuration : Pick<PropertyDescriptor, 'configurable'> & Partial<Suffix> = defaults
+) : MethodDecorator  {
 
     configuration = Default(configuration, defaults)
 
@@ -23,12 +25,12 @@ export default function MemoizeAccessor(configuration : Pick<PropertyDescriptor,
 
         descriptor.get = function () {
 
-            return SetGetter({
-                object:this,
+            return SetGetter.Parameter(
+                this,
                 property,
-                value:this[symbol],
-                configurable:configuration.configurable
-            });
+                this[symbol],
+                configuration.configurable
+            );
         };
     };
 }

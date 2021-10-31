@@ -7,7 +7,7 @@ import Instance from "@dikac/t-validator/validatable/validatable";
 import ValidatorsContainer from "./validators/validators";
 import Message from "@dikac/t-message/message";
 import RecordParameter from "./base/record/infer";
-
+import MapCallback from "./map-callback";
 export default MapPartial;
 namespace MapPartial {
 
@@ -34,12 +34,13 @@ export function MapPartialParameter<
     message : (result:Partial<ReturnInfer<Validators>>)=>MessageType,
 ) : Map<Validators, Partial<ReturnInfer<Validators>>, ValidatableType, MessageType> {
 
-    return <Map<Validators, Partial<ReturnInfer<Validators>>, ValidatableType, MessageType>> MapPartial({
+    return <Map<Validators, Partial<ReturnInfer<Validators>>, ValidatableType, MessageType>> MapCallback.Parameter(
         validators,
-        map :({value, validators})=>ValidateMap({value, validators}),
+        //map :({value, validators})=>ValidateMap({value, validators}),
+        ValidateMap.Parameter,
         validation,
         message
-    });
+    );
 }
 
 export type MapPartialArgument<
@@ -57,17 +58,17 @@ export function MapPartialObject<
     ValidatableType extends Validatable = Validatable,
     MessageType = unknown
 >(
-    validators : Validators,
-    validation : (result:Partial<ReturnInfer<Validators>>)=>ValidatableType,
-    message : (result:Partial<ReturnInfer<Validators>>)=>MessageType,
-) : Map<Validators, Partial<ReturnInfer<Validators>>, ValidatableType, MessageType> {
-
-    return <Map<Validators, Partial<ReturnInfer<Validators>>, ValidatableType, MessageType>> MapPartial({
+    // validators : Validators,
+    // validation : (result:Partial<ReturnInfer<Validators>>)=>ValidatableType,
+    // message : (result:Partial<ReturnInfer<Validators>>)=>MessageType,
+    {
         validators,
-        map :({value, validators})=>ValidateMap({value, validators}),
         validation,
         message
-    });
+    } : MapPartialArgument<Validators, ValidatableType, MessageType>
+) : Map<Validators, Partial<ReturnInfer<Validators>>, ValidatableType, MessageType> {
+
+    return MapPartialParameter(validators, validation, message);
 }
 
 

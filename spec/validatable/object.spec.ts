@@ -1,5 +1,5 @@
 import Validator from "../../dist/validatable/object";
-import ObjectMessage from "../../dist/validatable/string/object";
+import ObjectMessage from "../../dist/assert/string/object";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
 
@@ -7,7 +7,7 @@ describe(`compiler compatible`,function() {
 
     it(`valid value`,function() {
 
-        let validatable = Validator(<unknown>{}, ObjectMessage);
+        let validatable = Validator.Parameter(<unknown>{}, ObjectMessage.Object);
 
         if(validatable.valid) {
 
@@ -24,7 +24,7 @@ describe(`compiler compatible`,function() {
 
     it(`invalid value`,function() {
 
-        let validatable = Validator(<unknown>1, ObjectMessage);
+        let validatable = Validator.Parameter(<unknown>1, ObjectMessage.Object);
 
         if(validatable.valid) {
 
@@ -43,7 +43,7 @@ describe(`compiler compatible`,function() {
 
     it(`readonly`,function() {
 
-        let validatable = Validator(<unknown>{}, ObjectMessage);
+        let validatable = Validator.Parameter(<unknown>{}, ObjectMessage.Object);
 
         try {
             // @ts-expect-error
@@ -70,7 +70,7 @@ describe(`compiler compatible`,function() {
 
 it(`valid`,function() {
 
-    let validatable = Validator({}, ObjectMessage);
+    let validatable = Validator.Parameter({}, ObjectMessage.Object);
 
     expect(validatable.valid).toBe(true);
     expect(validatable.value).toEqual({});
@@ -80,7 +80,7 @@ it(`valid`,function() {
 
 it(`invalid`,function() {
 
-    let validatable = Validator('a', ObjectMessage);
+    let validatable = Validator.Parameter('a', ObjectMessage.Object);
 
     expect(validatable.valid).toBe(false);
     expect(validatable.value).toBe('a');

@@ -1,4 +1,5 @@
 import ValidateMap from "./validatable/record/map";
+import MapCallback from "./map-callback";
 export default MapAll;
 var MapAll;
 (function (MapAll) {
@@ -6,13 +7,7 @@ var MapAll;
     MapAll.Object = MapAllObject;
 })(MapAll || (MapAll = {}));
 export function MapAllParameter(validators, validation, message) {
-    return MapAll({
-        validators,
-        map: ({ value, validators }) => {
-            return ValidateMap({ value, validators });
-        },
-        validation, message
-    });
+    return MapCallback.Parameter(validators, (value) => ValidateMap.Parameter(value, validators), validation, message);
 }
 export function MapAllObject(
 // validators : Validators,

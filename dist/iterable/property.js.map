@@ -1,1 +1,1 @@
-{"version":3,"file":"property.js","sourceRoot":"","sources":["../../src/iterable/property.ts"],"names":[],"mappings":"AAAA;;GAEG;AACH,MAAM,CAAC,OAAO,SAAU,CAAC,CAAC,QAAQ,CAA+B,MAA8B;IAE3F,KAAK,MAAM,QAAQ,IAAI,MAAM,EAAE;QAE3B,MAAM,QAAQ,CAAC;KAClB;AACL,CAAC"}
+{"version":3,"file":"property.js","sourceRoot":"","sources":["../../src/iterable/property.ts"],"names":[],"mappings":"AAAA;;GAEG;AACH,MAAM,CAAC,OAAO,SAAU,CAAC,CAAC,QAAQ,CAC9B,MAA8B;IAG9B,KAAK,MAAM,QAAQ,IAAI,MAAM,EAAE;QAE3B,MAAM,QAAQ,CAAC;KAClB;AACL,CAAC"}

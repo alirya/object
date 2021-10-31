@@ -38,7 +38,7 @@ var RecordValueCallback;
 })(RecordValueCallback || (RecordValueCallback = {}));
 export function RecordValueCallbackParameter(validator, handler, validation, message) {
     return function (value) {
-        return new ValidatableRecordCallback({ value, validator, map: handler, validation, message });
+        return new ValidatableRecordCallback.Parameter(value, validator, handler, validation, message);
     };
 }
 export function RecordValueCallbackObject(

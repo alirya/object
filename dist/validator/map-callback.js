@@ -38,7 +38,7 @@ var MapCallback;
 })(MapCallback || (MapCallback = {}));
 export function MapCallbackParameter(validators, map, validation, message) {
     return function (value) {
-        return new ValidatableMapCallback({ value, validators, map, validation, message });
+        return new ValidatableMapCallback.Parameter(value, validators, map, validation, message);
     };
 }
 export function MapCallbackObject(

@@ -5,9 +5,9 @@ import And from "../../../dist/validatable/and";
 import Or from "../../../dist/validatable/or";
 import Validatable from "@dikac/t-validatable/validatable";
 import MessageMap from "../../../dist/message/message/record/map";
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 import Instance from "@dikac/t-validator/validatable/validatable";
-import MapCallbackFunction from "../../../dist/validator/map-callback-function";
+import MapCallbackFunction from "../../../dist/validator/map-callback";
 import InferReturn from "../../../dist/validator/validatable/record/infer";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
@@ -28,7 +28,7 @@ describe("flat", function() {
             address : Type('string'),
         };
 
-        let property = MapCallback<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap, And, MessageMap);
+        let property = MapCallback.Parameter<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap.Parameter, And, MessageMap);
 
         let and = property(value);
 
@@ -53,7 +53,7 @@ describe("flat", function() {
             address : Type('string'),
         };
 
-        let property = MapCallback<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap, And, MessageMap);
+        let property = MapCallback.Parameter<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap.Parameter, And, MessageMap);
 
         let or = property(value);
         expect(or.valid).toBe(false);
@@ -90,17 +90,17 @@ describe("recursive", function() {
             name : Type('string'),
             age : Type('number'),
             address : Type('string'),
-            info : MapCallbackFunction({
+            info : MapCallbackFunction.Parameter({
                     age : Type('number'),
                     hobby : Type('string'),
                     no : Type('number')
                 },
-                (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+                (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial.Parameter(value, validators),
                 And, MessageMap)
         };
 
-        let property = MapCallback(validator,
-            (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+        let property = MapCallback.Parameter(validator,
+            (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial.Parameter(value, validators),
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v), MessageMap
         );
 
@@ -135,17 +135,17 @@ describe("recursive", function() {
             name : Type('string'),
             age : Type('number'),
             address : Type('string'),
-            info : MapCallbackFunction({
+            info : MapCallbackFunction.Parameter({
                     age : Type('number'),
                     hobby : Type('string'),
                     no : Type('number')
                 },
-                (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+                (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial.Parameter(value, validators),
                 Or, MessageMap)
         };
 
-        let property = MapCallback(validator,
-            (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+        let property = MapCallback.Parameter(validator,
+            (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial.Parameter(value, validators),
             (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v), MessageMap
         );
 

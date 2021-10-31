@@ -1,4 +1,4 @@
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 import ValueAll from "../../../../dist/validator/value-all";
 import ValueCallback from "../../../../dist/validator/value-callback";
 import MapAll from "../../../../dist/validator/map-all";
@@ -22,13 +22,13 @@ describe("value all", function() {
         name: Type('string'),
         address: Type('string'),
         user: Type('string'),
-        info: ValueAll({
+        info: ValueAll.Parameter({
             age: Type('string'),
             hobby: Type('string'),
             no: Type('string'),
         }, (v) => And(v), Invalid)
     };
-    let property = ValueAll(validator, (v)=>And(v), Invalid);
+    let property = ValueAll.Parameter(validator, (v)=>And(v), Invalid);
 });
 
 
@@ -38,13 +38,13 @@ describe("value partial", function() {
         name: Type('string'),
         address: Type('string'),
         user: Type('string'),
-        info:  Value({
+        info:  Value.Parameter({
             age: Type('string'),
             hobby: Type('string'),
             no: Type('string'),
         }, (v) => And(v), Invalid)
     };
-    let property =  Value(validator, (v)=>And(v), Invalid);
+    let property =  Value.Parameter(validator, (v)=>And(v), Invalid);
 });
 
 
@@ -54,18 +54,18 @@ describe("value callback", function() {
         name : Type('string'),
         address : Type('string'),
         user : Type('string'),
-        info : ValueCallback({
+        info : ValueCallback.Parameter({
                 age : Type('string'),
                 hobby : Type('string'),
                 no : Type('string'),
-            }, (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
+            }, (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameter(value, validators),
             And,
             Invalid
         )
     };
 
-    let property = ValueCallback(validator,
-        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
+    let property = ValueCallback.Parameter(validator,
+        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameter(value, validators),
         And,
         Invalid
     );
@@ -78,13 +78,13 @@ describe("value all", function() {
         name: Type('string'),
         address: Type('string'),
         user: Type('string'),
-        info: MapAll({
+        info: MapAll.Parameter({
             age: Type('string'),
             hobby: Type('string'),
             no: Type('string'),
         }, (v) => And(v), Invalid)
     };
-    let property = MapAll(validator, (v)=>And(v), Invalid);
+    let property = MapAll.Parameter(validator, (v)=>And(v), Invalid);
 });
 
 
@@ -94,36 +94,36 @@ describe("value partial", function() {
         name: Type('string'),
         address: Type('string'),
         user: Type('string'),
-        info: Map({
+        info: Map.Parameter({
             age: Type('string'),
             hobby: Type('string'),
             no: Type('string'),
         }, (v) => And(v), Invalid)
     };
-    let property = Map(validator, (v)=>And(v), Invalid);
+    let property = Map.Parameter(validator, (v)=>And(v), Invalid);
 });
 
 
 describe("value callback", function() {
 
-    let c =  MapCallback({
+    let c =  MapCallback.Parameter({
             age : Type('number'),
             hobby : Type('string'),
             no : Type('number')
         },
-        (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+        (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial.Parameter(value, validators),
         And, MessageMap);
 
     let validator = {
         name : Type('string'),
         age : Type('number'),
         address : Type('string'),
-        info : MapCallback({
+        info : MapCallback.Parameter({
                 age : Type('number'),
                 hobby : Type('string'),
                 no : Type('number')
             },
-            (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+            (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial.Parameter(value, validators),
             And, MessageMap)
     };
 
@@ -138,8 +138,8 @@ describe("value callback", function() {
         }
     };
 
-    let property = MapCallback(validator,
-        (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+    let property = MapCallback.Parameter(validator,
+        (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial.Parameter(value, validators),
         And,
         MessageMap
     );

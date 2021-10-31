@@ -65,7 +65,7 @@ export default class PrototypeOfListMerge<
                         (Setter(buffers.get(key)) && Getter(descriptor))
                     ) {
 
-                        descriptor = MergeGetterSetter(buffers.get(key), descriptor);
+                        descriptor = MergeGetterSetter.Parameter(buffers.get(key), descriptor);
                     }
                 }
 

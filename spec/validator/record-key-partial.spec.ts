@@ -3,7 +3,7 @@ import And from "../../dist/validatable/and";
 import Or from "../../dist/validatable/or";
 import Validatable from "@dikac/t-validatable/validatable";
 import MessageMap from "../../dist/message/message/record/map";
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 import ValidatorInterface from "@dikac/t-validator/simple";
 import Instance from "@dikac/t-validator/validatable/validatable";
 import Callbacks from "@dikac/t-validator/callback";
@@ -23,7 +23,7 @@ describe("compiler compatibility", function() {
 
     describe("implicit partial", function() {
 
-        let property = Value(validator, And, MessageMap);
+        let property = Value.Parameter(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -35,7 +35,7 @@ describe("compiler compatibility", function() {
 
     describe("explicit complete", function() {
 
-        let property = Value/*<Record<PropertyKey, any>, Record<string, any>, TypeValidatorValue>*/(validator, And, MessageMap);
+        let property = Value.Parameter/*<Record<PropertyKey, any>, Record<string, any>, TypeValidatorValue>*/(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -59,7 +59,7 @@ describe("implicit incomplete", function() {
 
         it(`and validation`, () => {
 
-            let property = Value(
+            let property = Value.Parameter(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -107,7 +107,7 @@ describe("implicit incomplete", function() {
 
         it(`or validation`, () => {
 
-            let property = Value(
+            let property = Value.Parameter(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -165,13 +165,13 @@ describe("implicit incomplete", function() {
 
         it(`and validation`, () => {
 
-            let validator = Callbacks<string, string>(function (value) {
+            let validator = Callbacks.Parameter<string, string>(function (value) {
                 return  ['name', 'address'].includes(value);
             }, function (result){
                 return result.value + ' ' + (result.valid ? 'valid' : 'true');
             }, );
 
-            let property = Value(
+            let property = Value.Parameter(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -206,13 +206,13 @@ describe("implicit incomplete", function() {
 
         it(`or validation `, () => {
 
-            let validator = Callbacks<string, string>(function (value) {
+            let validator = Callbacks.Parameter<string, string>(function (value) {
                 return  ['name', 'address'].includes(value);
             }, function (result){
                 return result.value + ' ' + (result.valid ? 'valid' : 'true');
             }, );
 
-            let property = Value(
+            let property = Value.Parameter(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -256,13 +256,13 @@ describe("implicit incomplete", function() {
 
         it(`and validation`, () => {
 
-            let validator = Callbacks<string, string>(function (value) {
+            let validator = Callbacks.Parameter<string, string>(function (value) {
                 return ! ['name', 'age', 'address'].includes(value);
             },function (result){
                 return result.value + ' ' + (result.valid ? 'valid' : 'true');
             });
 
-            let property = Value(
+            let property = Value.Parameter(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -292,13 +292,13 @@ describe("implicit incomplete", function() {
 
         it(`or validation `, () => {
 
-            let validator = Callbacks<string, string>(function (value) {
+            let validator = Callbacks.Parameter<string, string>(function (value) {
                 return ! ['name', 'age', 'address'].includes(value);
             },function (result){
                 return result.value + ' ' + (result.valid ? 'valid' : 'true');
             });
 
-            let property = Value(
+            let property = Value.Parameter(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap

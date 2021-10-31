@@ -1,5 +1,12 @@
-import PropertyValueArgument from "../../../assert/string/value";
-export default function Value(data) {
-    return new Error(PropertyValueArgument(Object.assign({ valid: false }, data)));
-}
+// import PropertyValueArgument from "../../../assert/string/value";
+// import PropertyInterface from "../property";
+// import Value from "@dikac/t-value/value";
+// import Type from "@dikac/t-type/type";
+//
+// export default function Value(data : PropertyInterface & {type: string}) : Error {
+//
+//     return new Error(
+//         PropertyValueArgument.Parameter(false, ...data)
+//     );
+// }
 //# sourceMappingURL=value.js.map

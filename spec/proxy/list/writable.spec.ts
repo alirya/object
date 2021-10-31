@@ -16,7 +16,7 @@ describe('plain', function (){
 
         it('test', () => {
 
-            expect(Writable(mixin, 'value')).toBeTrue();
+            expect(Writable.Parameter(mixin, 'value')).toBeTrue();
 
         });
     });
@@ -31,7 +31,7 @@ describe('plain', function (){
 
         it('test', () => {
 
-            expect(Writable(mixin2, 'value')).toBeTrue();
+            expect(Writable.Parameter(mixin2, 'value')).toBeTrue();
 
         });
     })
@@ -50,7 +50,7 @@ describe('plaint setter', function (){
 
         it('test', () => {
 
-            expect(Writable(mixin, 'value')).toBeTrue();
+            expect(Writable.Parameter(mixin, 'value')).toBeTrue();
 
         });
     });
@@ -67,7 +67,7 @@ describe('plaint setter', function (){
 
         it('test', () => {
 
-            expect(Writable(mixin2, 'value')).toBeTrue();
+            expect(Writable.Parameter(mixin2, 'value')).toBeTrue();
 
         });
     })

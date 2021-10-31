@@ -23,7 +23,7 @@ export function RecordKeyPartialParameter<
 
     let result = {};
 
-    for(const [key, validatable] of IteratorRecordKey({value, validator})) {
+    for(const [key, validatable] of IteratorRecordKey.Parameter(value, validator)) {
 
         result[key as PropertyKey] = validatable;
 

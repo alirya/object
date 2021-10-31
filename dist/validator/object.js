@@ -1,8 +1,8 @@
 import ObjectValidatable from "../validatable/object";
-import ObjectString from "../validatable/string/object";
-export default function Object_(message = ObjectString) {
+import ObjectString from "../assert/string/object";
+export default function Object_(message = ObjectString.Object) {
     return function (value) {
-        return ObjectValidatable(value, message);
+        return ObjectValidatable.Parameter(value, message);
     };
 }
 //# sourceMappingURL=object.js.map

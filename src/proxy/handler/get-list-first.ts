@@ -56,7 +56,7 @@ export default class GetListFirst<
 
         for (const handler of this.getHandler(target)) {
 
-            if(Readable(handler, property)) {
+            if(Readable.Parameter(handler, property)) {
 
                 if(Function(handler[property])) {
 

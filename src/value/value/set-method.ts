@@ -1,6 +1,20 @@
 import Value from "@dikac/t-value/value";
 import Property from "../../property/property/property";
 
+
+export default SetMethod;
+namespace SetMethod {
+
+    export const Parameter = SetMethodParameter;
+    export const Object = SetMethodObject;
+    export type Argument<
+        This extends object,
+        Type,
+        > = SetMethodArgument<
+        This,
+        Type
+        >;
+}
 /**
  * set {@param value} for getter value for {@param object}
  * should be used inside getter callback
@@ -17,7 +31,36 @@ import Property from "../../property/property/property";
  *
  * @param configurable {@default true}
  */
-export default function SetMethod<
+export function SetMethodParameter<
+    This extends object,
+    Type,
+>(
+    object : This,
+    property : keyof This,
+    value : Type,
+    writable : boolean = true,
+    configurable : boolean = true,
+) : Type {
+
+    return (Object.defineProperty(object, property, {
+        value : ()=>value,
+        writable,
+        configurable
+    }) as Record<keyof This, ()=>Type>)[property]();
+}
+
+export type SetMethodArgument<
+    This extends object,
+    Type,
+    > = Value<Type> &
+    Property<keyof This> &
+    {
+        object: This;
+        writable ?: boolean;
+        configurable ?: boolean
+    }
+
+export function SetMethodObject<
     This extends object,
     Type,
 >(
@@ -33,18 +76,8 @@ export default function SetMethod<
         value,
         writable = true,
         configurable = true,
-    } : Value<Type> &
-        Property<keyof This> &
-        {
-            object: This;
-            writable ?: boolean;
-            configurable ?: boolean
-        }
+    } : SetMethodArgument<This, Type>
 ) : Type {
 
-    return (Object.defineProperty(object, property, {
-        value : ()=>value,
-        writable,
-        configurable
-    }) as Record<keyof This, ()=>Type>)[property]();
+    return SetMethodParameter(object, property, value, writable, configurable);
 }

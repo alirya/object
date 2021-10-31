@@ -85,7 +85,7 @@ export function RecordKeyCallbackParameter<
 
     return function (value) {
 
-        return new ValidatableRecordCallback({value, validator, map:handler, validation, message});
+        return new ValidatableRecordCallback.Parameter(value, validator, handler, validation, message);
 
     } as RecordKey<ValidatorType, Result, ValidatableType, MessageType>
 }

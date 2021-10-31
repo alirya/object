@@ -25,7 +25,7 @@ export function MapParameter<
 
     let object = {};
 
-    for(let [property, validatable] of IteratorMap({value, validators})) {
+    for(let [property, validatable] of IteratorMap.Parameter(value, validators)) {
 
         object[<PropertyKey>property] = validatable;
     }

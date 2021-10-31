@@ -7,6 +7,7 @@ import Instance from "@dikac/t-validator/validatable/validatable";
 import ValidatorsContainer from "./validators/validators";
 import Message from "@dikac/t-message/message";
 import RecordParameter from "./base/record/infer";
+import MapCallback from "./map-callback";
 
 export default MapAll;
 namespace MapAll {
@@ -44,16 +45,12 @@ export function MapAllParameter<
     message : (result:ReturnInfer<Validators>)=>MessageType,
 ) : Map<Validators, ReturnInfer<Validators>, ValidatableType, MessageType> {
 
-    return <Map<Validators, ReturnInfer<Validators>, ValidatableType, MessageType>> MapAll({
+    return <Map<Validators, ReturnInfer<Validators>, ValidatableType, MessageType>> MapCallback.Parameter(
         validators,
-        map: ({value, validators})=>
-        {
-
-            return ValidateMap({value, validators});
-
-        },
-        validation, message
-    });
+         (value)=>ValidateMap.Parameter(value, validators),
+        validation,
+        message
+    );
 }
 
 export function MapAllObject<

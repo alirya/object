@@ -5,7 +5,7 @@ import Validatable from "@dikac/t-validatable/validatable";
 import ValidatorInterface from "@dikac/t-validator/simple";
 import MessageMap from "../../dist/message/message/record/map";
 import Instance from "@dikac/t-validator/validatable/validatable";
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 import TypeClass from "@dikac/t-type/validator/type";
 import TypeString from "@dikac/t-type/validatable/string/type";
 
@@ -35,7 +35,7 @@ describe("compiler compatibility", function() {
 
     describe("implicit complete", function() {
 
-        let property = MapAll(validator, And, MessageMap);
+        let property = MapAll.Parameter(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -48,7 +48,7 @@ describe("compiler compatibility", function() {
 
         describe("auto", function() {
 
-            let property = MapAll<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(
+            let property = MapAll.Parameter<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(
                 validator,
                 And,
                 MessageMap
@@ -63,7 +63,7 @@ describe("compiler compatibility", function() {
 
         describe("direct", function() {
 
-            let property = MapAll<TypeValidator>(validator,
+            let property = MapAll.Parameter<TypeValidator>(validator,
                 (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
                 MessageMap
 
@@ -97,7 +97,7 @@ describe("implicit complete", function() {
                 user : Type('string'),
             };
 
-            let property = MapAll(validator, (v)=>And(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>And(v), MessageMap);
 
             let validatable = property(value);
 
@@ -124,7 +124,7 @@ describe("implicit complete", function() {
                 user : Type('string'),
             };
 
-            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>Or(v), MessageMap);
 
             let validatable = property(value);
 
@@ -160,7 +160,7 @@ describe("implicit complete", function() {
                 address : Type('string'),
             };
 
-            let property = MapAll(validator, (v)=>And(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>And(v), MessageMap);
 
             let and = property(value);
 
@@ -187,7 +187,7 @@ describe("implicit complete", function() {
                 address : Type('string'),
             };
 
-            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>Or(v), MessageMap);
 
             let or = property(value);
 
@@ -223,7 +223,7 @@ describe("implicit complete", function() {
                 address : Type('string'),
             };
 
-            let property = MapAll(validator, (v)=>And(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>And(v), MessageMap);
 
             let and = property(value);
 
@@ -248,7 +248,7 @@ describe("implicit complete", function() {
                 address : Type('string'),
             };
 
-            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>Or(v), MessageMap);
 
             let or = property(value);
             expect(or.valid).toBe(false);
@@ -293,14 +293,14 @@ describe("recursive", function() {
                 name : TypeClass('string', TypeString),
                 address : Type('string'),
                 user : Type('string'),
-                info : MapAll({
+                info : MapAll.Parameter({
                     age : Type('number'),
                     hobby : Type('string'),
                     no : Type('number'),
                 },(v)=>And(v), MessageMap) /*as ValidatorSimple<any, ArgSub, Value<any> & Validatable & Validatables<Infer<Sub>> & Message<ArgNsg>>*/
             };
 
-            let property = MapAll(validator, (v)=>And(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>And(v), MessageMap);
             property(value).validatables.name;
             property(value).validatables.info;
 
@@ -338,14 +338,14 @@ describe("recursive", function() {
                 name : TypeClass('string', TypeString),
                 address : Type('string'),
                 user : Type('string'),
-                info : MapAll({
+                info : MapAll.Parameter({
                     age : Type('number'),
                     hobby : Type('string'),
                     no : Type('number'),
                 },(v)=>Or(v), MessageMap) /*as ValidatorSimple<any, ArgSub, Value<any> & Validatable & Validatables<Infer<Sub>> & Message<ArgNsg>>*/
             };
 
-            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>Or(v), MessageMap);
 
             let validatable = property(value);
 
@@ -396,14 +396,14 @@ describe("recursive", function() {
                 name : Type('string'),
                 age : Type('number'),
                 address : Type('string'),
-                info : MapAll({
+                info : MapAll.Parameter({
                     age : Type('number'),
                     hobby : Type('string'),
                     no : Type('number'),
                 },(v)=>And(v), MessageMap)
             };
 
-            let property = MapAll(validator, (v)=>And(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>And(v), MessageMap);
 
 
             let and = property(value);
@@ -441,14 +441,14 @@ describe("recursive", function() {
                 name : Type('string'),
                 age : Type('number'),
                 address : Type('string'),
-                info : MapAll({
+                info : MapAll.Parameter({
                     age : Type('number'),
                     hobby : Type('string'),
                     no : Type('number'),
                 },(v)=>Or(v), MessageMap)
             };
 
-            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>Or(v), MessageMap);
 
             let or = property(value);
 
@@ -499,14 +499,14 @@ describe("recursive", function() {
                 name : Type('string'),
                 age : Type('number'),
                 address : Type('string'),
-                info : MapAll({
+                info : MapAll.Parameter({
                     age : Type('number'),
                     hobby : Type('string'),
                     no : Type('number'),
                 },(v)=>And(v), MessageMap)
             };
 
-            let property = MapAll(validator, (v)=>And(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>And(v), MessageMap);
 
             let and = property(value);
 
@@ -541,14 +541,14 @@ describe("recursive", function() {
                 name : Type('string'),
                 age : Type('number'),
                 address : Type('string'),
-                info : MapAll({
+                info : MapAll.Parameter({
                     age : Type('number'),
                     hobby : Type('string'),
                     no : Type('number'),
                 },(v)=>Or(v), MessageMap)
             };
 
-            let property = MapAll(validator, (v)=>Or(v), MessageMap);
+            let property = MapAll.Parameter(validator, (v)=>Or(v), MessageMap);
 
             let or = property(value);
             expect(or.valid).toBe(false);

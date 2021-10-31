@@ -21,6 +21,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 var _NotEmptyParameter_message;
 import NotEmptyArgument from "../boolean/not-empty";
 import MemoizeAccessor from "../function/memoize-accessor";
+export default NotEmpty;
 export class NotEmptyParameter {
     constructor(value, message) {
         _NotEmptyParameter_message.set(this, void 0);

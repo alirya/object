@@ -1,10 +1,11 @@
 import Sentences from "@dikac/t-string/message/sentences";
-export default function NameNotFound(
-// valid : boolean,
-// value : unknown,
-// subject : string = 'type',
-// conversion : (value:unknown)=>string = value=>typeof value,
-{ valid, value, subject = 'type', conversion = value => typeof value, }) {
+export default NameNotFound;
+var NameNotFound;
+(function (NameNotFound) {
+    NameNotFound.Parameter = NameNotFoundParameter;
+    NameNotFound.Object = NameNotFoundObject;
+})(NameNotFound || (NameNotFound = {}));
+export function NameNotFoundParameter(valid, value, subject = 'type', conversion = value => typeof value) {
     let sentence = new Sentences(valid);
     sentence.accept = ['have'];
     sentence.reject = ['does not have'];
@@ -14,5 +15,8 @@ export default function NameNotFound(
         sentence.subject.push(conversion(value));
     }
     return sentence.message;
+}
+export function NameNotFoundObject({ valid, value, subject = 'type', conversion = value => typeof value, }) {
+    return NameNotFoundParameter(valid, value, subject, conversion);
 }
 //# sourceMappingURL=name-not-found.js.map

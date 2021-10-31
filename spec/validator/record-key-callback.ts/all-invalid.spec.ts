@@ -8,7 +8,7 @@ import Infer from "@dikac/t-validator/validatable/infer-unambiguous";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
-let validator = Callbacks<string, string>(function (value) {
+let validator = Callbacks.Parameter<string, string>(function (value) {
     return ! ['name', 'age', 'address'].includes(value);
 },function (result){
     return result.value + ' ' + (result.valid ? 'valid' : 'true');
@@ -22,7 +22,7 @@ let value = {
 
 it(`and validation`, () => {
 
-    let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey, And, MessageMap);
+    let property = RecordValueCallback.Parameter<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey.Parameter, And, MessageMap);
 
     let and = property(value);
 
@@ -41,7 +41,7 @@ it(`and validation`, () => {
 
 it(`or validation `, () => {
 
-    let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey, Or, MessageMap);
+    let property = RecordValueCallback.Parameter<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey.Parameter, Or, MessageMap);
 
     let or = property(value);
     expect<boolean>(or.valid).toBe(false);

@@ -88,7 +88,7 @@ export function MapCallbackParameter<
 
     return function (value ) {
 
-        return new ValidatableMapCallback({value, validators, map, validation, message});
+        return new ValidatableMapCallback.Parameter(value, validators, map, validation, message);
 
     } as Map<Validators, Result, ValidatableType, MessageType>
 

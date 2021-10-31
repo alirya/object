@@ -16,6 +16,6 @@ export default function Name(value) {
     if (typeof value === "object") {
         return 'Object';
     }
-    throw new Error(NameNotFound({ valid: false, value }));
+    throw new Error(NameNotFound.Parameter(false, value));
 }
 //# sourceMappingURL=name.js.map

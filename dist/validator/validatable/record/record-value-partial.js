@@ -7,7 +7,7 @@ var RecordValuePartial;
 })(RecordValuePartial || (RecordValuePartial = {}));
 export function RecordValuePartialParameter(value, validator, stop = false) {
     let result = {};
-    for (const [key, validatable] of IteratorRecordValue({ value, validator })) {
+    for (const [key, validatable] of IteratorRecordValue.Parameter(value, validator)) {
         result[key] = validatable;
         if (validatable.valid === stop) {
             return result;

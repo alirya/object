@@ -6,7 +6,7 @@ export default function Or<
     Object extends Partial<Record<PropertyKey, Validatable>>
 >(
     validatables : Object
-) : Validatables<Object, boolean> {
+) : Validatables.Type<Object, boolean> {
 
-    return new Validatables({validatables, validation:OrBoolean});
+    return new Validatables.Parameter(validatables, OrBoolean);
 }

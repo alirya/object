@@ -7,7 +7,7 @@ var Value;
 })(Value || (Value = {}));
 export function ValueParameter(value, validators) {
     let object = {};
-    for (const [key, validatable] of IteratorValue({ value, validators })) {
+    for (const [key, validatable] of IteratorValue.Parameter(value, validators)) {
         object[key] = validatable;
     }
     return object;

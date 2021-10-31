@@ -1,4 +1,4 @@
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 import RecordValueCallback from "../../../dist/validator/record-value-callback";
 import ValidateValue from "../../../dist/validator/validatable/record/record-value";
 import And from "../../../dist/validatable/and";
@@ -20,7 +20,7 @@ describe("flat", function() {
 
     it(`and validation`, () => {
 
-        let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue, And, MessageMap);
+        let property = RecordValueCallback.Parameter<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue.Parameter, And, MessageMap);
 
         let validatable = property(value);
 
@@ -40,7 +40,7 @@ describe("flat", function() {
 
     it(`or validation`, () => {
 
-        let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue, Or, MessageMap);
+        let property = RecordValueCallback.Parameter<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue.Parameter, Or, MessageMap);
 
         let validatable = property(value);
 

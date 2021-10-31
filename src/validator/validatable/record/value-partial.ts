@@ -23,7 +23,7 @@ export function ValuePartialParameter<
 
     let object = {};
 
-    for(const [key, validatable] of IteratorValue({value, validators})) {
+    for(const [key, validatable] of IteratorValue.Parameter(value, validators)) {
 
         //const validator = validators[property];
 

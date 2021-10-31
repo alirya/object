@@ -11,7 +11,7 @@ describe('plain', () => {
         get data ()  {
 
             called++;
-            return SetGetter(this, 'data', Math.random().toString());
+            return SetGetter.Parameter(this, 'data', Math.random().toString());
         }
     }
 
@@ -53,7 +53,7 @@ describe('class', () => {
         get data ()  {
 
             called++;
-            return SetGetter(this, 'data', Math.random().toString());
+            return SetGetter.Parameter(this, 'data', Math.random().toString());
         }
     }
 

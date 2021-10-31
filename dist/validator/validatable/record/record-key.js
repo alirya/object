@@ -7,16 +7,12 @@ var RecordKey;
 })(RecordKey || (RecordKey = {}));
 export function RecordKeyParameter(value, validator) {
     let result = {};
-    for (const [key, validatable] of IteratorRecordKey({ value, validator })) {
+    for (const [key, validatable] of IteratorRecordKey.Parameter(value, validator)) {
         result[key] = validatable;
     }
     return result;
 }
 export function RecordKeyObject({ value, validator }) {
-    let result = {};
-    for (const [key, validatable] of IteratorRecordKey({ value, validator })) {
-        result[key] = validatable;
-    }
-    return result;
+    return RecordKeyParameter(value, validator);
 }
 //# sourceMappingURL=record-key.js.map

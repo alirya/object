@@ -1,5 +1,5 @@
 import CallValidator from "../../../../dist/validator/validatable/record/map-partial";
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 
 it("force console log", () => spyOn(console, 'log').and.callThrough());
 
@@ -18,7 +18,7 @@ describe("stop on invalid", function() {
             validator2 : 10,
         };
 
-        let result = CallValidator(value, validator);
+        let result = CallValidator.Parameter(value, validator);
 
 
             it('match validator1', ()=> {
@@ -59,7 +59,7 @@ describe("stop on invalid", function() {
             validator2 : 'str',
         };
 
-        let result = CallValidator(value, validator);
+        let result = CallValidator.Parameter(value, validator);
 
         it('match validator1', ()=> {
 
@@ -93,7 +93,7 @@ describe("stop on invalid", function() {
             validator3 : 'str 2',
         };
 
-        let result = CallValidator(value, validator);
+        let result = CallValidator.Parameter(value, validator);
 
         it('match validator1', ()=> {
 

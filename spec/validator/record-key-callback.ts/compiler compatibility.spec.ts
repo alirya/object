@@ -7,7 +7,7 @@ import MessageMap from "../../../dist/message/message/record/map";
 import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
 import Validatable from "@dikac/t-validatable/validatable";
 import ValidateValuePartial from "../../../dist/validator/validatable/record/record-key-partial";
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -29,7 +29,7 @@ describe("compiler compatibility", function() {
 
     describe("implicit", function() {
 
-        let property = RecordValueCallback(validator, ValidateKey, And, (v)=>MessageMap(v));
+        let property = RecordValueCallback.Parameter(validator, ValidateKey.Parameter, And, (v)=>MessageMap(v));
 
         let validatable = property(value);
 
@@ -48,8 +48,8 @@ describe("compiler compatibility", function() {
 
         describe("auto", function() {
 
-            let property = RecordValueCallback<TypeValidatorValue>(validator,
-                (value, validators) => ValidateKey(value, validators),
+            let property = RecordValueCallback.Parameter<TypeValidatorValue>(validator,
+                (value, validators) => ValidateKey.Parameter(value, validators),
                 (v)=>And(v),
                 (v)=>MessageMap(<globalThis.Record<any, ValidatorValidatable>>v)
             );
@@ -63,8 +63,8 @@ describe("compiler compatibility", function() {
 
         describe("direct", function() {
 
-            let property = RecordValueCallback<TypeValidatorValue>(validator,
-                (value, validators) => ValidateKey(value, validators),
+            let property = RecordValueCallback.Parameter<TypeValidatorValue>(validator,
+                (value, validators) => ValidateKey.Parameter(value, validators),
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 (v)=>MessageMap(<globalThis.Record<any, ValidatorValidatable>>v)
             );
@@ -79,9 +79,9 @@ describe("compiler compatibility", function() {
 
     describe("implicit partial", function() {
 
-        let property = RecordValueCallback(validator,
+        let property = RecordValueCallback.Parameter(validator,
             (value, validators) =>
-                <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
+                <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial.Parameter(value, validators),
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -97,10 +97,10 @@ describe("compiler compatibility", function() {
 
         describe("auto", function() {
 
-            let property = RecordValueCallback<TypeValidatorValue>(
+            let property = RecordValueCallback.Parameter<TypeValidatorValue>(
                 validator,
                 (value, validators) =>
-                    <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
+                    <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial.Parameter(value, validators),
                 (v)=>And(<globalThis.Record<any, ValidatorValidatable>>v),
                 (v)=>MessageMap(<globalThis.Record<any, ValidatorValidatable>>v)
             );
@@ -114,10 +114,10 @@ describe("compiler compatibility", function() {
 
         describe("direct", function() {
 
-            let property = RecordValueCallback<TypeValidatorValue>(
+            let property = RecordValueCallback.Parameter<TypeValidatorValue>(
                 validator,
                 (value, validators) =>
-                    <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
+                    <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial.Parameter(value, validators),
                 (v)=>And(<globalThis.Record<any, ValidatorValidatable>>v),
                 (v)=>MessageMap(<globalThis.Record<any, ValidatorValidatable>>v)
             );

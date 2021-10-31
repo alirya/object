@@ -6,7 +6,7 @@ import ObjectValidatable from "../validatable/object";
 import Instance from "@dikac/t-validator/validatable/validatable";
 import Return from "@dikac/t-validator/validatable/simple";
 import {A} from "ts-toolbelt";
-import ObjectString from "../validatable/string/object";
+import ObjectString from "../assert/string/object";
 //
 // export default class Object_<MessageType>
 //     implements
@@ -33,12 +33,12 @@ export default function Object_<MessageType>(
 ) : Validator<unknown, object, Readonly<Instance<object, MessageType>>>;
 
 export default function Object_<MessageType>(
-    message : (result:Readonly<Value> & Readonly<Validatable>)=>MessageType|string = ObjectString
+    message : (result:Readonly<Value> & Readonly<Validatable>)=>MessageType|string = ObjectString.Object
 ) : Validator<unknown, object, Readonly<Instance<object, MessageType>>> {
 
     return function (value ) {
 
-        return  ObjectValidatable(value, message);
+        return  ObjectValidatable.Parameter(value, message);
 
     } as Validator<unknown, object, Readonly<Instance<object, MessageType>>>
 }

@@ -39,7 +39,7 @@ var RecordKeyCallback;
 // }
 export function RecordKeyCallbackParameter(validator, handler, validation, message) {
     return function (value) {
-        return new ValidatableRecordCallback({ value, validator, map: handler, validation, message });
+        return new ValidatableRecordCallback.Parameter(value, validator, handler, validation, message);
     };
 }
 export function RecordKeyCallbackObject(

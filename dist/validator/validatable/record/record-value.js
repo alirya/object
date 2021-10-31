@@ -7,7 +7,7 @@ var RecordValue;
 })(RecordValue || (RecordValue = {}));
 export function RecordValueParameter(value, validator) {
     let result = {};
-    for (const [key, validatable] of IteratorRecordValue({ value, validator })) {
+    for (const [key, validatable] of IteratorRecordValue.Parameter(value, validator)) {
         result[key] = validatable;
     }
     return result;

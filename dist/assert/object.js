@@ -1,7 +1,7 @@
 import Guard from "../boolean/object";
 import Callback from "@dikac/t-function/assert/callback";
 import StringError from "./throwable/object";
-export default function Object_(value, error = StringError) {
-    Callback(value, { validation: Guard, error });
+export default function Object_(value, error = StringError.Parameter) {
+    Callback.Parameter(value, Guard, error);
 }
 //# sourceMappingURL=object.js.map

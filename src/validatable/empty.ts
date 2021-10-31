@@ -4,18 +4,21 @@ import Message from "@dikac/t-message/message";
 import EmptyArgument from "../boolean/empty";
 import MemoizeAccessor from "../function/memoize-accessor";
 
-export default class Empty<Type extends object, MessageType>
+
+export default Empty;
+
+export class EmptyParameter<Type extends object, MessageType>
     implements
-        Readonly<Value<Type> & Message<MessageType> & Validatable>
+        EmptyType<Type, MessageType>
 {
     readonly valid : boolean;
-    #message : (result:Readonly<Value<Type> & Validatable>)=>MessageType;
-    readonly value : Type;
+    #message : (value:Type, valid : boolean)=>MessageType;
+    //readonly value : Type;
 
     constructor(
-        //readonly value : Type,
-        //private _message : (result:Readonly<Value<Type> & Validatable>)=>MessageType,
-        {value, message} : Value<Type> & Message<(result:Readonly<Value<Type> & Validatable>)=>MessageType>
+        readonly value : Type,
+        message : (value:Type, valid : boolean)=>MessageType,
+       //  {value, message} : Value<Type> & Message<(result:Readonly<Value<Type> & Validatable>)=>MessageType>
     ) {
 
         this.value = value;
@@ -26,7 +29,44 @@ export default class Empty<Type extends object, MessageType>
     @MemoizeAccessor()
     get message() : MessageType {
 
-        return this.#message(this);
+        return this.#message(this.value, this.valid);
     }
+}
+
+export type EmptyArgument<Type extends object, MessageType> =
+    Value<Type> &
+    Message<(result:Readonly<Value<Type> & Validatable>)=>MessageType>;
+
+export type EmptyType<Type extends object, MessageType> = Readonly<Value<Type> & Message<MessageType> & Validatable>;
+
+
+export class EmptyObject<Type extends object, MessageType> extends EmptyParameter<Type, MessageType> {
+
+    constructor({value, message} : EmptyArgument<Type, MessageType>) {
+
+        super(value, ()=>message(this));
+    }
+}
+
+namespace Empty {
+
+    export const Parameter = EmptyParameter;
+    export const Object = EmptyObject;
+
+    export type Type<
+        ValueType extends object,
+        MessageType
+    > = EmptyType<
+        ValueType,
+        MessageType
+    >
+
+    export type Argument<
+        ValueType extends object,
+        MessageType
+    > = EmptyArgument<
+        ValueType,
+        MessageType
+    >;
 }
 

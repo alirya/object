@@ -11,7 +11,9 @@ import Validators from "../validator/validators/validators";
 import Validation from "@dikac/t-boolean/validation/validation";
 import Message from "@dikac/t-message/message";
 
-export default class MapCallback<
+export default MapCallback;
+
+export class MapCallbackParameter<
     MessageType = unknown,
     ValidatorsType extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
     Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
@@ -24,28 +26,28 @@ export default class MapCallback<
     readonly validatable : ValidatableType;
     readonly validatables : Result;
 
-    public validators : ValidatorsType;
-    private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result;
-    private validation : (result : Result)=>ValidatableType;
+    // public validators : ValidatorsType;
+    // private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result;
+    // private validation : (result : Result)=>ValidatableType;
 
     constructor(
-        //value: ValueType,
-        //public validators : ValidatorsType,
-        //private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result,
-        //private validation : (result : Result)=>ValidatableType,
-       //  message : (result : Result)=>MessageType,
-        {
-            value,
-            validators,
-            map,
-            validation,
-            message
-        } : Value<ValueType> &
-            Validators<ValidatorsType> &
-            {map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result} &
-            // TODO CHANGE TO VALIDATOR
-            {validation : (result : Result)=>ValidatableType} &
-            Message<(result : Result)=>MessageType>
+        value: ValueType,
+        public validators : ValidatorsType,
+        private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result,
+        private validation : (result : Result)=>ValidatableType,
+          message : (result : Result)=>MessageType,
+        // {
+        //     value,
+        //     validators,
+        //     map,
+        //     validation,
+        //     message
+        // } : Value<ValueType> &
+        //     Validators<ValidatorsType> &
+        //     {map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result} &
+        //     // TODO CHANGE TO VALIDATOR
+        //     {validation : (result : Result)=>ValidatableType} &
+        //     Message<(result : Result)=>MessageType>
     ) {
 
         this.validators = validators;
@@ -86,4 +88,66 @@ export default class MapCallback<
             throw new Error(`error on generating message, ${e}`)
         }
     }
+}
+
+
+export type MapCallbackArgument<
+    MessageType = unknown,
+    ValidatorsType extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
+    Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+    ValidatableType extends Validatable = Validatable,
+    ValueType extends RecordBase<ValidatorsType> = RecordBase<ValidatorsType>
+> = Value<ValueType> &
+    Validators<ValidatorsType> &
+    {map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result} &
+    // TODO CHANGE TO VALIDATOR
+    {validation : (result : Result)=>ValidatableType} &
+    Message<(result : Result)=>MessageType>;
+
+
+export class MapCallbackObject<
+    MessageType = unknown,
+    ValidatorsType extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
+    Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+    ValidatableType extends Validatable = Validatable,
+    ValueType extends RecordBase<ValidatorsType> = RecordBase<ValidatorsType>
+> extends MapCallbackParameter<MessageType, ValidatorsType, Result, ValidatableType, ValueType> {
+
+    constructor(
+        //value: ValueType,
+        //public validators : ValidatorsType,
+        //private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result,
+        //private validation : (result : Result)=>ValidatableType,
+        //  message : (result : Result)=>MessageType,
+        {
+            value,
+            validators,
+            map,
+            validation,
+            message
+        } : MapCallbackArgument<MessageType, ValidatorsType, Result, ValidatableType, ValueType>
+    ) {
+        super(value, validators, map, validation, message);
+    }
+}
+
+namespace MapCallback {
+
+    export const Parameter = MapCallbackParameter;
+
+    export const Object = MapCallbackObject;
+
+    export type Argument<
+        MessageType = unknown,
+        ValidatorsType extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
+        Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+        ValidatableType extends Validatable = Validatable,
+        ValueType extends RecordBase<ValidatorsType> = RecordBase<ValidatorsType>
+    > = MapCallbackArgument<
+        MessageType,
+        ValidatorsType,
+        Result,
+        ValidatableType,
+        ValueType
+    >;
 }

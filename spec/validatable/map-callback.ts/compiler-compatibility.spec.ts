@@ -6,7 +6,7 @@ import ValidatableInfer from "../../../dist/validator/validatable/record/infer";
 import And from "../../../dist/validatable/and";
 import MessageMap from "../../../dist/message/message/record/map";
 import Validatable from "@dikac/t-validatable/validatable";
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 
 let validator = {
     name : Type('string'),
@@ -30,7 +30,7 @@ let value = {
 
 describe("implicit", function() {
 
-    let validatable = new MapCallback(value, validator, ValidateMap, And, MessageMap);
+    let validatable = new MapCallback.Parameter(value, validator, ValidateMap.Parameter, And, MessageMap);
 
     let unknown : unknown = validatable.value;
 
@@ -42,7 +42,7 @@ describe("explicit", function() {
 
     describe("auto", function() {
 
-        let validatable = new MapCallback<
+        let validatable = new MapCallback.Parameter<
             Type,
             TypeValidator,
             ValidatableInfer<TypeValidator>,
@@ -51,7 +51,7 @@ describe("explicit", function() {
         >(
             value,
             validator,
-            ValidateMap,
+            ValidateMap.Parameter,
             And,
             result => MessageMap(result)
         );

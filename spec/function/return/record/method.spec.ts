@@ -26,7 +26,7 @@ describe('compiler compatibility', () => {
 
     describe('partial 1', () => {
 
-        let result = MethodSingle(new Test(), {
+        let result = MethodSingle.Parameter(new Test(), {
             string : ['data']
         });
 
@@ -41,7 +41,7 @@ describe('compiler compatibility', () => {
 
     describe('partial 2', () => {
 
-        let result = MethodSingle(new Test(), {
+        let result = MethodSingle.Parameter(new Test(), {
             string : ['data'],
             number : [5]
         });
@@ -56,7 +56,7 @@ describe('compiler compatibility', () => {
 
     describe('all', () => {
 
-        let result = MethodSingle(new Test(), {
+        let result = MethodSingle.Parameter(new Test(), {
             string : ['data'],
             number : [5],
             boolean : [false]
@@ -92,7 +92,7 @@ describe('test', () => {
 
     it('partial 1', () => {
 
-        let result = MethodSingle(new Test(), {
+        let result = MethodSingle.Parameter(new Test(), {
             string : ['data']
         });
 
@@ -107,7 +107,7 @@ describe('test', () => {
 
     it('partial 2', () => {
 
-        let result = MethodSingle(new Test(), {
+        let result = MethodSingle.Parameter(new Test(), {
             string : ['data'],
             number : [5]
         });
@@ -122,7 +122,7 @@ describe('test', () => {
 
     it('all', () => {
 
-        let result = MethodSingle(new Test(), {
+        let result = MethodSingle.Parameter(new Test(), {
             string : ['data'],
             number : [5],
             boolean : [false]

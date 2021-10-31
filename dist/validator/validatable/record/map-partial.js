@@ -7,7 +7,7 @@ var MapPartial;
 })(MapPartial || (MapPartial = {}));
 export function MapPartialParameter(value, validators, stop = false) {
     let object = {};
-    for (let [property, validatable] of IteratorMap({ value, validators })) {
+    for (let [property, validatable] of IteratorMap.Parameter(value, validators)) {
         object[property] = validatable;
         if (validatable.valid === stop) {
             return object;

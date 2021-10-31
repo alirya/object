@@ -1,3 +1,9 @@
+export default SetGetter;
+var SetGetter;
+(function (SetGetter) {
+    SetGetter.Parameter = SetGetterParameter;
+    SetGetter.Object = SetGetterObject;
+})(SetGetter || (SetGetter = {}));
 /**
  * set {@param value} for getter value for {@param object}
  * should be used inside getter callback
@@ -12,7 +18,13 @@
  *
  * @param configurable {@default true}
  */
-export default function SetGetter(
+export function SetGetterParameter(object, property, value, configurable = true) {
+    return Object.defineProperty(object, property, {
+        get: () => value,
+        configurable: configurable
+    })[property];
+}
+export function SetGetterObject(
 // object : This,
 // property : keyof This,
 // value : Type,

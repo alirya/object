@@ -11,7 +11,9 @@ const defaults = {suffix:'', configurable:true}
  * @param configuration
  * @default {suffix:'', configurable:true}
  */
-export default function MemoizeMethod(configuration : Pick<PropertyDescriptor, 'configurable'> & Partial<Suffix> = defaults) : MethodDecorator  {
+export default function MemoizeMethod(
+    configuration : Pick<PropertyDescriptor, 'configurable'> & Partial<Suffix> = defaults
+) : MethodDecorator  {
 
     configuration = Default(configuration, defaults)
 
@@ -23,16 +25,14 @@ export default function MemoizeMethod(configuration : Pick<PropertyDescriptor, '
 
         descriptor.value = function (...args) {
 
-            return SetMethod({
-                object : this,
+            return SetMethod.Parameter(
+                this,
                 property,
-                value : this[symbol](args),
-                writable : false,
-                configurable : configuration.configurable
-        });
-
-           // return SetGetter(this, <any>property, this[symbol], configuration.configurable);
-
+                this[symbol](args),
+                false,
+                configuration.configurable
+            )
+            // return SetGetter(this, <any>property, this[symbol], configuration.configurable);
         };
     };
 }

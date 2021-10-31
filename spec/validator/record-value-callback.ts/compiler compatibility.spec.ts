@@ -7,7 +7,7 @@ import MessageMap from "../../../dist/message/message/record/map";
 import Validatable from "@dikac/t-validatable/validatable";
 import ValidateValuePartial from "../../../dist/validator/validatable/record/record-value-partial";
 import Message from "@dikac/t-message/message";
-import Type from "@dikac/t-type/validator/type-standard";
+import Type from "@dikac/t-type/validator/type";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -27,7 +27,7 @@ let value = {
 
 describe("implicit", function() {
 
-    let property = RecordValueCallback(validator, ValidateValue, And, (v)=>MessageMap(v));
+    let property = RecordValueCallback.Parameter(validator, ValidateValue.Parameter, And, (v)=>MessageMap(v));
 
     let validatable = property(value);
 
@@ -46,8 +46,8 @@ describe("explicit complete", function() {
 
     describe("auto", function() {
 
-        let property = RecordValueCallback<TypeValidatorValue>(validator,
-            (value, validators) => ValidateValue(value, validators),
+        let property = RecordValueCallback.Parameter<TypeValidatorValue>(validator,
+            (value, validators) => ValidateValue.Parameter(value, validators),
             (v)=>And(v),
             MessageMap
         );
@@ -61,8 +61,8 @@ describe("explicit complete", function() {
 
     describe("direct", function() {
 
-        let property = RecordValueCallback<TypeValidatorValue>(validator,
-            (value, validators) => ValidateValue(value, validators),
+        let property = RecordValueCallback.Parameter<TypeValidatorValue>(validator,
+            (value, validators) => ValidateValue.Parameter(value, validators),
             (v)=>And(<globalThis.Record<any, Validatable>>v),
             MessageMap
         );
@@ -77,9 +77,9 @@ describe("explicit complete", function() {
 
 describe("implicit partial", function() {
 
-    let property = RecordValueCallback(validator,
+    let property = RecordValueCallback.Parameter(validator,
         (value, validators) =>
-            <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
+            <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial.Parameter(value, validators),
         (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
         MessageMap
     );
@@ -95,10 +95,10 @@ describe("explicit complete", function() {
 
     describe("auto", function() {
 
-        let property = RecordValueCallback<TypeValidatorValue>(
+        let property = RecordValueCallback.Parameter<TypeValidatorValue>(
             validator,
             (value, validators) =>
-                <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
+                <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial.Parameter(value, validators),
             (v)=>And(<globalThis.Record<any, Validatable>>v),
             MessageMap
         );
@@ -112,10 +112,10 @@ describe("explicit complete", function() {
 
     describe("direct", function() {
 
-        let property = RecordValueCallback<TypeValidatorValue>(
+        let property = RecordValueCallback.Parameter<TypeValidatorValue>(
             validator,
             (value, validators) =>
-                <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
+                <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial.Parameter(value, validators),
             (v)=>And(<globalThis.Record<any, Validatable>>v),
             (v)=>MessageMap(<globalThis.Record<any, Message>>v)
         );

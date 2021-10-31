@@ -5,11 +5,23 @@
  * @param object
  * @param argument
  */
-export default function MethodSingle(object, argument) {
+export default MethodSingle;
+var MethodSingle;
+(function (MethodSingle) {
+    MethodSingle.Parameter = MethodSingleParameter;
+    MethodSingle.Object = MethodSingleObject;
+})(MethodSingle || (MethodSingle = {}));
+export function MethodSingleParameter(value, argument) {
     let result = {};
     for (const [property, value] of Object.entries(argument)) {
-        result[property] = object[property](value);
+        result[property] = value[property](value);
     }
     return result;
+}
+export function MethodSingleObject(
+// value : Type,
+// argument : Argument,
+{ value, argument, }) {
+    return MethodSingleParameter(value, argument);
 }
 //# sourceMappingURL=method-single.js.map

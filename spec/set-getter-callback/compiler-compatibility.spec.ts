@@ -6,7 +6,7 @@ describe('plain', () => {
 
     let source = {};
 
-    let object = MemoizeGetterBind(source, 'data', () =>'string');
+    let object = MemoizeGetterBind.Parameter(source, 'data', () =>'string');
 
     let string : string = object.data;
 
@@ -23,7 +23,7 @@ describe('different type', () => {
         get data () : number { return  1}
     }
 
-    let object = MemoizeGetterBind(source, 'data', () =>'string');
+    let object = MemoizeGetterBind.Parameter(source, 'data', () =>'string');
 
     // @ts-expect-error
     let number : number = object.data;
@@ -50,7 +50,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Implementer();
-        let type : Interface = MemoizeGetterBind(source, 'data', () =>'string');
+        let type : Interface = MemoizeGetterBind.Parameter(source, 'data', () =>'string');
         let string : string = type.data;
 
     });
@@ -66,7 +66,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Test();
-        let type : Interface = MemoizeGetterBind(source, 'data', () =>'string');
+        let type : Interface = MemoizeGetterBind.Parameter(source, 'data', () =>'string');
         let string : string = type.data;
 
     });
@@ -79,7 +79,7 @@ describe('not exists', () => {
         let source = {}
 
 
-        let object = MemoizeGetterBind(source, 'data', () =>'string');
+        let object = MemoizeGetterBind.Parameter(source, 'data', () =>'string');
 
         // @ts-expect-error
         let string : string = object.c;
@@ -96,7 +96,7 @@ describe('not exists', () => {
         }
 
 
-        let object = MemoizeGetterBind(source, 'value', () =>'string');
+        let object = MemoizeGetterBind.Parameter(source, 'value', () =>'string');
 
         // @ts-expect-error
         let string : string = object.c;
