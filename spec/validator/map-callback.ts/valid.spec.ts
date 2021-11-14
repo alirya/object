@@ -21,12 +21,12 @@ describe("flat", function() {
     it(`and validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
+            name : Type.Parameters('string'),
+            address : Type.Parameters('string'),
+            user : Type.Parameters('string'),
         };
 
-        let property = MapCallback.Parameter<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap.Parameter, And, MessageMap);
+        let property = MapCallback.Parameters<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap.Parameters, And, MessageMap);
 
         let validatable = property(value);
 
@@ -47,12 +47,12 @@ describe("flat", function() {
     it(`or validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
+            name : Type.Parameters('string'),
+            address : Type.Parameters('string'),
+            user : Type.Parameters('string'),
         };
 
-        let property = MapCallback.Parameter<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap.Parameter, Or, MessageMap);
+        let property = MapCallback.Parameters<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap.Parameters, Or, MessageMap);
 
         let validatable = property(value);
 
@@ -89,20 +89,20 @@ describe("recursive", function() {
     it(`and validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
-            info : MapCallbackFunction.Parameter({
-                    age : Type('number'),
-                    hobby : Type('string'),
-                    no : Type('number')
+            name : Type.Parameters('string'),
+            address : Type.Parameters('string'),
+            user : Type.Parameters('string'),
+            info : MapCallbackFunction.Parameters({
+                    age : Type.Parameters('number'),
+                    hobby : Type.Parameters('string'),
+                    no : Type.Parameters('number')
                 },
-                (value, validators) => ValidateMapPartial.Parameter(value, validators),
+                (value, validators) => ValidateMapPartial.Parameters(value, validators),
                 And, MessageMap)
         };
 
-        let property = MapCallback.Parameter(validator,
-            (value, validators) => ValidateMapPartial.Parameter(value, validators),
+        let property = MapCallback.Parameters(validator,
+            (value, validators) => ValidateMapPartial.Parameters(value, validators),
             And,
             MessageMap
         );
@@ -171,20 +171,20 @@ describe("recursive", function() {
 
 
         let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
-            info : MapCallbackFunction.Parameter({
-                    age : Type('number'),
-                    hobby : Type('string'),
-                    no : Type('number')
+            name : Type.Parameters('string'),
+            address : Type.Parameters('string'),
+            user : Type.Parameters('string'),
+            info : MapCallbackFunction.Parameters({
+                    age : Type.Parameters('number'),
+                    hobby : Type.Parameters('string'),
+                    no : Type.Parameters('number')
                 },
-                (value, validators) => ValidateMapPartial.Parameter(value, validators),
+                (value, validators) => ValidateMapPartial.Parameters(value, validators),
                 Or, MessageMap)
         };
 
-        let property = MapCallback.Parameter(validator,
-            (value, validators) => ValidateMapPartial.Parameter(value, validators),
+        let property = MapCallback.Parameters(validator,
+            (value, validators) => ValidateMapPartial.Parameters(value, validators),
             Or,
             MessageMap
         );

@@ -5,8 +5,8 @@ import MessageMap from "../../../dist/message/message/record/map";
 import Type from "@dikac/t-type/validator/type";
 
 let validator = {
-    name : Type('string'),
-    address : Type('string'),
+    name : Type.Parameters('string'),
+    address : Type.Parameters('string'),
 };
 
 
@@ -17,7 +17,7 @@ it("same value", function() {
         address : 'address',
     };
 
-    let validatable = new MapCallback.Parameter(value, validator, ValidateMap.Parameter, And, MessageMap);
+    let validatable = new MapCallback.Parameters(value, validator, ValidateMap.Parameters, And, MessageMap);
 
     expect(value).toEqual(validatable.value);
 
@@ -31,7 +31,7 @@ it('extra', function() {
         extra : 'value',
     };
 
-    let validatable = new MapCallback.Parameter(value, validator, ValidateMap.Parameter, And, MessageMap);
+    let validatable = new MapCallback.Parameters(value, validator, ValidateMap.Parameters, And, MessageMap);
 
     expect(value).not.toEqual(validatable.value);
 
@@ -49,7 +49,7 @@ it('missing', function() {
     };
 
     // @ts-expect-error
-    let validatable = new MapCallback.Parameter(value, validator, ValidateMap.Parameter, And, MessageMap);
+    let validatable = new MapCallback.Parameters(value, validator, ValidateMap.Parameter, And, MessageMap);
 
     // @ts-expect-error
     expect(value).not.toEqual(validatable.value);

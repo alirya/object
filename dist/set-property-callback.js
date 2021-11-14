@@ -1,19 +1,9 @@
-import MemoizeGetter from "./value/value/set-property";
-export default SetPropertyCallback;
+import SetPropertyCallbackParameters from "./set-property-callback-parameters";
+import SetPropertyCallbackParameter from "./set-property-callback-parameter";
 var SetPropertyCallback;
 (function (SetPropertyCallback) {
+    SetPropertyCallback.Parameters = SetPropertyCallbackParameters;
     SetPropertyCallback.Parameter = SetPropertyCallbackParameter;
-    SetPropertyCallback.Object = SetPropertyCallbackObject;
 })(SetPropertyCallback || (SetPropertyCallback = {}));
-export function SetPropertyCallbackParameter(object, property, factory, writable = true, configurable = true) {
-    return Object.defineProperty(object, property, {
-        configurable: true,
-        get() {
-            return MemoizeGetter.Parameter(object, property, factory(), writable, configurable);
-        }
-    });
-}
-export function SetPropertyCallbackObject({ object, property, factory, writable, configurable, }) {
-    return SetPropertyCallbackParameter(object, property, factory, writable, configurable);
-}
+export default SetPropertyCallback;
 //# sourceMappingURL=set-property-callback.js.map

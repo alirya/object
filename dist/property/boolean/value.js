@@ -1,17 +1,9 @@
-import { ReadableObject, ReadableParameter } from "./readable";
-export default Readable;
-var Readable;
-(function (Readable) {
-    Readable.Parameter = ReadableParameter;
-    Readable.Object = ReadableObject;
-})(Readable || (Readable = {}));
-export function ValueParameter(object, property, validation) {
-    return validation(object[property]);
-}
-export function ValueObject(object, 
-// property : PropertyType,
-// validation : (value:unknown)=>value is Type,
-{ property, validation }) {
-    return validation(object[property]);
-}
+import ValueParameter from "./value-parameter";
+import ValueParameters from "./value-parameters";
+var Value;
+(function (Value) {
+    Value.Parameter = ValueParameter;
+    Value.Parameters = ValueParameters;
+})(Value || (Value = {}));
+export default Value;
 //# sourceMappingURL=value.js.map

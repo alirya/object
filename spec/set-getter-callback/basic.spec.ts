@@ -8,7 +8,7 @@ describe('plain', () => {
     let result : string;
     let soruce = {};
 
-    let object = MemoizeGetterBind.Parameter(soruce, 'data', () =>{
+    let object = MemoizeGetterBind.Parameters(soruce, 'data', () =>{
         called++;
         return Math.random().toString();
     });
@@ -59,7 +59,7 @@ describe('class', () => {
     let source = new Test();
 
 
-    let object = MemoizeGetterBind.Parameter(source, 'data', () =>{
+    let object = MemoizeGetterBind.Parameters(source, 'data', () =>{
         calledCallback++;
         return Math.random().toString();
     });

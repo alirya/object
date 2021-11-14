@@ -4,15 +4,15 @@ import ValidatorInterface from "@dikac/t-validator/simple";
 import MessageMap from "../../../dist/message/message/record/map";
 import RemoveUndefined from "../../../dist/omit-undefined";
 import Type from "@dikac/t-type/validator/type";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import Instance from "@dikac/t-validator/validatable/dynamic";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
 describe("explicit typed", function() {
 
     let validator = {
-        name : Type('string'),
-        address : Type('string'),
+        name : Type.Parameters('string'),
+        address : Type.Parameters('string'),
     };
 
     type TypeValidator = {
@@ -33,7 +33,7 @@ describe("explicit typed", function() {
 
     describe("implicit", function() {
 
-        let property = Map.Parameter(validator, And, MessageMap);
+        let property = Map.Parameters(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -45,7 +45,7 @@ describe("explicit typed", function() {
 
     describe("auto", function() {
 
-        let property = Map.Parameter<
+        let property = Map.Parameters<
             globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>
             >(validator,
             And,
@@ -61,7 +61,7 @@ describe("explicit typed", function() {
 
     describe("direct", function() {
 
-        let property = Map.Parameter<TypeValidator>(validator, And, (v)=>MessageMap(RemoveUndefined(v)));
+        let property = Map.Parameters<TypeValidator>(validator, And, (v)=>MessageMap(RemoveUndefined(v)));
 
         let validatable = property(value);
 

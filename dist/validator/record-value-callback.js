@@ -1,4 +1,5 @@
-import ValidatableRecordCallback from "../validatable/record-value-callback";
+import RecordValueCallbackParameter from "./record-value-callback-parameter";
+import RecordValueCallbackParameters from "./record-value-callback-parameters";
 //
 // export default class RecordValueCallback<
 //     ValidatorType extends Validator = Validator,
@@ -30,23 +31,65 @@ import ValidatableRecordCallback from "../validatable/record-value-callback";
 //             new ValidatableRecordCallback(argument, this.validator, this.handler, this.validation, this.message);
 //     }
 // }
-export default RecordValueCallback;
 var RecordValueCallback;
 (function (RecordValueCallback) {
     RecordValueCallback.Parameter = RecordValueCallbackParameter;
-    RecordValueCallback.Object = RecordValueCallbackObject;
+    RecordValueCallback.Parameters = RecordValueCallbackParameters;
 })(RecordValueCallback || (RecordValueCallback = {}));
-export function RecordValueCallbackParameter(validator, handler, validation, message) {
-    return function (value) {
-        return new ValidatableRecordCallback.Parameter(value, validator, handler, validation, message);
-    };
-}
-export function RecordValueCallbackObject(
-// validator : ValidatorType,
-// handler : (record:Partial<Record<PropertyKey, InferBase<ValidatorType>>>, validator : ValidatorType)=>Result,
-// validation : (result:Result)=>ValidatableType,
-// message : (result:Result)=>Message,
-{ validator, handler, validation, message }) {
-    return RecordValueCallbackParameter(validator, (value, validator) => handler({ value, validator }), validation, message);
-}
+export default RecordValueCallback;
+//
+// export function RecordValueCallbackParameter<
+//     ValidatorType extends Validator = Validator,
+//     Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+//     ValidatableType extends Validatable = Validatable,
+//     Message = unknown,
+// >(
+//     validator : ValidatorType,
+//     handler : (value:Partial<Record<PropertyKey, InferBase<ValidatorType>>>, validator : ValidatorType)=>Result,
+//     validation : (result:Result)=>ValidatableType,
+//     message : (result:Result)=>Message,
+//     //{validator, handler, validation, message} : RecordValueCallbackArgument<ValidatorType, Result, ValidatableType, Message>
+// ) : RecordValue<ValidatorType, Result, ValidatableType, Message> {
+//
+//     return function (value) {
+//
+//         return new ValidatableRecordCallback.Parameter(value, validator, handler, validation, message);
+//
+//     } as RecordValue<ValidatorType, Result, ValidatableType, Message>
+// }
+//
+// export type RecordValueCallbackArgument<
+//     ValidatorType extends Validator = Validator,
+//     Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+//     ValidatableType extends Validatable = Validatable,
+//     Message = unknown,
+// > =
+//     ValidatorContainer<ValidatorType> &
+//     MessageType<(result:Result)=>Message> &
+//     //{handler: (record: Partial<Record<PropertyKey, InferBase<ValidatorType>>>, validator: ValidatorType) => Result} &
+//     {handler: (argument : Value<Partial<Record<PropertyKey, InferBase<ValidatorType>>>> & ValidatorContainer<ValidatorType>) => Result} &
+//     {validation: (result: Result) => ValidatableType}
+//
+//
+// export function RecordValueCallbackObject<
+//     ValidatorType extends Validator = Validator,
+//     Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+//     ValidatableType extends Validatable = Validatable,
+//     Message = unknown,
+// >(
+//     // validator : ValidatorType,
+//     // handler : (record:Partial<Record<PropertyKey, InferBase<ValidatorType>>>, validator : ValidatorType)=>Result,
+//     // validation : (result:Result)=>ValidatableType,
+//     // message : (result:Result)=>Message,
+//     {validator, handler, validation, message} : RecordValueCallbackArgument<ValidatorType, Result, ValidatableType, Message>
+// ) : RecordValue<ValidatorType, Result, ValidatableType, Message> {
+//
+//     return RecordValueCallbackParameter(
+//         validator,
+//         (value, validator) =>handler({value, validator}),
+//         validation,
+//         message
+//     );
+// }
+//
 //# sourceMappingURL=record-value-callback.js.map

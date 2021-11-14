@@ -1,0 +1,1 @@
+{"version":3,"file":"writable-parameter.js","sourceRoot":"","sources":["../../../src/property/boolean/writable-parameter.ts"],"names":[],"mappings":"AAEA,OAAO,kBAAkB,MAAM,uBAAuB,CAAC;AAIvD,MAAM,CAAC,OAAO,UAAU,iBAAiB,CACrC,EACI,KAAK,EACL,QAAQ,GACQ;IAGpB,OAAO,kBAAkB,CAAC,KAAK,EAAE,QAAQ,CAAC,CAAC;AAC/C,CAAC"}

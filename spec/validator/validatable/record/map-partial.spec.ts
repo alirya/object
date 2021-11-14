@@ -9,8 +9,8 @@ describe("stop on invalid", function() {
     describe("all valid", function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
+            validator1 : Type.Parameters("number"),
+            validator2 : Type.Parameters("number"),
         };
 
         let value = {
@@ -18,7 +18,7 @@ describe("stop on invalid", function() {
             validator2 : 10,
         };
 
-        let result = CallValidator.Parameter(value, validator);
+        let result = CallValidator.Parameters(value, validator);
 
 
             it('match validator1', ()=> {
@@ -50,8 +50,8 @@ describe("stop on invalid", function() {
     describe("all invalid", function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
+            validator1 : Type.Parameters("number"),
+            validator2 : Type.Parameters("number"),
         };
 
         let value = {
@@ -59,7 +59,7 @@ describe("stop on invalid", function() {
             validator2 : 'str',
         };
 
-        let result = CallValidator.Parameter(value, validator);
+        let result = CallValidator.Parameters(value, validator);
 
         it('match validator1', ()=> {
 
@@ -82,9 +82,9 @@ describe("stop on invalid", function() {
     describe("mixed", function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
-            validator3 : Type("number"),
+            validator1 : Type.Parameters("number"),
+            validator2 : Type.Parameters("number"),
+            validator3 : Type.Parameters("number"),
         };
 
         let value = {
@@ -93,7 +93,7 @@ describe("stop on invalid", function() {
             validator3 : 'str 2',
         };
 
-        let result = CallValidator.Parameter(value, validator);
+        let result = CallValidator.Parameters(value, validator);
 
         it('match validator1', ()=> {
 

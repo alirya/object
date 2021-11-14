@@ -1,17 +1,9 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
-import ValidatableValueCallback from "../validatable/value-callback";
-import ValidatableValue from "../validatable/value";
-import Return from "@dikac/t-validator/validatable/simple";
-import Instance from "@dikac/t-validator/validatable/validatable";
-import Replace from "@dikac/t-validatable/boolean/replace";
-import Value from "./value";
-import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
-import BaseValue from "@dikac/t-value/value";
-import ValidatorsContainer from "./validators/validators";
-import Message from "@dikac/t-message/message";
-import ValidatorContainer from "@dikac/t-validator/validator/validator";
-import {ValuePartialArgument, ValuePartialObject, ValuePartialParameter, ValuePartialType} from "./value-partial";
+import Instance from "@dikac/t-validator/validatable/dynamic";
+import ValueCallbackParameters from "./value-callback-parameters";
+import ValueCallbackParameter, {ValueCallbackArgument} from "./value-callback-parameter";
+
 
 /**
  * Base implementation of {@link Value}
@@ -75,11 +67,10 @@ import {ValuePartialArgument, ValuePartialObject, ValuePartialParameter, ValuePa
 //     }
 // }
 
-export default ValueCallback;
 namespace ValueCallback {
 
+    export const Parameters = ValueCallbackParameters;
     export const Parameter = ValueCallbackParameter;
-    export const Object = ValueCallbackObject;
     export type Argument<
         BaseType = unknown,
         ValueType extends BaseType = BaseType,
@@ -96,64 +87,65 @@ namespace ValueCallback {
         ValidatableType
     >;
 }
-
-export type ValueCallbackArgument<
-    BaseType = unknown,
-    ValueType extends BaseType = BaseType,
-    MessageType = unknown,
-    ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
-    Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
-    ValidatableType extends Validatable = Validatable
-> =
-    ValidatorsContainer<ValidatorsType> &
-    //{ map : (base : BaseType, record : ValidatorsType) => Validatables} &
-    { map : (argument : BaseValue<BaseType> & ValidatorsContainer<ValidatorsType>) => Validatables} &
-    // TODO CHANGE TO VALIDATOR
-    {validation: (result : Validatables)=>ValidatableType} &
-    Message<(result : Validatables)=>MessageType>
-    ;
-
-
-export function ValueCallbackParameter<
-    BaseType = unknown,
-    ValueType extends BaseType = BaseType,
-    MessageType = unknown,
-    ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
-    Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
-    ValidatableType extends Validatable = Validatable
->(
-    validators : ValidatorsType,
-    map : (base : BaseType, record : ValidatorsType) => Validatables,
-    validation : (result : Validatables)=>ValidatableType,
-    message : (result : Validatables)=>MessageType
-) : Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType> {
-
-    return function <Argument extends BaseType, ValueType extends BaseType>(value: Argument|ValueType) {
-
-        return new ValidatableValueCallback.Parameter(value, validators, map, validation, message);
-
-    } as Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>
-}
-
-export function ValueCallbackObject<
-    BaseType = unknown,
-    ValueType extends BaseType = BaseType,
-    MessageType = unknown,
-    ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
-    Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
-    ValidatableType extends Validatable = Validatable
->(
-    {
-        validators,
-        map,
-        validation,
-        message,
-    } : ValueCallbackArgument<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>
-) : Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType> {
-
-    return ValueCallbackParameter(
-        validators,
-        (value, validators) => map({value, validators}),
-        validation, message
-    );
-}
+export default ValueCallback;
+//
+// export type ValueCallbackArgument<
+//     BaseType = unknown,
+//     ValueType extends BaseType = BaseType,
+//     MessageType = unknown,
+//     ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+//     Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+//     ValidatableType extends Validatable = Validatable
+// > =
+//     ValidatorsContainer<ValidatorsType> &
+//     //{ map : (base : BaseType, record : ValidatorsType) => Validatables} &
+//     { map : (argument : BaseValue<BaseType> & ValidatorsContainer<ValidatorsType>) => Validatables} &
+//     // TODO CHANGE TO VALIDATOR
+//     {validation: (result : Validatables)=>ValidatableType} &
+//     Message<(result : Validatables)=>MessageType>
+//     ;
+//
+//
+// export function ValueCallbackParameter<
+//     BaseType = unknown,
+//     ValueType extends BaseType = BaseType,
+//     MessageType = unknown,
+//     ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+//     Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+//     ValidatableType extends Validatable = Validatable
+// >(
+//     validators : ValidatorsType,
+//     map : (base : BaseType, record : ValidatorsType) => Validatables,
+//     validation : (result : Validatables)=>ValidatableType,
+//     message : (result : Validatables)=>MessageType
+// ) : Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType> {
+//
+//     return function <Argument extends BaseType, ValueType extends BaseType>(value: Argument|ValueType) {
+//
+//         return new ValidatableValueCallback.Parameter(value, validators, map, validation, message);
+//
+//     } as Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>
+// }
+//
+// export function ValueCallbackObject<
+//     BaseType = unknown,
+//     ValueType extends BaseType = BaseType,
+//     MessageType = unknown,
+//     ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+//     Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+//     ValidatableType extends Validatable = Validatable
+// >(
+//     {
+//         validators,
+//         map,
+//         validation,
+//         message,
+//     } : ValueCallbackArgument<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>
+// ) : Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType> {
+//
+//     return ValueCallbackParameter(
+//         validators,
+//         (value, validators) => map({value, validators}),
+//         validation, message
+//     );
+// }

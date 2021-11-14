@@ -1,14 +1,8 @@
-import Validatable from "@dikac/t-validatable/validatable";
-import Value from "@dikac/t-value/value";
-import Return from "@dikac/t-validator/validatable/simple";
-import Instance from "@dikac/t-validator/validatable/validatable";
-import Message from "@dikac/t-message/message";
-export default Object_;
+import ObjectParameter, { ObjectArgument } from "./object-parameter";
+import ObjectParameters from "./object-parameters";
 declare namespace Object_ {
     const Parameter: typeof ObjectParameter;
-    const Object: typeof ObjectObject;
+    const Parameters: typeof ObjectParameters;
     type Argument<MessageType, Argument> = ObjectArgument<MessageType, Argument>;
 }
-export declare function ObjectParameter<MessageType, Argument>(value: Argument, message: (result: Readonly<Value<Argument> & Validatable>) => MessageType): Return<any, Argument, object, Readonly<Instance<any, MessageType>>>;
-export declare type ObjectArgument<MessageType, Argument> = Value<Argument> & Message<(result: Readonly<Value<Argument> & Validatable>) => MessageType>;
-export declare function ObjectObject<MessageType, Argument>({ value, message }: Value<Argument> & Message<(result: Readonly<Value<Argument> & Validatable>) => MessageType>): Return<any, Argument, object, Readonly<Instance<any, MessageType>>>;
+export default Object_;

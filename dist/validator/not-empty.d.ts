@@ -1,6 +1,7 @@
-import Validator from "@dikac/t-validator/validator";
-import Validatable from "@dikac/t-validatable/validatable";
-import Value from "@dikac/t-value/value";
-import NotEmptyValidatable from "../validatable/not-empty";
-export default function NotEmpty<MessageType>(): Validator<object, object, boolean, boolean, NotEmptyValidatable.Type<object, string>>;
-export default function NotEmpty<MessageType>(message: (result: Readonly<Value<object> & Validatable>) => MessageType): Validator<object, object, boolean, boolean, NotEmptyValidatable.Type<object, MessageType>>;
+import NotEmptyParameters from "./not-empty-parameters";
+import NotEmptyParameter from "./not-empty-parameter";
+declare namespace NotEmpty {
+    const Parameters: typeof NotEmptyParameters;
+    const Parameter: typeof NotEmptyParameter;
+}
+export default NotEmpty;

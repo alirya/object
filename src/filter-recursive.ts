@@ -1,9 +1,6 @@
 import {O} from "ts-toolbelt";
 import IsObject from "./boolean/object";
 import {DeepPartial} from "utility-types";
-import Validator from "@dikac/t-validator/validator";
-import Value from "@dikac/t-value/value";
-import InferValue from "@dikac/t-value/value/infer";
 import RecursiveUnion from "./recursive-union";
 
 export default function FilterRecursive<

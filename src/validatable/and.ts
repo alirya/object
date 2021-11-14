@@ -8,5 +8,5 @@ export default function And<
     validatables : Object
 ) : Validatables.Type<Object, boolean> {
 
-    return new Validatables.Parameter(validatables, AndBoolean);
+    return new Validatables.Parameters(validatables, AndBoolean);
 }

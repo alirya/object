@@ -15,7 +15,7 @@ export default function MemoizeProperty(configuration = defaults) {
         const symbol = Symbol(property + configuration.suffix);
         Object.defineProperty(target, symbol, descriptor);
         descriptor.get = function () {
-            return SetProperty.Parameter(this, property, this[symbol], writable, configurable);
+            return SetProperty.Parameters(this, property, this[symbol], writable, configurable);
         };
     };
 }

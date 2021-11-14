@@ -5,7 +5,7 @@ import Validatable from "@dikac/t-validatable/validatable";
 import MessageMap from "../../dist/message/message/record/map";
 import Type from "@dikac/t-type/validator/type";
 import ValidatorInterface from "@dikac/t-validator/simple";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import Instance from "@dikac/t-validator/validatable/dynamic";
 import Callbacks from "@dikac/t-validator/callback";
 
 
@@ -13,7 +13,7 @@ it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
 describe("compiler compatibility", function() {
 
-    let validator = Type('string');
+    let validator = Type.Parameters('string');
     type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
 
     let value = {
@@ -23,7 +23,7 @@ describe("compiler compatibility", function() {
 
     describe("implicit partial", function() {
 
-        let property = Value.Parameter(validator, And, MessageMap);
+        let property = Value.Parameters(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -35,10 +35,9 @@ describe("compiler compatibility", function() {
 
     describe("explicit complete", function() {
 
-        let property = Value.Parameter/*<Record<PropertyKey, any>, Record<string, any>, TypeValidatorValue>*/(validator, And, MessageMap);
+        let property = Value.Parameters/*<Record<PropertyKey, any>, Record<string, any>, TypeValidatorValue>*/(validator, And, MessageMap);
 
         let validatable = property(value);
-
 
         let unknown : unknown = validatable.value;
         let string : typeof value = validatable.value;
@@ -49,7 +48,7 @@ describe("implicit incomplete", function() {
 
     describe("all valid", function() {
 
-        let validator = Type('string');
+        let validator = Type.Parameters('string');
 
         let value = {
             name : 'string',
@@ -59,7 +58,7 @@ describe("implicit incomplete", function() {
 
         it(`and validation`, () => {
 
-            let property = Value.Parameter(
+            let property = Value.Parameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -107,7 +106,7 @@ describe("implicit incomplete", function() {
 
         it(`or validation`, () => {
 
-            let property = Value.Parameter(
+            let property = Value.Parameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -171,7 +170,7 @@ describe("implicit incomplete", function() {
                 return result.value + ' ' + (result.valid ? 'valid' : 'true');
             }, );
 
-            let property = Value.Parameter(
+            let property = Value.Parameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -212,7 +211,7 @@ describe("implicit incomplete", function() {
                 return result.value + ' ' + (result.valid ? 'valid' : 'true');
             }, );
 
-            let property = Value.Parameter(
+            let property = Value.Parameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -262,7 +261,7 @@ describe("implicit incomplete", function() {
                 return result.value + ' ' + (result.valid ? 'valid' : 'true');
             });
 
-            let property = Value.Parameter(
+            let property = Value.Parameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -298,7 +297,7 @@ describe("implicit incomplete", function() {
                 return result.value + ' ' + (result.valid ? 'valid' : 'true');
             });
 
-            let property = Value.Parameter(
+            let property = Value.Parameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap

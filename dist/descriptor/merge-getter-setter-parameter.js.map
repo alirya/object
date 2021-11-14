@@ -1,0 +1,1 @@
+{"version":3,"file":"merge-getter-setter-parameter.js","sourceRoot":"","sources":["../../src/descriptor/merge-getter-setter-parameter.ts"],"names":[],"mappings":"AAEA,OAAO,2BAIN,MAAM,kCAAkC,CAAC;AA0G1C,MAAM,CAAC,OAAO,UAAU,0BAA0B,CAC9C,EACI,WAAW,EACX,MAAM,EAC0C;IAGpD,OAAO,2BAA2B,CAAC,WAAW,EAAE,MAAM,CAAC,CAAC;AAC5D,CAAC"}

@@ -15,7 +15,7 @@ export default function MemoizeAccessor(configuration = defaults) {
         const symbol = Symbol(property + configuration.suffix);
         Object.defineProperty(target, symbol, descriptor);
         descriptor.get = function () {
-            return SetGetter.Parameter(this, property, this[symbol], configuration.configurable);
+            return SetGetter.Parameters(this, property, this[symbol], configuration.configurable);
         };
     };
 }

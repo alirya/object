@@ -8,8 +8,8 @@ describe("continue on invalid", function() {
     describe("all valid", function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
+            validator1 : Type.Parameters("number"),
+            validator2 : Type.Parameters("number"),
         };
 
         let value = {
@@ -17,7 +17,7 @@ describe("continue on invalid", function() {
             validator2 : 10,
         };
 
-        let result = CallValidator.Parameter(value, validator);
+        let result = CallValidator.Parameters(value, validator);
         it('match validator1', ()=> expect(result.validator1.valid).toBe(true));
         it('match validator2', ()=> expect(result.validator2.valid).toBe(true));
 
@@ -26,8 +26,8 @@ describe("continue on invalid", function() {
     describe("all invalid", function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
+            validator1 : Type.Parameters("number"),
+            validator2 : Type.Parameters("number"),
         };
 
         let value = {
@@ -35,7 +35,7 @@ describe("continue on invalid", function() {
             validator2 : 'str',
         };
 
-        let result = CallValidator.Parameter(value, validator);
+        let result = CallValidator.Parameters(value, validator);
         it('match validator1', ()=> expect(result.validator1.valid).toBe(false));
         it('match validator2', ()=> expect(result.validator2.valid).toBe(false));
 
@@ -44,8 +44,8 @@ describe("continue on invalid", function() {
     describe("mixed", function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
+            validator1 : Type.Parameters("number"),
+            validator2 : Type.Parameters("number"),
         };
 
         let value = {
@@ -53,7 +53,7 @@ describe("continue on invalid", function() {
             validator2 : 'str',
         };
 
-        let result = CallValidator.Parameter(value, validator);
+        let result = CallValidator.Parameters(value, validator);
         it('match validator1', ()=> expect(result.validator1.valid).toBe(true));
         it('match validator2', ()=> expect(result.validator2.valid).toBe(false));
 
@@ -65,17 +65,17 @@ describe("continue on invalid", function() {
 describe("extended validatable", function() {
 
     let validator = {
-        validator1 : Type("number"),
-        validator2 : Type("number"),
+        validator1 : Type.Parameters("number"),
+        validator2 : Type.Parameters("number"),
 
-        validator4 : Type("string"),
-        validator5 : Type("string"),
+        validator4 : Type.Parameters("string"),
+        validator5 : Type.Parameters("string"),
 
-        validator7 : Type("number"),
-        validator8 : Type("number"),
+        validator7 : Type.Parameters("number"),
+        validator8 : Type.Parameters("number"),
 
-        validator10 : Type("string"),
-        validator11 : Type("string")
+        validator10 : Type.Parameters("string"),
+        validator11 : Type.Parameters("string")
     };
 
     let value = {
@@ -92,7 +92,7 @@ describe("extended validatable", function() {
         validator11 : 10,
     };
 
-    let result = CallValidator.Parameter(value, validator);
+    let result = CallValidator.Parameters(value, validator);
 
     it('match validator1', ()=> expect(result.validator1.valid).toBe(true));
     it('match validator1', ()=> expect(typeof result.validator1.message).toBe('string'));

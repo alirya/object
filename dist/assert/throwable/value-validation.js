@@ -1,18 +1,42 @@
-import PropertyValueValidationMessage from "../string/value-validation";
-export default ValueValidation;
+import ValueValidationParameter from "./value-validation-parameter";
+import ValueValidationParameters from "./value-validation-parameters";
 var ValueValidation;
 (function (ValueValidation) {
     ValueValidation.Parameter = ValueValidationParameter;
-    ValueValidation.Object = ValueValidationObject;
+    ValueValidation.Parameters = ValueValidationParameters;
 })(ValueValidation || (ValueValidation = {}));
-export function ValueValidationParameter(property, type, validation) {
-    return new Error(PropertyValueValidationMessage.Parameter(property, false, type, validation));
-}
-export function ValueValidationObject(
-//property : PropertyKey,
-//type : string,
-//validation : string,
-{ property, type, validation, }) {
-    return ValueValidationParameter(property, type, validation);
-}
+export default ValueValidation;
+//
+//
+// export function ValueValidationParameter(
+//     property : PropertyKey,
+//     type : string,
+//     validation : string,
+//     // {
+//     //     property,
+//     //     type,
+//     //     validation,
+//     // } : Validatable & Property & {type : string} & { validation: string }
+// ) : Error {
+//
+//     return new Error(
+//         PropertyValueValidationMessage.Parameter(property, false, type, validation)
+//     );
+// }
+//
+// export type ValueValidationArgument = Validatable & Property & {type : string} & { validation: string };
+//
+// export function ValueValidationObject(
+//     //property : PropertyKey,
+//     //type : string,
+//     //validation : string,
+//     {
+//         property,
+//         type,
+//         validation,
+//     } : ValueValidationArgument
+// ) : Error {
+//
+//     return ValueValidationParameter(property, type, validation);
+// }
 //# sourceMappingURL=value-validation.js.map

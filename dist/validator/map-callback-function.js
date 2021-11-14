@@ -1,7 +1,7 @@
 // import Validator from "@dikac/t-validator/simple";
 // import Validatable from "@dikac/t-validatable/validatable";
 // import RecordParameter from "./base/record/infer";
-// import Instance from "@dikac/t-validator/validatable/validatable";
+// import Instance from "@dikac/t-validator/validatable/dynamic";
 // import MapCallback from "./map-callback";
 // import Map from "./map";
 //

@@ -15,37 +15,37 @@ describe("compiler compatibility", function() {
             validator2 : number,
         };
 
-        let value : ValueValidator = Type("number");
+        let value : ValueValidator = Type.Parameters("number");
 
         let record : Value = {
             validator1 : 10,
             validator2 : 10,
         };
 
-        Record.Parameter<Value, ValueValidator>(record, value);
+        Record.Parameters<Value, ValueValidator>(record, value);
     });
 
     describe("implicit", function() {
 
-        let value = Type("number");
+        let value = Type.Parameters("number");
 
         let record = {
             validator1 : 10,
             validator2 : 10,
         };
 
-        Record.Parameter(record, value);
+        Record.Parameters(record, value);
     });
 
     describe("auto", function() {
 
-        let value = Type("number");
+        let value = Type.Parameters("number");
 
         let record = {
             validator1 : 10,
             validator2 : 10,
         };
 
-        Record.Parameter<typeof record, typeof value>(record, value);
+        Record.Parameters<typeof record, typeof value>(record, value);
     });
 });

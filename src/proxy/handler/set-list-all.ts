@@ -41,7 +41,7 @@ export default class SetListAll<
 
         for (let handler of this.getHandler(target)) {
 
-            if(Writable.Parameter(handler, property)) {
+            if(Writable.Parameters(handler, property)) {
 
                 list.push(handler);
             }

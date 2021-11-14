@@ -1,18 +1,35 @@
-import PropertyValueMessage from "../string/value";
-import { ObjectObject, ObjectParameter } from "./object";
-export default Value;
+import ValueParameter from "./value-parameter";
+import ValueParameters from "./value-parameters";
 var Value;
 (function (Value) {
-    Value.Parameter = ObjectParameter;
-    Value.Object = ObjectObject;
+    Value.Parameter = ValueParameter;
+    Value.Parameters = ValueParameters;
 })(Value || (Value = {}));
-export function ValueParameter(property, type) {
-    return new Error(PropertyValueMessage.Parameter(property, false, type));
-}
-export function ValueObject(
-// property : PropertyKey,
-// type : string,
-{ property, type }) {
-    return ValueParameter(property, type);
-}
+export default Value;
+//
+// export function ValueParameter(
+//     property : PropertyKey,
+//     type : string,
+//     // {
+//     //     property,
+//     //     type
+//     // } : {type:string} & Property
+// ) : Error {
+//
+//     return new Error(PropertyValueMessage.Parameter(property, false, type))
+// }
+//
+// export type ValueArgument = {type:string} & Property;
+//
+// export function ValueObject(
+//     // property : PropertyKey,
+//     // type : string,
+//     {
+//         property,
+//         type
+//     } : {type:string} & Property
+// ) : Error {
+//
+//     return ValueParameter(property, type);
+// }
 //# sourceMappingURL=value.js.map

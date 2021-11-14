@@ -42,7 +42,7 @@ export default class GetListFirst extends MultiHandlers {
             return this.handler[property][property];
         }
         for (const handler of this.getHandler(target)) {
-            if (Readable.Parameter(handler, property)) {
+            if (Readable.Parameters(handler, property)) {
                 if (Function(handler[property])) {
                     this.handler[property] = {
                         [property]: (...argument) => handler[property](...argument)

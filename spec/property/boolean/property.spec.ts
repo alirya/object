@@ -35,7 +35,6 @@ describe("number", function() {
     it(`nan`, () => {
         expect(Type(NaN)).toBeTrue();
     });
-
 });
 
 describe("object", function() {

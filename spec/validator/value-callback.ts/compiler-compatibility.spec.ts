@@ -16,8 +16,8 @@ it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
 
 let validator = {
-    name : Type('string'),
-    address : Type('string'),
+    name : Type.Parameters('string'),
+    address : Type.Parameters('string'),
 };
 
 type Messages = {
@@ -27,7 +27,7 @@ type Messages = {
 
 describe("implicit complete", function() {
 
-    let property = ValueCallback.Parameter<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue.Parameter, And, result => MessageMap(result));
+    let property = ValueCallback.Parameters<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue.Parameters, And, result => MessageMap(result));
 
     let validatable = property('data');
 
@@ -58,8 +58,8 @@ describe("implicit complete", function() {
 
 describe("explicit complete", function() {
 
-    let property = ValueCallback.Parameter<string>(validator,
-        (value, validators) => ValidateValue.Parameter(value, validators),
+    let property = ValueCallback.Parameters<string>(validator,
+        (value, validators) => ValidateValue.Parameters(value, validators),
         (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
         MessageMap
     );
@@ -81,8 +81,8 @@ describe("explicit complete", function() {
 
 describe("implicit partial", function() {
 
-    let property = ValueCallback.Parameter(validator,
-        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameter(value, validators),
+    let property = ValueCallback.Parameters(validator,
+        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameters(value, validators),
         (v)=>And(<Record<PropertyKey, Validatable>>v),
         MessageMap
     );
@@ -103,8 +103,8 @@ describe("implicit partial", function() {
 
 describe("explicit complete", function() {
 
-    let property = ValueCallback.Parameter<unknown, string>(validator,
-        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameter(value, validators),
+    let property = ValueCallback.Parameters<unknown, string>(validator,
+        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameters(value, validators),
         (v)=>And(<Record<PropertyKey, Validatable>>v),
         (v) => MessageMap(<Record<PropertyKey, Message>>v)
     );

@@ -10,7 +10,6 @@ describe("boolean", function() {
     it(`false`, () => {
         expect(Type(false)).toBeFalse();
     });
-
 });
 
 describe("string", function() {

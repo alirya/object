@@ -14,9 +14,9 @@ it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 describe("flat", function() {
 
     let validator = {
-        name : Type('string'),
-        age : Type('number'),
-        address : Type('string'),
+        name : Type.Parameters('string'),
+        age : Type.Parameters('number'),
+        address : Type.Parameters('string'),
     };
 
     type Messages = {
@@ -29,7 +29,7 @@ describe("flat", function() {
 
     it(`and validation`, () => {
 
-    let property = ValueCallback.Parameter<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue.Parameter, And, result => MessageMap(result));
+    let property = ValueCallback.Parameters<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue.Parameters, And, result => MessageMap(result));
 
         let and = property('data');
 
@@ -50,7 +50,7 @@ describe("flat", function() {
 
     it(`or validation `, () => {
 
-        let property = ValueCallback.Parameter<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue.Parameter, Or, result => MessageMap(result));
+        let property = ValueCallback.Parameters<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue.Parameters, Or, result => MessageMap(result));
 
         let or = property('data');
 
@@ -75,20 +75,20 @@ describe("recursive", function() {
     it(`and validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
-            info : ValueCallback.Parameter({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
-                }, (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameter(value, validators),
+            name : Type.Parameters('string'),
+            age : Type.Parameters('number'),
+            address : Type.Parameters('string'),
+            info : ValueCallback.Parameters({
+                    age : Type.Parameters('string'),
+                    hobby : Type.Parameters('number'),
+                    no : Type.Parameters('string'),
+                }, (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameters(value, validators),
                 (v)=>And(v),
                 MessageMap)
         };
 
-        let property = ValueCallback.Parameter(validator,
-            (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameter(value, validators),
+        let property = ValueCallback.Parameters(validator,
+            (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameters(value, validators),
             (v)=>And(<Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -127,20 +127,20 @@ describe("recursive", function() {
     it(`or validation `, () => {
 
         let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
-            info : ValueCallback.Parameter({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
-                }, (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameter(value, validators),
+            name : Type.Parameters('string'),
+            age : Type.Parameters('number'),
+            address : Type.Parameters('string'),
+            info : ValueCallback.Parameters({
+                    age : Type.Parameters('string'),
+                    hobby : Type.Parameters('number'),
+                    no : Type.Parameters('string'),
+                }, (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameters(value, validators),
                 (v)=>Or(v),
                 MessageMap)
         };
 
-        let property = ValueCallback.Parameter(validator,
-            (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameter(value, validators),
+        let property = ValueCallback.Parameters(validator,
+            (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameters(value, validators),
             (v)=>Or(<Record<PropertyKey, Validatable>>v),
             MessageMap
         );

@@ -1,21 +1,46 @@
-import IteratorRecordValue from "../iterator/record-value";
-export default RecordValue;
+import RecordValueParameters from "./record-value-parameters";
+import RecordValueParameter from "./record-value-parameter";
 var RecordValue;
 (function (RecordValue) {
+    RecordValue.Parameters = RecordValueParameters;
     RecordValue.Parameter = RecordValueParameter;
-    RecordValue.Object = RecordValueObject;
 })(RecordValue || (RecordValue = {}));
-export function RecordValueParameter(value, validator) {
-    let result = {};
-    for (const [key, validatable] of IteratorRecordValue.Parameter(value, validator)) {
-        result[key] = validatable;
-    }
-    return result;
-}
-export function RecordValueObject(
-// value : RecordType,
-// validator : ValidatorType,
-{ value, validator, }) {
-    return RecordValueParameter(value, validator);
-}
+export default RecordValue;
+//
+// export function RecordValueParameter<
+//     RecordType extends Record<PropertyKey, any>,
+//     ValidatorType extends Validator<O.UnionOf<RecordType>>,
+// >(
+//     value : RecordType,
+//     validator : ValidatorType,
+//     // {
+//     //     value,
+//     //     validator,
+//     // } : Value<RecordType> & ValidatorContainer<ValidatorType>
+// ) : MapInterface<RecordType, Return<ValidatorType>> {
+//
+//     let result = {};
+//
+//     for(const [key, validatable] of IteratorRecordValue.Parameter(value, validator)) {
+//
+//         result[key as PropertyKey] = validatable;
+//     }
+//
+//     return <MapInterface<RecordType, Return<ValidatorType>>> result;
+// }
+//
+// export function RecordValueObject<
+//     RecordType extends Record<PropertyKey, any>,
+//     ValidatorType extends Validator<O.UnionOf<RecordType>>,
+// >(
+//     // value : RecordType,
+//     // validator : ValidatorType,
+//     {
+//         value,
+//         validator,
+//     } : Value<RecordType> & ValidatorContainer<ValidatorType>
+// ) : MapInterface<RecordType, Return<ValidatorType>> {
+//
+//     return RecordValueParameter(value, validator);
+// }
 //# sourceMappingURL=record-value.js.map

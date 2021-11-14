@@ -1,18 +1,40 @@
-import IteratorValue from "../iterator/value";
-export default Value;
+import ValueParameters from "./value-parameters";
+import ValueParameter from "./value-parameter";
 var Value;
 (function (Value) {
+    Value.Parameters = ValueParameters;
     Value.Parameter = ValueParameter;
-    Value.Object = ValueObject;
 })(Value || (Value = {}));
-export function ValueParameter(value, validators) {
-    let object = {};
-    for (const [key, validatable] of IteratorValue.Parameter(value, validators)) {
-        object[key] = validatable;
-    }
-    return object;
-}
-export function ValueObject({ value, validators }) {
-    return ValueParameter(value, validators);
-}
+export default Value;
+//
+// export function ValueParameter<
+//     ValueType,
+//     Validators extends Record<PropertyKey, Validator<ValueType>>,
+// >(
+//     value : ValueType,
+//     validators : Validators
+// ) : ValidatableRecord<Validators> {
+//
+//     let object  = {};
+//
+//     for(const [key, validatable] of IteratorValue.Parameter(value, validators)) {
+//
+//         object[<PropertyKey>key] = validatable;
+//     }
+//
+//     return <ValidatableRecord<Validators>> object;
+// }
+//
+// export function ValueObject<
+//     ValueType,
+//     Validators extends Record<PropertyKey, Validator<ValueType>>,
+// >(
+//     {
+//         value,
+//         validators
+//     } : ValidatorsContainer<Validators> & Value<ValueType>
+// ) : ValidatableRecord<Validators> {
+//
+//     return ValueParameter(value, validators);
+// }
 //# sourceMappingURL=value.js.map

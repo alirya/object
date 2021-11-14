@@ -1,26 +1,9 @@
-import IteratorValue from "../iterator/value";
-export default ValuePartial;
+import ValuePartialParameters from "./value-partial-parameters";
+import ValuePartialParameter from "./value-partial-parameter";
 var ValuePartial;
 (function (ValuePartial) {
     ValuePartial.Parameter = ValuePartialParameter;
-    ValuePartial.Object = ValuePartialObject;
+    ValuePartial.Parameters = ValuePartialParameters;
 })(ValuePartial || (ValuePartial = {}));
-export function ValuePartialParameter(value, validators, stop = false) {
-    let object = {};
-    for (const [key, validatable] of IteratorValue.Parameter(value, validators)) {
-        //const validator = validators[property];
-        object[key] = validatable;
-        if (validatable.valid === stop) {
-            return object;
-        }
-    }
-    return object;
-}
-export function ValuePartialObject(
-// value : ValueType,
-// validators : Validators,
-// stop : boolean = false,
-{ value, validators, stop = false, }) {
-    return ValuePartialParameter(value, validators, stop);
-}
+export default ValuePartial;
 //# sourceMappingURL=value-partial.js.map

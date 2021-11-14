@@ -4,11 +4,11 @@ import ValidateKey from "../../../dist/validator/validatable/record/record-key";
 import And from "../../../dist/validatable/and";
 import MessageMap from "../../../dist/message/message/record/map";
 import Or from "../../../dist/validatable/or";
-import Infer from "@dikac/t-validator/validatable/infer-unambiguous";
+import Infer from "@dikac/t-validator/validatable/infer-static";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
-let validator = Type('string');
+let validator = Type.Parameters('string');
 
 let value = {
     name : 'string',
@@ -18,7 +18,7 @@ let value = {
 
 it(`and validation`, () => {
 
-    let property = RecordValueCallback.Parameter<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey.Parameter, And, MessageMap);
+    let property = RecordValueCallback.Parameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey.Parameters, And, MessageMap);
 
     let validatable = property(value);
 
@@ -39,7 +39,7 @@ it(`and validation`, () => {
 it(`or validation`, () => {
 
 
-    let property = RecordValueCallback.Parameter<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey.Parameter, Or, MessageMap);
+    let property = RecordValueCallback.Parameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey.Parameters, Or, MessageMap);
 
     let validatable = property(value);
 

@@ -1,21 +1,47 @@
-import IteratorRecordKey from "../iterator/record-key";
-export default RecordKeyPartial;
+import RecordKeyPartialParameters from "./record-key-partial-partials";
+import RecordKeyPartialParameter from "./record-key-partial-partial";
 var RecordKeyPartial;
 (function (RecordKeyPartial) {
+    RecordKeyPartial.Parameters = RecordKeyPartialParameters;
     RecordKeyPartial.Parameter = RecordKeyPartialParameter;
-    RecordKeyPartial.Object = RecordKeyPartialObject;
 })(RecordKeyPartial || (RecordKeyPartial = {}));
-export function RecordKeyPartialParameter(value, validator, stop = false) {
-    let result = {};
-    for (const [key, validatable] of IteratorRecordKey.Parameter(value, validator)) {
-        result[key] = validatable;
-        if (validatable.valid === stop) {
-            return result;
-        }
-    }
-    return result;
-}
-export function RecordKeyPartialObject({ value, validator, stop = false, }) {
-    return RecordKeyPartialParameter(value, validator, stop);
-}
+export default RecordKeyPartial;
+//
+// export function RecordKeyPartialParameter<
+//     RecordType extends Record<PropertyKey, any>,
+//     ValidatorType extends Validator<keyof RecordType>,
+// >(
+//     value : RecordType,
+//     validator : ValidatorType,
+//     stop = false,
+// ) : Partial<MapInterface<RecordType, Return<ValidatorType>>> {
+//
+//     let result = {};
+//
+//     for(const [key, validatable] of IteratorRecordKey.Parameter(value, validator)) {
+//
+//         result[key as PropertyKey] = validatable;
+//
+//         if(validatable.valid === stop) {
+//
+//             return result;
+//         }
+//     }
+//
+//     return result;
+// }
+//
+// export function RecordKeyPartialObject<
+//     RecordType extends Record<PropertyKey, any>,
+//     ValidatorType extends Validator<keyof RecordType>,
+// >(
+//     {
+//         value,
+//         validator,
+//         stop = false,
+//     } : Value<RecordType> & ValidatorContainer<ValidatorType> & {stop ?: boolean}
+// ) : Partial<MapInterface<RecordType, Return<ValidatorType>>> {
+//
+//     return RecordKeyPartialParameter(value, validator, stop);
+// }
 //# sourceMappingURL=record-key-partial.js.map

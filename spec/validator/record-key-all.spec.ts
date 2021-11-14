@@ -6,7 +6,7 @@ import ValidatorInterface from "@dikac/t-validator/simple";
 import Message from "@dikac/t-message/message";
 import MessageMap from "../../dist/message/message/record/map";
 import Type from "@dikac/t-type/validator/type";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import Instance from "@dikac/t-validator/validatable/dynamic";
 import Callbacks from "@dikac/t-validator/callback";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
@@ -15,7 +15,7 @@ describe("compiler compatibility", function() {
 
     type TypeValidatorValue = ValidatorInterface<PropertyKey, string, Instance<PropertyKey, string>>;
 
-    let validator = Type("string");
+    let validator = Type.Parameters("string");
 
     type Type = {
         name : string,
@@ -29,7 +29,7 @@ describe("compiler compatibility", function() {
 
     describe("implicit", function() {
 
-        let property = RecordValueCallback.Parameter(validator, And, MessageMap);
+        let property = RecordValueCallback.Parameters(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -48,7 +48,7 @@ describe("compiler compatibility", function() {
 
         describe("auto", function() {
 
-            let property = RecordValueCallback.Parameter<TypeValidatorValue>(validator,
+            let property = RecordValueCallback.Parameters<TypeValidatorValue>(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -62,7 +62,7 @@ describe("compiler compatibility", function() {
 
         describe("direct", function() {
 
-            let property = RecordValueCallback.Parameter<TypeValidatorValue>(validator,
+            let property = RecordValueCallback.Parameters<TypeValidatorValue>(validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 MessageMap
             );
@@ -77,7 +77,7 @@ describe("compiler compatibility", function() {
 
     describe("implicit partial", function() {
 
-        let property = RecordValueCallback.Parameter(validator,
+        let property = RecordValueCallback.Parameters(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -93,7 +93,7 @@ describe("compiler compatibility", function() {
 
         describe("auto", function() {
 
-            let property = RecordValueCallback.Parameter<TypeValidatorValue>(
+            let property = RecordValueCallback.Parameters<TypeValidatorValue>(
                 validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 MessageMap
@@ -108,7 +108,7 @@ describe("compiler compatibility", function() {
 
         describe("direct", function() {
 
-            let property = RecordValueCallback.Parameter<TypeValidatorValue>(
+            let property = RecordValueCallback.Parameters<TypeValidatorValue>(
                 validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 (v)=>MessageMap(<globalThis.Record<any, Message>>v)
@@ -131,7 +131,7 @@ describe("implicit complete", function() {
 
     describe("all valid", function() {
 
-        let validator = Type('string');
+        let validator = Type.Parameters('string');
 
         let value = {
             name : 'string',
@@ -141,7 +141,7 @@ describe("implicit complete", function() {
 
         it(`and validation`, () => {
 
-            let property =  RecordValueCallback.Parameter(validator,
+            let property =  RecordValueCallback.Parameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -164,7 +164,7 @@ describe("implicit complete", function() {
 
         it(`or validation`, () => {
 
-            let property =  RecordValueCallback.Parameter(validator,
+            let property =  RecordValueCallback.Parameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );
@@ -202,7 +202,7 @@ describe("implicit complete", function() {
 
         it(`and validation`, () => {
 
-            let property = RecordValueCallback.Parameter(validator,
+            let property = RecordValueCallback.Parameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -226,7 +226,7 @@ describe("implicit complete", function() {
 
         it(`or validation `, () => {
 
-            let property = RecordValueCallback.Parameter(validator,
+            let property = RecordValueCallback.Parameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );
@@ -266,7 +266,7 @@ describe("implicit complete", function() {
 
         it(`and validation`, () => {
 
-            let property = RecordValueCallback.Parameter(validator,
+            let property = RecordValueCallback.Parameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -288,7 +288,7 @@ describe("implicit complete", function() {
 
         it(`or validation `, () => {
 
-            let property = RecordValueCallback.Parameter(validator,
+            let property = RecordValueCallback.Parameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );

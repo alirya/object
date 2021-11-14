@@ -1,9 +1,5 @@
-import Validator from "@dikac/t-validator/validator";
-import Validatable from "@dikac/t-validatable/validatable";
-import Message from "@dikac/t-message/message";
-import Value from "@dikac/t-value/value";
-import EmptyValidatable from "../validatable/empty";
-import EmptyString from "../assert/string/empty";
+import EmptyParameters from "./empty-parameters";
+import EmptyParameter from "./empty-parameter";
 
 // export default class Empty<MessageType>
 //     implements
@@ -21,42 +17,49 @@ import EmptyString from "../assert/string/empty";
 //     }
 // }
 
-export function EmptyParameter() : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, string>>;
+namespace Empty {
 
-export function EmptyParameter<MessageType>(
-    message : (value: object, valid: boolean)=>MessageType
-) : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>>;
-
-
-export function EmptyParameter<MessageType>(
-    message : (value: object, valid: boolean)=>MessageType|string = EmptyString.Parameter
-) : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>> {
-
-    return function (value) {
-
-        return new EmptyValidatable.Parameter(value, message);
-
-    } as Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>>
+    export const Parameters = EmptyParameters;
+    export const Parameter = EmptyParameter;
 }
-
-
-
-export function EmptyObject() : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, string>>;
-
-export function EmptyObject<MessageType>(
-    message : (result:Readonly<Value<object> & Validatable>)=>MessageType
-) : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>>;
-
-
-export function EmptyObject<MessageType>(
-    message : (result:Readonly<Value<object> & Validatable>)=>MessageType|string = EmptyString.Object
-) : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>> {
-
-    return function (value) {
-
-        return new EmptyValidatable.Object({value, message});
-
-    } as Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>>
-}
+export default Empty;
+//
+// export function EmptyParameter() : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, string>>;
+//
+// export function EmptyParameter<MessageType>(
+//     message : (value: object, valid: boolean)=>MessageType
+// ) : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>>;
+//
+//
+// export function EmptyParameter<MessageType>(
+//     message : (value: object, valid: boolean)=>MessageType|string = EmptyString.Parameter
+// ) : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>> {
+//
+//     return function (value) {
+//
+//         return new EmptyValidatable.Parameter(value, message);
+//
+//     } as Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>>
+// }
+//
+//
+//
+// export function EmptyObject() : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, string>>;
+//
+// export function EmptyObject<MessageType>(
+//     message : (result:Readonly<Value<object> & Validatable>)=>MessageType
+// ) : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>>;
+//
+//
+// export function EmptyObject<MessageType>(
+//     message : (result:Readonly<Value<object> & Validatable>)=>MessageType|string = EmptyString.Object
+// ) : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>> {
+//
+//     return function (value) {
+//
+//         return new EmptyValidatable.Object({value, message});
+//
+//     } as Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, MessageType>>
+// }
 
 

@@ -1,14 +1,9 @@
-import SetPropertyCallback from "./set-property-callback";
-export default SetGetterCallback;
+import SetGetterCallbackParameters from "./set-getter-callback-parameters";
+import SetGetterCallbackParameter from "./set-getter-callback-parameter";
 var SetGetterCallback;
 (function (SetGetterCallback) {
+    SetGetterCallback.Parameters = SetGetterCallbackParameters;
     SetGetterCallback.Parameter = SetGetterCallbackParameter;
-    SetGetterCallback.Object = SetGetterCallbackObject;
 })(SetGetterCallback || (SetGetterCallback = {}));
-export function SetGetterCallbackParameter(object, property, factory, configurable = true) {
-    return SetPropertyCallback.Parameter(object, property, factory, false, configurable);
-}
-export function SetGetterCallbackObject({ object, property, factory, configurable, }) {
-    return SetGetterCallbackParameter(object, property, factory, configurable);
-}
+export default SetGetterCallback;
 //# sourceMappingURL=set-getter-callback.js.map

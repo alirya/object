@@ -1,21 +1,9 @@
-import NotEmptyType from "../string/not-Empty";
-export default NotEmpty;
+import NotEmptyParameter from "./not-empty-parameter";
+import NotEmptyParameters from "./not-empty-parameters";
 var NotEmpty;
 (function (NotEmpty) {
     NotEmpty.Parameter = NotEmptyParameter;
-    NotEmpty.Object = NotEmptyObject;
+    NotEmpty.Parameters = NotEmptyParameters;
 })(NotEmpty || (NotEmpty = {}));
-export function NotEmptyParameter(
-// string : object,
-// subject : string = 'object',
-//{
-value, subject = 'object') {
-    return new Error(NotEmptyType.Parameter(value, false, subject));
-}
-export function NotEmptyObject(
-// string : object,
-// subject : string = 'object',
-{ value, subject = 'object', }) {
-    return NotEmptyParameter(value, subject);
-}
+export default NotEmpty;
 //# sourceMappingURL=not-empty.js.map

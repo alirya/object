@@ -7,20 +7,20 @@
 // import MessageMap from "../../dist/message/message/record/map";
 // import Type from "@dikac/t-type/validator/type";
 // import Simple from "@dikac/t-validator/simple";
-// import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
+// import ValidatorValidatable from "@dikac/t-validator/validatable/dynamic";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //
 // describe("compiler compatibility", function() {
 //
 //     let validator = {
-//         name : Type('string'),
-//         address : Type('string'),
+//         name : Type.Parameters('string'),
+//         address : Type.Parameters('string'),
 //     };
 //
 //     describe("implicit complete", function() {
 //
-//         let property = ValueAll.Parameter(validator, (v)=>And(v), MessageMap);
+//         let property = ValueAll.Parameters(validator, (v)=>And(v), MessageMap);
 //
 //         let validatable = property('data');
 //
@@ -70,12 +70,12 @@
 //         it(`and validation`, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 address : Type('string'),
-//                 user : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 address : Type.Parameters('string'),
+//                 user : Type.Parameters('string'),
 //             };
 //
-//             let property = ValueAll.Parameter(validator, (v)=>And(v), MessageMap);
+//             let property = ValueAll.Parameters(validator, (v)=>And(v), MessageMap);
 //
 //             let validatable = property(value);
 //
@@ -96,12 +96,12 @@
 //         it(`or validation`, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 address : Type('string'),
-//                 user : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 address : Type.Parameters('string'),
+//                 user : Type.Parameters('string'),
 //             };
 //
-//             let property = ValueAll.Parameter(validator, (v)=>Or(v), MessageMap);
+//             let property = ValueAll.Parameters(validator, (v)=>Or(v), MessageMap);
 //
 //             let validatable = property(value);
 //
@@ -126,9 +126,9 @@
 //         it(`and validation`, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 age : Type('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
-//                 address : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 age : Type.Parameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+//                 address : Type.Parameters('string'),
 //             };
 //
 //             let property = ValueAll.Parameter<unknown, string>(validator,(v)=>And(v), MessageMap);
@@ -153,9 +153,9 @@
 //         it(`or validation `, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 age : Type('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
-//                 address : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 age : Type.Parameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+//                 address : Type.Parameters('string'),
 //             };
 //
 //             let property = ValueAll.Parameter<unknown, string>(validator,(v)=>Or(v), MessageMap);
@@ -183,9 +183,9 @@
 //         it(`and validation`, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 age : Type('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
-//                 address : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 age : Type.Parameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+//                 address : Type.Parameters('string'),
 //             };
 //
 //             let property = ValueAll.Parameter<unknown, string>(validator,(v)=>And(v), MessageMap);
@@ -208,9 +208,9 @@
 //         it(`or validation `, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 age : Type('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
-//                 address : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 age : Type.Parameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+//                 address : Type.Parameters('string'),
 //             };
 //
 //             let property = ValueAll.Parameter<unknown, string>(validator,(v)=>Or(v), MessageMap);
@@ -243,17 +243,17 @@
 //         it(`and validation`, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 address : Type('string'),
-//                 user : Type('string'),
-//                 info : ValueAll.Parameter({
-//                     age : Type('string'),
-//                     hobby : Type('string'),
-//                     no : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 address : Type.Parameters('string'),
+//                 user : Type.Parameters('string'),
+//                 info : ValueAll.Parameters({
+//                     age : Type.Parameters('string'),
+//                     hobby : Type.Parameters('string'),
+//                     no : Type.Parameters('string'),
 //                 }, (v)=>And(v), MessageMap)
 //             };
 //
-//             let property = ValueAll.Parameter(validator, (v)=>And(v), MessageMap);
+//             let property = ValueAll.Parameters(validator, (v)=>And(v), MessageMap);
 //
 //             let validatable = property(value);
 //
@@ -293,17 +293,17 @@
 //         it(`or validation`, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 address : Type('string'),
-//                 user : Type('string'),
-//                 info : ValueAll.Parameter({
-//                     age : Type('string'),
-//                     hobby : Type('string'),
-//                     no : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 address : Type.Parameters('string'),
+//                 user : Type.Parameters('string'),
+//                 info : ValueAll.Parameters({
+//                     age : Type.Parameters('string'),
+//                     hobby : Type.Parameters('string'),
+//                     no : Type.Parameters('string'),
 //                 }, (v)=>Or(v), MessageMap)
 //             };
 //
-//             let property = ValueAll.Parameter(validator, (v)=>Or(v), MessageMap);
+//             let property = ValueAll.Parameters(validator, (v)=>Or(v), MessageMap);
 //
 //             let validatable = property(value);
 //
@@ -347,17 +347,17 @@
 //         it(`and validation`, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 age : Type('number'),
-//                 address : Type('string'),
-//                 info : ValueAll.Parameter({
-//                     age : Type('string'),
-//                     hobby : Type('number'),
-//                     no : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 age : Type.Parameters('number'),
+//                 address : Type.Parameters('string'),
+//                 info : ValueAll.Parameters({
+//                     age : Type.Parameters('string'),
+//                     hobby : Type.Parameters('number'),
+//                     no : Type.Parameters('string'),
 //                 }, (v)=>And(v), MessageMap)
 //             };
 //
-//             let property = ValueAll.Parameter(validator,(v)=>And(v), MessageMap);
+//             let property = ValueAll.Parameters(validator,(v)=>And(v), MessageMap);
 //
 //             let and = property('data');
 //
@@ -398,17 +398,17 @@
 //         it(`or validation `, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 age : Type('number'),
-//                 address : Type('string'),
-//                 info : ValueAll.Parameter({
-//                     age : Type('string'),
-//                     hobby : Type('number'),
-//                     no : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 age : Type.Parameters('number'),
+//                 address : Type.Parameters('string'),
+//                 info : ValueAll.Parameters({
+//                     age : Type.Parameters('string'),
+//                     hobby : Type.Parameters('number'),
+//                     no : Type.Parameters('string'),
 //                 }, (v)=>Or(v), MessageMap)
 //             };
 //
-//             let property = ValueAll.Parameter(validator,(v)=>Or(v), MessageMap);
+//             let property = ValueAll.Parameters(validator,(v)=>Or(v), MessageMap);
 //
 //             let or = property('data');
 //
@@ -452,13 +452,13 @@
 //         it(`and validation`, () => {
 //
 //         let validator = {
-//             name : Type('string'),
-//             age : Type('number'),
-//             address : Type('string'),
+//             name : Type.Parameters('string'),
+//             age : Type.Parameters('number'),
+//             address : Type.Parameters('string'),
 //             info : ValueAll.Parameter/*<unknown, string|number>*/({
-//                 age : Type('string'),
-//                 hobby : Type('number'),
-//                 no : Type('string'),
+//                 age : Type.Parameters('string'),
+//                 hobby : Type.Parameters('number'),
+//                 no : Type.Parameters('string'),
 //             }, (v)=>And(v), MessageMap)
 //         };
 //
@@ -501,13 +501,13 @@
 //         it(`or validation `, () => {
 //
 //             let validator = {
-//                 name : Type('string'),
-//                 age : Type('number'),
-//                 address : Type('string'),
+//                 name : Type.Parameters('string'),
+//                 age : Type.Parameters('number'),
+//                 address : Type.Parameters('string'),
 //                 info : ValueAll.Parameter/*<unknown, string|number>*/({
-//                     age : Type('string'),
-//                     hobby : Type('number'),
-//                     no : Type('string'),
+//                     age : Type.Parameters('string'),
+//                     hobby : Type.Parameters('number'),
+//                     no : Type.Parameters('string'),
 //                 }, (v)=>Or(v), MessageMap)
 //             };
 //

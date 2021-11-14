@@ -8,5 +8,5 @@ export default function Or<
     validatables : Object
 ) : Validatables.Type<Object, boolean> {
 
-    return new Validatables.Parameter(validatables, OrBoolean);
+    return new Validatables.Parameters(validatables, OrBoolean);
 }

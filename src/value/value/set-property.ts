@@ -1,5 +1,5 @@
-import Value from "@dikac/t-value/value";
-import Property from "../../property/property/property";
+import SetPropertyParameter, {SetPropertyArgument} from "./set-property-parameter";
+import SetPropertyParameters from "./set-property-parameters";
 
 /**
  * set {@param value} for getter value for {@param object}
@@ -19,11 +19,11 @@ import Property from "../../property/property/property";
  */
 
 
-export default SetProperty;
+
 namespace SetProperty {
 
     export const Parameter = SetPropertyParameter;
-    export const Object = SetPropertyObject;
+    export const Parameters = SetPropertyParameters;
     export type Argument<
         This extends object,
         Type,
@@ -33,66 +33,4 @@ namespace SetProperty {
         >;
 }
 
-export function SetPropertyParameter<
-    This extends object,
-    Type,
->(
-    object : This,
-    property : keyof This,
-    value : Type,
-    writable : boolean = true,
-    configurable : boolean = true,
-    //{
-    //    object,
-    //    property,
-    //    value,
-    //    writable = true,
-    //    configurable = true,
-    //} : Value<Type> &
-    //    Property<keyof This> &
-    //    {object: This} &
-    //    {writable ?: boolean} &
-    //    {configurable ?: boolean}
-) : Type {
-
-    return  (Object.defineProperty(
-        object,
-        property,
-        {
-            value,
-            writable,
-            configurable
-        }
-    ) as Record<keyof This, Type>)[property];
-}
-
-
-export type SetPropertyArgument<
-    This extends object,
-    Type,
-    > = Value<Type> &
-    Property<keyof This> &
-    {object: This} &
-    {writable ?: boolean} &
-    {configurable ?: boolean}
-
-export function SetPropertyObject<
-    This extends object,
-    Type,
->(
-    //object : This,
-    //property : keyof This,
-    //value : Type,
-    //writable : boolean = true,
-    //configurable : boolean = true,
-    {
-        object,
-        property,
-        value,
-        writable = true,
-        configurable = true,
-    } : SetPropertyArgument<This, Type>
-) : Type {
-
-    return SetPropertyParameter(object, property, value, writable, configurable);
-}
+export default SetProperty;

@@ -25,7 +25,7 @@ export default function MemoizeAccessor(
 
         descriptor.get = function () {
 
-            return SetGetter.Parameter(
+            return SetGetter.Parameters(
                 this,
                 property,
                 this[symbol],

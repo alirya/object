@@ -1,0 +1,1 @@
+{"version":3,"file":"object-parameters.js","sourceRoot":"","sources":["../../src/ensure/object-parameters.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,kBAAkB,CAAC;AAC5C,OAAO,WAAW,MAAM,4BAA4B,CAAC;AAGrD,MAAM,CAAC,OAAO,UAAU,gBAAgB,CACpC,KAAe,EACf,QAAiC,WAAW,CAAC,SAAS;IAOtD,YAAY,CAAC,KAAK,EAAE,KAAK,CAAC,CAAC;IAE3B,OAAO,KAAK,CAAC;AACjB,CAAC"}

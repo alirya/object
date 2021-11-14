@@ -1,0 +1,1 @@
+{"version":3,"file":"method-single-parameter.js","sourceRoot":"","sources":["../../../../src/function/return/record/method-single-parameter.ts"],"names":[],"mappings":"AAKA,OAAO,sBAAsB,MAAM,4BAA4B,CAAC;AAkBhE,MAAM,CAAC,OAAO,UAAU,qBAAqB;AAIzC,gBAAgB;AAChB,uBAAuB;AACvB,EACI,KAAK,EACL,QAAQ,GAC4B;IAGxC,OAAO,sBAAsB,CAAC,KAAK,EAAE,QAAQ,CAAC,CAAC;AACnD,CAAC"}

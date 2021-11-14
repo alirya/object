@@ -1,5 +1,5 @@
 import ValidatorInterface from "@dikac/t-validator/simple";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import Instance from "@dikac/t-validator/validatable/dynamic";
 import MapCallback from "../../../dist/validatable/map-callback";
 import ValidateMap from "../../../dist/validator/validatable/record/map";
 import ValidatableInfer from "../../../dist/validator/validatable/record/infer";
@@ -9,8 +9,8 @@ import Validatable from "@dikac/t-validatable/validatable";
 import Type from "@dikac/t-type/validator/type";
 
 let validator = {
-    name : Type('string'),
-    address : Type('string'),
+    name : Type.Parameters('string'),
+    address : Type.Parameters('string'),
 };
 
 type TypeValidator = {
@@ -30,7 +30,7 @@ let value = {
 
 describe("implicit", function() {
 
-    let validatable = new MapCallback.Parameter(value, validator, ValidateMap.Parameter, And, MessageMap);
+    let validatable = new MapCallback.Parameters(value, validator, ValidateMap.Parameters, And, MessageMap);
 
     let unknown : unknown = validatable.value;
 
@@ -42,7 +42,7 @@ describe("explicit", function() {
 
     describe("auto", function() {
 
-        let validatable = new MapCallback.Parameter<
+        let validatable = new MapCallback.Parameters<
             Type,
             TypeValidator,
             ValidatableInfer<TypeValidator>,
@@ -51,7 +51,7 @@ describe("explicit", function() {
         >(
             value,
             validator,
-            ValidateMap.Parameter,
+            ValidateMap.Parameters,
             And,
             result => MessageMap(result)
         );

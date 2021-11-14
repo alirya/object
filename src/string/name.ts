@@ -28,5 +28,5 @@ export default function Name(value : any) : string {
         return 'Object';
     }
 
-    throw new Error(NameNotFound.Parameter(false, value));
+    throw new Error(NameNotFound.Parameters(false, value));
 }

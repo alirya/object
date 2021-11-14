@@ -1,34 +1,9 @@
-import SetDescriptor from "../../descriptor/boolean/setter";
-import PropertyDescriptor from "../../descriptor/boolean/property";
-import Descriptor from "../../descriptor/from-object";
-import HasProperty from "./exists";
-import { ReadableParameter } from "./readable";
-export default Writable;
+import ReadableParameter from "./writable-parameter";
+import ReadableParameters from "./writable-parameters";
 var Writable;
 (function (Writable) {
+    Writable.Parameters = ReadableParameters;
     Writable.Parameter = ReadableParameter;
-    Writable.Object = ReadableObject;
 })(Writable || (Writable = {}));
-/**
- * check if property is writable
- */
-export function WritableParameter(value, property) {
-    let descriptor = Descriptor.Parameter(value, property);
-    if (!descriptor) {
-        return false;
-    }
-    // property
-    // all descriptor property must true
-    if (PropertyDescriptor(descriptor) && HasProperty(descriptor, 'writable') && descriptor.writable) {
-        return true;
-    }
-    // setter
-    if (SetDescriptor(descriptor)) {
-        return true;
-    }
-    return false;
-}
-export function ReadableObject({ value, property, }) {
-    return ReadableParameter(value, property);
-}
+export default Writable;
 //# sourceMappingURL=writable.js.map

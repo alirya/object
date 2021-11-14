@@ -1,19 +1,9 @@
-import ValidateMap from "./validatable/record/record-value";
-import RecordValueCallback from "./record-value-callback";
-export default RecordValueAll;
+import RecordValueAllParameters from "./record-value-all-parameters";
+import RecordValueAllParameter from "./record-value-all-parameter";
 var RecordValueAll;
 (function (RecordValueAll) {
+    RecordValueAll.Parameters = RecordValueAllParameters;
     RecordValueAll.Parameter = RecordValueAllParameter;
-    RecordValueAll.Object = RecordValueAllObject;
 })(RecordValueAll || (RecordValueAll = {}));
-export function RecordValueAllParameter(validator, validation, message) {
-    return RecordValueCallback.Parameter(validator, ValidateMap.Parameter, validation, message);
-}
-export function RecordValueAllObject(
-// validator : ValidatorType,
-// validation : (record : Record<PropertyKey, ReturnInfer<ValidatorType>>) => ValidatableType,
-// message : (record : Record<PropertyKey, ReturnInfer<ValidatorType>>) => MessageType,
-{ validator, validation, message, }) {
-    return RecordValueAllParameter(validator, validation, message);
-}
+export default RecordValueAll;
 //# sourceMappingURL=record-value-all.js.map

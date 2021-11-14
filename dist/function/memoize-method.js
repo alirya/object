@@ -15,7 +15,7 @@ export default function MemoizeMethod(configuration = defaults) {
         const symbol = Symbol(property + configuration.suffix);
         Object.defineProperty(target, symbol, descriptor);
         descriptor.value = function (...args) {
-            return SetMethod.Parameter(this, property, this[symbol](args), false, configuration.configurable);
+            return SetMethod.Parameters(this, property, this[symbol](args), false, configuration.configurable);
             // return SetGetter(this, <any>property, this[symbol], configuration.configurable);
         };
     };

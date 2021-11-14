@@ -1,4 +1,5 @@
-import ValidatableValueCallback from "../validatable/value-callback";
+import ValueCallbackParameters from "./value-callback-parameters";
+import ValueCallbackParameter from "./value-callback-parameter";
 /**
  * Base implementation of {@link Value}
  *
@@ -60,18 +61,71 @@ import ValidatableValueCallback from "../validatable/value-callback";
 //             new ValidatableValueCallback(argument, this.validators, this.map, this.validation, this.message);
 //     }
 // }
-export default ValueCallback;
 var ValueCallback;
 (function (ValueCallback) {
+    ValueCallback.Parameters = ValueCallbackParameters;
     ValueCallback.Parameter = ValueCallbackParameter;
-    ValueCallback.Object = ValueCallbackObject;
 })(ValueCallback || (ValueCallback = {}));
-export function ValueCallbackParameter(validators, map, validation, message) {
-    return function (value) {
-        return new ValidatableValueCallback.Parameter(value, validators, map, validation, message);
-    };
-}
-export function ValueCallbackObject({ validators, map, validation, message, }) {
-    return ValueCallbackParameter(validators, (value, validators) => map({ value, validators }), validation, message);
-}
+export default ValueCallback;
+//
+// export type ValueCallbackArgument<
+//     BaseType = unknown,
+//     ValueType extends BaseType = BaseType,
+//     MessageType = unknown,
+//     ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+//     Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+//     ValidatableType extends Validatable = Validatable
+// > =
+//     ValidatorsContainer<ValidatorsType> &
+//     //{ map : (base : BaseType, record : ValidatorsType) => Validatables} &
+//     { map : (argument : BaseValue<BaseType> & ValidatorsContainer<ValidatorsType>) => Validatables} &
+//     // TODO CHANGE TO VALIDATOR
+//     {validation: (result : Validatables)=>ValidatableType} &
+//     Message<(result : Validatables)=>MessageType>
+//     ;
+//
+//
+// export function ValueCallbackParameter<
+//     BaseType = unknown,
+//     ValueType extends BaseType = BaseType,
+//     MessageType = unknown,
+//     ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+//     Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+//     ValidatableType extends Validatable = Validatable
+// >(
+//     validators : ValidatorsType,
+//     map : (base : BaseType, record : ValidatorsType) => Validatables,
+//     validation : (result : Validatables)=>ValidatableType,
+//     message : (result : Validatables)=>MessageType
+// ) : Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType> {
+//
+//     return function <Argument extends BaseType, ValueType extends BaseType>(value: Argument|ValueType) {
+//
+//         return new ValidatableValueCallback.Parameter(value, validators, map, validation, message);
+//
+//     } as Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>
+// }
+//
+// export function ValueCallbackObject<
+//     BaseType = unknown,
+//     ValueType extends BaseType = BaseType,
+//     MessageType = unknown,
+//     ValidatorsType extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
+//     Validatables extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
+//     ValidatableType extends Validatable = Validatable
+// >(
+//     {
+//         validators,
+//         map,
+//         validation,
+//         message,
+//     } : ValueCallbackArgument<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>
+// ) : Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType> {
+//
+//     return ValueCallbackParameter(
+//         validators,
+//         (value, validators) => map({value, validators}),
+//         validation, message
+//     );
+// }
 //# sourceMappingURL=value-callback.js.map

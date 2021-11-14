@@ -1,10 +1,7 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
 import ValidatableValue from "../validatable/value";
-import Message from "@dikac/t-message/message";
-import Validation from "@dikac/t-validatable/validation/validation";
-import Validators from "./validators/validators";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import Dynamic from "@dikac/t-validator/validatable/dynamic";
 
 /**
  * extended {@link Validator} for validating value with record of {@link Validator}
@@ -51,7 +48,7 @@ type Value<
     Value extends Base,
     MessageType,
     RecordType extends Record<PropertyKey, Validator<Base, Value>>,
-    Result extends Partial<Record<PropertyKey, Instance>>,
+    Result extends Partial<Record<PropertyKey, Dynamic>>,
     ValidatableType extends Validatable
 > = Validator<
     Base,

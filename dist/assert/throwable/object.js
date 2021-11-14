@@ -1,18 +1,9 @@
-import StringType from "../string/object";
-export default Object_;
+import ObjectParameters from "./object-parameters";
+import ObjectParameter from "./object-parameter";
 var Object_;
 (function (Object_) {
+    Object_.Parameters = ObjectParameters;
     Object_.Parameter = ObjectParameter;
-    Object_.Object = ObjectObject;
 })(Object_ || (Object_ = {}));
-export function ObjectParameter(value, subject = 'type', conversion = value => typeof value) {
-    return new Error(StringType.Parameter(value, false, subject, conversion));
-}
-export function ObjectObject(
-// string : unknown,
-// subject : string = 'type',
-// conversion : (value:unknown)=>string = value=>typeof value,
-{ value, subject = 'type', conversion = value => typeof value, }) {
-    return ObjectParameter(value, subject, conversion);
-}
+export default Object_;
 //# sourceMappingURL=object.js.map

@@ -16,7 +16,7 @@ for(let [value, [valid, message]] of map) {
 
         it(message, ()=>{
 
-            let validatable = new NotEmpty.Parameter(value, EmptyMessage.Parameter);
+            let validatable = new NotEmpty.Parameters(value, EmptyMessage.Parameters);
             expect(validatable.valid).toBe(!valid, value);
             expect(validatable.value).toBe(value, value);
 

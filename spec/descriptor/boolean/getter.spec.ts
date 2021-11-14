@@ -45,7 +45,6 @@ describe("getter/setter", function() {
     });
 
 
-
     describe("object", function() {
 
 

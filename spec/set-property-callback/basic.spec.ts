@@ -8,7 +8,7 @@ describe('plain', () => {
     let result : string;
     let soruce = {};
 
-    let object = SetPropertyCallback.Parameter(soruce, 'data', () =>{
+    let object = SetPropertyCallback.Parameters(soruce, 'data', () =>{
         called++;
         return Math.random().toString();
     }, true, true);
@@ -59,7 +59,7 @@ describe('class', () => {
     let source = new Test();
 
 
-    let object = SetPropertyCallback.Parameter(source, 'data', () =>{
+    let object = SetPropertyCallback.Parameters(source, 'data', () =>{
         calledCallback++;
         return Math.random().toString();
     }, true, true);

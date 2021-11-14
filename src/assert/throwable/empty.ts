@@ -1,40 +1,10 @@
-import EmptyType from "../string/empty";
-import Validatable from "@dikac/t-validatable/validatable";
-import Value from "@dikac/t-value/value";
+import EmptyParameter, {EmptyArgument} from "./empty-parameter";
+import EmptyParameters from "./empty-parameters";
 
-export default Empty;
 namespace Empty {
 
     export const Parameter = EmptyParameter;
-    export const Object = EmptyObject;
+    export const Parameters = EmptyParameters;
     export type Argument = EmptyArgument;
 }
-
-
-export function EmptyParameter(
-     value : object,
-     subject : string = 'object',
-   //{
-   //    value,
-   //    subject = 'object',
-
-   //} : Value & {subject?: string}
-) : Error {
-
-    return new Error(EmptyType.Parameter(value, false, subject))
-}
-
-export type EmptyArgument = Value<object> & {subject?: string};
-
-export function EmptyObject(
-    // value : object,
-    // subject : string = 'object',
-    {
-        value,
-        subject = 'object',
-
-    } : EmptyArgument
-) : Error {
-
-    return EmptyParameter(value, subject)
-}
+export default Empty;

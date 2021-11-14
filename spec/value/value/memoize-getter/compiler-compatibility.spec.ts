@@ -8,7 +8,7 @@ describe('plain', () => {
 
         get data ()  {
 
-            return SetGetter.Parameter(this, 'data', 'string');
+            return SetGetter.Parameters(this, 'data', 'string');
         }
     }
 
@@ -23,7 +23,7 @@ describe('different type', () => {
         get data () : number {
 
         // @ts-expect-error
-            return SetGetter.Parameter(this, 'data', 'string');
+            return SetGetter.Parameters(this, 'data', 'string');
         }
     }
     // @ts-expect-error
@@ -43,7 +43,7 @@ describe('class', () => {
 
             get data ()  {
 
-                return SetGetter.Parameter(this, 'data', 'string');
+                return SetGetter.Parameters(this, 'data', 'string');
             }
         }
 
@@ -58,7 +58,7 @@ describe('class', () => {
 
             get data ()  {
 
-                return SetGetter.Parameter(this, 'data', 'string');
+                return SetGetter.Parameters(this, 'data', 'string');
             }
         }
 
@@ -77,7 +77,7 @@ describe('not exists', () => {
             get data ()  {
 
                 // @ts-expect-error
-                return SetGetter.Parameter(object, 'c', 'string');
+                return SetGetter.Parameters(object, 'c', 'string');
             }
         }
 
@@ -91,7 +91,7 @@ describe('not exists', () => {
 
             get data ()  {
 
-                return SetGetter.Parameter(this, 'c', 'string');
+                return SetGetter.Parameters(this, 'c', 'string');
             }
         }
 

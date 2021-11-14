@@ -1,15 +1,8 @@
-import Property from "../../property/property/property";
-import { ObjectArgument, ObjectObject, ObjectParameter } from "./object";
-export default Value;
+import ValueParameter, { ValueArgument } from "./value-parameter";
+import ValueParameters from "./value-parameters";
 declare namespace Value {
-    const Parameter: typeof ObjectParameter;
-    const Object: typeof ObjectObject;
-    type Argument = ObjectArgument;
+    const Parameter: typeof ValueParameter;
+    const Parameters: typeof ValueParameters;
+    type Argument = ValueArgument;
 }
-export declare function ValueParameter(property: PropertyKey, type: string): Error;
-export declare type ValueArgument = {
-    type: string;
-} & Property;
-export declare function ValueObject({ property, type }: {
-    type: string;
-} & Property): Error;
+export default Value;

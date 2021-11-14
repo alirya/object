@@ -1,15 +1,8 @@
-import Value from "@dikac/t-value/value";
-import Property from "../property/property";
-import { ReadableParameter } from "./readable";
-export default Writable;
+import ReadableParameter, { WritableArgument } from "./writable-parameter";
+import ReadableParameters from "./writable-parameters";
 declare namespace Writable {
+    const Parameters: typeof ReadableParameters;
     const Parameter: typeof ReadableParameter;
-    const Object: typeof ReadableObject;
-    type Argument = ReadableArgument;
+    type Argument = WritableArgument;
 }
-/**
- * check if property is writable
- */
-export declare function WritableParameter(value: object, property: PropertyKey): boolean;
-export declare type ReadableArgument = Value<object> & Property;
-export declare function ReadableObject({ value, property, }: ReadableArgument): boolean;
+export default Writable;

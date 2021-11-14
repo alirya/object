@@ -1,12 +1,8 @@
-import Value from "@dikac/t-value/value";
-export default Object_;
+import ObjectParameter, { ObjectArgument } from "./object-parameter";
+import ObjectParameters from "./object-parameters";
 declare namespace Object_ {
     const Parameter: typeof ObjectParameter;
-    const Object: typeof ObjectObject;
+    const Parameters: typeof ObjectParameters;
     type Argument = ObjectArgument;
 }
-export declare function ObjectParameter(value: unknown, error?: (value: unknown) => Error): object;
-export declare type ObjectArgument = Value<unknown> & {
-    error?: (value: unknown) => Error;
-};
-export declare function ObjectObject({ value, error, }: ObjectArgument): object;
+export default Object_;

@@ -12,7 +12,7 @@ describe('test', function () {
             data : {}
         }
 
-        let result = PropertyType.Parameter(data, 'data', Type);
+        let result = PropertyType.Parameters(data, 'data', Type);
         expect(result).toBeTrue();
     })
 
@@ -22,7 +22,7 @@ describe('test', function () {
             data : 1
         }
 
-        let result = PropertyType.Parameter(data, 'data', Type);
+        let result = PropertyType.Parameters(data, 'data', Type);
         expect(result).toBeFalse();
     })
 

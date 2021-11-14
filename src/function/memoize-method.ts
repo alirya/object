@@ -25,7 +25,7 @@ export default function MemoizeMethod(
 
         descriptor.value = function (...args) {
 
-            return SetMethod.Parameter(
+            return SetMethod.Parameters(
                 this,
                 property,
                 this[symbol](args),

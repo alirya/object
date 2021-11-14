@@ -1,15 +1,8 @@
-import Validatable from "@dikac/t-validatable/validatable";
-import Value from "@dikac/t-value/value";
-export default Object_;
+import ObjectParameter, { ObjectArgument } from "./object-parameter";
+import ObjectParameters from "./object-parameters";
 declare namespace Object_ {
     const Parameter: typeof ObjectParameter;
-    const Object: typeof ObjectObject;
+    const Parameters: typeof ObjectParameters;
     type Argument = ObjectArgument;
 }
-export declare function ObjectParameter(value: unknown, valid: boolean, subject?: string, conversion?: (value: unknown) => string): string;
-export declare type ObjectArgument = Validatable & Value & {
-    subject?: string;
-} & {
-    conversion?: (value: unknown) => string;
-};
-export declare function ObjectObject({ valid, value, subject, conversion, }: ObjectArgument): string;
+export default Object_;

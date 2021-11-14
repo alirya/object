@@ -1,12 +1,5 @@
-import Validator from "@dikac/t-validator/simple";
-import Validatable from "@dikac/t-validatable/validatable";
-import Message from "@dikac/t-message/message";
-import Value from "@dikac/t-value/value";
-import ObjectValidatable from "../validatable/object";
-import Instance from "@dikac/t-validator/validatable/validatable";
-import Return from "@dikac/t-validator/validatable/simple";
-import {A} from "ts-toolbelt";
-import ObjectString from "../assert/string/object";
+import ObjectParameters from "./object-parameters";
+import ObjectParameter from "./object-parameter";
 //
 // export default class Object_<MessageType>
 //     implements
@@ -25,20 +18,28 @@ import ObjectString from "../assert/string/object";
 //         return  ObjectValidatable<MessageType, Argument>(value, this.message);
 //     }
 // }
+//
+// export default function Object_() : Validator<unknown, object, Readonly<Instance<object, string>>>;
+//
+// export default function Object_<MessageType>(
+//     message : (result:Readonly<Value> & Readonly<Validatable>)=>MessageType
+// ) : Validator<unknown, object, Readonly<Instance<object, MessageType>>>;
+//
+// export default function Object_<MessageType>(
+//     message : (result:Readonly<Value> & Readonly<Validatable>)=>MessageType|string = ObjectString.Object
+// ) : Validator<unknown, object, Readonly<Instance<object, MessageType>>> {
+//
+//     return function (value ) {
+//
+//         return  ObjectValidatable.Parameter(value, message);
+//
+//     } as Validator<unknown, object, Readonly<Instance<object, MessageType>>>
+// }
 
-export default function Object_() : Validator<unknown, object, Readonly<Instance<object, string>>>;
+namespace Object_ {
 
-export default function Object_<MessageType>(
-    message : (result:Readonly<Value> & Readonly<Validatable>)=>MessageType
-) : Validator<unknown, object, Readonly<Instance<object, MessageType>>>;
-
-export default function Object_<MessageType>(
-    message : (result:Readonly<Value> & Readonly<Validatable>)=>MessageType|string = ObjectString.Object
-) : Validator<unknown, object, Readonly<Instance<object, MessageType>>> {
-
-    return function (value ) {
-
-        return  ObjectValidatable.Parameter(value, message);
-
-    } as Validator<unknown, object, Readonly<Instance<object, MessageType>>>
+    export const Parameters = ObjectParameters;
+    export const Parameter = ObjectParameter;
 }
+
+export default Object_;

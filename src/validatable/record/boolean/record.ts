@@ -27,5 +27,5 @@ export default function Record<
     property ? : (value:PropertyKey)=>value is Key
 ) : record is Object {
 
-    return TypeRecord.Parameter(record, ValidatableType, <(value:PropertyKey)=>value is Key>property)
+    return TypeRecord.Parameters(record, ValidatableType, <(value:PropertyKey)=>value is Key>property)
 }
