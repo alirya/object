@@ -42,13 +42,6 @@ export default function ValueAllParameters<
     validators : Validators,
     validation : (result:MapReturn<Validators>) => ValidatableType,
     message : (result:MapReturn<Validators>) => MessageType,
-    //{
-    //    validators,
-    //    validation,
-    //    message,
-    //} : ValidatorsContainer<Validators> &
-    //    Message<(result:MapReturn<Validators>) => MessageType> &
-    //    {validation : (result:MapReturn<Validators>) => ValidatableType}
 ) : ValueInterface<Base, Value, MessageType, Validators, MapReturn<Validators>, ValidatableType> {
 
     return ValueCallback.Parameters(

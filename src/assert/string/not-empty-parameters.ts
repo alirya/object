@@ -1,14 +1,5 @@
 import Name from "../../string/name";
 
-// export default NotEmpty;
-// namespace NotEmpty {
-//
-//     export const Parameter = NotEmptyParameter;
-//     export const Object = NotEmptyObject;
-//     export type Argument = NotEmptyArgument;
-// }
-//
-
 /**
  * string intended for not NotEmpty object
  *
@@ -21,12 +12,6 @@ export default function NotEmptyParameters(
     value : object,
     valid : boolean,
     subject : string = ''
-    //{
-    //    valid,
-    //    value,
-    //    subject = '',
-//
-    //} : Validatable & Value<object> & {subject?: string}
 ) : string {
 
     const strings : string[] = [];
@@ -47,21 +32,3 @@ export default function NotEmptyParameters(
 
     return strings.join(' ') + '.';
 }
-
-//
-// export type NotEmptyArgument = Validatable & Value<object> & {subject?: string};
-//
-// export function NotEmptyObject(
-//     //valid : boolean,
-//     //value : object,
-//     //subject : string = '',
-//     {
-//         valid,
-//         value,
-//         subject = '',
-//
-//     } : NotEmptyArgument
-// ) : string {
-//
-//     return NotEmptyParameter(valid, value, subject)
-// }

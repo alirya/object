@@ -29,11 +29,6 @@ export default function SetPropertyCallbackParameter<
     This extends object,
     Key extends keyof This
     >(
-    //object : This,
-    //property : Key,
-    //factory : ()=>This[Key],
-    //writable ?: boolean,
-    //configurable ?: boolean,
     {
         object,
         property,
@@ -48,11 +43,6 @@ export default function SetPropertyCallbackParameter<
     Key extends PropertyKey,
     Type
     >(
-    // object : This,
-    // property : Key,
-    // factory : ()=>Type,
-    // writable ?: boolean,
-    // configurable ?: boolean,
     {
         object,
         property,

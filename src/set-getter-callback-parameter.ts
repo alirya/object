@@ -40,17 +40,10 @@ export type SetGetterCallbackArgumentDynamic<
 
 
 
-
-
 export default function SetGetterCallbackParameter<
     This extends object,
     Key extends keyof This
     >(
-    //object : This,
-    //property : Key,
-    //factory : ()=>This[Key],
-    //writable ?: boolean,
-    //configurable ?: boolean,
     {
         object,
         property,
@@ -64,11 +57,6 @@ export default function SetGetterCallbackParameter<
     Key extends PropertyKey,
     Type
     >(
-    // object : This,
-    // property : Key,
-    // factory : ()=>Type,
-    // writable ?: boolean,
-    // configurable ?: boolean,
     {
         object,
         property,

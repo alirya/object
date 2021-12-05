@@ -5,9 +5,6 @@ import ValueParameters from "./value-parameters";
 export type ValueArgument = Validatable & Property & {type : string};
 
 export default function ValueParameter(
-    // valid : boolean,
-    // property : PropertyKey,
-    // type : string,
     {
         valid,
         property,

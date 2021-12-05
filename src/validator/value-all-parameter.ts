@@ -13,9 +13,6 @@ export default function ValueAllParameter<
     Validators extends Record<PropertyKey, Validator<Base, Value>> = Record<PropertyKey, Validator<Base, Value>>,
     ValidatableType extends Validatable = Validatable
 >(
-    // validators : Validators,
-    // validation : (result:MapReturn<Validators>) => ValidatableType,
-    // message : (result:MapReturn<Validators>) => MessageType,
     {
         validators,
         validation,

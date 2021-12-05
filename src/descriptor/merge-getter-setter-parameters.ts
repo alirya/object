@@ -1,32 +1,6 @@
 import Setter from "./setter";
 import Getter from "./getter";
 
-
-// export default MergeGetterSetter;
-// namespace MergeGetterSetter {
-//
-//     export const Parameter = MergeGetterSetterParameter;
-//     export const Object = MergeGetterSetterMergeGetterSetter;
-//     export type Argument<SetterType extends Setter, GetterType extends Getter> =
-//         MergeGetterSetterArgument1<SetterType, GetterType> |
-//         MergeGetterSetterArgument2<SetterType, GetterType> |
-//         MergeGetterSetterArgument3<SetterType, GetterType>;
-//
-//     export type Argument1<SetterType extends Setter, GetterType extends Getter> = MergeGetterSetterArgument1<SetterType, GetterType>;
-//     export type Argument2<SetterType extends Setter, GetterType extends Getter> = MergeGetterSetterArgument2<SetterType, GetterType>;
-//     export type Argument3<SetterType extends Setter, GetterType extends Getter> = MergeGetterSetterArgument3<SetterType, GetterType>;
-//
-//
-//     export type Type<SetterType extends Setter, GetterType extends Getter> =
-//         MergeGetterSetterType1<SetterType, GetterType> |
-//         MergeGetterSetterType2<SetterType, GetterType> |
-//         MergeGetterSetterType3<SetterType, GetterType>;
-//
-//     export type Type1<SetterType extends Setter, GetterType extends Getter> = MergeGetterSetterType1<SetterType, GetterType>;
-//     export type Type2<SetterType extends Setter, GetterType extends Getter> = MergeGetterSetterType2<SetterType, GetterType>;
-//     export type Type3<SetterType extends Setter, GetterType extends Getter> = MergeGetterSetterType3<SetterType, GetterType>;
-// }
-
 export type MergeGetterSetterTypeSetter<SetterType extends Setter, GetterType extends Getter> =
     Omit<SetterType, 'set'> & Pick<GetterType, 'set'>;
 

@@ -6,12 +6,6 @@ namespace SetMethod {
 
     export const Parameters = SetMethodParameters;
     export const Parameter = SetMethodParameter;
-    export type Argument<
-        This extends object,
-        Type,
-        > = SetMethodArgument<
-        This,
-        Type
-        >;
+    export type Argument<This extends object, Type> = SetMethodArgument<This, Type>;
 }
 export default SetMethod;

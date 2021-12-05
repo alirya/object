@@ -10,10 +10,6 @@ export type PropertyArgument<MessageValue> =
     {conversion ?: (message:MessageValue)=>string};
 
 export default function PropertyParameter<MessageValue>(
-    // message : Message<MessageValue>,
-    // property : PropertyKey,
-    // delimiter : string = ' : ',
-    // conversion : (message:MessageValue)=>string = (value: MessageValue) => value + '',
     {
         message,
         property,

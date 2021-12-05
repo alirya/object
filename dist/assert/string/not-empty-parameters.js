@@ -1,12 +1,4 @@
 import Name from "../../string/name";
-// export default NotEmpty;
-// namespace NotEmpty {
-//
-//     export const Parameter = NotEmptyParameter;
-//     export const Object = NotEmptyObject;
-//     export type Argument = NotEmptyArgument;
-// }
-//
 /**
  * string intended for not NotEmpty object
  *
@@ -14,14 +6,7 @@ import Name from "../../string/name";
  * @param value
  * @param subject
  */
-export default function NotEmptyParameters(value, valid, subject = ''
-//{
-//    valid,
-//    value,
-//    subject = '',
-//
-//} : Validatable & Value<object> & {subject?: string}
-) {
+export default function NotEmptyParameters(value, valid, subject = '') {
     const strings = [];
     strings.push(subject);
     strings.push(Name(value));
@@ -34,21 +19,4 @@ export default function NotEmptyParameters(value, valid, subject = ''
     strings.push('not empty object');
     return strings.join(' ') + '.';
 }
-//
-// export type NotEmptyArgument = Validatable & Value<object> & {subject?: string};
-//
-// export function NotEmptyObject(
-//     //valid : boolean,
-//     //value : object,
-//     //subject : string = '',
-//     {
-//         valid,
-//         value,
-//         subject = '',
-//
-//     } : NotEmptyArgument
-// ) : string {
-//
-//     return NotEmptyParameter(valid, value, subject)
-// }
 //# sourceMappingURL=not-empty-parameters.js.map

@@ -11,7 +11,7 @@ namespace SetGetterCallback {
     export const Parameters = SetGetterCallbackParameters;
     export const Parameter = SetGetterCallbackParameter;
 
-    export type Argument1<
+    export type ArgumentStatic<
         This extends object,
         Key extends keyof This
         > = SetGetterCallbackArgumentStatic<
@@ -19,7 +19,7 @@ namespace SetGetterCallback {
         Key
         >;
 
-    export type Argument2<
+    export type ArgumentDynamic<
         This extends object,
         Key extends PropertyKey,
         Type
@@ -29,7 +29,7 @@ namespace SetGetterCallback {
         Type
         >;
 
-    export type Type1<
+    export type TypeStatic<
         This extends object,
         Key extends keyof This
         > = SetGetterCallbackTypeStatic<
@@ -37,7 +37,7 @@ namespace SetGetterCallback {
         Key
         >;
 
-    export type Type2<
+    export type TypeDynamic<
         This extends object,
         Key extends PropertyKey,
         Type

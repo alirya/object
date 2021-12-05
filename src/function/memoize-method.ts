@@ -32,7 +32,6 @@ export default function MemoizeMethod(
                 false,
                 configuration.configurable
             )
-            // return SetGetter(this, <any>property, this[symbol], configuration.configurable);
         };
     };
 }

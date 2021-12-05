@@ -54,12 +54,6 @@ export default function ValuePartialParameters<
      validation : (result:Partial<ReturnInfer<Validators>>) => ValidatableType,
      message : (result:Partial<ReturnInfer<Validators>>) => MessageType,
      stop : boolean = false,
-    // {
-    //     validators,
-    //     validation,
-    //     message,
-    //     stop = false,
-    // } : Argument<BaseType, ValueType, MessageType, Validators, ValidatableType>
 ) : ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType> {
 
     return <ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType>> ValueCallback.Parameters(

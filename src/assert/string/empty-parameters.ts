@@ -1,15 +1,5 @@
 import Name from "../../string/name";
 
-//
-// export default Empty;
-// namespace Empty {
-//
-//     export const Parameter = EmptyParameter;
-//     export const Object = EmptyObject;
-//     export type Argument = EmptyArgument;
-// }
-
-
 /**
  * string intended for empty object
  *
@@ -22,12 +12,6 @@ export default function EmptyParameters(
    value : object,
    valid : boolean,
    subject : string = '',
-    //{
-    //    valid,
-    //    value,
-    //    subject = '',
-//
-    //} : Validatable & Value & {subject?: string}
 ) : string {
 
     const strings : string[] = [];
@@ -48,20 +32,3 @@ export default function EmptyParameters(
 
     return strings.join(' ') + '.';
 }
-//
-// export type EmptyArgument = Validatable & Value<object> & {subject?: string};
-//
-// export function EmptyObject(
-//     //valid : boolean,
-//     //value : object,
-//     //subject : string = '',
-//     {
-//         valid,
-//         value,
-//         subject = '',
-//
-//     } : EmptyArgument
-// ) : string {
-//
-//     return EmptyParameter(value, valid, subject)
-// }

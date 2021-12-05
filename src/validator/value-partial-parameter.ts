@@ -57,10 +57,6 @@ export default function ValuePartialParameter<
     Validators extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
     ValidatableType extends Validatable = Validatable
 >(
-    // validators : Validators,
-    // validation : (result:Partial<ReturnInfer<Validators>>) => ValidatableType,
-    // message : (result:Partial<ReturnInfer<Validators>>) => MessageType,
-    // stop : boolean = false,
     {
         validators,
         validation,

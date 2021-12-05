@@ -15,9 +15,5 @@ type RecordValue<
         Record<InferBase<ValidatorTemplate>, any>,
         Record<InferBase<ValidatorTemplate>, any>,
         ValidatableRecord<MessageTemplate, Record<PropertyKey, InferBase<ValidatorTemplate>>, ValidatorTemplate, Result, ValidatableTemplate>>
-    // &
-    // ValidatorContainer<ValidatorTemplate> &
-    // Message<(result:Result)=>MessageTemplate> &
-    // Validation<(result:Result)=>ValidatableTemplate>
 
 export default RecordValue;

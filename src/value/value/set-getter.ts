@@ -5,12 +5,6 @@ namespace SetGetter {
 
     export const Parameters = SetGetterParameters;
     export const Parameter = SetGetterParameter;
-    export type Argument<
-        This extends object,
-        Type,
-    > = SetGetterArgument<
-        This,
-        Type
-    >;
+    export type Argument<This extends object, Type> = SetGetterArgument<This, Type>;
 }
 export default SetGetter;

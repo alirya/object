@@ -7,11 +7,6 @@ export default function ValueParameters(
     property : PropertyKey,
     valid : boolean,
     type : string,
-    // {
-    //     valid,
-    //     property,
-    //     type,
-    // } : Validatable & Property & {type : string}
 ) : string {
 
     const strings : string[] = [];

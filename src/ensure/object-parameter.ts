@@ -4,8 +4,6 @@ import ObjectParameters from "./object-parameters";
 export type ObjectArgument = Value<unknown> & {error ?: (value:unknown)=>Error};
 
 export default function ObjectParameter(
-    //value : unknown,
-    //error : (value:unknown)=>Error = ObjectError,
     {
         value,
         error ,

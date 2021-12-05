@@ -21,9 +21,6 @@ export default function MapPartialParameter<
     ValidatableType extends Validatable = Validatable,
     MessageType = unknown
 >(
-    // validators : Validators,
-    // validation : (result:Partial<ReturnInfer<Validators>>)=>ValidatableType,
-    // message : (result:Partial<ReturnInfer<Validators>>)=>MessageType,
     {
         validators,
         validation,

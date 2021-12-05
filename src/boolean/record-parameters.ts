@@ -8,7 +8,6 @@ export default function RecordParameters<
 >(
     object : object,
     value : (value:unknown)=> value is ValueType,
-    // {value} : Value<(value:unknown)=> value is ValueType>
 ) : object is Record<PropertyKey, ValueType>;
 
 export default function RecordParameters<
@@ -18,10 +17,6 @@ export default function RecordParameters<
     object : object,
     value : (value:unknown)=> value is ValueType,
     property : (value:PropertyKey)=> value is KeyType,
-    //{
-    //    value,
-    //    property
-    //} : Value<(value:unknown)=> value is ValueType> & {property : (value:PropertyKey)=> value is KeyType}
 ) : object is Record<KeyType, ValueType>;
 
 export default function RecordParameters<
@@ -31,10 +26,6 @@ export default function RecordParameters<
     object : object,
     value : (value:unknown)=> value is ValueType,
     property ?: (value:PropertyKey)=> value is KeyType,
-    // {
-    //     value,
-    //     property
-    // } : Value<(value:unknown)=> value is ValueType> & {property ?: (value:PropertyKey)=> value is KeyType}
 ) : object is Record<KeyType, ValueType> {
 
     for(const [prop, val] of Object.entries(object)) {

@@ -4,15 +4,6 @@ export default function NameNotFoundParameters(
     value : unknown,
     subject : string = 'type',
     conversion : (value:unknown)=>string = value=>typeof value,
-    //{
-    //    valid,
-    //    value,
-    //    subject = 'type',
-    //    conversion = value=>typeof value,
-    //} : Validatable & Value & {
-    //    subject ?: string;
-    //    conversion ?: (value:unknown)=>string;
-    //}
 ) : string {
 
     const strings : string[] = [];

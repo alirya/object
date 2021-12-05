@@ -24,13 +24,7 @@ namespace SetProperty {
 
     export const Parameter = SetPropertyParameter;
     export const Parameters = SetPropertyParameters;
-    export type Argument<
-        This extends object,
-        Type,
-        > = SetPropertyArgument<
-        This,
-        Type
-        >;
+    export type Argument<This extends object, Type> = SetPropertyArgument<This, Type>;
 }
 
 export default SetProperty;
