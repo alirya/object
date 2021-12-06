@@ -3,7 +3,7 @@ import Validatable from "@dikac/t-validatable/validatable";
 import Message from "@dikac/t-message/message";
 import NotEmptyArgument from "../boolean/not-empty";
 import MemoizeAccessor from "../function/memoize-accessor";
-import Dynamic from "@dikac/t-validator/message/function/dynamic";
+import Dynamic from "@dikac/t-validator/message/function/validatable";
 
 export type NotEmptyType<ValueType extends object, MessageType> = Readonly<Value<ValueType> & Message<MessageType> & Validatable>;
 

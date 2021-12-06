@@ -1,4 +1,4 @@
-import Unique from "@dikac/t-array/unique";
+import Unique from "@dikac/t-array/unique-parameters";
 import MultiHandlers from "./multi-handlers";
 export default class OwnKeyListAll extends MultiHandlers {
     reset() {

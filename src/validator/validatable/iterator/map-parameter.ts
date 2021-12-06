@@ -1,4 +1,4 @@
-import RecordParameter from "../../base/record/infer";
+import RecordParameter from "../../subject/record/allow";
 import ValidatorsContainer from "../../validators/validators";
 import Validator from "@dikac/t-validator/validator";
 import Value from "@dikac/t-value/value";

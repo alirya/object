@@ -18,7 +18,7 @@ describe("compiler compatibility", function() {
 
     describe("implicit partial", function() {
 
-        let property = Value.Parameters(validator, (v)=>And(v), MessageMap);
+        let property = Value.Parameters(validator, And, MessageMap);
 
         let validatable = property('data');
 
@@ -622,7 +622,7 @@ describe("recursive", function() {
                     age : Type.Parameters('string'),
                     hobby : Type.Parameters('number'),
                     no : Type.Parameters('string'),
-                }, (v)=>And(v), MessageMap)
+                }, And, MessageMap)
             };
 
 

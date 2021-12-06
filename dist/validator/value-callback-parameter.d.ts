@@ -1,6 +1,6 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
-import Instance from "@dikac/t-validator/validatable/dynamic";
+import Instance from "@dikac/t-validator/validatable/validatable";
 import Value from "./value";
 import BaseValue from "@dikac/t-value/value";
 import ValidatorsContainer from "./validators/validators";

@@ -1,7 +1,7 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
 import ValidatableValue from "../validatable/value";
-import Dynamic from "@dikac/t-validator/validatable/dynamic";
+import Dynamic from "@dikac/t-validator/validatable/validatable";
 
 /**
  * extended {@link Validator} for validating value with record of {@link Validator}

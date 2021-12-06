@@ -1,8 +1,8 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
-import RecordParameter from "../validator/base/record/infer";
-import RecordBase from "../validator/base/record/infer";
-import Instance from "@dikac/t-validator/validatable/dynamic";
+import RecordParameter from "../validator/subject/record/allow";
+import RecordBase from "../validator/subject/record/allow";
+import Instance from "@dikac/t-validator/validatable/validatable";
 import Map from "./map";
 export default class MapCallbackParameters<MessageType = unknown, ValidatorsType extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>, Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>, ValidatableType extends Validatable = Validatable, ValueType extends RecordBase<ValidatorsType> = RecordBase<ValidatorsType>> implements Map<MessageType, ValidatorsType, Result, ValidatableType, ValueType> {
     #private;

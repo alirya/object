@@ -1,8 +1,8 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
-import RecordParameter from "./base/record/infer";
+import RecordParameter from "./subject/record/allow";
 import Map from "./map";
-import Instance from "@dikac/t-validator/validatable/dynamic";
+import Instance from "@dikac/t-validator/validatable/validatable";
 import ValidatorsContainer from "./validators/validators";
 import Message from "@dikac/t-message/message";
 export declare type MapCallbackArgument<Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>, Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>, ValidatableType extends Validatable = Validatable, MessageType = unknown> = ValidatorsContainer<Validators> & Message<(result: Result) => MessageType> & {

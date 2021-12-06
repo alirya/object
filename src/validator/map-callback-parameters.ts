@@ -1,9 +1,9 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
-import RecordParameter from "./base/record/infer";
+import RecordParameter from "./subject/record/allow";
 import Map from "./map";
 import ValidatableMapCallback from "../validatable/map-callback";
-import Instance from "@dikac/t-validator/validatable/dynamic";
+import Instance from "@dikac/t-validator/validatable/validatable";
 
 export default function MapCallbackParameters<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,

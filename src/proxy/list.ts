@@ -1,4 +1,4 @@
-import Merge from "@dikac/t-array/merge";
+import Merge from "@dikac/t-array/union";
 import MergeAnonymous from "./handler/merge-anonymous";
 
 export default function List<Objects extends object[]>(

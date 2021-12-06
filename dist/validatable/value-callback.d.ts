@@ -1,5 +1,5 @@
 import Validator from "@dikac/t-validator/validator";
-import ValidatorValidatable from "@dikac/t-validator/validatable/dynamic";
+import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
 import Validatable from "@dikac/t-validatable/validatable";
 import ValueCallbackParameters from "./value-callback-parameters";
 import ValueCallbackParameter, { ValueCallbackArgument } from "./value-callback-parameter";

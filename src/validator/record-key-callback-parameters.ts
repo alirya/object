@@ -2,8 +2,8 @@ import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
 import ValidatableRecordCallback from "../validatable/record-value-callback";
 import RecordKey from "./record-key";
-import ValidatorValidatable from "@dikac/t-validator/validatable/dynamic";
-import InferBase from "@dikac/t-validator/base/infer";
+import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
+import InferBase from "@dikac/t-validator/subject/allow";
 
 
 // export default RecordKeyCallback;

@@ -1,10 +1,10 @@
 import SimpleValidator from "@dikac/t-validator/simple";
 import Validator from "@dikac/t-validator/validator";
-import InferBase from "@dikac/t-validator/base/infer";
-import InferType from "@dikac/t-validator/expectation/infer";
+import InferBase from "@dikac/t-validator/subject/allow";
+import InferType from "@dikac/t-validator/subject/expectation";
 import Validatable from "@dikac/t-validatable/validatable";
 import ValidatableRecord from "../validatable/record-value";
-import Instance from "@dikac/t-validator/validatable/dynamic";
+import Instance from "@dikac/t-validator/validatable/validatable";
 
 type RecordValue<
     ValidatorTemplate extends Validator,

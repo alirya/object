@@ -1,6 +1,6 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
-import ValidatorValidatable from "@dikac/t-validator/validatable/dynamic";
+import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
 import RecordKeyCallbackParameters from "./record-key-callback-parameters";
 import RecordKeyCallbackParameter, {RecordKeyCallbackArgument} from "./record-key-callback-parameter";
 

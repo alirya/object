@@ -1,6 +1,6 @@
 import Validator from "@dikac/t-validator/simple";
 import ObjectValidatable from "../validatable/object";
-import Instance from "@dikac/t-validator/validatable/dynamic";
+import Instance from "@dikac/t-validator/validatable/validatable";
 import ObjectString from "../assert/string/object";
 import Simple from "@dikac/t-validator/message/function/simple";
 import ObjectParameters from "./object-parameters";

@@ -1,7 +1,7 @@
 import Validator from "@dikac/t-validator/validator";
 import EmptyValidatable from "../validatable/empty";
 import EmptyString from "../assert/string/empty";
-import Dynamic from "@dikac/t-validator/message/function/dynamic";
+import Dynamic from "@dikac/t-validator/message/function/validatable";
 
 
 export default function EmptyParameters() : Validator<object, object, boolean, boolean, EmptyValidatable.Type<object, string>>;

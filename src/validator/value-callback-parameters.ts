@@ -1,7 +1,7 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
 import ValidatableValueCallback from "../validatable/value-callback";
-import Instance from "@dikac/t-validator/validatable/dynamic";
+import Instance from "@dikac/t-validator/validatable/validatable";
 import Value from "./value";
 
 

@@ -1,5 +1,5 @@
 import Validator from "@dikac/t-validator/validator";
-import ValidatorValidatable from "@dikac/t-validator/validatable/dynamic";
+import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
 import Validatable from "@dikac/t-validatable/validatable";
 import Value from "./value";
 export default class ValueCallbackParameters<ValueType = unknown, MessageType = unknown, RecordType extends Record<PropertyKey, Validator<ValueType>> = Record<PropertyKey, Validator<ValueType>>, Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>, ValidatableType extends Validatable = Validatable> implements Value<ValueType, MessageType, RecordType, Result, ValidatableType> {

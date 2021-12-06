@@ -1,5 +1,5 @@
 import Validator from "@dikac/t-validator/validator";
-import ValidatorValidatable from "@dikac/t-validator/validatable/dynamic";
+import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
 import Validatable from "@dikac/t-validatable/validatable";
 import Value from "./value";
 import MemoizeAccessor from "../function/memoize-accessor";
