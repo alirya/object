@@ -1,4 +1,4 @@
-import PropertyValueArgumentValidation from "../../../assert/string/value-validation";
+import PropertyValueArgumentValidation from "../../../assert/string/value-validation-parameters";
 import Name from "../../../string/name";
 
 export default function PropertyValueParameters(
@@ -7,7 +7,7 @@ export default function PropertyValueParameters(
     validation : (...arg: any[]) => boolean
 ) : Error {
 
-    let message = PropertyValueArgumentValidation.Parameters(
+    let message = PropertyValueArgumentValidation(
         property,
         false,
         type,

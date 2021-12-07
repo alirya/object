@@ -1,7 +1,7 @@
 import Validator from "@dikac/t-validator/validator";
 import MapInterface from "../../../map";
 import Return from "@dikac/t-validator/validatable/infer-static";
-import IteratorRecordKey from "../iterator/record-key";
+import IteratorRecordKey from "../iterator/record-key-parameters";
 
 // export default RecordKeyPartial;
 // namespace RecordKeyPartial {
@@ -20,7 +20,7 @@ export default function RecordKeyPartialParameters<
 
     let result = {};
 
-    for(const [key, validatable] of IteratorRecordKey.Parameters(value, validator)) {
+    for(const [key, validatable] of IteratorRecordKey(value, validator)) {
 
         result[key as PropertyKey] = validatable;
 

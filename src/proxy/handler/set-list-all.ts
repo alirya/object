@@ -1,5 +1,5 @@
 import Exists from "../../property/boolean/exists";
-import Writable from "../../property/boolean/writable";
+import Writable from "../../property/boolean/writable-parameters";
 import {List} from "ts-toolbelt";
 import {Required} from "utility-types";
 import MultiHandlers from "./multi-handlers";
@@ -41,7 +41,7 @@ export default class SetListAll<
 
         for (let handler of this.getHandler(target)) {
 
-            if(Writable.Parameters(handler, property)) {
+            if(Writable(handler, property)) {
 
                 list.push(handler);
             }

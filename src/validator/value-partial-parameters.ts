@@ -1,9 +1,9 @@
 import Validator from "@dikac/t-validator/simple";
 import Validatable from "@dikac/t-validatable/validatable";
-import ValidateValuePartial from "./validatable/record/value-partial";
+import ValidateValuePartial from "./validatable/record/value-partial-parameters";
 import ReturnInfer from "./validatable/record/infer";
 import MapReturn from "./validatable/record/infer";
-import ValueCallback from "./value-callback";
+import ValueCallback from "./value-callback-parameters";
 import ValueInterface from "./value";
 
 /**
@@ -56,9 +56,9 @@ export default function ValuePartialParameters<
      stop : boolean = false,
 ) : ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType> {
 
-    return <ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType>> ValueCallback.Parameters(
+    return <ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType>> ValueCallback(
         validators,
-        (value, validators)  => ValidateValuePartial.Parameters(value, validators, stop),
+        (value, validators)  => ValidateValuePartial(value, validators, stop),
         validation,
         message
     );

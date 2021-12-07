@@ -1,8 +1,8 @@
 import Validator from "@dikac/t-validator/simple";
 import Validatable from "@dikac/t-validatable/validatable";
-import ValidateValue from "./validatable/record/value";
+import ValidateValue from "./validatable/record/value-parameters";
 import MapReturn from "./validatable/record/infer";
-import ValueCallback from "./value-callback";
+import ValueCallback from "./value-callback-parameters";
 import ValueInterface from "./value";
 
 /**
@@ -44,9 +44,9 @@ export default function ValueAllParameters<
     message : (result:MapReturn<Validators>) => MessageType,
 ) : ValueInterface<Base, Value, MessageType, Validators, MapReturn<Validators>, ValidatableType> {
 
-    return ValueCallback.Parameters(
+    return ValueCallback(
         validators,
-        ValidateValue.Parameters,
+        ValidateValue,
         validation,
         message
     ) as ValueInterface<Base, Value, MessageType, Validators, MapReturn<Validators>, ValidatableType>;

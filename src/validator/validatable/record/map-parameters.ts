@@ -1,7 +1,7 @@
 import RecordParameter from "../../subject/record/allow";
 import Validator from "@dikac/t-validator/validator";
 import InferReturn from "./infer";
-import IteratorMap from "../iterator/map";
+import IteratorMap from "../iterator/map-parameters";
 
 //
 // export default Map;
@@ -23,7 +23,7 @@ export default function MapParameters<
 
     let object = {};
 
-    for(let [property, validatable] of IteratorMap.Parameters(value, validators)) {
+    for(let [property, validatable] of IteratorMap(value, validators)) {
 
         object[<PropertyKey>property] = validatable;
     }

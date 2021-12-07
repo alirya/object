@@ -1,4 +1,4 @@
-import SetProperty from "../value/value/set-property";
+import SetProperty from "../value/value/set-property-parameters";
 import Default from "../default";
 import Suffix from "@dikac/t-string/suffix/suffix";
 
@@ -25,7 +25,7 @@ export default function MemoizeProperty(
 
         descriptor.get = function () {
 
-            return SetProperty.Parameters(
+            return SetProperty(
                 this, property, this[symbol], writable, configurable
             );
 

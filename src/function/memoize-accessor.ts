@@ -1,4 +1,4 @@
-import SetGetter from "../value/value/set-getter";
+import SetGetter from "../value/value/set-getter-parameters";
 import Default from "../default";
 import Suffix from "@dikac/t-string/suffix/suffix";
 
@@ -25,7 +25,7 @@ export default function MemoizeAccessor(
 
         descriptor.get = function () {
 
-            return SetGetter.Parameters(
+            return SetGetter(
                 this,
                 property,
                 this[symbol],

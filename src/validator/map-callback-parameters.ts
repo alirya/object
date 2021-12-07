@@ -2,7 +2,7 @@ import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
 import RecordParameter from "./subject/record/allow";
 import Map from "./map";
-import ValidatableMapCallback from "../validatable/map-callback";
+import ValidatableMapCallback from "../validatable/map-callback-parameters";
 import Instance from "@dikac/t-validator/validatable/validatable";
 
 export default function MapCallbackParameters<
@@ -19,7 +19,7 @@ export default function MapCallbackParameters<
 
     return function (value ) {
 
-        return new ValidatableMapCallback.Parameters(value, validators, map, validation, message);
+        return new ValidatableMapCallback(value, validators, map, validation, message);
 
     } as Map<Validators, Result, ValidatableType, MessageType>
 

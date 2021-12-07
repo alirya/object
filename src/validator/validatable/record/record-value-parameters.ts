@@ -2,7 +2,7 @@ import Validator from "@dikac/t-validator/validator";
 import MapInterface from "../../../map";
 import {O} from "ts-toolbelt";
 import InferStatic from "@dikac/t-validator/validatable/infer-static";
-import IteratorRecordValue from "../iterator/record-value";
+import IteratorRecordValue from "../iterator/record-value-parameters";
 
 //
 // export default RecordValue;
@@ -26,7 +26,7 @@ export default function RecordValueParameters<
 
     let result = {};
 
-    for(const [key, validatable] of IteratorRecordValue.Parameters(value, validator)) {
+    for(const [key, validatable] of IteratorRecordValue(value, validator)) {
 
         result[key as PropertyKey] = validatable;
     }

@@ -3,7 +3,7 @@ import MapInterface from "../../../map";
 import Return from "@dikac/t-validator/validatable/infer-static";
 import Value from "@dikac/t-value/value";
 import ValidatorContainer from "@dikac/t-validator/validator/validator";
-import RecordKeyPartialParameters from "./record-key-partial-partials";
+import RecordKeyPartialParameters from "./record-key-partial-parameters";
 //
 // export default RecordKeyPartial;
 // namespace RecordKeyPartial {

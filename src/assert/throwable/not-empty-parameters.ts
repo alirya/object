@@ -1,4 +1,4 @@
-import NotEmptyType from "../string/not-Empty";
+import NotEmptyType from "../string/not-empty-parameters";
 
 export default function NotEmptyParameters(
     // string : object,
@@ -10,5 +10,5 @@ export default function NotEmptyParameters(
    // } : Value & {subject?: string}
 ) : Error {
 
-    return new Error(NotEmptyType.Parameters(value, false, subject))
+    return new Error(NotEmptyType(value, false, subject))
 }

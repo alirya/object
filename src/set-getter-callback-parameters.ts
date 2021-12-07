@@ -1,6 +1,6 @@
 import {O} from "ts-toolbelt";
 import {Required} from "utility-types";
-import SetPropertyCallback from "./set-property-callback";
+import SetPropertyCallback from "./set-property-callback-parameters";
 
 export type SetGetterCallbackTypeStatic<
     This extends object,
@@ -56,6 +56,6 @@ export default function SetGetterCallbackParameters<
     configurable : boolean = true,
 ) {
 
-    return SetPropertyCallback.Parameters(object, property, factory, false, configurable);
+    return SetPropertyCallback(object, property, factory, false, configurable);
 }
 

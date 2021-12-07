@@ -1,6 +1,6 @@
 import SetDescriptor from "../../descriptor/boolean/setter";
 import PropertyDescriptor from "../../descriptor/boolean/property";
-import Descriptor from "../../descriptor/from-object";
+import Descriptor from "../../descriptor/from-object-parameters";
 import HasProperty from "./exists";
 
 
@@ -9,7 +9,7 @@ import HasProperty from "./exists";
  */
 export default function WritableParameters (value : object, property : PropertyKey) : boolean {
 
-    let descriptor = Descriptor.Parameters(value, property);
+    let descriptor = Descriptor(value, property);
 
     if(!descriptor) {
 

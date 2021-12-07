@@ -1,6 +1,6 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
-import ValidatableValueCallback from "../validatable/value-callback";
+import ValidatableValueCallback from "../validatable/value-callback-parameters";
 import Instance from "@dikac/t-validator/validatable/validatable";
 import Value from "./value";
 
@@ -43,7 +43,7 @@ export default function ValueCallbackParameters<
 
     return function <Argument extends BaseType, ValueType extends BaseType>(value: Argument|ValueType) {
 
-        return new ValidatableValueCallback.Parameters(value, validators, map, validation, message);
+        return new ValidatableValueCallback(value, validators, map, validation, message);
 
     } as Value<BaseType, ValueType, MessageType, ValidatorsType, Validatables, ValidatableType>
 }

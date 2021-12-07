@@ -1,4 +1,4 @@
-import PropertyValueArgumentValidation from "../../../assert/string/value-validation";
+import PropertyValueArgumentValidation from "../../../assert/string/value-validation-parameters";
 import Name from "../../../string/name";
 
 // export default PropertyValue;
@@ -16,7 +16,7 @@ export default function PropertyValueParameters(
   type : string
 ) : string {
 
-    return PropertyValueArgumentValidation.Parameters(
+    return PropertyValueArgumentValidation(
         property,
         valid,
         type,

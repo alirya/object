@@ -1,6 +1,6 @@
 import ValidatableRecord from "./infer";
 import Validator from "@dikac/t-validator/validator";
-import IteratorValue from "../iterator/value";
+import IteratorValue from "../iterator/value-parameters";
 
 export default function ValuePartialParameters<
     ValueType,
@@ -13,7 +13,7 @@ export default function ValuePartialParameters<
 
     let object = {};
 
-    for(const [key, validatable] of IteratorValue.Parameters(value, validators)) {
+    for(const [key, validatable] of IteratorValue(value, validators)) {
 
         //const validator = validators[property];
 

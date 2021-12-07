@@ -1,4 +1,4 @@
-import Value from "./value";
+import Value from "./value-parameters";
 
 export default function ValueValidationParameters(
     property : PropertyKey,
@@ -7,7 +7,7 @@ export default function ValueValidationParameters(
     validation : string,
 ) : string {
 
-    let message = Value.Parameters(property, valid, type);
+    let message = Value(property, valid, type);
 
     return `${message}, against "${validation}"`;
 }

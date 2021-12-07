@@ -1,5 +1,5 @@
 import Exists from "../../property/boolean/exists";
-import Readable from "../../property/boolean/readable";
+import Readable from "../../property/boolean/readable-parameters";
 import {List} from "ts-toolbelt";
 import {Required} from "utility-types";
 import Function from "@dikac/t-function/boolean/function";
@@ -56,7 +56,7 @@ export default class GetListFirst<
 
         for (const handler of this.getHandler(target)) {
 
-            if(Readable.Parameters(handler, property)) {
+            if(Readable(handler, property)) {
 
                 if(Function(handler[property])) {
 

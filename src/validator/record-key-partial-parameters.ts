@@ -1,8 +1,8 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
 import ReturnInfer from "@dikac/t-validator/validatable/infer-static";
-import ValidateRecordKeyPartial from "./validatable/record/record-key-partial";
-import RecordKeyCallback from "./record-key-callback";
+import ValidateRecordKeyPartial from "./validatable/record/record-key-partial-parameters";
+import RecordKeyCallback from "./record-key-callback-parameters";
 import RecordKey from "./record-key";
 
 export default function RecordKeyPartialParameters<
@@ -15,7 +15,7 @@ export default function RecordKeyPartialParameters<
     message : (partial:Partial<Record<PropertyKey, ReturnInfer<ValidatorType>>>)=>MessageType,
 ) : RecordKey<ValidatorType, Partial<Record<PropertyKey, ReturnInfer<ValidatorType>>>, ValidatableType, MessageType> {
 
-    return RecordKeyCallback.Parameters(validator, ValidateRecordKeyPartial.Parameters, validation, message);
+    return RecordKeyCallback(validator, ValidateRecordKeyPartial, validation, message);
 }
 
 

@@ -1,6 +1,6 @@
 import Default from "../default";
 import Suffix from "@dikac/t-string/suffix/suffix";
-import SetMethod from "../value/value/set-method";
+import SetMethod from "../value/value/set-method-parameters";
 
 const defaults = {suffix:'', configurable:true}
 /**
@@ -25,7 +25,7 @@ export default function MemoizeMethod(
 
         descriptor.value = function (...args) {
 
-            return SetMethod.Parameters(
+            return SetMethod(
                 this,
                 property,
                 this[symbol](args),

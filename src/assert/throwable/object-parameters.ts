@@ -1,4 +1,4 @@
-import StringType from "../string/object";
+import StringType from "../string/object-parameters";
 
 export default function ObjectParameters(
     value : unknown,
@@ -11,6 +11,6 @@ export default function ObjectParameters(
     //} : Value & {subject?: string} & {conversion:(value:unknown)=>string}
 ) : Error {
 
-    return new Error(StringType.Parameters(value, false, subject, conversion))
+    return new Error(StringType(value, false, subject, conversion))
 }
 

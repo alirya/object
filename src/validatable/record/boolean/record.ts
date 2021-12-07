@@ -1,5 +1,5 @@
 import Validatable from "@dikac/t-validatable/validatable";
-import TypeRecord from "../../../boolean/record";
+import TypeRecord from "../../../boolean/record-parameters";
 import ValidatableType from "@dikac/t-validatable/boolean/validatable";
 
 /**
@@ -27,5 +27,5 @@ export default function Record<
     property ? : (value:PropertyKey)=>value is Key
 ) : record is Object {
 
-    return TypeRecord.Parameters(record, ValidatableType, <(value:PropertyKey)=>value is Key>property)
+    return TypeRecord(record, ValidatableType, <(value:PropertyKey)=>value is Key>property)
 }

@@ -2,7 +2,7 @@ import {Required} from "utility-types";
 import IsObject from "../../boolean/object";
 import Getter from "../../descriptor/boolean/getter";
 import Setter from "../../descriptor/boolean/setter";
-import MergeGetterSetter from "../../descriptor/merge-getter-setter";
+import MergeGetterSetter from "../../descriptor/merge-getter-setter-parameters";
 import MultiHandlers from "./multi-handlers";
 
 export default class PrototypeOfListMerge<
@@ -65,7 +65,7 @@ export default class PrototypeOfListMerge<
                         (Setter(buffers.get(key)) && Getter(descriptor))
                     ) {
 
-                        descriptor = MergeGetterSetter.Parameters(buffers.get(key), descriptor);
+                        descriptor = MergeGetterSetter(buffers.get(key), descriptor);
                     }
                 }
 

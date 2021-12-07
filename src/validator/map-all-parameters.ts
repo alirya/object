@@ -1,9 +1,9 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
 import ReturnInfer from "./validatable/record/infer";
-import ValidateMap from "./validatable/record/map";
+import ValidateMap from "./validatable/record/map-parameters";
 import Map from "./map";
-import MapCallback from "./map-callback";
+import MapCallback from "./map-callback-parameters";
 
 export default function MapAllParameters<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
@@ -15,9 +15,9 @@ export default function MapAllParameters<
     message : (result:ReturnInfer<Validators>)=>MessageType,
 ) : Map<Validators, ReturnInfer<Validators>, ValidatableType, MessageType> {
 
-    return <Map<Validators, ReturnInfer<Validators>, ValidatableType, MessageType>> MapCallback.Parameters(
+    return <Map<Validators, ReturnInfer<Validators>, ValidatableType, MessageType>> MapCallback(
         validators,
-         (value)=>ValidateMap.Parameters(value, validators),
+         (value)=>ValidateMap(value, validators),
         validation,
         message
     );

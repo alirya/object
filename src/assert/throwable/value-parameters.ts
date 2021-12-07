@@ -1,4 +1,4 @@
-import PropertyValueMessage from "../string/value";
+import PropertyValueMessage from "../string/value-parameters";
 
 
 // export default Value;
@@ -18,7 +18,7 @@ export default function ValueParameters(
     // } : {type:string} & Property
 ) : Error {
 
-    return new Error(PropertyValueMessage.Parameters(property, false, type))
+    return new Error(PropertyValueMessage(property, false, type))
 }
 
 // export type ValueArgument = {type:string} & Property;

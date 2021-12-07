@@ -1,4 +1,4 @@
-import MemoizeGetter from "./value/value/set-property";
+import MemoizeGetter from "./value/value/set-property-parameters";
 import {O} from "ts-toolbelt";
 import {Required} from "utility-types";
 
@@ -65,7 +65,7 @@ export default function SetPropertyCallbackParameters<
     return Object.defineProperty(object, property, {
         configurable : true,
         get() {
-            return MemoizeGetter.Parameters(
+            return MemoizeGetter(
                 object,
                 <keyof This> property,
                 factory(),

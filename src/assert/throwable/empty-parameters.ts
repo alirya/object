@@ -1,4 +1,4 @@
-import EmptyType from "../string/empty";
+import EmptyType from "../string/empty-parameters";
 
 export default function EmptyParameters(
      value : object,
@@ -10,6 +10,6 @@ export default function EmptyParameters(
    //} : Value & {subject?: string}
 ) : Error {
 
-    return new Error(EmptyType.Parameters(value, false, subject))
+    return new Error(EmptyType(value, false, subject))
 }
 

@@ -1,6 +1,6 @@
 import Validator from "@dikac/t-validator/validator";
 import Validatable from "@dikac/t-validatable/validatable";
-import ValidatableRecordCallback from "../validatable/record-value-callback";
+import ValidatableRecordCallback from "../validatable/record-value-callback-parameters";
 import RecordKey from "./record-key";
 import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
 import InferBase from "@dikac/t-validator/subject/allow";
@@ -77,7 +77,7 @@ export default function RecordKeyCallbackParameters<
 
     return function (value) {
 
-        return new ValidatableRecordCallback.Parameters(value, validator, handler, validation, message);
+        return new ValidatableRecordCallback(value, validator, handler, validation, message);
 
     } as RecordKey<ValidatorType, Result, ValidatableType, MessageType>
 }

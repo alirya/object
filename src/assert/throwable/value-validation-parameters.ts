@@ -1,4 +1,4 @@
-import PropertyValueValidationMessage from "../string/value-validation";
+import PropertyValueValidationMessage from "../string/value-validation-parameters";
 
 // export default ValueValidation;
 // namespace ValueValidation {
@@ -21,7 +21,7 @@ export default function ValueValidationParameters(
 ) : Error {
 
     return new Error(
-        PropertyValueValidationMessage.Parameters(property, false, type, validation)
+        PropertyValueValidationMessage(property, false, type, validation)
     );
 }
 
