@@ -18,10 +18,6 @@ export default class NotEmptyParameters<ValueType extends object, MessageType>
     constructor(
         value : ValueType,
         message : Dynamic.Parameters<ValueType, MessageType>,
-        // {
-        //     value,
-        //     message,
-        // } : Value<ValueType> & Message<(result:Readonly<Value<ValueType> & Validatable>)=>MessageType>
     ) {
 
         this.value = value;

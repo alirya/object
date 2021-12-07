@@ -2,7 +2,6 @@ import Property from "../property/property";
 import Guard from "@dikac/t-boolean/validation/guard";
 import {ReadableTypeDynamic, ReadableTypeStatic} from "./value-parameters";
 
-
 export type ReadableArgumentStatic<
     ObjectType extends object,
     PropertyType extends keyof ObjectType,
@@ -15,15 +14,12 @@ export type ReadableArgumentDynamic<
 > = Property<PropertyType> & Guard<unknown, Type>;
 
 
-
 export default function ValueParameter<
     ObjectType extends object,
     PropertyType extends keyof ObjectType,
     Type extends ObjectType[PropertyType] = ObjectType[PropertyType],
 >(
     object : ObjectType,
-    // property : PropertyType,
-    // validation : (value:ObjectType[PropertyType])=>value is Type,
     {
         property,
         validation
@@ -36,8 +32,6 @@ export default function ValueParameter<
     Type = unknown,
 >(
     object : object,
-    //property : PropertyType,
-    //validation : (value:unknown)=>value is Type,
     {
         property,
         validation
@@ -50,8 +44,6 @@ export default function ValueParameter<
     Type = unknown,
 >(
     object : object,
-    // property : PropertyType,
-    // validation : (value:unknown)=>value is Type,
     {
         property,
         validation

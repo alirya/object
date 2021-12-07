@@ -15,21 +15,6 @@
  * @param configurable {@default true}
  */
 
-
-// export default SetProperty;
-// namespace SetProperty {
-//
-//     export const Parameter = SetPropertyParameter;
-//     export const Object = SetPropertyObject;
-//     export type Argument<
-//         This extends object,
-//         Type,
-//         > = SetPropertyArgument<
-//         This,
-//         Type
-//         >;
-// }
-
 export default function SetPropertyParameters<
     This extends object,
     Type,
@@ -39,17 +24,6 @@ export default function SetPropertyParameters<
     value : Type,
     writable : boolean = true,
     configurable : boolean = true,
-    //{
-    //    object,
-    //    property,
-    //    value,
-    //    writable = true,
-    //    configurable = true,
-    //} : Value<Type> &
-    //    Property<keyof This> &
-    //    {object: This} &
-    //    {writable ?: boolean} &
-    //    {configurable ?: boolean}
 ) : Type {
 
     return  (Object.defineProperty(
@@ -63,33 +37,3 @@ export default function SetPropertyParameters<
     ) as Record<keyof This, Type>)[property];
 }
 
-//
-// export type SetPropertyArgument<
-//     This extends object,
-//     Type,
-//     > = Value<Type> &
-//     Property<keyof This> &
-//     {object: This} &
-//     {writable ?: boolean} &
-//     {configurable ?: boolean}
-//
-// export function SetPropertyObject<
-//     This extends object,
-//     Type,
-// >(
-//     //object : This,
-//     //property : keyof This,
-//     //value : Type,
-//     //writable : boolean = true,
-//     //configurable : boolean = true,
-//     {
-//         object,
-//         property,
-//         value,
-//         writable = true,
-//         configurable = true,
-//     } : SetPropertyArgument<This, Type>
-// ) : Type {
-//
-//     return SetPropertyParameter(object, property, value, writable, configurable);
-// }

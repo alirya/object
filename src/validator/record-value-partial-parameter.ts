@@ -21,9 +21,6 @@ export default function RecordValuePartialParameter<
     ValidatableType extends Validatable = Validatable,
     MessageType = unknown,
 > (
-    // validator : ValidatorType,
-    // validation : (record : Record<PropertyKey, ReturnInfer<ValidatorType>>)=>ValidatableType,
-    // message : (record : Record<PropertyKey, ReturnInfer<ValidatorType>>)=>MessageType,
     {
         validator,
         validation,

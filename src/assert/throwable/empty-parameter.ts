@@ -4,8 +4,6 @@ import EmptyParameters from "./empty-parameters";
 export type EmptyArgument = Value<object> & {subject?: string};
 
 export default function EmptyParameter(
-    // value : object,
-    // subject : string = 'object',
     {
         value,
         subject = 'object',

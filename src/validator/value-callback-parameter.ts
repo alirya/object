@@ -40,7 +40,6 @@ export type ValueCallbackArgument<
     ValidatableType extends Validatable = Validatable
 > =
     ValidatorsContainer<ValidatorsType> &
-    //{ map : (base : BaseType, record : ValidatorsType) => Validatables} &
     { map : (argument : BaseValue<BaseType> & ValidatorsContainer<ValidatorsType>) => Validatables} &
     // TODO CHANGE TO VALIDATOR
     {validation: (result : Validatables)=>ValidatableType} &

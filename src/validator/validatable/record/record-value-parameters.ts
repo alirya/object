@@ -4,24 +4,12 @@ import {O} from "ts-toolbelt";
 import InferStatic from "@dikac/t-validator/validatable/infer-static";
 import IteratorRecordValue from "../iterator/record-value-parameters";
 
-//
-// export default RecordValue;
-// namespace RecordValue {
-//     export const Parameter = RecordValueParameter;
-//     export const Object = RecordValueObject;
-// }
-
-
 export default function RecordValueParameters<
     RecordType extends Record<PropertyKey, any>,
     ValidatorType extends Validator<O.UnionOf<RecordType>>,
 >(
     value : RecordType,
     validator : ValidatorType,
-    // {
-    //     value,
-    //     validator,
-    // } : Value<RecordType> & ValidatorContainer<ValidatorType>
 ) : MapInterface<RecordType, InferStatic<ValidatorType>> {
 
     let result = {};
@@ -33,18 +21,3 @@ export default function RecordValueParameters<
 
     return <MapInterface<RecordType, InferStatic<ValidatorType>>> result;
 }
-//
-// export function RecordValueObject<
-//     RecordType extends Record<PropertyKey, any>,
-//     ValidatorType extends Validator<O.UnionOf<RecordType>>,
-// >(
-//     // value : RecordType,
-//     // validator : ValidatorType,
-//     {
-//         value,
-//         validator,
-//     } : Value<RecordType> & ValidatorContainer<ValidatorType>
-// ) : MapInterface<RecordType, Return<ValidatorType>> {
-//
-//     return RecordValueParameter(value, validator);
-// }

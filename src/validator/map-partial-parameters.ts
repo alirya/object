@@ -17,7 +17,6 @@ export default function MapPartialParameters<
 
     return <Map<Validators, Partial<ReturnInfer<Validators>>, ValidatableType, MessageType>> MapCallback(
         validators,
-        //map :({value, validators})=>ValidateMap({value, validators}),
         ValidateMap,
         validation,
         message

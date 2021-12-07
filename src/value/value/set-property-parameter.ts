@@ -33,11 +33,6 @@ export default function SetPropertyParameter<
     This extends object,
     Type,
 >(
-    //object : This,
-    //property : keyof This,
-    //value : Type,
-    //writable : boolean = true,
-    //configurable : boolean = true,
     {
         object,
         property,

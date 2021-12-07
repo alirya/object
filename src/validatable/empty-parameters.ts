@@ -12,12 +12,10 @@ export default class EmptyParameters<Type extends object, MessageType>
 {
     readonly valid : boolean;
     #message : (value:Type, valid : boolean)=>MessageType;
-    //readonly value : Type;
 
     constructor(
         readonly value : Type,
         message : (value:Type, valid : boolean)=>MessageType,
-       //  {value, message} : Value<Type> & Message<(result:Readonly<Value<Type> & Validatable>)=>MessageType>
     ) {
 
         this.value = value;

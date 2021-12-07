@@ -31,11 +31,6 @@ export default class MapCallbackParameter<
 > extends MapCallbackParameters<MessageType, ValidatorsType, Result, ValidatableType, ValueType> {
 
     constructor(
-        //value: ValueType,
-        //public validators : ValidatorsType,
-        //private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result,
-        //private validation : (result : Result)=>ValidatableType,
-        //  message : (result : Result)=>MessageType,
         {
             value,
             validators,

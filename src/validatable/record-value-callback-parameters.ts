@@ -15,10 +15,6 @@ export default class RecordValueCallbackParameters<
     readonly validatable : ValidatableType;
     #message : (result:Result)=>MessageType
     readonly validatables : Result;
-    // readonly value: ValueType;
-    // readonly validator : ValidatorType;
-    // readonly map : (argument: Value<ValueType> & ValidatorContainer<ValidatorType>)=>Result;
-    // readonly validation : (result:Result)=>ValidatableType;
 
     constructor(
         readonly value: ValueType,
@@ -26,12 +22,6 @@ export default class RecordValueCallbackParameters<
         readonly map : (value:ValueType, validator:ValidatorType)=>Result,
         readonly validation : (result:Result)=>ValidatableType,
         message : (result:Result)=>MessageType,
-        // {   value,
-        //     validator,
-        //     map,
-        //     validation,
-        //     message
-        // } : RecordValueCallbackArgument<MessageType, ValueType, ValidatorType, Result, ValidatableType>
     ) {
 
         this.value = value;

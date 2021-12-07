@@ -25,8 +25,6 @@ export default function MethodSingleParameter<
     Argument extends object,
     Type extends MapSingle<Argument>,
     >(
-    // value : Type,
-    // argument : Argument,
     {
         value,
         argument,

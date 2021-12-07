@@ -11,8 +11,6 @@ export default function MethodParameter<
     Argument extends Record<PropertyKey, unknown[]>,
     Type extends Map<Argument>,
 >(
-    // value : Type,
-    // argument : Argument,
     {
         object,
         argument,

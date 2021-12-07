@@ -15,8 +15,6 @@ export default function ValuePartialParameters<
 
     for(const [key, validatable] of IteratorValue(value, validators)) {
 
-        //const validator = validators[property];
-
         object[<PropertyKey>key] = validatable;
 
         if(validatable.valid === stop) {

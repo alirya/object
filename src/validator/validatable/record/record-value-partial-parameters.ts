@@ -12,11 +12,6 @@ export default function RecordValuePartialParameters<
      value : RecordType,
      validator : ValidatorType,
      stop = false,
-    // {
-    //     value,
-    //     validator,
-    //     stop = false,
-    // } : Value<RecordType> & ValidatorContainer<ValidatorType> & {stop ?: boolean}
 ) : Partial<MapInterface<RecordType, InferStatic<ValidatorType>>> {
 
     let result = {};

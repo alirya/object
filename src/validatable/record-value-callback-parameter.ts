@@ -16,10 +16,7 @@ export type RecordValueCallbackArgument<
     Value<ValueType> &
     ValidatorContainer<ValidatorType> &
     MessageBase<(result:Result)=>MessageType> &
-    //{handler: (record: Partial<Record<PropertyKey, InferBase<ValidatorType>>>, validator: ValidatorType) => Result} &
-    //{ map: (value: ValueType, validators: ValidatorType) => Result } &
     { map: (argument : Value<ValueType> & ValidatorContainer<ValidatorType>) => Result } &
-    //{handler: (argument : Value<Partial<Record<PropertyKey, InferBase<ValidatorType>>>> & ValidatorContainer<ValidatorType>) => Result} &
     {validation: (result: Result) => ValidatableType};
 ;
 

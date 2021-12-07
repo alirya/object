@@ -3,12 +3,6 @@ import MapInterface from "../../../map";
 import Return from "@dikac/t-validator/validatable/infer-static";
 import IteratorRecordKey from "../iterator/record-key-parameters";
 
-// export default RecordKeyPartial;
-// namespace RecordKeyPartial {
-//     export const Parameter = RecordKeyPartialParameter;
-//     export const Object = RecordKeyPartialObject;
-// }
-
 export default function RecordKeyPartialParameters<
     RecordType extends Record<PropertyKey, any>,
     ValidatorType extends Validator<keyof RecordType>,
@@ -32,17 +26,3 @@ export default function RecordKeyPartialParameters<
 
     return result;
 }
-//
-// export function RecordKeyPartialObject<
-//     RecordType extends Record<PropertyKey, any>,
-//     ValidatorType extends Validator<keyof RecordType>,
-// >(
-//     {
-//         value,
-//         validator,
-//         stop = false,
-//     } : Value<RecordType> & ValidatorContainer<ValidatorType> & {stop ?: boolean}
-// ) : Partial<MapInterface<RecordType, Return<ValidatorType>>> {
-//
-//     return RecordKeyPartialParameter(value, validator, stop);
-// }

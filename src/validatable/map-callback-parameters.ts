@@ -21,28 +21,12 @@ export default class MapCallbackParameters<
     readonly validatable : ValidatableType;
     readonly validatables : Result;
 
-    // public validators : ValidatorsType;
-    // private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result;
-    // private validation : (result : Result)=>ValidatableType;
-
     constructor(
         value: ValueType,
         public validators : ValidatorsType,
         private map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result,
         private validation : (result : Result)=>ValidatableType,
-          message : (result : Result)=>MessageType,
-        // {
-        //     value,
-        //     validators,
-        //     map,
-        //     validation,
-        //     message
-        // } : Value<ValueType> &
-        //     Validators<ValidatorsType> &
-        //     {map : (values : RecordParameter<ValidatorsType>, validators : ValidatorsType)=>Result} &
-        //     // TODO CHANGE TO VALIDATOR
-        //     {validation : (result : Result)=>ValidatableType} &
-        //     Message<(result : Result)=>MessageType>
+        message : (result : Result)=>MessageType,
     ) {
 
         this.validators = validators;

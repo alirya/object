@@ -9,9 +9,6 @@ export default function ValuePartialParameter<
     ValueType,
     Validators extends Record<PropertyKey, Validator<ValueType>>,
 >(
-    // value : ValueType,
-    // validators : Validators,
-    // stop : boolean = false,
     {
         value,
         validators,
