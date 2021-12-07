@@ -1,1 +1,0 @@
-{"version":3,"file":"empty-parameters.js","sourceRoot":"","sources":["../../../src/assert/throwable/empty-parameters.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,iBAAiB,CAAC;AAExC,MAAM,CAAC,OAAO,UAAU,eAAe,CAClC,KAAc,EACd,UAAmB,QAAQ;IAQ5B,OAAO,IAAI,KAAK,CAAC,SAAS,CAAC,UAAU,CAAC,KAAK,EAAE,KAAK,EAAE,OAAO,CAAC,CAAC,CAAA;AACjE,CAAC"}

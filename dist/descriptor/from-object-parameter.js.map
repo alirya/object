@@ -1,1 +1,0 @@
-{"version":3,"file":"from-object-parameter.js","sourceRoot":"","sources":["../../src/descriptor/from-object-parameter.ts"],"names":[],"mappings":"AAEA,OAAO,oBAAoB,MAAM,0BAA0B,CAAC;AAI5D,MAAM,CAAC,OAAO,UAAU,mBAAmB,CACvC,EAAC,KAAK,EAAE,QAAQ,EAAsB;IAGtC,OAAO,oBAAoB,CAAC,KAAK,EAAE,QAAQ,CAAC,CAAC;AACjD,CAAC"}

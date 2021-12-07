@@ -1,1 +1,0 @@
-{"version":3,"file":"object.js","sourceRoot":"","sources":["../../src/assert/object.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,mBAAmB,CAAC;AACtC,OAAO,QAAQ,MAAM,8CAA8C,CAAC;AACpE,OAAO,WAAW,MAAM,+BAA+B,CAAC;AAExD,MAAM,CAAC,OAAO,UAAU,OAAO,CAC3B,KAAe,EACf,QAAiC,WAAW;IAG5C,QAAQ,CAAC,KAAK,EAAE,KAAK,EAAE,KAAK,CAAC,CAAC;AAClC,CAAC"}

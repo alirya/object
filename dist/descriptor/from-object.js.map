@@ -1,1 +1,0 @@
-{"version":3,"file":"from-object.js","sourceRoot":"","sources":["../../src/descriptor/from-object.ts"],"names":[],"mappings":"AAAA,OAAO,oBAAoB,MAAM,0BAA0B,CAAC;AAC5D,OAAO,mBAAyC,MAAM,yBAAyB,CAAC;AAEhF,IAAU,UAAU,CAKnB;AALD,WAAU,UAAU;IAEH,qBAAU,GAAG,oBAAoB,CAAC;IAClC,oBAAS,GAAG,mBAAmB,CAAC;AAEjD,CAAC,EALS,UAAU,KAAV,UAAU,QAKnB;AACD,eAAe,UAAU,CAAC"}

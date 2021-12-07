@@ -1,1 +1,0 @@
-{"version":3,"file":"merge-getter-setter.js","sourceRoot":"","sources":["../../src/descriptor/merge-getter-setter.ts"],"names":[],"mappings":"AAEA,OAAO,0BAIN,MAAM,iCAAiC,CAAC;AAEzC,OAAO,2BAIN,MAAM,kCAAkC,CAAC;AAI1C,IAAU,iBAAiB,CAsB1B;AAtBD,WAAU,iBAAiB;IAEV,4BAAU,GAAG,2BAA2B,CAAC;IACzC,2BAAS,GAAG,0BAA0B,CAAC;AAmBxD,CAAC,EAtBS,iBAAiB,KAAjB,iBAAiB,QAsB1B;AACD,eAAe,iBAAiB,CAAC"}

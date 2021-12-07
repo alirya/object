@@ -1,1 +1,0 @@
-{"version":3,"file":"object-parameters.js","sourceRoot":"","sources":["../../src/validatable/object-parameters.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,MAAM,yCAAyC,CAAC;AAC/D,OAAO,WAAW,MAAM,mBAAmB,CAAC;AAM5C,MAAM,CAAC,OAAO,UAAU,gBAAgB,CACpC,KAAgB,EAChB,OAAuE;IAGvE,OAAwE,QAAQ,CAAC,QAAQ,CAAC,UAAU,CAAC,KAAK,EAAE,WAAW,EAAE,OAAO,CAAC,CAAC;AACtI,CAAC"}

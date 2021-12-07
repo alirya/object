@@ -1,1 +1,0 @@
-{"version":3,"file":"object.js","sourceRoot":"","sources":["../../src/ensure/object.ts"],"names":[],"mappings":"AAAA,OAAO,eAAiC,MAAM,oBAAoB,CAAC;AACnE,OAAO,gBAAgB,MAAM,qBAAqB,CAAC;AAEnD,IAAU,OAAO,CAKhB;AALD,WAAU,OAAO;IAEA,iBAAS,GAAG,eAAe,CAAC;IAC5B,kBAAU,GAAG,gBAAgB,CAAC;AAE/C,CAAC,EALS,OAAO,KAAP,OAAO,QAKhB;AAED,eAAe,OAAO,CAAC"}

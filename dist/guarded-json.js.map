@@ -1,1 +1,0 @@
-{"version":3,"file":"guarded-json.js","sourceRoot":"","sources":["../src/guarded-json.ts"],"names":[],"mappings":"AAAA;;;;;;;GAOG;AACH,OAAO,qBAAqB,MAAM,2BAA2B,CAAC;AAC9D,OAAO,oBAAoB,MAAM,0BAA0B,CAAC;AAE5D,IAAU,WAAW,CAIpB;AAJD,WAAU,WAAW;IAEJ,sBAAU,GAAG,qBAAqB,CAAC;IACnC,qBAAS,GAAG,oBAAoB,CAAC;AAClD,CAAC,EAJS,WAAW,KAAX,WAAW,QAIpB;AAED,eAAe,WAAW,CAAC"}

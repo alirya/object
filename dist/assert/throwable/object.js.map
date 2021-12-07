@@ -1,1 +1,0 @@
-{"version":3,"file":"object.js","sourceRoot":"","sources":["../../../src/assert/throwable/object.ts"],"names":[],"mappings":"AAAA,OAAO,gBAAgB,MAAM,qBAAqB,CAAC;AACnD,OAAO,eAAiC,MAAM,oBAAoB,CAAC;AAEnE,IAAU,OAAO,CAKhB;AALD,WAAU,OAAO;IAEA,kBAAU,GAAG,gBAAgB,CAAC;IAC9B,iBAAS,GAAG,eAAe,CAAC;AAE7C,CAAC,EALS,OAAO,KAAP,OAAO,QAKhB;AAED,eAAe,OAAO,CAAC"}
