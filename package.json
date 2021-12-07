@@ -1,6 +1,6 @@
 {
   "name": "@dikac/t-object",
-  "version": "0.37.0-alpha.4",
+  "version": "0.37.0-alpha.5",
   "description": "Typescript object",
   "dependencies": {
     "@dikac/t-array": "^0.26.0-alpha.3",
