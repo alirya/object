@@ -22,7 +22,9 @@ export default function CompatibleParameters(
 
     if(!valid) {
 
-        messages.push(',actual', conversion(value));
+        messages[3] = `${messages[3]},`
+
+        messages.push('actual', conversion(value));
     }
 
     return messages.join(' ') + '.';

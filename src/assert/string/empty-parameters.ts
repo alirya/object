@@ -30,5 +30,5 @@ export default function EmptyParameters(
 
     strings.push('empty object');
 
-    return strings.join(' ') + '.';
+    return (strings.join(' ') + '.').trim();
 }

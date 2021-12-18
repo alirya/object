@@ -23,6 +23,8 @@ export default function ObjectParameters(
 
     if(!valid) {
 
+        strings[2] = `${strings[2]},`;
+
         strings.push('actual', conversion(value));
     }
 

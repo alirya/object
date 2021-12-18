@@ -28,7 +28,7 @@ export default function NotEmptyParameters(
         strings.push('must not');
     }
 
-    strings.push('not empty object')
+    strings.push('empty object')
 
-    return strings.join(' ') + '.';
+    return (strings.join(' ') + '.').trim();
 }
