@@ -1,4 +1,4 @@
-import SetGetter from "../../../../dist/value/value/set-getter";
+import SetGetter from "../../../../dist/value/value/set-getter-parameters";
 
 it("enable console log", () => spyOn(console, 'log').and.callThrough());
 
@@ -11,7 +11,7 @@ describe('plain', () => {
         get data ()  {
 
             called++;
-            return SetGetter.Parameters(this, 'data', Math.random().toString());
+            return SetGetter(this, 'data', Math.random().toString());
         }
     }
 
@@ -53,7 +53,7 @@ describe('class', () => {
         get data ()  {
 
             called++;
-            return SetGetter.Parameters(this, 'data', Math.random().toString());
+            return SetGetter(this, 'data', Math.random().toString());
         }
     }
 

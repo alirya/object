@@ -1,5 +1,5 @@
 import SetHandler from "../../../dist/proxy/handler/set-list-all";
-import Shuffle from "@dikac/t-array/shuffle";
+import Shuffle from "@dikac/t-array/shuffle-parameters";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 

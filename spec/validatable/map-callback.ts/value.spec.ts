@@ -1,12 +1,12 @@
-import MapCallback from "../../../dist/validatable/map-callback";
-import ValidateMap from "../../../dist/validator/validatable/record/map";
+import MapCallback from "../../../dist/validatable/map-callback-parameters";
+import ValidateMap from "../../../dist/validator/validatable/record/map-parameters";
 import And from "../../../dist/validatable/and";
 import MessageMap from "../../../dist/message/message/record/map";
-import Type from "@dikac/t-type/validator/type";
+import Type from "@dikac/t-type/validator/type-parameters";
 
 let validator = {
-    name : Type.Parameters('string'),
-    address : Type.Parameters('string'),
+    name : Type('string'),
+    address : Type('string'),
 };
 
 
@@ -17,7 +17,7 @@ it("same value", function() {
         address : 'address',
     };
 
-    let validatable = new MapCallback.Parameters(value, validator, ValidateMap.Parameters, And, MessageMap);
+    let validatable = new MapCallback(value, validator, ValidateMap, And, MessageMap);
 
     expect(value).toEqual(validatable.value);
 
@@ -31,7 +31,7 @@ it('extra', function() {
         extra : 'value',
     };
 
-    let validatable = new MapCallback.Parameters(value, validator, ValidateMap.Parameters, And, MessageMap);
+    let validatable = new MapCallback(value, validator, ValidateMap, And, MessageMap);
 
     expect(value).not.toEqual(validatable.value);
 
@@ -49,7 +49,7 @@ it('missing', function() {
     };
 
     // @ts-expect-error
-    let validatable = new MapCallback.Parameters(value, validator, ValidateMap.Parameter, And, MessageMap);
+    let validatable = new MapCallback(value, validator, ValidateMap.Parameter, And, MessageMap);
 
     // @ts-expect-error
     expect(value).not.toEqual(validatable.value);

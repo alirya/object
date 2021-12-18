@@ -1,5 +1,5 @@
 import MemoizeMethod from "../../../dist/function/memoize-method";
-import Unique from "@dikac/t-array/unique";
+import Unique from "@dikac/t-array/unique-parameters";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 

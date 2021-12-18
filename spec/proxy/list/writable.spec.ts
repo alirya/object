@@ -1,6 +1,6 @@
 import List from "../../../dist/proxy/list";
 import New from "@dikac/t-function/new";
-import Writable from "../../../dist/property/boolean/writable";
+import Writable from "../../../dist/property/boolean/writable-parameters";
 import GetOwnPropertyDescriptorListAll from "../../../dist/proxy/handler/get-own-property-descriptor-list-all";
 
 
@@ -16,7 +16,7 @@ describe('plain', function (){
 
         it('test', () => {
 
-            expect(Writable.Parameters(mixin, 'value')).toBeTrue();
+            expect(Writable(mixin, 'value')).toBeTrue();
 
         });
     });
@@ -31,7 +31,7 @@ describe('plain', function (){
 
         it('test', () => {
 
-            expect(Writable.Parameters(mixin2, 'value')).toBeTrue();
+            expect(Writable(mixin2, 'value')).toBeTrue();
 
         });
     })
@@ -50,7 +50,7 @@ describe('plaint setter', function (){
 
         it('test', () => {
 
-            expect(Writable.Parameters(mixin, 'value')).toBeTrue();
+            expect(Writable(mixin, 'value')).toBeTrue();
 
         });
     });
@@ -67,7 +67,7 @@ describe('plaint setter', function (){
 
         it('test', () => {
 
-            expect(Writable.Parameters(mixin2, 'value')).toBeTrue();
+            expect(Writable(mixin2, 'value')).toBeTrue();
 
         });
     })

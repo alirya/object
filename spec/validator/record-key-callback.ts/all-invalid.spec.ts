@@ -1,6 +1,6 @@
-import Callbacks from "@dikac/t-validator/callback";
-import RecordValueCallback from "../../../dist/validator/record-key-callback";
-import ValidateKey from "../../../dist/validator/validatable/record/record-key";
+import Callbacks from "@dikac/t-validator/callback-parameters";
+import RecordValueCallback from "../../../dist/validator/record-key-callback-parameters";
+import ValidateKey from "../../../dist/validator/validatable/record/record-key-parameters";
 import And from "../../../dist/validatable/and";
 import MessageMap from "../../../dist/message/message/record/map";
 import Or from "../../../dist/validatable/or";
@@ -8,7 +8,7 @@ import Infer from "@dikac/t-validator/validatable/infer-static";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
-let validator = Callbacks.Parameter<string, string>(function (value) {
+let validator = Callbacks<string, string>(function (value) {
     return ! ['name', 'age', 'address'].includes(value);
 },function (result){
     return result.value + ' ' + (result.valid ? 'valid' : 'true');
@@ -22,7 +22,7 @@ let value = {
 
 it(`and validation`, () => {
 
-    let property = RecordValueCallback.Parameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey.Parameters, And, MessageMap);
+    let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey, And, MessageMap);
 
     let and = property(value);
 
@@ -41,7 +41,7 @@ it(`and validation`, () => {
 
 it(`or validation `, () => {
 
-    let property = RecordValueCallback.Parameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey.Parameters, Or, MessageMap);
+    let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKey, Or, MessageMap);
 
     let or = property(value);
     expect<boolean>(or.valid).toBe(false);

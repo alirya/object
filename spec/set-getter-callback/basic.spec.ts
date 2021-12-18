@@ -1,4 +1,4 @@
-import MemoizeGetterBind from "../../dist/set-getter-callback";
+import MemoizeGetterBind from "../../dist/set-getter-callback-parameters";
 
 it("enable console log", () => spyOn(console, 'log').and.callThrough());
 
@@ -8,7 +8,7 @@ describe('plain', () => {
     let result : string;
     let soruce = {};
 
-    let object = MemoizeGetterBind.Parameters(soruce, 'data', () =>{
+    let object = MemoizeGetterBind(soruce, 'data', () =>{
         called++;
         return Math.random().toString();
     });
@@ -59,7 +59,7 @@ describe('class', () => {
     let source = new Test();
 
 
-    let object = MemoizeGetterBind.Parameters(source, 'data', () =>{
+    let object = MemoizeGetterBind(source, 'data', () =>{
         calledCallback++;
         return Math.random().toString();
     });

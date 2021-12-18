@@ -1,4 +1,4 @@
-import MemoizeGetterBind from "../../dist/set-getter-callback";
+import MemoizeGetterBind from "../../dist/set-getter-callback-parameters";
 
 it("enable console log", () => spyOn(console, 'log').and.callThrough());
 
@@ -6,7 +6,7 @@ describe('plain', () => {
 
     let source = {};
 
-    let object = MemoizeGetterBind.Parameters(source, 'data', () =>'string');
+    let object = MemoizeGetterBind(source, 'data', () =>'string');
 
     let string : string = object.data;
 
@@ -23,7 +23,7 @@ describe('different type', () => {
         get data () : number { return  1}
     }
 
-    let object = MemoizeGetterBind.Parameters(source, 'data', () =>'string');
+    let object = MemoizeGetterBind(source, 'data', () =>'string');
 
     // @ts-expect-error
     let number : number = object.data;
@@ -50,7 +50,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Implementer();
-        let type : Interface = MemoizeGetterBind.Parameters(source, 'data', () =>'string');
+        let type : Interface = MemoizeGetterBind(source, 'data', () =>'string');
         let string : string = type.data;
 
     });
@@ -66,7 +66,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Test();
-        let type : Interface = MemoizeGetterBind.Parameters(source, 'data', () =>'string');
+        let type : Interface = MemoizeGetterBind(source, 'data', () =>'string');
         let string : string = type.data;
 
     });
@@ -79,7 +79,7 @@ describe('not exists', () => {
         let source = {}
 
 
-        let object = MemoizeGetterBind.Parameters(source, 'data', () =>'string');
+        let object = MemoizeGetterBind(source, 'data', () =>'string');
 
         // @ts-expect-error
         let string : string = object.c;
@@ -96,7 +96,7 @@ describe('not exists', () => {
         }
 
 
-        let object = MemoizeGetterBind.Parameters(source, 'value', () =>'string');
+        let object = MemoizeGetterBind(source, 'value', () =>'string');
 
         // @ts-expect-error
         let string : string = object.c;

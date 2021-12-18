@@ -1,4 +1,4 @@
-import SetGetter from "../../../../dist/value/value/set-getter";
+import SetGetter from "../../../../dist/value/value/set-getter-parameters";
 
 it("enable console log", () => spyOn(console, 'log').and.callThrough());
 
@@ -8,7 +8,7 @@ describe('plain', () => {
 
         get data ()  {
 
-            return SetGetter.Parameters(this, 'data', 'string');
+            return SetGetter(this, 'data', 'string');
         }
     }
 
@@ -23,7 +23,7 @@ describe('different type', () => {
         get data () : number {
 
         // @ts-expect-error
-            return SetGetter.Parameters(this, 'data', 'string');
+            return SetGetter(this, 'data', 'string');
         }
     }
     // @ts-expect-error
@@ -43,7 +43,7 @@ describe('class', () => {
 
             get data ()  {
 
-                return SetGetter.Parameters(this, 'data', 'string');
+                return SetGetter(this, 'data', 'string');
             }
         }
 
@@ -58,7 +58,7 @@ describe('class', () => {
 
             get data ()  {
 
-                return SetGetter.Parameters(this, 'data', 'string');
+                return SetGetter(this, 'data', 'string');
             }
         }
 
@@ -77,7 +77,7 @@ describe('not exists', () => {
             get data ()  {
 
                 // @ts-expect-error
-                return SetGetter.Parameters(object, 'c', 'string');
+                return SetGetter(object, 'c', 'string');
             }
         }
 
@@ -91,7 +91,7 @@ describe('not exists', () => {
 
             get data ()  {
 
-                return SetGetter.Parameters(this, 'c', 'string');
+                return SetGetter(this, 'c', 'string');
             }
         }
 

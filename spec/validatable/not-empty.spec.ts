@@ -1,5 +1,5 @@
-import NotEmpty from "../../dist/validatable/not-empty";
-import EmptyMessage from "../../dist/assert/string/empty";
+import NotEmpty from "../../dist/validatable/not-empty-parameters";
+import EmptyMessage from "../../dist/assert/string/empty-parameters";
 import Name from "../../dist/string/name";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
@@ -16,7 +16,7 @@ for(let [value, [valid, message]] of map) {
 
         it(message, ()=>{
 
-            let validatable = new NotEmpty.Parameters(value, EmptyMessage.Parameters);
+            let validatable = new NotEmpty(value, EmptyMessage);
             expect(validatable.valid).toBe(!valid, value);
             expect(validatable.value).toBe(value, value);
 

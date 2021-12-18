@@ -1,9 +1,9 @@
-import Map from "../../../dist/validator/map-partial";
+import Map from "../../../dist/validator/map-partial-parameters";
 import And from "../../../dist/validatable/and";
 import Or from "../../../dist/validatable/or";
 import Validatable from "@dikac/t-validatable/validatable";
 import MessageMap from "../../../dist/message/message/record/map";
-import Type from "@dikac/t-type/validator/type";
+import Type from "@dikac/t-type/validator/type-parameters";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -18,12 +18,12 @@ describe("flat", function() {
     it(`and validation`, () => {
 
         let validator = {
-            name : Type.Parameters('string'),
-            address : Type.Parameters('string'),
-            user : Type.Parameters('string'),
+            name : Type('string'),
+            address : Type('string'),
+            user : Type('string'),
         };
 
-        let property = Map.Parameters(validator,
+        let property = Map(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -71,12 +71,12 @@ describe("flat", function() {
     it(`or validation`, () => {
 
         let validator = {
-            name : Type.Parameters('string'),
-            address : Type.Parameters('string'),
-            user : Type.Parameters('string'),
+            name : Type('string'),
+            address : Type('string'),
+            user : Type('string'),
         };
 
-        let property = Map.Parameters(validator,
+        let property = Map(validator,
             (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -141,17 +141,17 @@ describe("recursive", function() {
     it(`and validation`, () => {
 
         let validator = {
-            name : Type.Parameters('string'),
-            address : Type.Parameters('string'),
-            user : Type.Parameters('string'),
-            info : Map.Parameters({
-                age : Type.Parameters('number'),
-                hobby : Type.Parameters('string'),
-                no : Type.Parameters('number'),
+            name : Type('string'),
+            address : Type('string'),
+            user : Type('string'),
+            info : Map({
+                age : Type('number'),
+                hobby : Type('string'),
+                no : Type('number'),
             },(v)=>And(v), MessageMap)
         };
 
-        let property = Map.Parameters(validator,
+        let property = Map(validator,
             (v)=>And(v),
             MessageMap
         );
@@ -223,17 +223,17 @@ describe("recursive", function() {
     it(`or validation`, () => {
 
         let validator = {
-            name : Type.Parameters('string'),
-            address : Type.Parameters('string'),
-            user : Type.Parameters('string'),
-            info : Map.Parameters({
-                age : Type.Parameters('number'),
-                hobby : Type.Parameters('string'),
-                no : Type.Parameters('number'),
+            name : Type('string'),
+            address : Type('string'),
+            user : Type('string'),
+            info : Map({
+                age : Type('number'),
+                hobby : Type('string'),
+                no : Type('number'),
             },(v)=>Or(v), MessageMap)
         };
 
-        let property = Map.Parameters(validator,
+        let property = Map(validator,
             (v)=>Or(v),
             MessageMap
         );

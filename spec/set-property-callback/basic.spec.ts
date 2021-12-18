@@ -1,4 +1,4 @@
-import SetPropertyCallback from "../../dist/set-property-callback";
+import SetPropertyCallback from "../../dist/set-property-callback-parameters";
 
 it("enable console log", () => spyOn(console, 'log').and.callThrough());
 
@@ -8,7 +8,7 @@ describe('plain', () => {
     let result : string;
     let soruce = {};
 
-    let object = SetPropertyCallback.Parameters(soruce, 'data', () =>{
+    let object = SetPropertyCallback(soruce, 'data', () =>{
         called++;
         return Math.random().toString();
     }, true, true);
@@ -59,7 +59,7 @@ describe('class', () => {
     let source = new Test();
 
 
-    let object = SetPropertyCallback.Parameters(source, 'data', () =>{
+    let object = SetPropertyCallback(source, 'data', () =>{
         calledCallback++;
         return Math.random().toString();
     }, true, true);

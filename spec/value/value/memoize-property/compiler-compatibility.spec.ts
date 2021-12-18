@@ -1,4 +1,4 @@
-import SetProperty from "../../../../dist/value/value/set-property";
+import SetProperty from "../../../../dist/value/value/set-property-parameters";
 
 it("enable console log", () => spyOn(console, 'log').and.callThrough());
 
@@ -8,7 +8,7 @@ describe('plain', () => {
 
         get data ()  {
 
-            return SetProperty.Parameters(this, 'data', 'string');
+            return SetProperty(this, 'data', 'string');
         }
     }
 
@@ -23,7 +23,7 @@ describe('different type', () => {
         get data () : number {
 
         // @ts-expect-error
-            return SetProperty.Parameters(this, 'data', 'string');
+            return SetProperty(this, 'data', 'string');
         }
     }
     // @ts-expect-error
@@ -43,7 +43,7 @@ describe('class', () => {
 
             get data ()  {
 
-                return SetProperty.Parameters(this, 'data', 'string');
+                return SetProperty(this, 'data', 'string');
             }
         }
 
@@ -58,7 +58,7 @@ describe('class', () => {
 
             get data ()  {
 
-                return SetProperty.Parameters(this, 'data', 'string');
+                return SetProperty(this, 'data', 'string');
             }
         }
 
@@ -77,7 +77,7 @@ describe('not exists', () => {
             get data ()  {
 
                 // @ts-expect-error
-                return SetProperty.Parameters(object, 'c', 'string');
+                return SetProperty(object, 'c', 'string');
             }
         }
 
@@ -91,7 +91,7 @@ describe('not exists', () => {
 
             get data ()  {
 
-                return SetProperty.Parameters(this, 'c', 'string');
+                return SetProperty(this, 'c', 'string');
             }
         }
 

@@ -1,4 +1,4 @@
-import Readable from "../../../dist/property/boolean/readable";
+import Readable from "../../../dist/property/boolean/readable-parameters";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -8,8 +8,8 @@ describe('plain', () => {
 
         let object = {property:true}
 
-        expect(Readable.Parameters(object, 'property')).toBe(true);
-        expect(Readable.Parameters(object, 'notExists')).toBe(false);
+        expect(Readable(object, 'property')).toBe(true);
+        expect(Readable(object, 'notExists')).toBe(false);
 
     });
 
@@ -19,8 +19,8 @@ describe('plain', () => {
             set setter (value) {},
         }
 
-        expect(Readable.Parameters(object, 'setter')).toBe(false);
-        expect(Readable.Parameters(object, 'notExists')).toBe(false);
+        expect(Readable(object, 'setter')).toBe(false);
+        expect(Readable(object, 'notExists')).toBe(false);
 
     });
 
@@ -30,8 +30,8 @@ describe('plain', () => {
             get getter () { return 1 },
         }
 
-        expect(Readable.Parameters(object, 'getter')).toBe(true);
-        expect(Readable.Parameters(object, 'notExists')).toBe(false);
+        expect(Readable(object, 'getter')).toBe(true);
+        expect(Readable(object, 'notExists')).toBe(false);
 
     });
 });
@@ -46,8 +46,8 @@ describe('class', () => {
         }
         let object = new Test;
 
-        expect(Readable.Parameters(object, 'property')).toBe(true);
-        expect(Readable.Parameters(object, 'notExists')).toBe(false);
+        expect(Readable(object, 'property')).toBe(true);
+        expect(Readable(object, 'notExists')).toBe(false);
 
     });
 
@@ -59,8 +59,8 @@ describe('class', () => {
 
         let object = new Test;
 
-        expect(Readable.Parameters(object, 'setter')).toBe(false);
-        expect(Readable.Parameters(object, 'notExists')).toBe(false);
+        expect(Readable(object, 'setter')).toBe(false);
+        expect(Readable(object, 'notExists')).toBe(false);
 
     });
 
@@ -71,8 +71,8 @@ describe('class', () => {
         }
         let object = new Test;
 
-        expect(Readable.Parameters(object, 'getter')).toBe(true);
-        expect(Readable.Parameters(object, 'notExists')).toBe(false);
+        expect(Readable(object, 'getter')).toBe(true);
+        expect(Readable(object, 'notExists')).toBe(false);
 
     });
 });
@@ -92,9 +92,9 @@ describe('class inheritance', () => {
         }
         let object = new Child;
 
-        expect(Readable.Parameters(object, 'child')).toBe(true);
-        expect(Readable.Parameters(object, 'parent')).toBe(true);
-        expect(Readable.Parameters(object, 'notExists')).toBe(false);
+        expect(Readable(object, 'child')).toBe(true);
+        expect(Readable(object, 'parent')).toBe(true);
+        expect(Readable(object, 'notExists')).toBe(false);
 
     });
 
@@ -110,9 +110,9 @@ describe('class inheritance', () => {
 
         let object = new Child;
 
-        expect(Readable.Parameters(object, 'child')).toBe(false);
-        expect(Readable.Parameters(object, 'parent')).toBe(false);
-        expect(Readable.Parameters(object, 'notExists')).toBe(false);
+        expect(Readable(object, 'child')).toBe(false);
+        expect(Readable(object, 'parent')).toBe(false);
+        expect(Readable(object, 'notExists')).toBe(false);
 
     });
 
@@ -128,9 +128,9 @@ describe('class inheritance', () => {
 
         let object = new Child;
 
-        expect(Readable.Parameters(object, 'parent')).toBe(true);
-        expect(Readable.Parameters(object, 'child')).toBe(true);
-        expect(Readable.Parameters(object, 'notExists')).toBe(false);
+        expect(Readable(object, 'parent')).toBe(true);
+        expect(Readable(object, 'child')).toBe(true);
+        expect(Readable(object, 'notExists')).toBe(false);
 
     });
 });

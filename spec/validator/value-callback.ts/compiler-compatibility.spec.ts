@@ -1,13 +1,13 @@
-import Type from "@dikac/t-type/validator/type";
-import ValueCallback from "../../../dist/validator/value-callback";
-import ValidateValue from "../../../dist/validator/validatable/record/value";
+import Type from "@dikac/t-type/validator/type-parameters";
+import ValueCallback from "../../../dist/validator/value-callback-parameters";
+import ValidateValue from "../../../dist/validator/validatable/record/value-parameters";
 import And from "../../../dist/validatable/and";
 import MessageMap from "../../../dist/message/message/record/map";
 import Validatable from "@dikac/t-validatable/validatable";
 import ValidatablesInterface from "../../../dist/validatable/validatables/validatables";
-import Validatables from "../../../dist/validatable/validatables";
+import Validatables from "../../../dist/validatable/validatables-parameters";
 import ValidatorValidatable from "../../../dist/validator/validatable/record/infer";
-import ValidateValuePartial from "../../../dist/validator/validatable/record/value-partial";
+import ValidateValuePartial from "../../../dist/validator/validatable/record/value-partial-parameters";
 import Message from "@dikac/t-message/message";
 import Infer from "../../../dist/validator/validatable/record/infer";
 
@@ -16,8 +16,8 @@ it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
 
 let validator = {
-    name : Type.Parameters('string'),
-    address : Type.Parameters('string'),
+    name : Type('string'),
+    address : Type('string'),
 };
 
 type Messages = {
@@ -27,7 +27,7 @@ type Messages = {
 
 describe("implicit complete", function() {
 
-    let property = ValueCallback.Parameters<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue.Parameters, And, result => MessageMap(result));
+    let property = ValueCallback<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue, And, result => MessageMap(result));
 
     let validatable = property('data');
 
@@ -58,8 +58,8 @@ describe("implicit complete", function() {
 
 describe("explicit complete", function() {
 
-    let property = ValueCallback.Parameters<string>(validator,
-        (value, validators) => ValidateValue.Parameters(value, validators),
+    let property = ValueCallback<string>(validator,
+        (value, validators) => ValidateValue(value, validators),
         (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
         MessageMap
     );
@@ -81,8 +81,8 @@ describe("explicit complete", function() {
 
 describe("implicit partial", function() {
 
-    let property = ValueCallback.Parameters(validator,
-        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameters(value, validators),
+    let property = ValueCallback(validator,
+        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
         (v)=>And(<Record<PropertyKey, Validatable>>v),
         MessageMap
     );
@@ -103,8 +103,8 @@ describe("implicit partial", function() {
 
 describe("explicit complete", function() {
 
-    let property = ValueCallback.Parameters<unknown, string>(validator,
-        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial.Parameters(value, validators),
+    let property = ValueCallback<unknown, string>(validator,
+        (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
         (v)=>And(<Record<PropertyKey, Validatable>>v),
         (v) => MessageMap(<Record<PropertyKey, Message>>v)
     );

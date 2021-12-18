@@ -1,4 +1,4 @@
-import SetPropertyCallback from "../../dist/set-property-callback";
+import SetPropertyCallback from "../../dist/set-property-callback-parameters";
 
 
 it("enable console log", () => spyOn(console, 'log').and.callThrough());
@@ -7,7 +7,7 @@ describe('plain', () => {
 
     let source = {};
 
-    let object = SetPropertyCallback.Parameters(source, 'data', () =>'string', true, true);
+    let object = SetPropertyCallback(source, 'data', () =>'string', true, true);
 
     let string : string = object.data;
 
@@ -24,7 +24,7 @@ describe('different type', () => {
         get data () : number { return  1}
     }
 
-    let object = SetPropertyCallback.Parameters(source, 'data', () =>'string', true, true);
+    let object = SetPropertyCallback(source, 'data', () =>'string', true, true);
 
     // @ts-expect-error
     let number : number = object.data;
@@ -51,7 +51,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Implementer();
-        let type : Interface = SetPropertyCallback.Parameters(source, 'data', () =>'string', true, true);
+        let type : Interface = SetPropertyCallback(source, 'data', () =>'string', true, true);
         let string : string = type.data;
 
     });
@@ -67,7 +67,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Test();
-        let type : Interface = SetPropertyCallback.Parameters(source, 'data', () =>'string', true, true);
+        let type : Interface = SetPropertyCallback(source, 'data', () =>'string', true, true);
         let string : string = type.data;
 
     });
@@ -80,7 +80,7 @@ describe('not exists', () => {
         let source = {}
 
 
-        let object = SetPropertyCallback.Parameters(source, 'data', () =>'string', true, true);
+        let object = SetPropertyCallback(source, 'data', () =>'string', true, true);
 
         // @ts-expect-error
         let string : string = object.c;
@@ -97,7 +97,7 @@ describe('not exists', () => {
         }
 
 
-        let object = SetPropertyCallback.Parameters(source, 'value', () =>'string', true, true);
+        let object = SetPropertyCallback(source, 'value', () =>'string', true, true);
 
         // @ts-expect-error
         let string : string = object.c;

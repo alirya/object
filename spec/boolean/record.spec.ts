@@ -1,4 +1,4 @@
-import Type from "../../dist/boolean/record";
+import Type from "../../dist/boolean/record-parameters";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
 
@@ -19,7 +19,7 @@ describe('valid', function () {
 
     it(`check value`, () => {
 
-        if(Type.Parameters<string>(convert,  (v:any) : v is string  => typeof v === 'string')) {
+        if(Type<string>(convert,  (v:any) : v is string  => typeof v === 'string')) {
 
             expect(convert.property1).toBe('a', 'property1');
             expect(convert.property2).toBe('b', 'property2');
@@ -29,6 +29,5 @@ describe('valid', function () {
             convert.property5 = 'e';
         }
     });
-
 
 });

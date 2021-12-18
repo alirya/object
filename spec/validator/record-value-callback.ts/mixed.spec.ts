@@ -1,6 +1,6 @@
-import Type from "@dikac/t-type/validator/type";
-import RecordValueCallback from "../../../dist/validator/record-value-callback";
-import ValidateValue from "../../../dist/validator/validatable/record/record-value";
+import Type from "@dikac/t-type/validator/type-parameters";
+import RecordValueCallback from "../../../dist/validator/record-value-callback-parameters";
+import ValidateValue from "../../../dist/validator/validatable/record/record-value-parameters";
 import And from "../../../dist/validatable/and";
 import MessageMap from "../../../dist/message/message/record/map";
 import Or from "../../../dist/validatable/or";
@@ -10,7 +10,7 @@ it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
 describe("flat", function() {
 
-    let validator = Type.Parameters('string');
+    let validator = Type('string');
 
     let value = {
         name : 'string',
@@ -20,7 +20,7 @@ describe("flat", function() {
 
     it(`and validation`, () => {
 
-        let property = RecordValueCallback.Parameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue.Parameters, And, MessageMap);
+        let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue, And, MessageMap);
 
         let and = property(value);
 
@@ -41,7 +41,7 @@ describe("flat", function() {
 
     it(`or validation `, () => {
 
-        let property = RecordValueCallback.Parameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue.Parameters, Or, MessageMap);
+        let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue, Or, MessageMap);
 
         let or = property(value);
 

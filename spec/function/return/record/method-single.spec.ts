@@ -1,4 +1,4 @@
-import MethodSingle from "../../../../dist/function/return/record/method-single";
+import MethodSingle from "../../../../dist/function/return/record/method-single-parameters";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -26,7 +26,7 @@ describe('compiler compatibility', () => {
 
     describe('partial 1', () => {
 
-        let result = MethodSingle.Parameters(new Test(), {
+        let result = MethodSingle(new Test(), {
             string : 'data'
         });
 
@@ -41,7 +41,7 @@ describe('compiler compatibility', () => {
 
     describe('partial 2', () => {
 
-        let result = MethodSingle.Parameters(new Test(), {
+        let result = MethodSingle(new Test(), {
             string : 'data',
             number : 5
         });
@@ -56,7 +56,7 @@ describe('compiler compatibility', () => {
 
     describe('all', () => {
 
-        let result = MethodSingle.Parameters(new Test(), {
+        let result = MethodSingle(new Test(), {
             string : 'data',
             number : 5,
             boolean : false
@@ -73,7 +73,7 @@ describe('compiler compatibility', () => {
 
         try {
             // @ts-expect-error
-            let result = MethodSingle.Parameters(new Test(), {
+            let result = MethodSingle(new Test(), {
                 number : 5,
                 object : false
             });
@@ -90,7 +90,7 @@ describe('test', () => {
 
     it('partial 1', () => {
 
-        let result = MethodSingle.Parameters(new Test(), {
+        let result = MethodSingle(new Test(), {
             string : 'data'
         });
 
@@ -105,7 +105,7 @@ describe('test', () => {
 
     it('partial 2', () => {
 
-        let result = MethodSingle.Parameters(new Test(), {
+        let result = MethodSingle(new Test(), {
             string : 'data',
             number : 5
         });
@@ -120,7 +120,7 @@ describe('test', () => {
 
     it('all', () => {
 
-        let result = MethodSingle.Parameters(new Test(), {
+        let result = MethodSingle(new Test(), {
             string : 'data',
             number : 5,
             boolean : false
@@ -138,7 +138,7 @@ describe('test', () => {
         try {
 
             // @ts-expect-error
-        let result = MethodSingle.Parameters(new Test(), {
+        let result = MethodSingle(new Test(), {
             number : 5,
             object : {}
         });

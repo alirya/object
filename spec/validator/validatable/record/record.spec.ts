@@ -1,5 +1,5 @@
-import Type from "@dikac/t-type/validator/type";
-import Record from "../../../../dist/validator/validatable/record/record-value";
+import Type from "@dikac/t-type/validator/type-parameters";
+import Record from "../../../../dist/validator/validatable/record/record-value-parameters";
 import Validator from "@dikac/t-validator/validator";
 
 it("force console log", () => spyOn(console, 'log').and.callThrough());
@@ -15,40 +15,40 @@ describe("compiler compatibility", function() {
             validator2 : number,
         };
 
-        let value : ValueValidator = Type.Parameters("number");
-        let key : KeyValidator = Type.Parameters("string");
+        let value : ValueValidator = Type("number");
+        let key : KeyValidator = Type("string");
 
         let record : Value = {
             validator1 : 10,
             validator2 : 10,
         };
 
-        Record.Parameters(record, value);
+        Record(record, value);
     });
 
     describe("implicit", function() {
 
-        let value = Type.Parameters("number");
-        let key = Type.Parameters("string");
+        let value = Type("number");
+        let key = Type("string");
 
         let record = {
             validator1 : 10,
             validator2 : 10,
         };
 
-        Record.Parameters(record, value);
+        Record(record, value);
     });
 
     describe("auto", function() {
 
-        let value = Type.Parameters("number");
-        let key = Type.Parameters("string");
+        let value = Type("number");
+        let key = Type("string");
 
         let record = {
             validator1 : 10,
             validator2 : 10,
         };
 
-        Record.Parameters(record, value);
+        Record(record, value);
     });
 });

@@ -1,5 +1,5 @@
 import Property from "../../../dist/descriptor/boolean/property";
-import GetProperty from "../../../dist/descriptor/from-object";
+import GetProperty from "../../../dist/descriptor/from-object-parameters";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -9,7 +9,7 @@ describe(`plain`, () => {
     it(`property`, () => {
 
         let object = {property:1};
-        let descriptor = GetProperty.Parameters(object, 'property');
+        let descriptor = GetProperty(object, 'property');
 
         if(descriptor) {
 
@@ -27,7 +27,7 @@ describe(`plain`, () => {
             get property  () {return 1}
         };
 
-        let descriptor = GetProperty.Parameters(object, 'property');
+        let descriptor = GetProperty(object, 'property');
 
         if(descriptor) {
 
@@ -45,7 +45,7 @@ describe(`plain`, () => {
             set property  (data) {}
         };
 
-        let descriptor = GetProperty.Parameters(object, 'property');
+        let descriptor = GetProperty(object, 'property');
 
         if(descriptor) {
 
@@ -69,7 +69,7 @@ describe(`class`, () => {
 
         let object = new Test;
 
-        let descriptor = GetProperty.Parameters(object, 'property');
+        let descriptor = GetProperty(object, 'property');
 
         if(descriptor) {
 
@@ -89,7 +89,7 @@ describe(`class`, () => {
 
         let object = new Test;
 
-        let descriptor = GetProperty.Parameters(object, 'property');
+        let descriptor = GetProperty(object, 'property');
 
         if(descriptor) {
 
@@ -109,7 +109,7 @@ describe(`class`, () => {
 
         let object = new Test;
 
-        let descriptor = GetProperty.Parameters(object, 'property');
+        let descriptor = GetProperty(object, 'property');
 
         if(descriptor) {
 
@@ -126,7 +126,7 @@ describe(`array`, () => {
 
     it(`property`, () => {
 
-        let descriptor = GetProperty.Parameters([], 'length');
+        let descriptor = GetProperty([], 'length');
 
         if(descriptor) {
 

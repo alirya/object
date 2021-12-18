@@ -1,4 +1,4 @@
-import Writable from "../../../dist/property/boolean/writable";
+import Writable from "../../../dist/property/boolean/writable-parameters";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -8,8 +8,8 @@ describe('plain', () => {
 
         let object = {property:true}
 
-        expect(Writable.Parameters(object, 'property')).toBe(true);
-        expect(Writable.Parameters(object, 'notExists')).toBe(false);
+        expect(Writable(object, 'property')).toBe(true);
+        expect(Writable(object, 'notExists')).toBe(false);
 
     });
 
@@ -19,8 +19,8 @@ describe('plain', () => {
             set setter (value) {},
         }
 
-        expect(Writable.Parameters(object, 'setter')).toBe(true);
-        expect(Writable.Parameters(object, 'notExists')).toBe(false);
+        expect(Writable(object, 'setter')).toBe(true);
+        expect(Writable(object, 'notExists')).toBe(false);
 
     });
 
@@ -30,8 +30,8 @@ describe('plain', () => {
             get getter () { return 1 },
         }
 
-        expect(Writable.Parameters(object, 'getter')).toBe(false);
-        expect(Writable.Parameters(object, 'notExists')).toBe(false);
+        expect(Writable(object, 'getter')).toBe(false);
+        expect(Writable(object, 'notExists')).toBe(false);
 
     });
 });
@@ -46,8 +46,8 @@ describe('class', () => {
         }
         let object = new Test;
 
-        expect(Writable.Parameters(object, 'property')).toBe(true);
-        expect(Writable.Parameters(object, 'notExists')).toBe(false);
+        expect(Writable(object, 'property')).toBe(true);
+        expect(Writable(object, 'notExists')).toBe(false);
 
     });
 
@@ -59,8 +59,8 @@ describe('class', () => {
 
         let object = new Test;
 
-        expect(Writable.Parameters(object, 'setter')).toBe(true);
-        expect(Writable.Parameters(object, 'notExists')).toBe(false);
+        expect(Writable(object, 'setter')).toBe(true);
+        expect(Writable(object, 'notExists')).toBe(false);
 
     });
 
@@ -71,8 +71,8 @@ describe('class', () => {
         }
         let object = new Test;
 
-        expect(Writable.Parameters(object, 'getter')).toBe(false);
-        expect(Writable.Parameters(object, 'notExists')).toBe(false);
+        expect(Writable(object, 'getter')).toBe(false);
+        expect(Writable(object, 'notExists')).toBe(false);
 
     });
 });
