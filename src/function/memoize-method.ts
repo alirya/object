@@ -1,8 +1,8 @@
-import Default from "../default";
-import Suffix from "@alirya/string/suffix/suffix";
-import SetMethod from "../value/value/set-method-parameters";
+import Default from '../default';
+import Suffix from '@alirya/string/suffix/suffix';
+import SetMethod from '../value/value/set-method-parameters';
 
-const defaults = {suffix:'', configurable:true}
+const defaults = {suffix:'', configurable:true};
 /**
  * to be used for decorator
  *
@@ -15,7 +15,7 @@ export default function MemoizeMethod(
     configuration : Pick<PropertyDescriptor, 'configurable'> & Partial<Suffix> = defaults
 ) : MethodDecorator  {
 
-    configuration = Default(configuration, defaults)
+    configuration = Default(configuration, defaults);
 
     return function (target, property: string, descriptor: PropertyDescriptor) {
 
@@ -31,7 +31,7 @@ export default function MemoizeMethod(
                 this[symbol](args),
                 false,
                 configuration.configurable
-            )
+            );
         };
     };
 }

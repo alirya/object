@@ -1,19 +1,19 @@
-import OwnKeyList from "../../../dist/proxy/handler/own-key-lisall";
+import OwnKeyList from '../../../dist/proxy/handler/own-key-lisall';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 const Plain = {
     plain : 1
-}
+};
 
 const PlainSymbol  =  {
 
     [Symbol('plainSymbol')] : () => {}
-}
+};
 
 class Getter  {
-    get getter() {return 'getter'}
+    get getter() {return 'getter';}
 }
 
 class Setter  {
@@ -29,7 +29,7 @@ class Symbols  {
 }
 
 class Property {
-    public property : string = 'property'
+    public property : string = 'property';
     constructor(
 
     ) {

@@ -1,6 +1,6 @@
-import GetListFirst from "../../../../dist/proxy/handler/gelisfirst";
+import GetListFirst from '../../../../dist/proxy/handler/gelisfirst';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 type Type<Value = any> = {data:Value};
 
@@ -50,7 +50,7 @@ class Child extends Parent {
         parent : string = 'parent',
         public _children : string = 'children'
     ) {
-        super(ancestor, parent)
+        super(ancestor, parent);
     }
 
     get children () : string {
@@ -72,7 +72,7 @@ describe('single', () => {
         let property = new Child();
 
         let getter = new GetListFirst([property]);
-        let proxy = new Proxy<Child>(<Child>{}, getter)
+        let proxy = new Proxy<Child>(<Child>{}, getter);
 
         // repeat test
         for(let i = 0; i < 5; i++) {

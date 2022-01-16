@@ -1,8 +1,8 @@
-import MemoizeProperty from "../../../dist/function/memoize-property";
-import Property from "../../../dist/descriptor/boolean/property";
-import Getter from "../../../dist/descriptor/boolean/getter";
+import MemoizeProperty from '../../../dist/function/memoize-property';
+import Property from '../../../dist/descriptor/boolean/property';
+import Getter from '../../../dist/descriptor/boolean/getter';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 let called = 0;
 
@@ -46,7 +46,7 @@ describe('before call', ()=>{
         }
 
     });
-})
+});
 
 
 it('call', ()=>{

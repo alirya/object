@@ -1,7 +1,7 @@
-import Empty from "../../../boolean/empty";
-import Valid from "../valid";
-import Validatable from "@alirya/validatable/validatable";
-import OmitUndefined from "../../../omit-undefined";
+import Empty from '../../../boolean/empty';
+import Valid from '../valid';
+import Validatable from '@alirya/validatable/validatable';
+import OmitUndefined from '../../../omit-undefined';
 
 export default function Or<
     Object extends Partial<Record<PropertyKey, Validatable>>

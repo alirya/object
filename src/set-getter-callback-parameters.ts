@@ -1,17 +1,17 @@
-import {O} from "ts-toolbelt";
-import {Required} from "utility-types";
-import SetPropertyCallback from "./set-property-callback-parameters";
+import {O} from 'ts-toolbelt';
+import {Required} from 'utility-types';
+import SetPropertyCallback from './set-property-callback-parameters';
 
 export type SetGetterCallbackTypeStatic<
     This extends object,
     Key extends keyof This
-    > = O.Readonly<Required<This, Key>>
+    > = O.Readonly<Required<This, Key>>;
 
 export type SetGetterCallbackTypeDynamic<
     This extends object,
     Key extends PropertyKey,
     Type
-    > = Omit<This, Key> & O.Readonly<Record<Key, Type>>
+    > = Omit<This, Key> & O.Readonly<Record<Key, Type>>;
 
 /**
  * set return from {@param factory} to getter for {@param object}
@@ -33,7 +33,7 @@ export default function SetGetterCallbackParameters<
     property : Key,
     factory : ()=>This[Key],
     configurable ?: boolean
-) : SetGetterCallbackTypeStatic<This, Key>
+) : SetGetterCallbackTypeStatic<This, Key>;
 
 export default function SetGetterCallbackParameters<
     This extends object,
@@ -44,7 +44,7 @@ export default function SetGetterCallbackParameters<
     property : Key,
     factory : ()=>Type,
     configurable ?: boolean
-) : SetGetterCallbackTypeDynamic<This, Key, Type>
+) : SetGetterCallbackTypeDynamic<This, Key, Type>;
 
 export default function SetGetterCallbackParameters<
     This extends object,

@@ -1,6 +1,6 @@
-import Validatable from "@alirya/validatable/validatable";
-import TypeRecord from "../../../boolean/record-parameters";
-import ValidatableType from "@alirya/validatable/boolean/validatable";
+import Validatable from '@alirya/validatable/validatable';
+import TypeRecord from '../../../boolean/record-parameters';
+import ValidatableType from '@alirya/validatable/boolean/validatable';
 
 /**
  * Check if {@param record} is record of {@link Validatable}
@@ -27,5 +27,5 @@ export default function Record<
     property ? : (value:PropertyKey)=>value is Key
 ) : record is Object {
 
-    return TypeRecord(record, ValidatableType, <(value:PropertyKey)=>value is Key>property)
+    return TypeRecord(record, ValidatableType, <(value:PropertyKey)=>value is Key>property);
 }

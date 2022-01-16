@@ -1,6 +1,6 @@
-import Extract from "../dist/extract";
+import Extract from '../dist/extract';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', () => {
 
@@ -18,7 +18,7 @@ describe('compiler compatibility', () => {
             required : 'required',
             nullable : 'nullable',
             optionalUnion : undefined,
-        }
+        };
 
         let extract = new Extract(data, ['required', 'nullable']);
         let result = extract.return;
@@ -65,7 +65,7 @@ describe('explicit', () => {
         nullable : 'nullable',
         optionalUnion : undefined,
         optional : 'optional',
-    }
+    };
 
     let extract = new Extract(data, ['required', 'nullable']);
     let result = extract.return;

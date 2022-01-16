@@ -1,6 +1,6 @@
-import Name from "../../../dist/string/name";
+import Name from '../../../dist/string/name';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 class Test {
 

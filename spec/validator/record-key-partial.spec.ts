@@ -1,17 +1,17 @@
-import Value from "../../dist/validator/record-key-partial-parameters";
-import And from "../../dist/validatable/and";
-import Or from "../../dist/validatable/or";
-import Validatable from "@alirya/validatable/validatable";
-import MessageMap from "../../dist/message/message/record/map";
-import Type from "@alirya/type/validator/type-parameters";
-import ValidatorInterface from "@alirya/validator/simple";
-import Instance from "@alirya/validator/validatable/validatable";
-import Callbacks from "@alirya/validator/callback-parameters";
+import Value from '../../dist/validator/record-key-partial-parameters';
+import And from '../../dist/validatable/and';
+import Or from '../../dist/validatable/or';
+import Validatable from '@alirya/validatable/validatable';
+import MessageMap from '../../dist/message/message/record/map';
+import Type from '@alirya/type/validator/type-parameters';
+import ValidatorInterface from '@alirya/validator/simple';
+import Instance from '@alirya/validator/validatable/validatable';
+import Callbacks from '@alirya/validator/callback-parameters';
 
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("compiler compatibility", function() {
+describe('compiler compatibility', function() {
 
     let validator = Type('string');
     type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
@@ -21,7 +21,7 @@ describe("compiler compatibility", function() {
         address : 'string',
     };
 
-    describe("implicit partial", function() {
+    describe('implicit partial', function() {
 
         let property = Value(validator, And, MessageMap);
 
@@ -33,7 +33,7 @@ describe("compiler compatibility", function() {
 
     });
 
-    describe("explicit complete", function() {
+    describe('explicit complete', function() {
 
         let property = Value/*<Record<PropertyKey, any>, Record<string, any>, TypeValidatorValue>*/(validator, And, MessageMap);
 
@@ -44,9 +44,9 @@ describe("compiler compatibility", function() {
     });
 });
 
-describe("implicit incomplete", function() {
+describe('implicit incomplete', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
         let validator = Type('string');
 
@@ -153,7 +153,7 @@ describe("implicit incomplete", function() {
     });
 
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
         let value = {
             name : true,
@@ -244,7 +244,7 @@ describe("implicit incomplete", function() {
     });
 
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
         let value = {
             name : 1,

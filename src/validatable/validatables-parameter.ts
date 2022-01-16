@@ -1,7 +1,7 @@
-import Validatable from "@alirya/validatable/validatable";
-import Validation from "@alirya/boolean/validation/validation";
-import ValidatablesInterface from "./validatables/validatables";
-import ValidatablesParameters from "./validatables-parameters";
+import Validatable from '@alirya/validatable/validatable';
+import Validation from '@alirya/boolean/validation/validation';
+import ValidatablesInterface from './validatables/validatables';
+import ValidatablesParameters from './validatables-parameters';
 
 export default class ValidatablesParameter<
     RecordType extends Partial<Record<PropertyKey, Validatable>> = Partial<Record<PropertyKey, Validatable>>,

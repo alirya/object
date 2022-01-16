@@ -1,8 +1,8 @@
-import SetProperty from "../../../../dist/value/value/set-property-parameters";
-import Readable from "../../../../dist/property/boolean/readable-parameters";
-import Writable from "../../../../dist/property/boolean/writable-parameters";
+import SetProperty from '../../../../dist/value/value/set-property-parameters';
+import Readable from '../../../../dist/property/boolean/readable-parameters';
+import Writable from '../../../../dist/property/boolean/writable-parameters';
 
-it("enable console log", () => spyOn(console, 'log').and.callThrough());
+it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
 describe('plain', () => {
 
@@ -15,7 +15,7 @@ describe('plain', () => {
             called++;
             return SetProperty(this, 'data', Math.random().toString(), false);
         }
-    }
+    };
 
     it('check initial', ()=>{
 

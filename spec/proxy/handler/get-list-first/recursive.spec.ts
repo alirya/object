@@ -1,16 +1,16 @@
-import GetHandler from "../../../../dist/proxy/handler/gelisfirst";
-import GetOwnPropertyDescriptorListAll from "../../../../dist/proxy/handler/geown-property-descriptor-lisall";
-import MergeAnonymous from "../../../../dist/proxy/handler/merge-anonymous";
-import GetPrototypeOfListMerge from "../../../../dist/proxy/handler/prototype-of-lismerge";
+import GetHandler from '../../../../dist/proxy/handler/gelisfirst';
+import GetOwnPropertyDescriptorListAll from '../../../../dist/proxy/handler/geown-property-descriptor-lisall';
+import MergeAnonymous from '../../../../dist/proxy/handler/merge-anonymous';
+import GetPrototypeOfListMerge from '../../../../dist/proxy/handler/prototype-of-lismerge';
 
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 type Type<Value = any> = {data:Value};
 
 const plain = {
-    get data() {return 'plain'}
-}
+    get data() {return 'plain';}
+};
 
 class Symbol_ implements Iterable<string> {
 
@@ -27,12 +27,12 @@ class Symbol_ implements Iterable<string> {
 }
 
 class Getter  {
-    get data() {return 'getter'}
+    get data() {return 'getter';}
 }
 
 class Setter  {
 
-    public value : any
+    public value : any;
 
     set data(value) {
 
@@ -70,7 +70,7 @@ describe('original handler', () => {
     let proxy1 = <Property & Symbol_> new Proxy({}, getter1);
 
     let getter2 = new GetHandler([proxy1]);
-    let proxy2 = <Property & Symbol_> new Proxy({}, getter2)
+    let proxy2 = <Property & Symbol_> new Proxy({}, getter2);
 
     it('check value', ()=>{
 
@@ -113,7 +113,7 @@ describe('minimum working combination', () => {
     let proxy1 = <Property & Symbol_> new Proxy({}, MergeAnonymous(getter1, descriptor1,  prototypeOfListMerge1));
 
     let getter2 = new GetHandler([proxy1]);
-    let proxy2 = <Property & Symbol_> new Proxy({}, getter2)
+    let proxy2 = <Property & Symbol_> new Proxy({}, getter2);
 
     it('check value', ()=>{
 

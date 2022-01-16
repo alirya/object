@@ -1,6 +1,6 @@
-import Validatable from "@alirya/validatable/validatable";
-import Value from "@alirya/value/value";
-import CompatibleParameters from "./compatible-parameters";
+import Validatable from '@alirya/validatable/validatable';
+import Value from '@alirya/value/value';
+import CompatibleParameters from './compatible-parameters';
 
 export type CompatibleArgument = Validatable &
     Value &

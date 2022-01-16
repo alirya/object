@@ -1,6 +1,6 @@
-import NonNullable from "../../dist/non-nullable";
+import NonNullable from '../../dist/non-nullable';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 interface Type {
@@ -30,4 +30,4 @@ describe('nullable', ()=>{
         // @ts-expecerror
         object : null,
     };
-})
+});

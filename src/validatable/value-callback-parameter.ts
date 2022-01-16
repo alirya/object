@@ -1,10 +1,10 @@
-import Validator from "@alirya/validator/validator";
-import ValidatorValidatable from "@alirya/validator/validatable/validatable";
-import Validatable from "@alirya/validatable/validatable";
-import BaseValue from "@alirya/value/value";
-import Validators from "../validator/validators/validators";
-import Message from "@alirya/message/message";
-import ValueCallbackParameters from "./value-callback-parameters";
+import Validator from '@alirya/validator/validator';
+import ValidatorValidatable from '@alirya/validator/validatable/validatable';
+import Validatable from '@alirya/validatable/validatable';
+import BaseValue from '@alirya/value/value';
+import Validators from '../validator/validators/validators';
+import Message from '@alirya/message/message';
+import ValueCallbackParameters from './value-callback-parameters';
 
 export type ValueCallbackArgument<
     ValueType = unknown,
@@ -18,7 +18,7 @@ export type ValueCallbackArgument<
     {map : (argument:BaseValue<ValueType> & Validators<RecordType>)=>Result} &
     // TODO CHANGE TO VALIDATOR
     {validation: (result:Result)=>ValidatableType} &
-    Message<(result:Result)=>MessageType>
+    Message<(result:Result)=>MessageType>;
 
 
 export default class ValueCallbackParameter<

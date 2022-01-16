@@ -1,6 +1,6 @@
-import OmitUndefined from "../dist/omit-undefined";
+import OmitUndefined from '../dist/omit-undefined';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', () => {
 
@@ -18,7 +18,7 @@ describe('compiler compatibility', () => {
             required : 'required',
             nullable : 'nullable',
             optionalUnion : undefined,
-        }
+        };
 
         let result = OmitUndefined(data);
 
@@ -40,7 +40,7 @@ describe('compiler compatibility', () => {
             required : 'required',
             nullable : 'nullable',
             optionalUnion : undefined,
-        }
+        };
 
         let result = OmitUndefined(data);
 
@@ -67,7 +67,7 @@ describe('data', () => {
             nullable : 'nullable',
             undefined : undefined,
             null : null,
-        }
+        };
 
         let result = OmitUndefined(data);
 

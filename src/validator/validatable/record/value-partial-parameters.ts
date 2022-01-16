@@ -1,6 +1,6 @@
-import ValidatableRecord from "./infer";
-import Validator from "@alirya/validator/validator";
-import IteratorValue from "../iterator/value-parameters";
+import ValidatableRecord from './infer';
+import Validator from '@alirya/validator/validator';
+import IteratorValue from '../iterator/value-parameters';
 
 export default function ValuePartialParameters<
     ValueType,

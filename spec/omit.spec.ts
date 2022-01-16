@@ -1,7 +1,7 @@
-import Omit from "../dist/omit";
-import StrictOmit from "../dist/strict-omit";
+import Omit from '../dist/omit';
+import StrictOmit from '../dist/strict-omit';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe(' compatibility', function () {
@@ -12,7 +12,7 @@ describe(' compatibility', function () {
         boolean : true,
         array : [],
         object : {},
-    }
+    };
 
     let result = Omit(source, 'string', 'number');
 
@@ -39,7 +39,7 @@ it(' test', function () {
         boolean : true,
         array : [],
         object : {},
-    }
+    };
 
     let result = Omit(source, 'string', 'number');
 

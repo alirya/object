@@ -1,12 +1,12 @@
-import Readable from "../../../dist/property/boolean/readable-parameters";
+import Readable from '../../../dist/property/boolean/readable-parameters';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('plain', () => {
 
     it('property', () => {
 
-        let object = {property:true}
+        let object = {property:true};
 
         expect(Readable(object, 'property')).toBe(true);
         expect(Readable(object, 'notExists')).toBe(false);
@@ -17,7 +17,7 @@ describe('plain', () => {
 
         let object = {
             set setter (value) {},
-        }
+        };
 
         expect(Readable(object, 'setter')).toBe(false);
         expect(Readable(object, 'notExists')).toBe(false);
@@ -27,8 +27,8 @@ describe('plain', () => {
     it('getter', () => {
 
         let object = {
-            get getter () { return 1 },
-        }
+            get getter () { return 1; },
+        };
 
         expect(Readable(object, 'getter')).toBe(true);
         expect(Readable(object, 'notExists')).toBe(false);
@@ -42,7 +42,7 @@ describe('class', () => {
     it('property', () => {
 
         class Test {
-            property = true
+            property = true;
         }
         let object = new Test;
 
@@ -67,7 +67,7 @@ describe('class', () => {
     it('getter', () => {
 
         class Test {
-            get getter () { return 1 }
+            get getter () { return 1; }
         }
         let object = new Test;
 
@@ -84,11 +84,11 @@ describe('class inheritance', () => {
     it('property', () => {
 
         class Parent {
-            parent = true
+            parent = true;
         }
 
         class Child extends Parent {
-            child = true
+            child = true;
         }
         let object = new Child;
 
@@ -119,11 +119,11 @@ describe('class inheritance', () => {
     it('getter', () => {
 
         class Parent {
-            get parent () { return 1 }
+            get parent () { return 1; }
         }
 
         class Child extends Parent {
-            get child () { return 1 }
+            get child () { return 1; }
         }
 
         let object = new Child;

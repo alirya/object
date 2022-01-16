@@ -1,8 +1,8 @@
-import MapCallback from "../../../dist/validatable/map-callback-parameters";
-import ValidateMap from "../../../dist/validator/validatable/record/map-parameters";
-import And from "../../../dist/validatable/and";
-import MessageMap from "../../../dist/message/message/record/map";
-import Type from "@alirya/type/validator/type-parameters";
+import MapCallback from '../../../dist/validatable/map-callback-parameters';
+import ValidateMap from '../../../dist/validator/validatable/record/map-parameters';
+import And from '../../../dist/validatable/and';
+import MessageMap from '../../../dist/message/message/record/map';
+import Type from '@alirya/type/validator/type-parameters';
 
 let validator = {
     name : Type('string'),
@@ -10,7 +10,7 @@ let validator = {
 };
 
 
-it("same value", function() {
+it('same value', function() {
 
     let value = {
         name : 'name',

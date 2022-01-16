@@ -1,7 +1,7 @@
-import {O} from "ts-toolbelt";
-import IsObject from "./boolean/object";
-import {DeepPartial} from "utility-types";
-import RecursiveUnion from "./recursive-union";
+import {O} from 'ts-toolbelt';
+import IsObject from './boolean/object';
+import {DeepPartial} from 'utility-types';
+import RecursiveUnion from './recursive-union';
 
 export default function FilterRecursive<
     Object extends Record<PropertyKey, any>
@@ -18,7 +18,7 @@ export default function FilterRecursive<
 
         if(IsObject(value)) {
 
-            value = FilterRecursive(value as any, filter)
+            value = FilterRecursive(value as any, filter);
         }
 
         if(filter(value, <keyof Object>property)) {

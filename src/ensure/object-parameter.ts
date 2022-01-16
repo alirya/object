@@ -1,5 +1,5 @@
-import Value from "@alirya/value/value";
-import ObjectParameters from "./objecparameters";
+import Value from '@alirya/value/value';
+import ObjectParameters from './objecparameters';
 
 export type ObjectArgument = Value<unknown> & {error ?: (value:unknown)=>Error};
 

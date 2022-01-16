@@ -1,6 +1,6 @@
-import GetDescriptor from "../../descriptor/boolean/getter";
-import Descriptor from "../../descriptor/from-objecparameters";
-import HasProperty from "./exists";
+import GetDescriptor from '../../descriptor/boolean/getter';
+import Descriptor from '../../descriptor/from-objecparameters';
+import HasProperty from './exists';
 
 /**
  * check if property is readable

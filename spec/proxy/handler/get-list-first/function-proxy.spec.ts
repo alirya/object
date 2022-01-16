@@ -1,7 +1,7 @@
-import GetHandler from "../../../../dist/proxy/handler/gelisfirst";
+import GetHandler from '../../../../dist/proxy/handler/gelisfirst';
 
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 class Property {
@@ -17,7 +17,7 @@ let property1 = new Property('property 1');
 describe('direct set', () => {
 
     let getter = new GetHandler([property1]);
-    let proxy = <Property & Function>new Proxy(function (value : number){ return value + value;}, getter)
+    let proxy = <Property & Function>new Proxy(function (value : number){ return value + value;}, getter);
 
     it('check value', ()=>{
         expect(proxy.data).toBe('property 1');

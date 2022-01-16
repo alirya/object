@@ -1,6 +1,6 @@
-import Value from "@alirya/value/value";
-import Property from "../property/property/property";
-import FromObjectParameters from "./from-objecparameters";
+import Value from '@alirya/value/value';
+import Property from '../property/property/property';
+import FromObjectParameters from './from-objecparameters';
 
 export type FromObjectArgument = Value<object> & Property;
 

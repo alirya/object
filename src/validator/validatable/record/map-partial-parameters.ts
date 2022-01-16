@@ -1,7 +1,7 @@
-import RecordParameter from "../../subject/record/allow";
-import Validator from "@alirya/validator/validator";
-import InferReturn from "./infer";
-import IteratorMap from "../iterator/map-parameters";
+import RecordParameter from '../../subject/record/allow';
+import Validator from '@alirya/validator/validator';
+import InferReturn from './infer';
+import IteratorMap from '../iterator/map-parameters';
 
 export default function MapPartialParameters<
     Validators extends Record<PropertyKey, Validator>

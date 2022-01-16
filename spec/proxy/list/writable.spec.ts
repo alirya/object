@@ -1,10 +1,10 @@
-import List from "../../../dist/proxy/list";
-import New from "@alirya/function/new";
-import Writable from "../../../dist/property/boolean/writable-parameters";
-import GetOwnPropertyDescriptorListAll from "../../../dist/proxy/handler/geown-property-descriptor-lisall";
+import List from '../../../dist/proxy/list';
+import New from '@alirya/function/new';
+import Writable from '../../../dist/property/boolean/writable-parameters';
+import GetOwnPropertyDescriptorListAll from '../../../dist/proxy/handler/geown-property-descriptor-lisall';
 
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe('plain', function (){
@@ -34,8 +34,8 @@ describe('plain', function (){
             expect(Writable(mixin2, 'value')).toBeTrue();
 
         });
-    })
-})
+    });
+});
 
 
 describe('plaint setter', function (){
@@ -70,6 +70,6 @@ describe('plaint setter', function (){
             expect(Writable(mixin2, 'value')).toBeTrue();
 
         });
-    })
-})
+    });
+});
 

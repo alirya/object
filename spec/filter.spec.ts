@@ -1,9 +1,9 @@
-import Filter from "../dist/filter";
+import Filter from '../dist/filter';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
-describe("compiler compatibility", function() {
+describe('compiler compatibility', function() {
 
     let record = {
         boolean : true,
@@ -12,9 +12,9 @@ describe("compiler compatibility", function() {
         object : {}
     };
 
-    it("boolean", () => {
+    it('boolean', () => {
 
-        let result = Filter(record,(v:any) : v is true => typeof v === "boolean");
+        let result = Filter(record,(v:any) : v is true => typeof v === 'boolean');
 
         let boolean : boolean;
         boolean = result.boolean;
@@ -30,9 +30,9 @@ describe("compiler compatibility", function() {
 
     });
 
-    it("boolean", () => {
+    it('boolean', () => {
 
-        let result = Filter(record,(v:any) : v is object => typeof v === "object");
+        let result = Filter(record,(v:any) : v is object => typeof v === 'object');
 
         let object : object;
 
@@ -46,7 +46,7 @@ describe("compiler compatibility", function() {
         object = result.boolean;
     });
 
-    it("boolean", () => {
+    it('boolean', () => {
 
         let result = Filter(record,(v:any) : v is Array<any> => Array.isArray(v));
 
@@ -66,7 +66,7 @@ describe("compiler compatibility", function() {
 
 });
 
-describe("check value", function() {
+describe('check value', function() {
 
     let record = {
         boolean : true,
@@ -76,9 +76,9 @@ describe("check value", function() {
 
     };
 
-    it("boolean", () => {
+    it('boolean', () => {
 
-        let result = Filter(record,(v:any) : v is boolean => typeof v === "boolean");
+        let result = Filter(record,(v:any) : v is boolean => typeof v === 'boolean');
 
         expect(result.boolean).toBe(true);
         // @ts-expecerror
@@ -89,9 +89,9 @@ describe("check value", function() {
         expect(result.object).toBe(undefined);
     });
 
-    it("object", () => {
+    it('object', () => {
 
-        let result = Filter(record,(v:any) : v is object => typeof v === "object");
+        let result = Filter(record,(v:any) : v is object => typeof v === 'object');
 
         // @ts-expecerror
         expect(result.boolean).toBe(undefined);
@@ -103,7 +103,7 @@ describe("check value", function() {
         expect(result.object).toBe(result.object);
     });
 
-    it("array", () => {
+    it('array', () => {
 
         let result = Filter(record,(v:any) : v is Array<any> => Array.isArray(v));
 
@@ -117,7 +117,7 @@ describe("check value", function() {
         expect(result.object).toBe(undefined);
     });
 
-})
+});
 
 
 describe('unfiltered', () => {
@@ -165,7 +165,7 @@ describe('filtered', () => {
         data4 : 4,
     };
 
-    let filtered = Filter(source, (value : any)=>typeof value === "string");
+    let filtered = Filter(source, (value : any)=>typeof value === 'string');
 
     it('compare source & original', () => {
 

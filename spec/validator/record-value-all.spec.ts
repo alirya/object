@@ -1,32 +1,32 @@
-import RecordValue from "../../dist/validator/record-value-all-parameters";
-import And from "../../dist/validatable/and";
-import Or from "../../dist/validatable/or";
-import Validatable from "@alirya/validatable/validatable";
-import ValidatorInterface from "@alirya/validator/simple";
-import Message from "@alirya/message/message";
-import MessageMap from "../../dist/message/message/record/map";
-import Type from "@alirya/type/validator/type-parameters";
-import Instance from "@alirya/validator/validatable/validatable";
+import RecordValue from '../../dist/validator/record-value-all-parameters';
+import And from '../../dist/validatable/and';
+import Or from '../../dist/validatable/or';
+import Validatable from '@alirya/validatable/validatable';
+import ValidatorInterface from '@alirya/validator/simple';
+import Message from '@alirya/message/message';
+import MessageMap from '../../dist/message/message/record/map';
+import Type from '@alirya/type/validator/type-parameters';
+import Instance from '@alirya/validator/validatable/validatable';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("compiler compatibility", function() {
+describe('compiler compatibility', function() {
 
     type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
 
-    let validator = Type("string");
+    let validator = Type('string');
 
     type Type = {
         name : string,
         address : string,
-    }
+    };
 
     let value = {
         name : 'name',
         address : 'address',
     };
 
-    describe("implicit", function() {
+    describe('implicit', function() {
 
         let property = RecordValue(validator, And, MessageMap);
 
@@ -43,9 +43,9 @@ describe("compiler compatibility", function() {
 
     });
 
-    describe("explicit complete", function() {
+    describe('explicit complete', function() {
 
-        describe("auto", function() {
+        describe('auto', function() {
 
             let property = RecordValue<TypeValidatorValue>(validator,
                 (v)=>And(v),
@@ -59,7 +59,7 @@ describe("compiler compatibility", function() {
 
         });
 
-        describe("direct", function() {
+        describe('direct', function() {
 
             let property = RecordValue<TypeValidatorValue>(validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
@@ -74,7 +74,7 @@ describe("compiler compatibility", function() {
         });
     });
 
-    describe("implicit partial", function() {
+    describe('implicit partial', function() {
 
         let property = RecordValue(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
@@ -88,9 +88,9 @@ describe("compiler compatibility", function() {
 
     });
 
-    describe("explicit complete", function() {
+    describe('explicit complete', function() {
 
-        describe("auto", function() {
+        describe('auto', function() {
 
             let property = RecordValue<TypeValidatorValue>(
                 validator,
@@ -105,7 +105,7 @@ describe("compiler compatibility", function() {
 
         });
 
-        describe("direct", function() {
+        describe('direct', function() {
 
             let property = RecordValue<TypeValidatorValue>(
                 validator,
@@ -126,9 +126,9 @@ describe("compiler compatibility", function() {
 
 
 
-describe("implicit complete", function() {
+describe('implicit complete', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
         let validator = Type('string');
 
@@ -185,7 +185,7 @@ describe("implicit complete", function() {
     });
 
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
         let value = {
             name : 'string',
@@ -244,7 +244,7 @@ describe("implicit complete", function() {
     });
 
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
         let value = {
             name : 2,

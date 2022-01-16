@@ -1,6 +1,6 @@
-import MemoizeAccessor from "../../../dist/function/memoize-property";
+import MemoizeAccessor from '../../../dist/function/memoize-property';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 let called = 0;
 let result : number;

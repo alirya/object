@@ -1,4 +1,4 @@
-import Callable from "@alirya/function/callable";
+import Callable from '@alirya/function/callable';
 
 
 /**
@@ -7,5 +7,5 @@ import Callable from "@alirya/function/callable";
 
 type Infer<Values extends object> = {
     [Key in keyof Values]:  Values[Key] extends Callable ? ReturnType<Values[Key]> : never
-}
+};
 export default Infer;

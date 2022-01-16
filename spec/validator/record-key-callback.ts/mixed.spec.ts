@@ -1,12 +1,12 @@
-import Callbacks from "@alirya/validator/callback-parameters";
-import RecordValueCallbacks from "../../../dist/validator/record-key-callback-parameters";
-import ValidateKeys from "../../../dist/validator/validatable/record/record-key-parameters";
-import And from "../../../dist/validatable/and";
-import MessageMap from "../../../dist/message/message/record/map";
-import Or from "../../../dist/validatable/or";
-import Infer from "@alirya/validator/validatable/infer-static";
+import Callbacks from '@alirya/validator/callback-parameters';
+import RecordValueCallbacks from '../../../dist/validator/record-key-callback-parameters';
+import ValidateKeys from '../../../dist/validator/validatable/record/record-key-parameters';
+import And from '../../../dist/validatable/and';
+import MessageMap from '../../../dist/message/message/record/map';
+import Or from '../../../dist/validatable/or';
+import Infer from '@alirya/validator/validatable/infer-static';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 let validator = Callbacks<string, string>( function (value) {
     return  ['name', 'address'].includes(value);

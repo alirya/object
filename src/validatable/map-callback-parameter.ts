@@ -1,12 +1,12 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import RecordParameter from "../validator/subject/record/allow";
-import RecordBase from "../validator/subject/record/allow";
-import Instance from "@alirya/validator/validatable/validatable";
-import Value from "@alirya/value/value";
-import Validators from "../validator/validators/validators";
-import Message from "@alirya/message/message";
-import MapCallbackParameters from "./map-callback-parameters";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import RecordParameter from '../validator/subject/record/allow';
+import RecordBase from '../validator/subject/record/allow';
+import Instance from '@alirya/validator/validatable/validatable';
+import Value from '@alirya/value/value';
+import Validators from '../validator/validators/validators';
+import Message from '@alirya/message/message';
+import MapCallbackParameters from './map-callback-parameters';
 
 export type MapCallbackArgument<
     MessageType = unknown,

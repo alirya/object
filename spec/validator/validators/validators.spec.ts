@@ -1,15 +1,15 @@
-import Validators from "../../../dist/validator/validators/validators";
-import Validator from "@alirya/validator/validator";
+import Validators from '../../../dist/validator/validators/validators';
+import Validator from '@alirya/validator/validator';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', ()=>{
 
     let strict : Validators<Record<PropertyKey, Validator>> = {
         validators : {}
-    }
+    };
 
-    let optinal : Partial<Record<PropertyKey, Validator>> = {}
+    let optinal : Partial<Record<PropertyKey, Validator>> = {};
 
     optinal = strict.validators;
 

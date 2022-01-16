@@ -1,15 +1,15 @@
-import CallValidator from "../../../../dist/validator/validatable/record/map-parameters";
-import Type from "@alirya/type/validator/type-parameters";
+import CallValidator from '../../../../dist/validator/validatable/record/map-parameters';
+import Type from '@alirya/type/validator/type-parameters';
 
-it("force console log", () => spyOn(console, 'log').and.callThrough());
+it('force console log', () => spyOn(console, 'log').and.callThrough());
 
-describe("continue on invalid", function() {
+describe('continue on invalid', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
+            validator1 : Type('number'),
+            validator2 : Type('number'),
         };
 
         let value = {
@@ -23,11 +23,11 @@ describe("continue on invalid", function() {
 
     });
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
+            validator1 : Type('number'),
+            validator2 : Type('number'),
         };
 
         let value = {
@@ -41,11 +41,11 @@ describe("continue on invalid", function() {
 
     });
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
+            validator1 : Type('number'),
+            validator2 : Type('number'),
         };
 
         let value = {
@@ -62,20 +62,20 @@ describe("continue on invalid", function() {
 
 
 
-describe("extended validatable", function() {
+describe('extended validatable', function() {
 
     let validator = {
-        validator1 : Type("number"),
-        validator2 : Type("number"),
+        validator1 : Type('number'),
+        validator2 : Type('number'),
 
-        validator4 : Type("string"),
-        validator5 : Type("string"),
+        validator4 : Type('string'),
+        validator5 : Type('string'),
 
-        validator7 : Type("number"),
-        validator8 : Type("number"),
+        validator7 : Type('number'),
+        validator8 : Type('number'),
 
-        validator10 : Type("string"),
-        validator11 : Type("string")
+        validator10 : Type('string'),
+        validator11 : Type('string')
     };
 
     let value = {

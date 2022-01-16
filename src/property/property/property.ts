@@ -3,5 +3,5 @@
  */
 export default interface Property<Prop extends PropertyKey = PropertyKey> {
 
-    property : Prop
+    property : Prop;
 }

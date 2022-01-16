@@ -1,10 +1,10 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import {O} from "ts-toolbelt";
-import ValidatorContainer from "@alirya/validator/validator/validator";
-import MessageBase from "@alirya/message/message";
-import Value from "@alirya/value/value";
-import RecordValueCallbackParameters from "./record-value-callback-parameters";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import {O} from 'ts-toolbelt';
+import ValidatorContainer from '@alirya/validator/validator/validator';
+import MessageBase from '@alirya/message/message';
+import Value from '@alirya/value/value';
+import RecordValueCallbackParameters from './record-value-callback-parameters';
 
 export type RecordValueCallbackArgument<
     MessageType = unknown,
@@ -18,7 +18,7 @@ export type RecordValueCallbackArgument<
     MessageBase<(result:Result)=>MessageType> &
     { map: (argument : Value<ValueType> & ValidatorContainer<ValidatorType>) => Result } &
     {validation: (result: Result) => ValidatableType};
-;
+
 
 
 export default class RecordValueCallbackParameter<

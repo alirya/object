@@ -1,5 +1,5 @@
-import Property from "../../property/property/property";
-import ValueParameters from "./value-parameters";
+import Property from '../../property/property/property';
+import ValueParameters from './value-parameters';
 
 export type ValueArgument = {type:string} & Property;
 

@@ -1,6 +1,6 @@
-import MapCallback from "../../dist/map-callback";
+import MapCallback from '../../dist/map-callback';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 it('basic', () => {
 

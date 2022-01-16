@@ -1,9 +1,9 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import RecordParameter from "./subject/record/allow";
-import Map from "./map";
-import ValidatableMapCallback from "../validatable/map-callback-parameters";
-import Instance from "@alirya/validator/validatable/validatable";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import RecordParameter from './subject/record/allow';
+import Map from './map';
+import ValidatableMapCallback from '../validatable/map-callback-parameters';
+import Instance from '@alirya/validator/validatable/validatable';
 
 export default function MapCallbackParameters<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
@@ -21,7 +21,7 @@ export default function MapCallbackParameters<
 
         return new ValidatableMapCallback(value, validators, map, validation, message);
 
-    } as Map<Validators, Result, ValidatableType, MessageType>
+    } as Map<Validators, Result, ValidatableType, MessageType>;
 
 }
 

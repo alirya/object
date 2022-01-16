@@ -1,7 +1,7 @@
-import Validator from "../../dist/validatable/objecparameters";
-import ObjectMessage from "../../dist/assert/string/objecparameters";
+import Validator from '../../dist/validatable/objecparameters';
+import ObjectMessage from '../../dist/assert/string/objecparameters';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe(`compiler compatible`,function() {
 
@@ -18,7 +18,7 @@ describe(`compiler compatible`,function() {
 
             // @ts-expecerror
             let object : object = validatable.value;
-            fail('validatable.valid should false')
+            fail('validatable.valid should false');
         }
     });
 
@@ -30,7 +30,7 @@ describe(`compiler compatible`,function() {
 
             // compiler pass
             let object : object = validatable.value;
-            fail('validatable.valid should false')
+            fail('validatable.valid should false');
 
         } else {
 
@@ -74,7 +74,7 @@ it(`valid`,function() {
 
     expect(validatable.valid).toBe(true);
     expect(validatable.value).toEqual({});
-    expect(typeof validatable.message).toBe("string");
+    expect(typeof validatable.message).toBe('string');
 
 });
 
@@ -84,7 +84,7 @@ it(`invalid`,function() {
 
     expect(validatable.valid).toBe(false);
     expect(validatable.value).toBe('a');
-    expect(typeof validatable.message).toBe("string");
+    expect(typeof validatable.message).toBe('string');
 });
 
 

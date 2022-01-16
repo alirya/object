@@ -1,7 +1,7 @@
-import MemoizeMethod from "../../../dist/function/memoize-method";
-import Property from "../../../dist/descriptor/boolean/property";
+import MemoizeMethod from '../../../dist/function/memoize-method';
+import Property from '../../../dist/descriptor/boolean/property';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 class Test {
 
@@ -42,7 +42,7 @@ describe('before call', ()=>{
         }
 
     });
-})
+});
 
 
 it('call', ()=>{

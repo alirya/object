@@ -1,6 +1,6 @@
-import Structure, {Validation} from "../../dist/boolean/map";
+import Structure, {Validation} from '../../dist/boolean/map';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('same', () => {
 
@@ -11,9 +11,9 @@ describe('same', () => {
     }
 
     let validator : Validation<Test> = {
-        number : (n) => typeof n === "number",
-        string : (n) => typeof n === "string",
-        object : (n) => typeof n === "object",
+        number : (n) => typeof n === 'number',
+        string : (n) => typeof n === 'string',
+        object : (n) => typeof n === 'object',
     };
 
     let object : Test = {
@@ -39,9 +39,9 @@ describe('missing validation', () => {
     }
 
     let validator : Validation<Partial<Test>> = {
-        number : (n) => typeof n === "number",
-        string : (n) => typeof n === "string",
-        object : (n) => typeof n === "object",
+        number : (n) => typeof n === 'number',
+        string : (n) => typeof n === 'string',
+        object : (n) => typeof n === 'object',
     };
 
     let object : Test = {
@@ -67,9 +67,9 @@ describe('missing property', () => {
     }
 
     let validator : Validation<Partial<Test>> = {
-        number : (n) => typeof n === "number",
-        string : (n) => typeof n === "string",
-        object : (n) => typeof n === "object",
+        number : (n) => typeof n === 'number',
+        string : (n) => typeof n === 'string',
+        object : (n) => typeof n === 'object',
     };
 
     let object : Partial<Test> = {

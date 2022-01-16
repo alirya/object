@@ -1,6 +1,6 @@
-import Standard from "../../../../dist/message/message/record/map";
+import Standard from '../../../../dist/message/message/record/map';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe('flat', ()=>{

@@ -1,7 +1,7 @@
-import Map from "../dist/map-callback";
-import Convert from "../dist/map";
+import Map from '../dist/map-callback';
+import Convert from '../dist/map';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 interface Single {
     str : string;
@@ -19,14 +19,14 @@ describe('single dimension', () => {
     let single : Record<string, string> = {
         str : 'string',
         num : 'string',
-    }
+    };
 
     let type : Convert<typeof single, boolean> = {
 
         str : true, // Compile Pass
         num : true, // Compile Pass
-    }
-})
+    };
+});
 
 describe('multi dimension', () => {
 
@@ -41,14 +41,14 @@ describe('multi dimension', () => {
                 num : 'string',
             }
         }
-    }
+    };
 
     let type : Convert<typeof single, boolean> =  {
 
         str : true,
         num : true,
         child : true,
-    }
+    };
 
 
     let invalid : Convert<typeof single, boolean> =  {
@@ -63,7 +63,7 @@ describe('multi dimension', () => {
                 num : true,
             }
         }
-    }
+    };
 });
 
 
@@ -78,7 +78,7 @@ describe('complex', () => {
     let convert : Convert<Data, boolean> = {
         string : true,
         number : false,
-    }
+    };
 
 });
 

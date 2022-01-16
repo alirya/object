@@ -1,17 +1,17 @@
-import Type from "@alirya/type/validator/type-parameters";
-import ValueCallback from "../../../dist/validator/value-callback-parameters";
-import ValidateValue from "../../../dist/validator/validatable/record/value-parameters";
-import And from "../../../dist/validatable/and";
-import MessageMap from "../../../dist/message/message/record/map";
-import Validatable from "@alirya/validatable/validatable";
-import ValidatablesInterface from "../../../dist/validatable/validatables/validatables";
-import Validatables from "../../../dist/validatable/validatables-parameters";
-import ValidatorValidatable from "../../../dist/validator/validatable/record/infer";
-import ValidateValuePartial from "../../../dist/validator/validatable/record/value-partial-parameters";
-import Message from "@alirya/message/message";
-import Infer from "../../../dist/validator/validatable/record/infer";
+import Type from '@alirya/type/validator/type-parameters';
+import ValueCallback from '../../../dist/validator/value-callback-parameters';
+import ValidateValue from '../../../dist/validator/validatable/record/value-parameters';
+import And from '../../../dist/validatable/and';
+import MessageMap from '../../../dist/message/message/record/map';
+import Validatable from '@alirya/validatable/validatable';
+import ValidatablesInterface from '../../../dist/validatable/validatables/validatables';
+import Validatables from '../../../dist/validatable/validatables-parameters';
+import ValidatorValidatable from '../../../dist/validator/validatable/record/infer';
+import ValidateValuePartial from '../../../dist/validator/validatable/record/value-partial-parameters';
+import Message from '@alirya/message/message';
+import Infer from '../../../dist/validator/validatable/record/infer';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 
@@ -23,15 +23,15 @@ let validator = {
 type Messages = {
     name : string,
     address : string,
-}
+};
 
-describe("implicit complete", function() {
+describe('implicit complete', function() {
 
     let property = ValueCallback<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValidateValue, And, result => MessageMap(result));
 
     let validatable = property('data');
 
-    describe("implicit complete", function() {
+    describe('implicit complete', function() {
 
         let key : Validatable = validatable.validatables.name;
         key = validatable.validatables.address;
@@ -56,7 +56,7 @@ describe("implicit complete", function() {
     });
 });
 
-describe("explicit complete", function() {
+describe('explicit complete', function() {
 
     let property = ValueCallback<string>(validator,
         (value, validators) => ValidateValue(value, validators),
@@ -79,7 +79,7 @@ describe("explicit complete", function() {
 
 });
 
-describe("implicit partial", function() {
+describe('implicit partial', function() {
 
     let property = ValueCallback(validator,
         (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
@@ -101,7 +101,7 @@ describe("implicit partial", function() {
     }
 });
 
-describe("explicit complete", function() {
+describe('explicit complete', function() {
 
     let property = ValueCallback<unknown, string>(validator,
         (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),

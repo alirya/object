@@ -1,6 +1,6 @@
-import MemoizeGetterBind from "../../dist/set-getter-callback-parameters";
+import MemoizeGetterBind from '../../dist/set-getter-callback-parameters';
 
-it("enable console log", () => spyOn(console, 'log').and.callThrough());
+it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
 describe('plain', () => {
 

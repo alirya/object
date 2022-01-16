@@ -1,6 +1,6 @@
-import MapKeyCallback from "../../dist/map-key-callback";
+import MapKeyCallback from '../../dist/map-key-callback';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('basic', () => {
 
@@ -50,7 +50,7 @@ describe('callback parameter', () => {
             let object : object = value;
         }
 
-        return 'replaced'
+        return 'replaced';
     });
 
 

@@ -1,4 +1,4 @@
-import Map from "./map";
+import Map from './map';
 
 /**
  * Calls {@param replace} on each property value from {@param object}

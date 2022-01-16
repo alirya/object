@@ -1,7 +1,7 @@
-import Type from "../../../dist/symbol/boolean/symbol";
+import Type from '../../../dist/symbol/boolean/symbol';
 
 
-describe("boolean", function() {
+describe('boolean', function() {
 
     it(`true`, () => {
         expect(Type(true)).toBeFalse();
@@ -12,7 +12,7 @@ describe("boolean", function() {
     });
 });
 
-describe("string", function() {
+describe('string', function() {
 
     it(`primitive`, () => {
         expect(Type('str')).toBeFalse();
@@ -25,7 +25,7 @@ describe("string", function() {
 });
 
 
-describe("number", function() {
+describe('number', function() {
 
     it(`primitive`, () => {
         expect(Type(1)).toBeFalse();
@@ -37,7 +37,7 @@ describe("number", function() {
 
 });
 
-describe("object", function() {
+describe('object', function() {
 
     it(`plain`, () => {
         expect(Type({})).toBeFalse();
@@ -49,7 +49,7 @@ describe("object", function() {
 
 });
 
-describe("function", function() {
+describe('function', function() {
 
     it(`anonymous `, () => {
         expect(Type(function () {})).toBeFalse();
@@ -65,7 +65,7 @@ describe("function", function() {
 
 });
 
-describe("empty", function() {
+describe('empty', function() {
 
     it(`null `, () => {
         expect(Type(null)).toBeFalse();
@@ -78,7 +78,7 @@ describe("empty", function() {
 });
 
 
-describe("symbol", function() {
+describe('symbol', function() {
 
     it(`iterator`, () => {
 

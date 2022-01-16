@@ -1,6 +1,6 @@
-import Infer from "./infer";
-import {O} from "ts-toolbelt";
-import MapSingle from "../../parameter/record/map-single";
+import Infer from './infer';
+import {O} from 'ts-toolbelt';
+import MapSingle from '../../parameter/record/map-single';
 
 /**
  * call an record of function or object, by using key from {@param argument} and it's value

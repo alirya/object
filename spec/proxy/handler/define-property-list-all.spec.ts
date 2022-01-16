@@ -1,6 +1,6 @@
-import DefinePropertyHandler from "../../../dist/proxy/handler/define-property-lisall";
+import DefinePropertyHandler from '../../../dist/proxy/handler/define-property-lisall';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe('direct set', () => {
@@ -14,9 +14,9 @@ describe('direct set', () => {
         let original = {};
 
         let getter = new DefinePropertyHandler([object, class_]);
-        let proxy = new Proxy(original, getter)
+        let proxy = new Proxy(original, getter);
 
-        proxy['data'] = 'data'
+        proxy['data'] = 'data';
 
         // @ts-expecerror
         expect(class_.data).toBe('data');
@@ -36,7 +36,7 @@ describe('direct set', () => {
         let original = {};
 
         let getter = new DefinePropertyHandler([object, class_]);
-        let proxy = new Proxy(original, getter)
+        let proxy = new Proxy(original, getter);
 
         Object.defineProperty(proxy, 'data',{
             get: function() {
@@ -62,7 +62,7 @@ describe('direct set', () => {
         let original = {};
 
         let getter = new DefinePropertyHandler([object, class_]);
-        let proxy = new Proxy(original, getter)
+        let proxy = new Proxy(original, getter);
 
 
         // define property
@@ -104,7 +104,7 @@ describe('bind', () => {
         let getter = new DefinePropertyHandler([object, class_]);
         let proxy = new Proxy(original, getter.bindTo({}));
 
-        proxy['data'] = 'data'
+        proxy['data'] = 'data';
 
         // @ts-expecerror
         expect(class_.data).toBe('data');
@@ -124,7 +124,7 @@ describe('bind', () => {
         let original = {};
 
         let getter = new DefinePropertyHandler([object, class_]);
-        let proxy = new Proxy(original, getter.bindTo({}))
+        let proxy = new Proxy(original, getter.bindTo({}));
 
         Object.defineProperty(proxy, 'data',{
             get: function() {
@@ -150,7 +150,7 @@ describe('bind', () => {
         let original = {};
 
         let getter = new DefinePropertyHandler([object, class_]);
-        let proxy = new Proxy(original, getter.bindTo({}))
+        let proxy = new Proxy(original, getter.bindTo({}));
 
 
         // define property
@@ -196,8 +196,8 @@ describe('sealed', () => {
         let proxy = new Proxy(original, getter.bindTo({}));
 
         try {
-            proxy['data'] = 'data'
-            fail('exception should be trhown')
+            proxy['data'] = 'data';
+            fail('exception should be trhown');
         } catch (e) {
 
             expect(e).toBeInstanceOf(Error);
@@ -219,8 +219,8 @@ describe('sealed', () => {
         let proxy = new Proxy(original, getter.bindTo({}));
 
         try {
-            proxy['data'] = 'data'
-            fail('exception should be trhown')
+            proxy['data'] = 'data';
+            fail('exception should be trhown');
         } catch (e) {
 
             expect(e).toBeInstanceOf(Error);
@@ -242,8 +242,8 @@ describe('sealed', () => {
         let proxy = new Proxy(original, getter.bindTo({}));
 
         try {
-            proxy['data'] = 'data'
-            fail('exception should be trhown')
+            proxy['data'] = 'data';
+            fail('exception should be trhown');
         } catch (e) {
 
             expect(e).toBeInstanceOf(Error);
@@ -270,8 +270,8 @@ describe('freeze', () => {
         let proxy = new Proxy(original, getter.bindTo({}));
 
         try {
-            proxy['data'] = 'data'
-            fail('exception should be trhown')
+            proxy['data'] = 'data';
+            fail('exception should be trhown');
         } catch (e) {
 
             expect(e).toBeInstanceOf(Error);
@@ -293,8 +293,8 @@ describe('freeze', () => {
         let proxy = new Proxy(original, getter.bindTo({}));
 
         try {
-            proxy['data'] = 'data'
-            fail('exception should be trhown')
+            proxy['data'] = 'data';
+            fail('exception should be trhown');
         } catch (e) {
 
             expect(e).toBeInstanceOf(Error);
@@ -316,8 +316,8 @@ describe('freeze', () => {
         let proxy = new Proxy(original, getter.bindTo({}));
 
         try {
-            proxy['data'] = 'data'
-            fail('exception should be trhown')
+            proxy['data'] = 'data';
+            fail('exception should be trhown');
         } catch (e) {
 
             expect(e).toBeInstanceOf(Error);

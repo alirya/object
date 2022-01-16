@@ -1,8 +1,8 @@
-import Validator from "@alirya/validator/validator";
-import MapInterface from "../../../map";
-import {O} from "ts-toolbelt";
-import InferStatic from "@alirya/validator/validatable/infer-static";
-import IteratorRecordValue from "../iterator/record-value-parameters";
+import Validator from '@alirya/validator/validator';
+import MapInterface from '../../../map';
+import {O} from 'ts-toolbelt';
+import InferStatic from '@alirya/validator/validatable/infer-static';
+import IteratorRecordValue from '../iterator/record-value-parameters';
 
 export default function RecordValueParameters<
     RecordType extends Record<PropertyKey, any>,

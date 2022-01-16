@@ -1,4 +1,4 @@
-import Callable from "@alirya/function/callable";
+import Callable from '@alirya/function/callable';
 
 /**
  * get record of first parameters from record of function
@@ -6,5 +6,5 @@ import Callable from "@alirya/function/callable";
 
 type InferSingle<Values extends object> = {
     [Key in keyof Values] : Values[Key] extends Callable ? Parameters<Values[Key]>[0] : never
-}
+};
 export default InferSingle;

@@ -1,6 +1,6 @@
-import SetGetter from "../../../../dist/value/value/set-getter-parameters";
+import SetGetter from '../../../../dist/value/value/set-getter-parameters';
 
-it("enable console log", () => spyOn(console, 'log').and.callThrough());
+it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
 describe('plain', () => {
 
@@ -13,7 +13,7 @@ describe('plain', () => {
             called++;
             return SetGetter(this, 'data', Math.random().toString());
         }
-    }
+    };
 
     it('check initial', ()=>{
 

@@ -1,7 +1,7 @@
-import SetPropertyCallback from "../../dist/set-property-callback-parameters";
+import SetPropertyCallback from '../../dist/set-property-callback-parameters';
 
 
-it("enable console log", () => spyOn(console, 'log').and.callThrough());
+it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
 describe('plain', () => {
 
@@ -21,8 +21,8 @@ describe('different type', () => {
 
     let source = {
 
-        get data () : number { return  1}
-    }
+        get data () : number { return  1;}
+    };
 
     let object = SetPropertyCallback(source, 'data', () =>'string', true, true);
 
@@ -62,7 +62,7 @@ describe('class', () => {
 
             get data ()  {
 
-                return ''
+                return '';
             }
         }
 
@@ -77,7 +77,7 @@ describe('not exists', () => {
 
     describe('var', () => {
 
-        let source = {}
+        let source = {};
 
 
         let object = SetPropertyCallback(source, 'data', () =>'string', true, true);
@@ -94,7 +94,7 @@ describe('not exists', () => {
             get data ()  {
                 return '';
             }
-        }
+        };
 
 
         let object = SetPropertyCallback(source, 'value', () =>'string', true, true);

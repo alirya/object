@@ -1,7 +1,7 @@
-import ApplyListFirst from "../../../../dist/proxy/handler/apply-lisfirst";
+import ApplyListFirst from '../../../../dist/proxy/handler/apply-lisfirst';
 
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 type Type<Value = any> = {data:Value};
 
@@ -13,13 +13,13 @@ class Property {
     }
 }
 
-let property1 = function (... argument : any[]){ return ['property 1', ...argument]};
-let property2 = function (... argument : any[]){ return ['property 2', ...argument]};
+let property1 = function (... argument : any[]){ return ['property 1', ...argument];};
+let property2 = function (... argument : any[]){ return ['property 2', ...argument];};
 
 describe('direct set', () => {
 
     let getter = new ApplyListFirst([property1, property2], false);
-    let proxy = <Function> new Proxy(function () {}, getter)
+    let proxy = <Function> new Proxy(function () {}, getter);
 
     it('check value', ()=>{
 
@@ -35,11 +35,11 @@ describe('bind set', () => {
     let getter = new ApplyListFirst([property1, property2], false);
     getter.bindTo(handler);
 
-    let proxy = <Function> new Proxy(()=>undefined, handler)
+    let proxy = <Function> new Proxy(()=>undefined, handler);
 
     it('check handler', ()=>{
-        expect(handler.apply).toBeInstanceOf(Function)
-    })
+        expect(handler.apply).toBeInstanceOf(Function);
+    });
 
     it('check value', () => {
 

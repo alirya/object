@@ -1,11 +1,11 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import RecordParameter from "./subject/record/allow";
-import Map from "./map";
-import Instance from "@alirya/validator/validatable/validatable";
-import ValidatorsContainer from "./validators/validators";
-import Message from "@alirya/message/message";
-import MapCallbackParameters from "./map-callback-parameters";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import RecordParameter from './subject/record/allow';
+import Map from './map';
+import Instance from '@alirya/validator/validatable/validatable';
+import ValidatorsContainer from './validators/validators';
+import Message from '@alirya/message/message';
+import MapCallbackParameters from './map-callback-parameters';
 
 export type MapCallbackArgument<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,

@@ -1,6 +1,6 @@
-import Exists from "../../property/boolean/exists";
-import {Required} from "utility-types";
-import MultiHandlers from "./multi-handlers";
+import Exists from '../../property/boolean/exists';
+import {Required} from 'utility-types';
+import MultiHandlers from './multi-handlers';
 
 export default class GetOwnPropertyDescriptorListAll<
     Target extends object,
@@ -61,7 +61,7 @@ export default class GetOwnPropertyDescriptorListAll<
 
                     if(descriptor[prop] !== compare[prop]) {
 
-                        throw new Error(`descriptor.${prop} is not consistent between source`)
+                        throw new Error(`descriptor.${prop} is not consistent between source`);
                     }
                 }
 

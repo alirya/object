@@ -1,11 +1,11 @@
-import FilterRecursive from "../dist/filter-recursive";
-import NotEmpty from "@alirya/string/boolean/not-empty";
-import String from "@alirya/string/boolean/string";
-import NotEmptyObject from "../dist/boolean/not-empty";
-import Object from "../dist/boolean/object";
+import FilterRecursive from '../dist/filter-recursive';
+import NotEmpty from '@alirya/string/boolean/not-empty';
+import String from '@alirya/string/boolean/string';
+import NotEmptyObject from '../dist/boolean/not-empty';
+import Object from '../dist/boolean/object';
 
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe('single dimension', () => {
@@ -25,7 +25,7 @@ describe('single dimension', () => {
             retain1 : '',
             retain2 : '',
         },
-    }
+    };
 
     it('filter not empty string', ()=>{
 
@@ -41,9 +41,9 @@ describe('single dimension', () => {
                 retain2 : 'b',
             },
             removes : {},
-        })
+        });
 
-    })
+    });
 
     it('filter not empty string & object', ()=>{
 
@@ -71,10 +71,10 @@ describe('single dimension', () => {
                 retain1 : 'a',
                 retain2 : 'b',
             },
-        })
+        });
 
-    })
+    });
 
 
 
-})
+});

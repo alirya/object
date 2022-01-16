@@ -1,9 +1,9 @@
-import Validator from "@alirya/validator/validator";
-import InferBase from "@alirya/validator/subject/allow";
-import Validatable from "@alirya/validatable/validatable";
-import ValidatableRecordCallback from "../validatable/record-value-callback-parameters";
-import Instance from "@alirya/validator/validatable/validatable";
-import RecordValue from "./record-value";
+import Validator from '@alirya/validator/validator';
+import InferBase from '@alirya/validator/subject/allow';
+import Validatable from '@alirya/validatable/validatable';
+import ValidatableRecordCallback from '../validatable/record-value-callback-parameters';
+import Instance from '@alirya/validator/validatable/validatable';
+import RecordValue from './record-value';
 
 export default function RecordValueCallbackParameters<
     ValidatorType extends Validator = Validator,
@@ -21,6 +21,6 @@ export default function RecordValueCallbackParameters<
 
         return new ValidatableRecordCallback(value, validator, handler, validation, message);
 
-    } as RecordValue<ValidatorType, Result, ValidatableType, Message>
+    } as RecordValue<ValidatorType, Result, ValidatableType, Message>;
 }
 

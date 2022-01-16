@@ -1,7 +1,7 @@
-import Infer from "./infer";
-import {O} from "ts-toolbelt";
-import Map from "../../parameter/record/map";
-import MethodParameters from "./method-parameters";
+import Infer from './infer';
+import {O} from 'ts-toolbelt';
+import Map from '../../parameter/record/map';
+import MethodParameters from './method-parameters';
 
 export type MethodArgument<
     Argument extends Record<PropertyKey, unknown[]>,

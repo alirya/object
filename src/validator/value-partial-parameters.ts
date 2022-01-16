@@ -1,10 +1,10 @@
-import Validator from "@alirya/validator/simple";
-import Validatable from "@alirya/validatable/validatable";
-import ValidateValuePartial from "./validatable/record/value-partial-parameters";
-import ReturnInfer from "./validatable/record/infer";
-import MapReturn from "./validatable/record/infer";
-import ValueCallback from "./value-callback-parameters";
-import ValueInterface from "./value";
+import Validator from '@alirya/validator/simple';
+import Validatable from '@alirya/validatable/validatable';
+import ValidateValuePartial from './validatable/record/value-partial-parameters';
+import ReturnInfer from './validatable/record/infer';
+import MapReturn from './validatable/record/infer';
+import ValueCallback from './value-callback-parameters';
+import ValueInterface from './value';
 
 /**
  * more specific implementation of {@link ValueCallback}
@@ -41,7 +41,7 @@ export type ValuePartialType<
     MessageType = unknown,
     Validators extends Record<PropertyKey, Validator<BaseType, ValueType>> = Record<PropertyKey, Validator<BaseType, ValueType>>,
     ValidatableType extends Validatable = Validatable
-> = ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType>
+> = ValueInterface<BaseType, ValueType, MessageType, Validators, Partial<MapReturn<Validators>>, ValidatableType>;
 
 export default function ValuePartialParameters<
     BaseType = unknown,

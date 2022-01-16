@@ -5,5 +5,5 @@
 
 type Map<Arguments extends Record<PropertyKey, unknown[]>> = {
     [Key in keyof Arguments] :  (...args:Arguments[Key])=>any
-}
+};
 export default Map;

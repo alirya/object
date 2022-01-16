@@ -1,9 +1,9 @@
-import Validator from "@alirya/validator/simple";
-import Validatable from "@alirya/validatable/validatable";
-import ValidateValue from "./validatable/record/value-parameters";
-import MapReturn from "./validatable/record/infer";
-import ValueCallback from "./value-callback-parameters";
-import ValueInterface from "./value";
+import Validator from '@alirya/validator/simple';
+import Validatable from '@alirya/validatable/validatable';
+import ValidateValue from './validatable/record/value-parameters';
+import MapReturn from './validatable/record/infer';
+import ValueCallback from './value-callback-parameters';
+import ValueInterface from './value';
 
 /**
  * more specific implementation of {@link ValueCallback}

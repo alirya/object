@@ -1,15 +1,15 @@
-import Type from "@alirya/type/validator/type-parameters";
-import RecordValueCallback from "../../../dist/validator/record-value-callback-parameters";
-import ValidateValue from "../../../dist/validator/validatable/record/record-value-parameters";
-import And from "../../../dist/validatable/and";
-import MessageMap from "../../../dist/message/message/record/map";
-import Or from "../../../dist/validatable/or";
-import Infer from "@alirya/validator/validatable/infer-static";
+import Type from '@alirya/type/validator/type-parameters';
+import RecordValueCallback from '../../../dist/validator/record-value-callback-parameters';
+import ValidateValue from '../../../dist/validator/validatable/record/record-value-parameters';
+import And from '../../../dist/validatable/and';
+import MessageMap from '../../../dist/message/message/record/map';
+import Or from '../../../dist/validatable/or';
+import Infer from '@alirya/validator/validatable/infer-static';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
-describe("all invalid", function() {
+describe('all invalid', function() {
 
     let validator = Type('string');
 
@@ -17,7 +17,7 @@ describe("all invalid", function() {
         name : true,
         age : true,
         address : true,
-    }
+    };
 
     it(`and validation`, () => {
 

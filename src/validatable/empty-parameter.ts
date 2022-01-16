@@ -1,8 +1,8 @@
-import Value from "@alirya/value/value";
-import Validatable from "@alirya/validatable/validatable";
-import Message from "@alirya/message/message";
-import EmptyArgument from "../boolean/empty";
-import EmptyParameters from "./empty-parameters";
+import Value from '@alirya/value/value';
+import Validatable from '@alirya/validatable/validatable';
+import Message from '@alirya/message/message';
+import EmptyArgument from '../boolean/empty';
+import EmptyParameters from './empty-parameters';
 
 
 export type EmptyArgument<Type extends object, MessageType> =

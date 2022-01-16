@@ -1,7 +1,7 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import ValidatableValue from "../validatable/value";
-import Dynamic from "@alirya/validator/validatable/validatable";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import ValidatableValue from '../validatable/value';
+import Dynamic from '@alirya/validator/validatable/validatable';
 
 /**
  * extended {@link Validator} for validating value with record of {@link Validator}

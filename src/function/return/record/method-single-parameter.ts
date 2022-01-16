@@ -1,9 +1,9 @@
-import Infer from "./infer";
-import {O} from "ts-toolbelt";
-import MapSingle from "../../parameter/record/map-single";
-import Value from "@alirya/value/value";
-import ArgumentContainer from "@alirya/function/argument/argument";
-import MethodSingleParameters from "./method-single-parameters";
+import Infer from './infer';
+import {O} from 'ts-toolbelt';
+import MapSingle from '../../parameter/record/map-single';
+import Value from '@alirya/value/value';
+import ArgumentContainer from '@alirya/function/argument/argument';
+import MethodSingleParameters from './method-single-parameters';
 
 /**
  * call an record of function or object, by using key from {@param argument} and it's value

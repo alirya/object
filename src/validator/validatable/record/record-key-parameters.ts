@@ -1,8 +1,8 @@
-import Validator from "@alirya/validator/validator";
-import MapInterface from "../../../map";
-import Return from "@alirya/validator/validatable/infer-static";
-import IteratorRecordKey from "../iterator/record-key-parameters";
-import Value from "@alirya/value/value";
+import Validator from '@alirya/validator/validator';
+import MapInterface from '../../../map';
+import Return from '@alirya/validator/validatable/infer-static';
+import IteratorRecordKey from '../iterator/record-key-parameters';
+import Value from '@alirya/value/value';
 
 export default function RecordKeyParameters<
     RecordType extends Record<PropertyKey, any>,
@@ -16,7 +16,7 @@ export default function RecordKeyParameters<
 
     for(const [key, validatable] of IteratorRecordKey(value, validator)) {
 
-        result[key as PropertyKey] = validatable
+        result[key as PropertyKey] = validatable;
     }
 
     return <MapInterface<RecordType, Return<Value>>> result;

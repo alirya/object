@@ -1,6 +1,6 @@
-import Message from "../../../dist/assert/string/compatible-parameters";
+import Message from '../../../dist/assert/string/compatible-parameters';
 
-it("enable console log", () => {spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => {spyOn(console, 'log').and.callThrough();});
 
 it('valid',() =>{
 

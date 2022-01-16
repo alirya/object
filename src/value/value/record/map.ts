@@ -1,7 +1,7 @@
-import Value from "@alirya/value/value";
-import RecordInfer from "./infer";
-import MapCallbackGuard from "../../../map-callback";
-import ValueValue from "@alirya/value/value/value";
+import Value from '@alirya/value/value';
+import RecordInfer from './infer';
+import MapCallbackGuard from '../../../map-callback';
+import ValueValue from '@alirya/value/value/value';
 
 export default function Map<
     Instance extends Record<PropertyKey, Value>

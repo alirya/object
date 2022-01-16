@@ -1,6 +1,6 @@
-import {Required} from "utility-types";
-import IsFunction from "@alirya/function/boolean/function";
-import MultiHandlers from "./multi-handlers";
+import {Required} from 'utility-types';
+import IsFunction from '@alirya/function/boolean/function';
+import MultiHandlers from './multi-handlers';
 
 export default class ApplyListFirst<
     Target extends object,
@@ -28,11 +28,11 @@ export default class ApplyListFirst<
 
             if(this.callback) {
 
-                return this.callback(...argArray)
+                return this.callback(...argArray);
 
             } else {
 
-                throw new Error('Callable is not found')
+                throw new Error('Callable is not found');
             }
         }
 

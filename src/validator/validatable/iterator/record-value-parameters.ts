@@ -1,6 +1,6 @@
-import Validator from "@alirya/validator/validator";
-import {O} from "ts-toolbelt";
-import Return from "@alirya/validator/validatable/infer-static";
+import Validator from '@alirya/validator/validator';
+import {O} from 'ts-toolbelt';
+import Return from '@alirya/validator/validatable/infer-static';
 
 export default function * RecordValueParameters<
     RecordType extends Record<PropertyKey, any>,

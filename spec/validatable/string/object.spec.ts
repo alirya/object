@@ -1,6 +1,6 @@
-import Object from "../../../dist/assert/string/objecparameter";
+import Object from '../../../dist/assert/string/objecparameter';
 
-it("enable console log", () => {spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => {spyOn(console, 'log').and.callThrough();});
 
 describe('infinity',() =>{
 

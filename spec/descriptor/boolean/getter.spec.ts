@@ -1,13 +1,13 @@
-import Type from "../../../dist/descriptor/boolean/getter";
+import Type from '../../../dist/descriptor/boolean/getter';
 
-describe("getter/setter", function() {
+describe('getter/setter', function() {
 
-    describe("class", function() {
+    describe('class', function() {
 
         class Class {
 
             set setter (value) {}
-            get getter () { return 1}
+            get getter () { return 1;}
         }
 
         let object = new Class();
@@ -45,12 +45,12 @@ describe("getter/setter", function() {
     });
 
 
-    describe("object", function() {
+    describe('object', function() {
 
 
         let object = {
             set setter (value) {},
-            get getter () { return 1}
+            get getter () { return 1;}
         };
 
         it(`check setter`, () => {
@@ -87,7 +87,7 @@ describe("getter/setter", function() {
 
 
 
-    describe("native", function() {
+    describe('native', function() {
 
         let string = new String('a');
 
@@ -124,12 +124,12 @@ describe("getter/setter", function() {
 });
 
 
-describe("property", function() {
+describe('property', function() {
 
-    describe("class", function() {
+    describe('class', function() {
 
         class Class {
-            data = 1
+            data = 1;
         }
 
         let object = new Class();
@@ -165,7 +165,7 @@ describe("property", function() {
 
     });
 
-    describe("native", function() {
+    describe('native', function() {
 
         let string = new Array('a');
 

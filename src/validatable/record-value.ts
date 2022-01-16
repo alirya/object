@@ -1,11 +1,11 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import ValidatableContainer from "@alirya/validatable/validatable/validatable";
-import ValidatorContainer from "@alirya/validator/validator/validator";
-import Value from "@alirya/value/value";
-import Validatables from "./validatables/validatables";
-import Message from "@alirya/message/message";
-import {O} from "ts-toolbelt";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import ValidatableContainer from '@alirya/validatable/validatable/validatable';
+import ValidatorContainer from '@alirya/validator/validator/validator';
+import Value from '@alirya/value/value';
+import Validatables from './validatables/validatables';
+import Message from '@alirya/message/message';
+import {O} from 'ts-toolbelt';
 
 export default interface RecordValue<
     MessageType = unknown,

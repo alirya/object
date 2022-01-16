@@ -1,7 +1,7 @@
-import SetHandler from "../../../dist/proxy/handler/selisall";
-import Shuffle from "@alirya/array/shuffle-parameters";
+import SetHandler from '../../../dist/proxy/handler/selisall';
+import Shuffle from '@alirya/array/shuffle-parameters';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 type Type<Value = any> = {data:Value};
@@ -11,15 +11,15 @@ const plain = {
     set data(value) {
         this.value = value;
     }
-}
+};
 
 class Getter  {
-    get data() {return 'getter'}
+    get data() {return 'getter';}
 }
 
 class Setter  {
 
-    public value : any
+    public value : any;
 
     set data(value) {
 
@@ -50,7 +50,7 @@ describe('direct set', () => {
     let property2 = new Property('property 2');
 
     let handler = new SetHandler<Type<string>>([property1, property2]);
-    let proxy = new Proxy<Type<string>>(<Type<string>>{}, handler)
+    let proxy = new Proxy<Type<string>>(<Type<string>>{}, handler);
 
     it('check value', ()=>{
 
@@ -77,7 +77,7 @@ describe('bind set', () => {
     let setter = new SetHandler<Type<string>>([property1, property2]);
     setter.bindTo(handler);
 
-    let proxy = new Proxy<Type<string>>(<Type<string>>{}, handler)
+    let proxy = new Proxy<Type<string>>(<Type<string>>{}, handler);
 
     for(let i = 0; i < 5; i++) {
 
@@ -119,19 +119,19 @@ for(let i = 0; i < 5; i++) {
 
                     if(object === plain) {
 
-                        expect(plain.value).toBe('value' + i)
+                        expect(plain.value).toBe('value' + i);
 
                     } else if(object instanceof Property) {
 
-                        expect(object.data).toBe('value' + i)
+                        expect(object.data).toBe('value' + i);
 
                     } else if(object instanceof Setter) {
 
-                        expect(object.value).toBe('value' + i)
+                        expect(object.value).toBe('value' + i);
 
                     } else {
 
-                        fail('container list is not assigned ho handler')
+                        fail('container list is not assigned ho handler');
                     }
 
                 }

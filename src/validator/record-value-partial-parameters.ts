@@ -1,9 +1,9 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import ReturnInfer from "@alirya/validator/validatable/infer-static";
-import ValidateMap from "./validatable/record/record-value-partial-parameters";
-import RecordValue from "./record-value";
-import RecordValueCallback from "./record-value-callback-parameters";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import ReturnInfer from '@alirya/validator/validatable/infer-static';
+import ValidateMap from './validatable/record/record-value-partial-parameters';
+import RecordValue from './record-value';
+import RecordValueCallback from './record-value-callback-parameters';
 
 
 export default function RecordValuePartialParameters<

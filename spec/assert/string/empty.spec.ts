@@ -1,7 +1,7 @@
-import EmptyMessage from "../../../dist/assert/string/empty-parameters";
-import Name from "../../../dist/string/name";
+import EmptyMessage from '../../../dist/assert/string/empty-parameters';
+import Name from '../../../dist/string/name';
 
-it("enable console log", () => {spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => {spyOn(console, 'log').and.callThrough();});
 
 describe('empty',() =>{
 

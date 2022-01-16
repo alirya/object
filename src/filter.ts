@@ -1,4 +1,4 @@
-import {O} from "ts-toolbelt";
+import {O} from 'ts-toolbelt';
 
 /**
  * filter {@param record} value, returning new object with all value allowed

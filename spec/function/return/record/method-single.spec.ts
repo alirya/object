@@ -1,6 +1,6 @@
-import MethodSingle from "../../../../dist/function/return/record/method-single-parameters";
+import MethodSingle from '../../../../dist/function/return/record/method-single-parameters';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 class Test {
@@ -143,7 +143,7 @@ describe('test', () => {
             object : {}
         });
 
-            result.object
+            result.object;
 
         } catch (error) {
 

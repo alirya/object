@@ -1,4 +1,4 @@
-import Name from "../../string/name";
+import Name from '../../string/name';
 
 /**
  * string intended for empty object

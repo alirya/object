@@ -1,16 +1,16 @@
-import CallValidator from "../../../../dist/validator/validatable/record/map-partial-parameters";
-import Type from "@alirya/type/validator/type-parameters";
+import CallValidator from '../../../../dist/validator/validatable/record/map-partial-parameters';
+import Type from '@alirya/type/validator/type-parameters';
 
-it("force console log", () => spyOn(console, 'log').and.callThrough());
+it('force console log', () => spyOn(console, 'log').and.callThrough());
 
 
-describe("stop on invalid", function() {
+describe('stop on invalid', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
+            validator1 : Type('number'),
+            validator2 : Type('number'),
         };
 
         let value = {
@@ -25,7 +25,7 @@ describe("stop on invalid", function() {
 
                 if(result.validator1) {
 
-                    expect(result.validator1.valid).toBe(true)
+                    expect(result.validator1.valid).toBe(true);
 
                 } else {
 
@@ -37,7 +37,7 @@ describe("stop on invalid", function() {
 
                 if(result.validator2) {
 
-                    expect(result.validator2.valid).toBe(true)
+                    expect(result.validator2.valid).toBe(true);
 
                 } else {
 
@@ -47,11 +47,11 @@ describe("stop on invalid", function() {
 
     });
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
+            validator1 : Type('number'),
+            validator2 : Type('number'),
         };
 
         let value = {
@@ -79,12 +79,12 @@ describe("stop on invalid", function() {
 
     });
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
         let validator = {
-            validator1 : Type("number"),
-            validator2 : Type("number"),
-            validator3 : Type("number"),
+            validator1 : Type('number'),
+            validator2 : Type('number'),
+            validator3 : Type('number'),
         };
 
         let value = {
@@ -99,7 +99,7 @@ describe("stop on invalid", function() {
 
             if(result.validator1) {
 
-                expect(result.validator1.valid).toBe(true)
+                expect(result.validator1.valid).toBe(true);
 
             } else {
 
@@ -112,7 +112,7 @@ describe("stop on invalid", function() {
 
             if(result.validator2) {
 
-                expect(result.validator2.valid).toBe(false)
+                expect(result.validator2.valid).toBe(false);
 
             } else {
 

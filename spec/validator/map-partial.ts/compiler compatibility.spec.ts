@@ -1,14 +1,14 @@
-import Map from "../../../dist/validator/map-partial-parameters";
-import And from "../../../dist/validatable/and";
-import ValidatorInterface from "@alirya/validator/simple";
-import MessageMap from "../../../dist/message/message/record/map";
-import RemoveUndefined from "../../../dist/omit-undefined";
-import Type from "@alirya/type/validator/type-parameters";
-import Instance from "@alirya/validator/validatable/validatable";
+import Map from '../../../dist/validator/map-partial-parameters';
+import And from '../../../dist/validatable/and';
+import ValidatorInterface from '@alirya/validator/simple';
+import MessageMap from '../../../dist/message/message/record/map';
+import RemoveUndefined from '../../../dist/omit-undefined';
+import Type from '@alirya/type/validator/type-parameters';
+import Instance from '@alirya/validator/validatable/validatable';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("explicit typed", function() {
+describe('explicit typed', function() {
 
     let validator = {
         name : Type('string'),
@@ -23,7 +23,7 @@ describe("explicit typed", function() {
     type Type = {
         name : string,
         address : string,
-    }
+    };
 
     let value = {
         name : 'name',
@@ -31,7 +31,7 @@ describe("explicit typed", function() {
     };
 
 
-    describe("implicit", function() {
+    describe('implicit', function() {
 
         let property = Map(validator, And, MessageMap);
 
@@ -43,7 +43,7 @@ describe("explicit typed", function() {
 
     });
 
-    describe("auto", function() {
+    describe('auto', function() {
 
         let property = Map<
             globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>
@@ -59,7 +59,7 @@ describe("explicit typed", function() {
 
     });
 
-    describe("direct", function() {
+    describe('direct', function() {
 
         let property = Map<TypeValidator>(validator, And, (v)=>MessageMap(RemoveUndefined(v)));
 

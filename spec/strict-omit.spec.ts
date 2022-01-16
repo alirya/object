@@ -1,8 +1,8 @@
-import StrictOmit from "../dist/strict-omit";
-import {Omit as UtilityTypesOmit} from "utility-types";
-import {Object} from "ts-toolbelt";
+import StrictOmit from '../dist/strict-omit';
+import {Omit as UtilityTypesOmit} from 'utility-types';
+import {Object} from 'ts-toolbelt';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 interface Test {
 
@@ -25,7 +25,7 @@ describe('compiler compatibility', function () {
     let withValue : StrictOmit<Test, 'string'> = {
         boolean : true,
         number : 1,
-    }
+    };
 
 });
 
@@ -40,7 +40,7 @@ describe('utility types compiler compatibility', function () {
     let withValue : UtilityTypesOmit<Test, 'string'> = {
         boolean : true,
         number : 1,
-    }
+    };
 
 });
 
@@ -55,7 +55,7 @@ describe('ts toolbelt compiler compatibility', function () {
     let withValue : Object.Omit<Test, 'string'> = {
         boolean : true,
         number : 1,
-    }
+    };
 
 });
 
@@ -70,7 +70,7 @@ describe('native compiler compatibility', function () {
     let withValue : globalThis.Omit<Test, 'string'> = {
         boolean : true,
         number : 1,
-    }
+    };
 
 });
 

@@ -1,11 +1,11 @@
-import Property from "../../../../dist/property/boolean/exists";
+import Property from '../../../../dist/property/boolean/exists';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 it(`native method`, () => {
 
-    expect(Property([], 'splice')).toBe(true)
+    expect(Property([], 'splice')).toBe(true);
 });
 
 it(`method`, () => {
@@ -24,14 +24,14 @@ it(`property`, () => {
 
     let object =  {
         test : 1
-    }
+    };
     expect(Property(object, 'test')).toBe(true);
 });
 
 it(`getter`, () => {
 
     class Getter {
-        get test () { return 1 }
+        get test () { return 1; }
     }
     expect(Property(new Getter(), 'test')).toBe(true);
 });
@@ -48,14 +48,14 @@ it(`implicit undefined`, () => {
 
     let test =  {
         test : undefined
-    }
+    };
     expect(Property(test, 'test')).toBe(true);
 });
 
 it(`not exist`, () => {
 
     let test =  {
-    }
+    };
     expect(Property(test, 'test')).toBe(false);
 });
 

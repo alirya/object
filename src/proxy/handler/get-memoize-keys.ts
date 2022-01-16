@@ -1,4 +1,4 @@
-import {Required} from "utility-types";
+import {Required} from 'utility-types';
 
 /**
  * memoize {@template ObjectT} value from keys list

@@ -1,10 +1,10 @@
-import Validator from "@alirya/validator/simple";
-import Validatable from "@alirya/validatable/validatable";
-import MapReturn from "./validatable/record/infer";
-import ValueInterface from "./value";
-import ValidatorsContainer from "./validators/validators";
-import Message from "@alirya/message/message";
-import ValueAllParameters from "./value-all-parameters";
+import Validator from '@alirya/validator/simple';
+import Validatable from '@alirya/validatable/validatable';
+import MapReturn from './validatable/record/infer';
+import ValueInterface from './value';
+import ValidatorsContainer from './validators/validators';
+import Message from '@alirya/message/message';
+import ValueAllParameters from './value-all-parameters';
 
 export default function ValueAllParameter<
     Base = unknown,

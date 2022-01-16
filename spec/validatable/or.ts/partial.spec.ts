@@ -1,9 +1,9 @@
-import Or from "../../../dist/validatable/or";
+import Or from '../../../dist/validatable/or';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
-it("valid", function() {
+it('valid', function() {
 
     let record = {
         valid1 : {valid:true},
@@ -19,7 +19,7 @@ it("valid", function() {
 
 
 
-it("invalid", () => {
+it('invalid', () => {
 
     let record = {
         invalid1 : {valid:false},
@@ -34,7 +34,7 @@ it("invalid", () => {
 
 
 
-it("mixed", () => {
+it('mixed', () => {
 
     let record = {
         valid : {valid:true},

@@ -1,5 +1,5 @@
-import Value from "@alirya/value/value";
-import ObjectParameters from "./objecparameters";
+import Value from '@alirya/value/value';
+import ObjectParameters from './objecparameters';
 
 export type ObjectArgument = Value & {subject?: string} & {conversion:(value:unknown)=>string};
 
@@ -11,5 +11,5 @@ export default function ObjectParameter(
     } : ObjectArgument
 ) : Error {
 
-    return ObjectParameters(value, subject, conversion)
+    return ObjectParameters(value, subject, conversion);
 }

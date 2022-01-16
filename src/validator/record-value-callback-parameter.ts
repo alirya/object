@@ -1,12 +1,12 @@
-import Validator from "@alirya/validator/validator";
-import InferBase from "@alirya/validator/subject/allow";
-import Validatable from "@alirya/validatable/validatable";
-import Instance from "@alirya/validator/validatable/validatable";
-import RecordValue from "./record-value";
-import ValidatorContainer from "@alirya/validator/validator/validator";
-import MessageType from "@alirya/message/message";
-import Value from "@alirya/value/value";
-import RecordValueCallbackParameters from "./record-value-callback-parameters";
+import Validator from '@alirya/validator/validator';
+import InferBase from '@alirya/validator/subject/allow';
+import Validatable from '@alirya/validatable/validatable';
+import Instance from '@alirya/validator/validatable/validatable';
+import RecordValue from './record-value';
+import ValidatorContainer from '@alirya/validator/validator/validator';
+import MessageType from '@alirya/message/message';
+import Value from '@alirya/value/value';
+import RecordValueCallbackParameters from './record-value-callback-parameters';
 
 export type RecordValueCallbackArgument<
     ValidatorType extends Validator = Validator,
@@ -17,7 +17,7 @@ export type RecordValueCallbackArgument<
     ValidatorContainer<ValidatorType> &
     MessageType<(result:Result)=>Message> &
     {handler: (argument : Value<Partial<Record<PropertyKey, InferBase<ValidatorType>>>> & ValidatorContainer<ValidatorType>) => Result} &
-    {validation: (result: Result) => ValidatableType}
+    {validation: (result: Result) => ValidatableType};
 
 
 export default function RecordValueCallbackParameter<

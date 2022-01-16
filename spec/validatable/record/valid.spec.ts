@@ -1,13 +1,13 @@
-import Valid from "../../../dist/validatable/record/valid";
-import And from "../../../dist/validatable/and";
-import Or from "../../../dist/validatable/or";
+import Valid from '../../../dist/validatable/record/valid';
+import And from '../../../dist/validatable/and';
+import Or from '../../../dist/validatable/or';
 
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 
-describe("flat", function() {
+describe('flat', function() {
 
     let record = {
 
@@ -18,7 +18,7 @@ describe("flat", function() {
 
     let result = Valid(record);
 
-    it("valid", () => {
+    it('valid', () => {
 
         if(result.valid) {
 
@@ -26,11 +26,11 @@ describe("flat", function() {
 
         } else {
 
-            fail('property is not exits')
+            fail('property is not exits');
         }
     });
 
-    it("invalid", () => {
+    it('invalid', () => {
 
         expect(result.invalid).toBeUndefined();
     });
@@ -38,7 +38,7 @@ describe("flat", function() {
 });
 
 
-describe("recursive", function() {
+describe('recursive', function() {
 
     let record = {
 
@@ -61,7 +61,7 @@ describe("recursive", function() {
 
     let result = Valid(record);
 
-    it("valid", () => {
+    it('valid', () => {
 
         if(result.valid) {
 
@@ -69,18 +69,18 @@ describe("recursive", function() {
 
         } else {
 
-            fail('property is not exits')
+            fail('property is not exits');
         }
     });
 
-    it("invalid", () => {
+    it('invalid', () => {
 
         expect(result.invalid).toBeUndefined();
     });
 
-    describe("valids", () => {
+    describe('valids', () => {
 
-        it("valid1", () => {
+        it('valid1', () => {
 
             if(result.valids && result.valids.validatables.valid1) {
 
@@ -88,11 +88,11 @@ describe("recursive", function() {
 
             } else {
 
-                fail('property is not exits')
+                fail('property is not exits');
             }
         });
 
-        it("valid2", () => {
+        it('valid2', () => {
 
             if(result.valids && result.valids.validatables.valid2) {
 
@@ -100,18 +100,18 @@ describe("recursive", function() {
 
             } else {
 
-                fail('property is not exits')
+                fail('property is not exits');
             }
         });
     });
 
-    it("invalids", () => {
+    it('invalids', () => {
 
         expect(result.invalids).toBeUndefined();
     });
 
 
-    it("mixed", () => {
+    it('mixed', () => {
 
         if(result.mixed) {
 
@@ -122,12 +122,12 @@ describe("recursive", function() {
 
             } else {
 
-                fail('property is not exits')
+                fail('property is not exits');
             }
 
         } else {
 
-            fail('property is not exits')
+            fail('property is not exits');
         }
     });
 

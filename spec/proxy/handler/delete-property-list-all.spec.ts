@@ -1,13 +1,13 @@
-import DeletePropertyHandler from "../../../dist/proxy/handler/delete-property-lisall";
+import DeletePropertyHandler from '../../../dist/proxy/handler/delete-property-lisall';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('direct set', () => {
 
     it('delete', ()=>{
 
         class Class  {
-            data : string = 'class'
+            data : string = 'class';
         }
 
         let object = {
@@ -21,7 +21,7 @@ describe('direct set', () => {
         };
 
         let getter = new DeletePropertyHandler([object, class_]);
-        let proxy = new Proxy<{data?:string}>(original, getter)
+        let proxy = new Proxy<{data?:string}>(original, getter);
 
         expect(class_.data).toBe('class');
         expect(original.data).toBe('original');
@@ -40,7 +40,7 @@ describe('bind', () => {
     it('delete', ()=>{
 
         class Class  {
-            data ?: string = 'class'
+            data ?: string = 'class';
         }
 
         let object = {
@@ -54,7 +54,7 @@ describe('bind', () => {
         };
 
         let getter = new DeletePropertyHandler([object, class_]);
-        let proxy = new Proxy(original, getter.bindTo({}))
+        let proxy = new Proxy(original, getter.bindTo({}));
 
         expect(class_.data).toBe('class');
         expect(original.data).toBe('original');

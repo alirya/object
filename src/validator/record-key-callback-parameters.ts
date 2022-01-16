@@ -1,9 +1,9 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import ValidatableRecordCallback from "../validatable/record-value-callback-parameters";
-import RecordKey from "./record-key";
-import ValidatorValidatable from "@alirya/validator/validatable/validatable";
-import InferBase from "@alirya/validator/subject/allow";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import ValidatableRecordCallback from '../validatable/record-value-callback-parameters';
+import RecordKey from './record-key';
+import ValidatorValidatable from '@alirya/validator/validatable/validatable';
+import InferBase from '@alirya/validator/subject/allow';
 
 export default function RecordKeyCallbackParameters<
     ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
@@ -21,6 +21,6 @@ export default function RecordKeyCallbackParameters<
 
         return new ValidatableRecordCallback(value, validator, handler, validation, message);
 
-    } as RecordKey<ValidatorType, Result, ValidatableType, MessageType>
+    } as RecordKey<ValidatorType, Result, ValidatableType, MessageType>;
 }
 

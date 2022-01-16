@@ -1,16 +1,16 @@
-import Message from "@alirya/message/message";
-import RecordInfer from "./infer";
-import RecordInferPartial from "./infer-partial";
-import MapCallbackGuard from "../../../map-callback";
-import ValueMessage from "@alirya/message/message/value";
+import Message from '@alirya/message/message';
+import RecordInfer from './infer';
+import RecordInferPartial from './infer-partial';
+import MapCallbackGuard from '../../../map-callback';
+import ValueMessage from '@alirya/message/message/value';
 
 export default function Map<
     Instance extends Record<PropertyKey, Message> = Record<PropertyKey, Message>
->(record : Instance) : RecordInfer<Instance>
+>(record : Instance) : RecordInfer<Instance>;
 
 export default function Map<
     Instance extends Partial<Record<PropertyKey, Message>> = Partial<Record<PropertyKey, Message>>,
->(record : Instance) : RecordInferPartial<Instance>
+>(record : Instance) : RecordInferPartial<Instance>;
 
 export default function Map<
     Instance extends Record<PropertyKey, Message> = Record<PropertyKey, Message>

@@ -1,9 +1,9 @@
-import Exists from "../../property/boolean/exists";
-import Readable from "../../property/boolean/readable-parameters";
-import {List} from "ts-toolbelt";
-import {Required} from "utility-types";
-import Function from "@alirya/function/boolean/function";
-import MultiHandlers from "./multi-handlers";
+import Exists from '../../property/boolean/exists';
+import Readable from '../../property/boolean/readable-parameters';
+import {List} from 'ts-toolbelt';
+import {Required} from 'utility-types';
+import Function from '@alirya/function/boolean/function';
+import MultiHandlers from './multi-handlers';
 
 /**
  * construct or bind {@link ProxyHandler} for property getter from
@@ -62,7 +62,7 @@ export default class GetListFirst<
 
                     (this.handler as Partial<Record<keyof List.UnionOf<Objects>, List.UnionOf<Objects>>>)[<string|number>property] = {
                         [property] : (...argument : any[]) => handler[property](...argument)
-                    }
+                    };
 
                 } else {
 
@@ -73,7 +73,7 @@ export default class GetListFirst<
             }
         }
 
-        (this.handler as Partial<Record<keyof List.UnionOf<Objects>, List.UnionOf<Objects>>>)[property] = {[property]:undefined}
+        (this.handler as Partial<Record<keyof List.UnionOf<Objects>, List.UnionOf<Objects>>>)[property] = {[property]:undefined};
 
         return undefined;
     }

@@ -1,6 +1,6 @@
-import Default from "../dist/default";
+import Default from '../dist/default';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('destination undefined', () => {
 

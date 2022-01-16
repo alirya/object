@@ -1,6 +1,6 @@
-import MemoizeGetterBind from "../../dist/set-getter-callback-parameters";
+import MemoizeGetterBind from '../../dist/set-getter-callback-parameters';
 
-it("enable console log", () => spyOn(console, 'log').and.callThrough());
+it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
 describe('plain', () => {
 
@@ -20,8 +20,8 @@ describe('different type', () => {
 
     let source = {
 
-        get data () : number { return  1}
-    }
+        get data () : number { return  1;}
+    };
 
     let object = MemoizeGetterBind(source, 'data', () =>'string');
 
@@ -61,7 +61,7 @@ describe('class', () => {
 
             get data ()  {
 
-                return ''
+                return '';
             }
         }
 
@@ -76,7 +76,7 @@ describe('not exists', () => {
 
     describe('var', () => {
 
-        let source = {}
+        let source = {};
 
 
         let object = MemoizeGetterBind(source, 'data', () =>'string');
@@ -93,7 +93,7 @@ describe('not exists', () => {
             get data ()  {
                 return '';
             }
-        }
+        };
 
 
         let object = MemoizeGetterBind(source, 'value', () =>'string');

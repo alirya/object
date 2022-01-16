@@ -1,13 +1,13 @@
-import GetOwnPropertyDescriptorList from "../../../dist/proxy/handler/geown-property-descriptor-lisall";
+import GetOwnPropertyDescriptorList from '../../../dist/proxy/handler/geown-property-descriptor-lisall';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 const Plain = {
     plain : 1
-}
+};
 
 class Getter  {
-    get getter() {return 'getter'}
+    get getter() {return 'getter';}
 }
 
 class Setter  {
@@ -16,7 +16,7 @@ class Setter  {
 }
 
 class Property {
-    public property : string = 'property'
+    public property : string = 'property';
     constructor(
 
     ) {
@@ -45,7 +45,7 @@ describe('direct set', () => {
 
         let handlers = [plain, getter_, setter, property, method];
         let getter = new GetOwnPropertyDescriptorList(handlers);
-        let proxy = new Proxy(original, getter)
+        let proxy = new Proxy(original, getter);
 
 
         expect(Object.getOwnPropertyDescriptor(proxy, 'plain')).toEqual(Object.getOwnPropertyDescriptor(plain, 'plain'));
@@ -69,7 +69,7 @@ describe('bind', () => {
 
         let handlers = [plain, getter_, setter, property, method];
         let getter = new GetOwnPropertyDescriptorList(handlers);
-        let proxy = new Proxy(original, getter.bindTo({}))
+        let proxy = new Proxy(original, getter.bindTo({}));
 
         expect(Object.getOwnPropertyDescriptor(proxy, 'plain')).toEqual(Object.getOwnPropertyDescriptor(plain, 'plain'));
         expect(Object.getOwnPropertyDescriptor(proxy, 'getter')).toEqual(Object.getOwnPropertyDescriptor(getter_, 'getter'));
@@ -86,13 +86,13 @@ describe('conflict compatible', () => {
 
         let plain2 = {
             plain : 1
-        }
+        };
         let plain = Plain;
         let original = {};
 
         let handlers = [plain, plain2];
         let getter = new GetOwnPropertyDescriptorList(handlers);
-        let proxy = new Proxy(original, getter.bindTo({}))
+        let proxy = new Proxy(original, getter.bindTo({}));
 
         expect(Object.getOwnPropertyDescriptor(proxy, 'plain')).toEqual(Object.getOwnPropertyDescriptor(plain, 'plain'));
         expect(Object.getOwnPropertyDescriptor(proxy, 'plain')).toEqual(Object.getOwnPropertyDescriptor(plain2, 'plain'));
@@ -103,13 +103,13 @@ describe('conflict compatible', () => {
 
         let plain2 = {
             plain : 2
-        }
+        };
         let plain = Plain;
         let original = {};
 
         let handlers = [plain, plain2];
         let getter = new GetOwnPropertyDescriptorList(handlers);
-        let proxy = new Proxy(original, getter.bindTo({}))
+        let proxy = new Proxy(original, getter.bindTo({}));
 
         expect(Object.getOwnPropertyDescriptor(proxy, 'plain')).toEqual(Object.getOwnPropertyDescriptor(plain, 'plain'));
         expect(Object.getOwnPropertyDescriptor(proxy, 'plain')).not.toEqual(Object.getOwnPropertyDescriptor(plain2, 'plain'));
@@ -131,7 +131,7 @@ describe('conflict compatible', () => {
             plain, getter_, setter, property, method
         ];
         let getter = new GetOwnPropertyDescriptorList(handlers);
-        let proxy = new Proxy(original, getter.bindTo({}))
+        let proxy = new Proxy(original, getter.bindTo({}));
 
         expect(Object.getOwnPropertyDescriptor(proxy, 'plain')).toEqual(Object.getOwnPropertyDescriptor(plain, 'plain'));
         expect(Object.getOwnPropertyDescriptor(proxy, 'getter')).toEqual(Object.getOwnPropertyDescriptor(getter_, 'getter'));
@@ -147,14 +147,14 @@ describe('conflict incompatible', () => {
     it('simple', ()=>{
 
         let plain2 = {
-            get plain () {return 1}
-        }
+            get plain () {return 1;}
+        };
         let plain = Plain;
         let original = {};
 
         let handlers = [plain, plain2];
         let getter = new GetOwnPropertyDescriptorList(handlers);
-        let proxy = new Proxy(original, getter.bindTo({}))
+        let proxy = new Proxy(original, getter.bindTo({}));
 
         try {
 

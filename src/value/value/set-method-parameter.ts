@@ -1,6 +1,6 @@
-import Value from "@alirya/value/value";
-import Property from "../../property/property/property";
-import SetMethodParameters from "./set-method-parameters";
+import Value from '@alirya/value/value';
+import Property from '../../property/property/property';
+import SetMethodParameters from './set-method-parameters';
 
 export type SetMethodArgument<
     This extends object,
@@ -11,7 +11,7 @@ export type SetMethodArgument<
         object: This;
         writable ?: boolean;
         configurable ?: boolean
-    }
+    };
 
 export default function SetMethodParameter<
     This extends object,

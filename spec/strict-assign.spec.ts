@@ -1,5 +1,5 @@
-import StrictAssign from "../dist/stricassign";
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+import StrictAssign from '../dist/stricassign';
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 interface Data {
     string ?: string;
@@ -13,12 +13,12 @@ describe('compiler compatible', function () {
 
         let target : Data = {
             string : 'string'
-        }
+        };
 
         let source  = {
             number : 1,
             boolean : false,
-        }
+        };
 
         let result = StrictAssign(target, source);
 
@@ -33,13 +33,13 @@ describe('compiler compatible', function () {
 
         let target : Data = {
             string : 'string'
-        }
+        };
 
         let source = {
             number : 1,
             boolean : false,
             object : {}
-        }
+        };
 
         let result = StrictAssign(target, source);
 
@@ -50,18 +50,18 @@ describe('compiler compatible', function () {
         let object : object = result.object;
 
     });
-})
+});
 
 describe('test', function () {
 
     let target : Data = {
         string : 'string'
-    }
+    };
 
     let source : Data = {
         number : 1,
         boolean : false,
-    }
+    };
 
 
     it('check result', () => {
@@ -71,5 +71,5 @@ describe('test', function () {
         expect(result.number).toBe(1);
         expect(result.boolean).toBe(false);
 
-    })
-})
+    });
+});

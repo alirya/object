@@ -1,13 +1,13 @@
-import PreventExtensibleList from "../../../dist/proxy/handler/prevenextensible-lisall";
+import PreventExtensibleList from '../../../dist/proxy/handler/prevenextensible-lisall';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('direct set', () => {
 
     it('delete', ()=>{
 
         class Class  {
-            data : string = 'class'
+            data : string = 'class';
         }
 
         let object = {
@@ -21,7 +21,7 @@ describe('direct set', () => {
         };
 
         let getter = new PreventExtensibleList([object, class_]);
-        let proxy = new Proxy(original, getter)
+        let proxy = new Proxy(original, getter);
 
         expect(Object.isExtensible(proxy)).toBe(true);
         Object.preventExtensions(proxy);
@@ -34,7 +34,7 @@ describe('bind', () => {
     it('delete', ()=>{
 
         class Class  {
-            data : string = 'class'
+            data : string = 'class';
         }
 
         let object = {
@@ -48,7 +48,7 @@ describe('bind', () => {
         };
 
         let getter = new PreventExtensibleList([object, class_]);
-        let proxy = new Proxy(original, getter.bindTo({}))
+        let proxy = new Proxy(original, getter.bindTo({}));
 
         expect(Object.isExtensible(proxy)).toBe(true);
         Object.preventExtensions(proxy);
@@ -60,7 +60,7 @@ describe('bind', () => {
 describe('check each', () => {
 
     class Class  {
-        data : string = 'class'
+        data : string = 'class';
     }
 
     let object = {
@@ -74,7 +74,7 @@ describe('check each', () => {
     };
 
     let getter = new PreventExtensibleList([object, class_]);
-    let proxy = new Proxy(original, getter.bindTo({}))
+    let proxy = new Proxy(original, getter.bindTo({}));
 
     Object.preventExtensions(proxy);
 
@@ -118,7 +118,7 @@ describe('check each', () => {
 describe('check proxy', () => {
 
     class Class  {
-        data : string = 'class'
+        data : string = 'class';
     }
 
     let object = {
@@ -132,7 +132,7 @@ describe('check proxy', () => {
     };
 
     let getter = new PreventExtensibleList([object, class_]);
-    let proxy = new Proxy(original, getter.bindTo({}))
+    let proxy = new Proxy(original, getter.bindTo({}));
 
     Object.preventExtensions(proxy);
 

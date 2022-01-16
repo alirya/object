@@ -1,7 +1,7 @@
-import Validator from "@alirya/validator/validator";
-import MapInterface from "../../../map";
-import Return from "@alirya/validator/validatable/infer-static";
-import IteratorRecordKey from "../iterator/record-key-parameters";
+import Validator from '@alirya/validator/validator';
+import MapInterface from '../../../map';
+import Return from '@alirya/validator/validatable/infer-static';
+import IteratorRecordKey from '../iterator/record-key-parameters';
 
 export default function RecordKeyPartialParameters<
     RecordType extends Record<PropertyKey, any>,

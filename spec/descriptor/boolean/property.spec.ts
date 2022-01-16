@@ -1,7 +1,7 @@
-import Property from "../../../dist/descriptor/boolean/property";
-import GetProperty from "../../../dist/descriptor/from-objecparameters";
+import Property from '../../../dist/descriptor/boolean/property';
+import GetProperty from '../../../dist/descriptor/from-objecparameters';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe(`plain`, () => {
@@ -17,14 +17,14 @@ describe(`plain`, () => {
 
         } else {
 
-            fail('descriptor should exits')
+            fail('descriptor should exits');
         }
     });
 
     it(`getter`, () => {
 
         let object = {
-            get property  () {return 1}
+            get property  () {return 1;}
         };
 
         let descriptor = GetProperty(object, 'property');
@@ -35,7 +35,7 @@ describe(`plain`, () => {
 
         } else {
 
-            fail('descriptor should exits')
+            fail('descriptor should exits');
         }
     });
 
@@ -53,7 +53,7 @@ describe(`plain`, () => {
 
         } else {
 
-            fail('descriptor should exits')
+            fail('descriptor should exits');
         }
     });
 });
@@ -64,7 +64,7 @@ describe(`class`, () => {
     it(`property`, () => {
 
         class Test {
-            property = 1
+            property = 1;
         }
 
         let object = new Test;
@@ -77,14 +77,14 @@ describe(`class`, () => {
 
         } else {
 
-            fail('descriptor should exits')
+            fail('descriptor should exits');
         }
     });
 
     it(`getter`, () => {
 
         class Test {
-            get property  () {return 1}
+            get property  () {return 1;}
         }
 
         let object = new Test;
@@ -97,7 +97,7 @@ describe(`class`, () => {
 
         } else {
 
-            fail('descriptor should exits')
+            fail('descriptor should exits');
         }
     });
 
@@ -117,7 +117,7 @@ describe(`class`, () => {
 
         } else {
 
-            fail('descriptor should exits')
+            fail('descriptor should exits');
         }
     });
 });
@@ -134,7 +134,7 @@ describe(`array`, () => {
 
         } else {
 
-            fail('descriptor should exits')
+            fail('descriptor should exits');
         }
     });
 });

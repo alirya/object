@@ -1,10 +1,10 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import ReturnInfer from "./validatable/record/infer";
-import Map from "./map";
-import ValidatorsContainer from "./validators/validators";
-import Message from "@alirya/message/message";
-import MapPartialParameters from "./map-partial-parameters";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import ReturnInfer from './validatable/record/infer';
+import Map from './map';
+import ValidatorsContainer from './validators/validators';
+import Message from '@alirya/message/message';
+import MapPartialParameters from './map-partial-parameters';
 
 export type MapPartialArgument<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,

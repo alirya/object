@@ -1,12 +1,12 @@
-import Type from "@alirya/type/validator/type-parameters";
-import Record from "../../../../dist/validator/validatable/record/record-value-parameters";
-import Validator from "@alirya/validator/validator";
+import Type from '@alirya/type/validator/type-parameters';
+import Record from '../../../../dist/validator/validatable/record/record-value-parameters';
+import Validator from '@alirya/validator/validator';
 
-it("force console log", () => spyOn(console, 'log').and.callThrough());
+it('force console log', () => spyOn(console, 'log').and.callThrough());
 
-describe("compiler compatibility", function() {
+describe('compiler compatibility', function() {
 
-    describe("explicit valid", function() {
+    describe('explicit valid', function() {
 
         type ValueValidator = Validator<any, number>;
 
@@ -15,7 +15,7 @@ describe("compiler compatibility", function() {
             validator2 : number,
         };
 
-        let value : ValueValidator = Type("number");
+        let value : ValueValidator = Type('number');
 
         let record : Value = {
             validator1 : 10,
@@ -25,9 +25,9 @@ describe("compiler compatibility", function() {
         Record<Value, ValueValidator>(record, value);
     });
 
-    describe("implicit", function() {
+    describe('implicit', function() {
 
-        let value = Type("number");
+        let value = Type('number');
 
         let record = {
             validator1 : 10,
@@ -37,9 +37,9 @@ describe("compiler compatibility", function() {
         Record(record, value);
     });
 
-    describe("auto", function() {
+    describe('auto', function() {
 
-        let value = Type("number");
+        let value = Type('number');
 
         let record = {
             validator1 : 10,

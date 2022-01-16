@@ -1,17 +1,17 @@
-import Type from "@alirya/type/validator/type-parameters";
-import ValueCallback from "../../../dist/validator/value-callback-parameters";
-import ValidateValue from "../../../dist/validator/validatable/record/value-parameters";
-import And from "../../../dist/validatable/and";
-import MessageMap from "../../../dist/message/message/record/map";
-import Or from "../../../dist/validatable/or";
-import ValidatorValidatable from "../../../dist/validator/validatable/record/infer";
-import ValidateValuePartial from "../../../dist/validator/validatable/record/value-partial-parameters";
-import Validatable from "@alirya/validatable/validatable";
-import Infer from "../../../dist/validator/validatable/record/infer";
+import Type from '@alirya/type/validator/type-parameters';
+import ValueCallback from '../../../dist/validator/value-callback-parameters';
+import ValidateValue from '../../../dist/validator/validatable/record/value-parameters';
+import And from '../../../dist/validatable/and';
+import MessageMap from '../../../dist/message/message/record/map';
+import Or from '../../../dist/validatable/or';
+import ValidatorValidatable from '../../../dist/validator/validatable/record/infer';
+import ValidateValuePartial from '../../../dist/validator/validatable/record/value-partial-parameters';
+import Validatable from '@alirya/validatable/validatable';
+import Infer from '../../../dist/validator/validatable/record/infer';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("flat", function() {
+describe('flat', function() {
 
     let validator = {
         name : Type('string'),
@@ -23,7 +23,7 @@ describe("flat", function() {
         name : string,
         address : string,
         age : string,
-    }
+    };
 
     // TODO FIX FORCED ARROW FUNCTION?
 
@@ -70,7 +70,7 @@ describe("flat", function() {
 });
 
 
-describe("recursive", function() {
+describe('recursive', function() {
 
     it(`and validation`, () => {
 

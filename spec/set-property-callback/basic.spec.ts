@@ -1,6 +1,6 @@
-import SetPropertyCallback from "../../dist/set-property-callback-parameters";
+import SetPropertyCallback from '../../dist/set-property-callback-parameters';
 
-it("enable console log", () => spyOn(console, 'log').and.callThrough());
+it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
 describe('plain', () => {
 

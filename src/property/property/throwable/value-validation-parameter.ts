@@ -1,6 +1,6 @@
-import PropertyInterface from "../property";
-import Validation from "@alirya/boolean/validation/validation";
-import PropertyValueParameters from "./value-validation-parameters";
+import PropertyInterface from '../property';
+import Validation from '@alirya/boolean/validation/validation';
+import PropertyValueParameters from './value-validation-parameters';
 
 
 

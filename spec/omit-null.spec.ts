@@ -1,6 +1,6 @@
-import OmitNull from "../dist/ominull";
+import OmitNull from '../dist/ominull';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', () => {
 
@@ -18,7 +18,7 @@ describe('compiler compatibility', () => {
             required : 'required',
             undefinable : 'nullable',
             optionalUnion : null,
-        }
+        };
 
         let result = OmitNull(data);
 
@@ -39,7 +39,7 @@ describe('compiler compatibility', () => {
             required : 'required',
             nullable : 'nullable',
             optionalUnion : null,
-        }
+        };
 
         let result = OmitNull(data);
 
@@ -66,7 +66,7 @@ describe('data', () => {
             nullable : 'nullable',
             undefined : undefined,
             null : null,
-        }
+        };
 
         let result = OmitNull(data);
 

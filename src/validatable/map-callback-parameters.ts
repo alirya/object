@@ -1,11 +1,11 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import RecordParameter from "../validator/subject/record/allow";
-import RecordBase from "../validator/subject/record/allow";
-import Instance from "@alirya/validator/validatable/validatable";
-import Map from "./map";
-import Pick from "../pick";
-import MemoizeAccessor from "../function/memoize-accessor";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import RecordParameter from '../validator/subject/record/allow';
+import RecordBase from '../validator/subject/record/allow';
+import Instance from '@alirya/validator/validatable/validatable';
+import Map from './map';
+import Pick from '../pick';
+import MemoizeAccessor from '../function/memoize-accessor';
 
 
 export default class MapCallbackParameters<
@@ -64,7 +64,7 @@ export default class MapCallbackParameters<
 
         } catch (e) {
 
-            throw new Error(`error on generating message, ${e}`)
+            throw new Error(`error on generating message, ${e}`);
         }
     }
 }

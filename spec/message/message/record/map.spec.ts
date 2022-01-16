@@ -1,21 +1,21 @@
-import Map from "../../../../dist/message/message/record/map";
-import Message from "@alirya/message/message";
+import Map from '../../../../dist/message/message/record/map';
+import Message from '@alirya/message/message';
 
-it("force console log", () => {spyOn(console, 'log').and.callThrough();});
+it('force console log', () => {spyOn(console, 'log').and.callThrough();});
 
-describe("compiler compatible", function() {
+describe('compiler compatible', function() {
 
-    describe("type equal", function() {
+    describe('type equal', function() {
 
         let message =  {
             data1 : {message : '1'},
             data2 : {message : '2'},
             data3 : {message : '3'}
-        }
+        };
 
-        let result = Map(message)
+        let result = Map(message);
 
-        it("validate type", function() {
+        it('validate type', function() {
 
             let string : string;
             string = result.data1;
@@ -29,9 +29,9 @@ describe("compiler compatible", function() {
                 expect(e).toBeInstanceOf(Error);
             }
 
-        })
+        });
 
-        it("invalid type", function() {
+        it('invalid type', function() {
 
             let number : number;
             // @ts-expecerror
@@ -49,13 +49,13 @@ describe("compiler compatible", function() {
             } catch (e) {
                 expect(e).toBeInstanceOf(Error);
             }
-        })
+        });
     });
 
 
-    describe("type different", function() {
+    describe('type different', function() {
 
-        describe("type explicit", function() {
+        describe('type explicit', function() {
 
             let message : {
                 data1 : Message<number>,
@@ -65,11 +65,11 @@ describe("compiler compatible", function() {
                 data1 : {message : 1},
                 data2 : {message : 1},
                 data3 : {message : 1}
-            }
+            };
 
-            let result = Map(message)
+            let result = Map(message);
 
-            it("validate type", function() {
+            it('validate type', function() {
 
                 let string : number;
                 string = result.data1;
@@ -82,9 +82,9 @@ describe("compiler compatible", function() {
                 } catch (e) {
                     expect(e).toBeInstanceOf(Error);
                 }
-            })
+            });
 
-            it("invalid type", function() {
+            it('invalid type', function() {
 
                 let number : number;
                 // @ts-expecerror
@@ -106,17 +106,17 @@ describe("compiler compatible", function() {
             });
         });
 
-        describe("type implicit", function() {
+        describe('type implicit', function() {
 
             let message = {
                 data1 : {message : 1},
                 data2 : {message : 1},
                 data3 : {message : 1}
-            }
+            };
 
-            let result = Map(message)
+            let result = Map(message);
 
-            it("valid type", function() {
+            it('valid type', function() {
 
                 let string : number;
                 string = result.data1;
@@ -129,9 +129,9 @@ describe("compiler compatible", function() {
                 } catch (e) {
                     expect(e).toBeInstanceOf(Error);
                 }
-            })
+            });
 
-            it("invalid type", function() {
+            it('invalid type', function() {
 
                 let number : number;
                 // @ts-expecerror
@@ -154,17 +154,17 @@ describe("compiler compatible", function() {
     });
 });
 
-describe("type equal", function() {
+describe('type equal', function() {
 
     let message =  {
         data1 : {message : '1'},
         data2 : {message : '2'},
         data3 : {message : '3'}
-    }
+    };
 
-    let result = Map(message)
+    let result = Map(message);
 
-    it("validate type", function() {
+    it('validate type', function() {
 
         expect(result.data1).toBe(message.data1.message);
         expect(result.data2).toBe(message.data2.message);
@@ -177,21 +177,21 @@ describe("type equal", function() {
             expect(e).toBeInstanceOf(Error);
         }
 
-    })
+    });
 });
 
 
-describe("type different", function() {
+describe('type different', function() {
 
     let message = {
         data1 : {message : 10},
         data2 : {message : 20},
         data3 : {message : 30}
-    }
+    };
 
-    let result = Map(message)
+    let result = Map(message);
 
-    it("validate type", function() {
+    it('validate type', function() {
 
         expect(result.data1).toBe(message.data1.message);
         expect(result.data2).toBe(message.data2.message);
@@ -203,11 +203,11 @@ describe("type different", function() {
         } catch (e) {
             expect(e).toBeInstanceOf(Error);
         }
-    })
+    });
 });
 
 
-describe("type different", function() {
+describe('type different', function() {
 
     let message = {
         data1 : {message : 10},
@@ -218,11 +218,11 @@ describe("type different", function() {
                 data3 : {message : 30}
             }
         }
-    }
+    };
 
-    let result = Map(message)
+    let result = Map(message);
 
-    it("validate type", function() {
+    it('validate type', function() {
 
         expect(result.data1).toBe(message.data1.message);
         expect(result.data2).toBe(message.data2.message);
@@ -234,5 +234,5 @@ describe("type different", function() {
         } catch (e) {
             expect(e).toBeInstanceOf(Error);
         }
-    })
+    });
 });

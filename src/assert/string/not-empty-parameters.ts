@@ -1,4 +1,4 @@
-import Name from "../../string/name";
+import Name from '../../string/name';
 
 /**
  * string intended for not NotEmpty object
@@ -28,7 +28,7 @@ export default function NotEmptyParameters(
         strings.push('must not');
     }
 
-    strings.push('empty object')
+    strings.push('empty object');
 
     return (strings.join(' ') + '.').trim();
 }

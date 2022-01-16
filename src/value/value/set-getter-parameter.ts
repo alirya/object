@@ -1,6 +1,6 @@
-import Value from "@alirya/value/value";
-import Property from "../../property/property/property";
-import SetGetterParameters from "./set-getter-parameters";
+import Value from '@alirya/value/value';
+import Property from '../../property/property/property';
+import SetGetterParameters from './set-getter-parameters';
 
 /**
  * set {@param value} for getter value for {@param object}
@@ -25,7 +25,7 @@ export type SetGetterArgument<
     Property<keyof This> &
     {   object: This;
         configurable ?: boolean
-    }
+    };
 
 export default function SetGetterParameter<
     This extends object,

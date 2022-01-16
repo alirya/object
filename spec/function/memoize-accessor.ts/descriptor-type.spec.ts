@@ -1,7 +1,7 @@
-import MemoizeAccessor from "../../../dist/function/memoize-accessor";
-import Getter from "../../../dist/descriptor/boolean/getter";
+import MemoizeAccessor from '../../../dist/function/memoize-accessor';
+import Getter from '../../../dist/descriptor/boolean/getter';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 class Test {
 
@@ -42,7 +42,7 @@ describe('before call', ()=>{
         }
 
     });
-})
+});
 
 
 it('call', ()=>{

@@ -1,6 +1,6 @@
-import Exists from "../../property/boolean/exists";
-import {Required} from "utility-types";
-import MultiHandlers from "./multi-handlers";
+import Exists from '../../property/boolean/exists';
+import {Required} from 'utility-types';
+import MultiHandlers from './multi-handlers';
 
 export default class HasListAny<
     Target extends object,
@@ -25,7 +25,7 @@ export default class HasListAny<
 
         if(Exists(this.handler, property)) {
 
-            return this.handler[<string|number>property]
+            return this.handler[<string|number>property];
         }
 
         (this.handler as Partial<Record<keyof Target, boolean>>)[<string|number>property] = false;

@@ -1,13 +1,13 @@
-import Map from "../../../dist/validator/map-partial-parameters";
-import And from "../../../dist/validatable/and";
-import Or from "../../../dist/validatable/or";
-import Validatable from "@alirya/validatable/validatable";
-import MessageMap from "../../../dist/message/message/record/map";
-import Type from "@alirya/type/validator/type-parameters";
+import Map from '../../../dist/validator/map-partial-parameters';
+import And from '../../../dist/validatable/and';
+import Or from '../../../dist/validatable/or';
+import Validatable from '@alirya/validatable/validatable';
+import MessageMap from '../../../dist/message/message/record/map';
+import Type from '@alirya/type/validator/type-parameters';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("flat", function() {
+describe('flat', function() {
 
     let value = {
         name : 'name',
@@ -124,7 +124,7 @@ describe("flat", function() {
 
 
 
-describe("recursive", function() {
+describe('recursive', function() {
 
 
     let value = {

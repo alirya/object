@@ -1,9 +1,9 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import ReturnInfer from "./validatable/record/infer";
-import ValidateMap from "./validatable/record/map-partial-parameters";
-import Map from "./map";
-import MapCallback from "./map-callback-parameters";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import ReturnInfer from './validatable/record/infer';
+import ValidateMap from './validatable/record/map-partial-parameters';
+import Map from './map';
+import MapCallback from './map-callback-parameters';
 
 export default function MapPartialParameters<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,

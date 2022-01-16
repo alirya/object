@@ -1,9 +1,9 @@
-import And from "../../../dist/validatable/and";
+import And from '../../../dist/validatable/and';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
-it("all valid", function() {
+it('all valid', function() {
 
     let record = {
         valid1 : {valid:true},
@@ -18,7 +18,7 @@ it("all valid", function() {
 
 
 
-it("invalid", () => {
+it('invalid', () => {
 
     let record = {
         invalid1 : {valid:false},
@@ -32,7 +32,7 @@ it("invalid", () => {
 
 
 
-it("mixed", () => {
+it('mixed', () => {
 
     let record = {
         valid : {valid:true},

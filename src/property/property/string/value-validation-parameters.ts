@@ -1,5 +1,5 @@
-import PropertyValueArgumentValidation from "../../../assert/string/value-validation-parameters";
-import Name from "../../../string/name";
+import PropertyValueArgumentValidation from '../../../assert/string/value-validation-parameters';
+import Name from '../../../string/name';
 
 export default function PropertyValueParameters(
   property : PropertyKey,

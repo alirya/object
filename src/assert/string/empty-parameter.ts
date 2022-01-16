@@ -1,6 +1,6 @@
-import Validatable from "@alirya/validatable/validatable";
-import Value from "@alirya/value/value";
-import EmptyParameters from "./empty-parameters";
+import Validatable from '@alirya/validatable/validatable';
+import Value from '@alirya/value/value';
+import EmptyParameters from './empty-parameters';
 
 export type EmptyArgument = Validatable & Value<object> & {subject?: string};
 
@@ -13,5 +13,5 @@ export default function EmptyParameter(
     } : EmptyArgument
 ) : string {
 
-    return EmptyParameters(value, valid, subject)
+    return EmptyParameters(value, valid, subject);
 }

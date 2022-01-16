@@ -1,9 +1,9 @@
-import Validator from "@alirya/validator/simple";
-import Validatable from "@alirya/validatable/validatable";
-import ReturnInfer from "./validatable/record/infer";
-import ValidatorsContainer from "./validators/validators";
-import Message from "@alirya/message/message";
-import ValuePartialParameters, {ValuePartialType} from "./value-partial-parameters";
+import Validator from '@alirya/validator/simple';
+import Validatable from '@alirya/validatable/validatable';
+import ReturnInfer from './validatable/record/infer';
+import ValidatorsContainer from './validators/validators';
+import Message from '@alirya/message/message';
+import ValuePartialParameters, {ValuePartialType} from './value-partial-parameters';
 
 
 /**

@@ -1,13 +1,13 @@
-import Pick from "../dist/pick";
+import Pick from '../dist/pick';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe('plain object', () => {
 
     let object = {
         data1 : 'data1',
-        data2 : function () { return 1 },
+        data2 : function () { return 1; },
         data3 : true,
     };
 
@@ -35,9 +35,9 @@ describe('plain object', () => {
 describe('plain object, getter', () => {
 
     let object = {
-        get data1 () { return 'data1'},
-        get data2 () { return function () { return 1 } },
-        get data3 () { return true},
+        get data1 () { return 'data1';},
+        get data2 () { return function () { return 1; }; },
+        get data3 () { return true;},
     };
 
 
@@ -110,7 +110,7 @@ describe('plain object', () => {
         ) {}
     }
 
-    let object = new Class('data1', function () { return 1 }, true);
+    let object = new Class('data1', function () { return 1; }, true);
 
     let result = Pick(object, 'data1','data2');
 
@@ -138,9 +138,9 @@ describe('plain object, getter', () => {
     class Class {
         c = 1;
         constructor() {}
-        get data1 () : string { return 'data1'}
-        get data2 () : () => number { return function () { return 1 } }
-        get data3 () : boolean { return true}
+        get data1 () : string { return 'data1';}
+        get data2 () : () => number { return function () { return 1; }; }
+        get data3 () : boolean { return true;}
     }
 
     let object = new Class();

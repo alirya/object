@@ -1,12 +1,12 @@
-import Type from "@alirya/type/validator/type-parameters";
-import RecordValueCallback from "../../../dist/validator/record-key-callback-parameters";
-import ValidateKey from "../../../dist/validator/validatable/record/record-key-parameters";
-import And from "../../../dist/validatable/and";
-import MessageMap from "../../../dist/message/message/record/map";
-import Or from "../../../dist/validatable/or";
-import Infer from "@alirya/validator/validatable/infer-static";
+import Type from '@alirya/type/validator/type-parameters';
+import RecordValueCallback from '../../../dist/validator/record-key-callback-parameters';
+import ValidateKey from '../../../dist/validator/validatable/record/record-key-parameters';
+import And from '../../../dist/validatable/and';
+import MessageMap from '../../../dist/message/message/record/map';
+import Or from '../../../dist/validatable/or';
+import Infer from '@alirya/validator/validatable/infer-static';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 let validator = Type('string');
 

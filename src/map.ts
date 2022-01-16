@@ -5,6 +5,6 @@
  */
 type Map<Container extends Record<PropertyKey, any>, Replace> = {
     [K in keyof Container] : Replace
-}
+};
 
 export default Map;

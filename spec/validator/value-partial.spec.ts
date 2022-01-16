@@ -1,22 +1,22 @@
-import Value from "../../dist/validator/value-partial-parameters";
-import And from "../../dist/validatable/and";
-import Or from "../../dist/validatable/or";
-import Validatable from "@alirya/validatable/validatable";
-import MessageMap from "../../dist/message/message/record/map";
-import Type from "@alirya/type/validator/type-parameters";
-import Message from "@alirya/message/message";
+import Value from '../../dist/validator/value-partial-parameters';
+import And from '../../dist/validatable/and';
+import Or from '../../dist/validatable/or';
+import Validatable from '@alirya/validatable/validatable';
+import MessageMap from '../../dist/message/message/record/map';
+import Type from '@alirya/type/validator/type-parameters';
+import Message from '@alirya/message/message';
 
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("compiler compatibility", function() {
+describe('compiler compatibility', function() {
 
     let validator = {
         name : Type('string'),
         address : Type('string'),
     };
 
-    describe("implicit partial", function() {
+    describe('implicit partial', function() {
 
         let property = Value(validator, And, MessageMap);
 
@@ -28,7 +28,7 @@ describe("compiler compatibility", function() {
 
     });
 
-    describe("explicit complete", function() {
+    describe('explicit complete', function() {
 
         let property = Value<string, string, {name : string, address : string}, typeof validator>(validator,
             And,
@@ -44,9 +44,9 @@ describe("compiler compatibility", function() {
     });
 });
 
-describe("implicit incomplete", function() {
+describe('implicit incomplete', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
         let value = 'data';
 
@@ -159,7 +159,7 @@ describe("implicit incomplete", function() {
     });
 
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
         it(`and validation`, () => {
 
@@ -243,7 +243,7 @@ describe("implicit incomplete", function() {
     });
 
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
 
         it(`and validation`, () => {
@@ -325,9 +325,9 @@ describe("implicit incomplete", function() {
 
 
 
-describe("recursive", function() {
+describe('recursive', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
         let value = 'data';
 
@@ -504,7 +504,7 @@ describe("recursive", function() {
     });
 
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
 
 
@@ -609,7 +609,7 @@ describe("recursive", function() {
     });
 
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
 
         it(`and validation`, () => {

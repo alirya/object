@@ -19,7 +19,7 @@ export default function ObjectParameters(
         strings.push('must');
     }
 
-    strings.push('object')
+    strings.push('object');
 
     if(!valid) {
 

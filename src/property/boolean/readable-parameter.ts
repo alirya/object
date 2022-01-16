@@ -1,6 +1,6 @@
-import Value from "@alirya/value/value";
-import Property from "../property/property";
-import ReadableParameters from "./readable-parameters";
+import Value from '@alirya/value/value';
+import Property from '../property/property';
+import ReadableParameters from './readable-parameters';
 
 export type ReadableArgument = Value<object> & Property;
 

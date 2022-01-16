@@ -1,6 +1,6 @@
-import {Object, List} from "ts-toolbelt";
-import Value from "@alirya/value/value";
-import Return from "@alirya/function/return/return";
+import {Object, List} from 'ts-toolbelt';
+import Value from '@alirya/value/value';
+import Return from '@alirya/function/return/return';
 
 /**
  * extract {@template ObjectTemplate} by {@template Key}, extracted value will be
@@ -15,7 +15,7 @@ export default class Extract<
     /**
      * extraction result
      */
-    readonly return : Object.Pick<ObjectTemplate, List.UnionOf<Key>> = <Object.Pick<ObjectTemplate, List.UnionOf<Key>>>{}
+    readonly return : Object.Pick<ObjectTemplate, List.UnionOf<Key>> = <Object.Pick<ObjectTemplate, List.UnionOf<Key>>>{};
 
     /**
      * contain original object source

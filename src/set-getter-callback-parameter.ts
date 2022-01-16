@@ -1,4 +1,4 @@
-import SetGetterCallbackParameters, {SetGetterCallbackTypeDynamic, SetGetterCallbackTypeStatic} from "./set-getter-callback-parameters";
+import SetGetterCallbackParameters, {SetGetterCallbackTypeDynamic, SetGetterCallbackTypeStatic} from './set-getter-callback-parameters';
 
 /**
  * set return from {@param factory} to getter for {@param object}
@@ -23,7 +23,7 @@ export type SetGetterCallbackArgumentStatic<
     property : Key,
     factory : ()=>This[Key],
     configurable ?: boolean
-}
+};
 
 export type SetGetterCallbackArgumentDynamic<
     This extends object,
@@ -34,7 +34,7 @@ export type SetGetterCallbackArgumentDynamic<
     property : Key,
     factory : ()=>Type,
     configurable ?: boolean
-}
+};
 
 
 
@@ -50,7 +50,7 @@ export default function SetGetterCallbackParameter<
         factory,
         configurable,
     } : SetGetterCallbackArgumentStatic<This, Key>
-) : SetGetterCallbackTypeStatic<This, Key>
+) : SetGetterCallbackTypeStatic<This, Key>;
 
 export default function SetGetterCallbackParameter<
     This extends object,
@@ -63,7 +63,7 @@ export default function SetGetterCallbackParameter<
         factory,
         configurable,
     } : SetGetterCallbackArgumentDynamic<This, Key, Type>
-) : SetGetterCallbackTypeDynamic<This, Key, Type>
+) : SetGetterCallbackTypeDynamic<This, Key, Type>;
 
 export default function SetGetterCallbackParameter<
     This extends object,
@@ -77,5 +77,5 @@ export default function SetGetterCallbackParameter<
     } : SetGetterCallbackArgumentStatic<This, Key>
 ) {
 
-    return SetGetterCallbackParameters(object, property, factory, configurable)
+    return SetGetterCallbackParameters(object, property, factory, configurable);
 }

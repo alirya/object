@@ -1,6 +1,6 @@
-import And from "../../../../dist/validatable/record/boolean/and";
+import And from '../../../../dist/validatable/record/boolean/and';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 it('all true', function () {
 

@@ -1,15 +1,15 @@
-import MapCallback from "../../../dist/validator/map-callback-parameters";
-import ValidateMapPartial from "../../../dist/validator/validatable/record/map-partial-parameters";
-import ValidateMap from "../../../dist/validator/validatable/record/map-parameters";
-import And from "../../../dist/validatable/and";
-import Validatable from "@alirya/validatable/validatable";
-import ValidatorInterface from "@alirya/validator/simple";
-import Message from "@alirya/message/message";
-import MessageMap from "../../../dist/message/message/record/map";
-import Type from "@alirya/type/validator/type-parameters";
-import Instance from "@alirya/validator/validatable/validatable";
+import MapCallback from '../../../dist/validator/map-callback-parameters';
+import ValidateMapPartial from '../../../dist/validator/validatable/record/map-partial-parameters';
+import ValidateMap from '../../../dist/validator/validatable/record/map-parameters';
+import And from '../../../dist/validatable/and';
+import Validatable from '@alirya/validatable/validatable';
+import ValidatorInterface from '@alirya/validator/simple';
+import Message from '@alirya/message/message';
+import MessageMap from '../../../dist/message/message/record/map';
+import Type from '@alirya/type/validator/type-parameters';
+import Instance from '@alirya/validator/validatable/validatable';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 let validator = {
     name : Type('string'),
@@ -24,14 +24,14 @@ type TypeValidator = {
 type Type = {
     name : string,
     address : string,
-}
+};
 
 let value = {
     name : 'name',
     address : 'address',
 };
 
-describe("implicit complete", function() {
+describe('implicit complete', function() {
 
     let property = MapCallback(validator, ValidateMap, And, MessageMap);
 
@@ -43,9 +43,9 @@ describe("implicit complete", function() {
 
 });
 
-describe("explicit complete", function() {
+describe('explicit complete', function() {
 
-    describe("auto", function() {
+    describe('auto', function() {
 
         let property = MapCallback<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(validator,
             ValidateMap,
@@ -60,7 +60,7 @@ describe("explicit complete", function() {
 
     });
 
-    describe("direct", function() {
+    describe('direct', function() {
 
         let property = MapCallback<TypeValidator>(validator,
             ValidateMap,
@@ -76,7 +76,7 @@ describe("explicit complete", function() {
     });
 });
 
-describe("implicit partial", function() {
+describe('implicit partial', function() {
 
     let property = MapCallback(validator,
         (value, validators) =>
@@ -92,9 +92,9 @@ describe("implicit partial", function() {
 
 });
 
-describe("explicit complete", function() {
+describe('explicit complete', function() {
 
-    describe("auto", function() {
+    describe('auto', function() {
 
         let property = MapCallback<globalThis.Record<keyof typeof validator, ValidatorInterface<any, string, Instance<any, string>>>>(
             validator,
@@ -111,7 +111,7 @@ describe("explicit complete", function() {
 
     });
 
-    describe("direct", function() {
+    describe('direct', function() {
 
         let property = MapCallback<TypeValidator>(
             validator,

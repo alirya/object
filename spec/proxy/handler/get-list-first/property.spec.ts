@@ -1,7 +1,7 @@
-import GetHandler from "../../../../dist/proxy/handler/gelisfirst";
+import GetHandler from '../../../../dist/proxy/handler/gelisfirst';
 
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 type Type<Value = any> = {data:Value};
 
@@ -21,7 +21,7 @@ describe('single', () => {
         let property = new Property('property 1');
 
         let getter = new GetHandler([property]);
-        let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter)
+        let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter);
 
         // repeat test
         for(let i = 0; i < 5; i++) {
@@ -38,10 +38,10 @@ describe('single', () => {
 
         const plain = {
             data : 'property 1'
-        }
+        };
 
         let getter = new GetHandler([plain]);
-        let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter)
+        let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter);
 
         // repeat test
         for(let i = 0; i < 5; i++) {
@@ -63,7 +63,7 @@ describe('duplicate', () => {
         let property2 = new Property('property 2');
 
         let getter = new GetHandler([property1, property2]);
-        let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter)
+        let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter);
 
         // repeat test
         for(let i = 0; i < 5; i++) {
@@ -82,7 +82,7 @@ describe('duplicate', () => {
         let property2 = {data : 'property 2'};
 
         let getter = new GetHandler([property1, property2]);
-        let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter)
+        let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter);
 
         // repeat test
         for(let i = 0; i < 5; i++) {
@@ -105,7 +105,7 @@ describe('multi', () => {
         let property2 = {value : 'property 2'};
 
         let getter = new GetHandler([property1, property2]);
-        let proxy = <typeof property1 & typeof property2> new Proxy({}, getter)
+        let proxy = <typeof property1 & typeof property2> new Proxy({}, getter);
 
         // repeat test
         for(let i = 0; i < 5; i++) {

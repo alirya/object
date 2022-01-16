@@ -1,17 +1,17 @@
-import MemoizeGetter from "./value/value/set-property-parameters";
-import {O} from "ts-toolbelt";
-import {Required} from "utility-types";
+import MemoizeGetter from './value/value/set-property-parameters';
+import {O} from 'ts-toolbelt';
+import {Required} from 'utility-types';
 
 export type SetPropertyCallbackTypeStatic<
     This extends object,
     Key extends keyof This
-    > = O.Readonly<Required<This, Key>>
+    > = O.Readonly<Required<This, Key>>;
 
 export type SetPropertyCallbackTypeDynamic<
     This extends object,
     Key extends PropertyKey,
     Type
-    > = Omit<This, Key> & O.Readonly<Record<Key, Type>>
+    > = Omit<This, Key> & O.Readonly<Record<Key, Type>>;
 
 
 /**
@@ -37,7 +37,7 @@ export default function SetPropertyCallbackParameters<
     factory : ()=>This[Key],
     writable ?: boolean,
     configurable ?: boolean
-) : SetPropertyCallbackTypeStatic<This, Key>
+) : SetPropertyCallbackTypeStatic<This, Key>;
 
 export default function SetPropertyCallbackParameters<
     This extends object,
@@ -49,7 +49,7 @@ export default function SetPropertyCallbackParameters<
     factory : ()=>Type,
     writable ?: boolean,
     configurable ?: boolean
-) : SetPropertyCallbackTypeDynamic<This, Key, Type>
+) : SetPropertyCallbackTypeDynamic<This, Key, Type>;
 
 export default function SetPropertyCallbackParameters<
     This extends object,

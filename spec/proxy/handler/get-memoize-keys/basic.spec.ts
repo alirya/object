@@ -1,4 +1,4 @@
-import GetMemoizeKeys from "../../../../dist/proxy/handler/gememoize-keys";
+import GetMemoizeKeys from '../../../../dist/proxy/handler/gememoize-keys';
 
 describe('class', () => {
 
@@ -13,7 +13,7 @@ describe('class', () => {
     let property = new Test();
 
     let getter = new GetMemoizeKeys(['data']);
-    let proxy = new Proxy<Test>(property, getter)
+    let proxy = new Proxy<Test>(property, getter);
 
     let value = proxy.data;
 
@@ -32,10 +32,10 @@ describe('plain', () => {
 
     const plain = {
         get data () {return Math.random().toString();}
-    }
+    };
 
     let getter = new GetMemoizeKeys(['data']);
-    let proxy = new Proxy<typeof plain>(plain, getter)
+    let proxy = new Proxy<typeof plain>(plain, getter);
 
     let value = proxy.data;
 

@@ -1,7 +1,7 @@
-import Record from "../../../../dist/validatable/record/boolean/record";
-import And from "../../../../dist/validatable/and";
+import Record from '../../../../dist/validatable/record/boolean/record';
+import And from '../../../../dist/validatable/and';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatible', function () {
 
@@ -16,7 +16,7 @@ describe('compiler compatible', function () {
 
         let result = Record(object);
         expect(result).toBeTrue();
-    })
+    });
 
     it('explicit', () => {
 
@@ -31,7 +31,7 @@ describe('compiler compatible', function () {
                 boolean = object.invalid1.valid;
                 fail('object.invalid1 shlud not exists');
             } catch (e) {
-                expect(e).toBeInstanceOf(Error)
+                expect(e).toBeInstanceOf(Error);
             }
 
 
@@ -39,7 +39,7 @@ describe('compiler compatible', function () {
 
             fail('type guard must be valid');
         }
-    })
+    });
 
     it('implicit', () => {
 
@@ -54,7 +54,7 @@ describe('compiler compatible', function () {
                 boolean = object.invalid1.valid;
                 fail('object.invalid1 shlud not exists');
             } catch (e) {
-                expect(e).toBeInstanceOf(Error)
+                expect(e).toBeInstanceOf(Error);
             }
 
 
@@ -62,7 +62,7 @@ describe('compiler compatible', function () {
 
             fail('type guard must be valid');
         }
-    })
+    });
 });
 
 describe('valid single dimension', function () {
@@ -78,7 +78,7 @@ describe('valid single dimension', function () {
 
         let result = Record(object);
         expect(result).toBeTrue();
-    })
+    });
 
     it('compiler pass', () => {
 
@@ -87,7 +87,7 @@ describe('valid single dimension', function () {
             expect(object.valid.valid).toBeTrue();
             expect(object.invalid.valid).toBeFalse();
         }
-    })
+    });
 });
 
 describe('invalid single dimension', function () {
@@ -104,7 +104,7 @@ describe('invalid single dimension', function () {
 
         let result = Record(object);
         expect(result).toBeFalse();
-    })
+    });
 
 });
 
@@ -136,7 +136,7 @@ describe('valid multi dimension', function () {
 
         let result = Record(object);
         expect(result).toBeTrue();
-    })
+    });
 
     it('compiler pass', () => {
 
@@ -153,5 +153,5 @@ describe('valid multi dimension', function () {
             expect(object.mixed.valid).toBeFalse();
 
         }
-    })
-})
+    });
+});

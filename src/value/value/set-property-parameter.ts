@@ -1,6 +1,6 @@
-import Value from "@alirya/value/value";
-import Property from "../../property/property/property";
-import SetPropertyParameters from "./set-property-parameters";
+import Value from '@alirya/value/value';
+import Property from '../../property/property/property';
+import SetPropertyParameters from './set-property-parameters';
 
 /**
  * set {@param value} for getter value for {@param object}
@@ -27,7 +27,7 @@ export type SetPropertyArgument<
     Property<keyof This> &
     {object: This} &
     {writable ?: boolean} &
-    {configurable ?: boolean}
+    {configurable ?: boolean};
 
 export default function SetPropertyParameter<
     This extends object,

@@ -1,4 +1,4 @@
-import {Assign, OmitByValue} from "utility-types";
+import {Assign, OmitByValue} from 'utility-types';
 
 /**
  * assign all {@param source} value to all undefined value in {@param target}

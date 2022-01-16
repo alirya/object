@@ -1,6 +1,6 @@
-import Validatable from "@alirya/validatable/validatable";
-import Property from "../../property/property/property";
-import ValueValidationParameters from "./value-validation-parameters";
+import Validatable from '@alirya/validatable/validatable';
+import Property from '../../property/property/property';
+import ValueValidationParameters from './value-validation-parameters';
 
 export type ValueValidationArgument = Validatable & Property & {type : string} & { validation: string };
 

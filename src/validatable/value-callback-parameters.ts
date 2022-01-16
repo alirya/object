@@ -1,8 +1,8 @@
-import Validator from "@alirya/validator/validator";
-import ValidatorValidatable from "@alirya/validator/validatable/validatable";
-import Validatable from "@alirya/validatable/validatable";
-import Value from "./value";
-import MemoizeAccessor from "../function/memoize-accessor";
+import Validator from '@alirya/validator/validator';
+import ValidatorValidatable from '@alirya/validator/validatable/validatable';
+import Validatable from '@alirya/validatable/validatable';
+import Value from './value';
+import MemoizeAccessor from '../function/memoize-accessor';
 
 export default class ValueCallbackParameters<
     ValueType = unknown,
@@ -49,7 +49,7 @@ export default class ValueCallbackParameters<
 
         } catch (e) {
 
-            throw new Error(`error on generating message, ${e}`)
+            throw new Error(`error on generating message, ${e}`);
         }
 
     }

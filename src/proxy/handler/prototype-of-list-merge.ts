@@ -1,9 +1,9 @@
-import {Required} from "utility-types";
-import IsObject from "../../boolean/object";
-import Getter from "../../descriptor/boolean/getter";
-import Setter from "../../descriptor/boolean/setter";
-import MergeGetterSetter from "../../descriptor/merge-getter-setter-parameters";
-import MultiHandlers from "./multi-handlers";
+import {Required} from 'utility-types';
+import IsObject from '../../boolean/object';
+import Getter from '../../descriptor/boolean/getter';
+import Setter from '../../descriptor/boolean/setter';
+import MergeGetterSetter from '../../descriptor/merge-getter-setter-parameters';
+import MultiHandlers from './multi-handlers';
 
 export default class PrototypeOfListMerge<
     Target extends object,

@@ -1,7 +1,7 @@
-import GetHandler from "../../../../dist/proxy/handler/gelisfirst";
+import GetHandler from '../../../../dist/proxy/handler/gelisfirst';
 
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 type Type<Value = any> = {data:Value};
 
@@ -19,7 +19,7 @@ let property2 = new Property('property 2');
 describe('direct set', () => {
 
     let getter = new GetHandler([property1, property2]);
-    let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter)
+    let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter);
 
     it('check value', ()=>{
 
@@ -34,11 +34,11 @@ describe('bind set', () => {
     let getter = new GetHandler([property1, property2]);
     getter.bindTo(handler);
 
-    let proxy = new Proxy<Type<string>>(<Type<string>>{}, handler)
+    let proxy = new Proxy<Type<string>>(<Type<string>>{}, handler);
 
     it('check handler', ()=>{
-        expect(handler.get).toBeInstanceOf(Function)
-    })
+        expect(handler.get).toBeInstanceOf(Function);
+    });
 
     it('check value', () => {
 

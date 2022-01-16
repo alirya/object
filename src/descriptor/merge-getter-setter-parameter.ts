@@ -1,20 +1,20 @@
-import Setter from "./setter";
-import Getter from "./getter";
+import Setter from './setter';
+import Getter from './getter';
 import MergeGetterSetterParameters, {
     MergeGetterSetterTypeDynamic,
     MergeGetterSetterTypeGetter,
     MergeGetterSetterTypeSetter
-} from "./merge-getter-setter-parameters";
+} from './merge-getter-setter-parameters';
 
 export type MergeGetterSetterArgumentSetter<SetterType extends Setter, GetterType extends Getter> = {
     destination : SetterType,
     source : GetterType
-}
+};
 
 export type MergeGetterSetterArgumentGetter<SetterType extends Setter, GetterType extends Getter> = {
     destination : GetterType,
     source : SetterType
-}
+};
 
 export type MergeGetterSetterArgumentDynamic<SetterType extends Setter, GetterType extends Getter> = {
     destination : GetterType|SetterType,

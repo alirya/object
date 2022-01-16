@@ -1,4 +1,4 @@
-import Message from "@alirya/message/message";
+import Message from '@alirya/message/message';
 
 export default function PropertyParameters<MessageValue>(
     message : Message<MessageValue>,
@@ -7,7 +7,7 @@ export default function PropertyParameters<MessageValue>(
     conversion : (message:MessageValue)=>string = (value: MessageValue) => value + ''
 ) : Message<string> {
 
-    let string = property.toString() + separator + conversion(message.message)
+    let string = property.toString() + separator + conversion(message.message);
 
     return {message:string};
 }

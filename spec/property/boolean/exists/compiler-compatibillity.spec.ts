@@ -1,6 +1,6 @@
-import Property from "../../../../dist/property/boolean/exists";
+import Property from '../../../../dist/property/boolean/exists';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe('object', ()=> {

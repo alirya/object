@@ -1,4 +1,4 @@
-import SetPropertyCallbackParameters, {SetPropertyCallbackTypeDynamic, SetPropertyCallbackTypeStatic} from "./set-property-callback-parameters";
+import SetPropertyCallbackParameters, {SetPropertyCallbackTypeDynamic, SetPropertyCallbackTypeStatic} from './set-property-callback-parameters';
 
 
 export type SetPropertyCallbackArgumentStatic<
@@ -10,7 +10,7 @@ export type SetPropertyCallbackArgumentStatic<
     factory : ()=>This[Key],
     writable ?: boolean,
     configurable ?: boolean
-}
+};
 
 export type SetPropertyCallbackArgumentDynamic<
     This extends object,
@@ -22,7 +22,7 @@ export type SetPropertyCallbackArgumentDynamic<
     factory : ()=>Type,
     writable ?: boolean,
     configurable ?: boolean
-}
+};
 
 
 export default function SetPropertyCallbackParameter<
@@ -36,7 +36,7 @@ export default function SetPropertyCallbackParameter<
         writable,
         configurable,
     } : SetPropertyCallbackArgumentStatic<This, Key>
-) : SetPropertyCallbackTypeStatic<This, Key>
+) : SetPropertyCallbackTypeStatic<This, Key>;
 
 export default function SetPropertyCallbackParameter<
     This extends object,
@@ -50,7 +50,7 @@ export default function SetPropertyCallbackParameter<
         writable,
         configurable,
     } : SetPropertyCallbackArgumentDynamic<This, Key, Type>
-) : SetPropertyCallbackTypeDynamic<This, Key, Type>
+) : SetPropertyCallbackTypeDynamic<This, Key, Type>;
 
 export default function SetPropertyCallbackParameter<
     This extends object,
@@ -65,5 +65,5 @@ export default function SetPropertyCallbackParameter<
     } : SetPropertyCallbackArgumentStatic<This, Key>
 ) {
 
-    return SetPropertyCallbackParameters(object, property, factory, writable, configurable)
+    return SetPropertyCallbackParameters(object, property, factory, writable, configurable);
 }

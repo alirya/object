@@ -1,4 +1,4 @@
-import Value from "./value-parameters";
+import Value from './value-parameters';
 
 export default function ValueValidationParameters(
     property : PropertyKey,

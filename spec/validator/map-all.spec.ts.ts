@@ -1,17 +1,17 @@
-import MapAll from "../../dist/validator/map-all-parameters";
-import And from "../../dist/validatable/and";
-import Or from "../../dist/validatable/or";
-import Validatable from "@alirya/validatable/validatable";
-import ValidatorInterface from "@alirya/validator/simple";
-import MessageMap from "../../dist/message/message/record/map";
-import Instance from "@alirya/validator/validatable/validatable";
-import Type from "@alirya/type/validator/type-parameters";
-import TypeClass from "@alirya/type/validator/type-parameters";
-import TypeString from "@alirya/type/assert/string/type-parameters";
+import MapAll from '../../dist/validator/map-all-parameters';
+import And from '../../dist/validatable/and';
+import Or from '../../dist/validatable/or';
+import Validatable from '@alirya/validatable/validatable';
+import ValidatorInterface from '@alirya/validator/simple';
+import MessageMap from '../../dist/message/message/record/map';
+import Instance from '@alirya/validator/validatable/validatable';
+import Type from '@alirya/type/validator/type-parameters';
+import TypeClass from '@alirya/type/validator/type-parameters';
+import TypeString from '@alirya/type/assert/string/type-parameters';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("compiler compatibility", function() {
+describe('compiler compatibility', function() {
 
     let validator = {
         name : Type('string'),
@@ -26,14 +26,14 @@ describe("compiler compatibility", function() {
     type Type = {
         name : string,
         address : string,
-    }
+    };
 
     let value = {
         name : 'name',
         address : 'address',
     };
 
-    describe("implicit complete", function() {
+    describe('implicit complete', function() {
 
         let property = MapAll(validator, And, MessageMap);
 
@@ -44,9 +44,9 @@ describe("compiler compatibility", function() {
         let string : Type = validatable.value;
     });
 
-    describe("explicit complete", function() {
+    describe('explicit complete', function() {
 
-        describe("auto", function() {
+        describe('auto', function() {
 
             let property = MapAll<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(
                 validator,
@@ -61,7 +61,7 @@ describe("compiler compatibility", function() {
 
         });
 
-        describe("direct", function() {
+        describe('direct', function() {
 
             let property = MapAll<TypeValidator>(validator,
                 (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
@@ -79,9 +79,9 @@ describe("compiler compatibility", function() {
 });
 
 
-describe("implicit complete", function() {
+describe('implicit complete', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
         let value = {
             user : 'user',
@@ -144,10 +144,10 @@ describe("implicit complete", function() {
     });
 
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
         let value = {
-            age : "11",
+            age : '11',
             name : 'name',
             address : 'address',
         };
@@ -207,7 +207,7 @@ describe("implicit complete", function() {
     });
 
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
         let value = {
             name : {},
@@ -270,9 +270,9 @@ describe("implicit complete", function() {
 
 
 
-describe("recursive", function() {
+describe('recursive', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
 
         let value = {
@@ -377,10 +377,10 @@ describe("recursive", function() {
     });
 
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
         let value = {
-            age : "11",
+            age : '11',
             name : 'name',
             address : 'address',
             info : {
@@ -480,7 +480,7 @@ describe("recursive", function() {
     });
 
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
         let value = {
             age : {},

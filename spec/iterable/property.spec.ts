@@ -1,6 +1,6 @@
-import Value from "../../dist/iterable/value";
+import Value from '../../dist/iterable/value';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('property', () => {
 
@@ -9,13 +9,13 @@ describe('property', () => {
         data2 : 2,
         data3 : 3,
         data4 : 4,
-    }
+    };
 
     it('check result', function () {
 
         expect([...Value(object)]).toEqual([1,2,3,4]);
 
-    })
+    });
 });
 
 
@@ -26,7 +26,7 @@ describe('function', () => {
         function2 : function() {},
         function3 : function() {},
         function4 : function() {},
-    }
+    };
 
 
     it('check result', function () {
@@ -38,5 +38,5 @@ describe('function', () => {
             object.function4
         ]);
 
-    })
+    });
 });

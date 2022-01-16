@@ -1,8 +1,8 @@
-import NotEmpty from "../../dist/validatable/not-empty-parameters";
-import EmptyMessage from "../../dist/assert/string/empty-parameters";
-import Name from "../../dist/string/name";
+import NotEmpty from '../../dist/validatable/not-empty-parameters';
+import EmptyMessage from '../../dist/assert/string/empty-parameters';
+import Name from '../../dist/string/name';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 let map = new Map<object, [boolean, string]>();
 

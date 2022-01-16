@@ -1,4 +1,4 @@
-import StringType from "../string/objecparameters";
+import StringType from '../string/objecparameters';
 
 export default function ObjectParameters(
     value : unknown,
@@ -6,6 +6,6 @@ export default function ObjectParameters(
     conversion : (value:unknown)=>string = value=>typeof value,
 ) : Error {
 
-    return new Error(StringType(value, false, subject, conversion))
+    return new Error(StringType(value, false, subject, conversion));
 }
 

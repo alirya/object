@@ -10,5 +10,5 @@ export default function Object_(value : unknown) : value is object {
         return false;
     }
 
-    return typeof value === "object";
+    return typeof value === 'object';
 }

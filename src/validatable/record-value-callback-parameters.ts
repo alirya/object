@@ -1,8 +1,8 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import {O} from "ts-toolbelt";
-import RecordValue from "./record-value";
-import MemoizeAccessor from "../function/memoize-accessor";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import {O} from 'ts-toolbelt';
+import RecordValue from './record-value';
+import MemoizeAccessor from '../function/memoize-accessor';
 
 export default class RecordValueCallbackParameters<
     MessageType = unknown,
@@ -13,7 +13,7 @@ export default class RecordValueCallbackParameters<
 > implements RecordValue<MessageType, ValueType, ValidatorType, Result, ValidatableType>
 {
     readonly validatable : ValidatableType;
-    #message : (result:Result)=>MessageType
+    #message : (result:Result)=>MessageType;
     readonly validatables : Result;
 
     constructor(
@@ -53,7 +53,7 @@ export default class RecordValueCallbackParameters<
 
         } catch (e) {
 
-            throw new Error(`error on generating message, ${e}`)
+            throw new Error(`error on generating message, ${e}`);
         }
     }
 }

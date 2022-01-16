@@ -1,4 +1,4 @@
-import SymbolType from "../../symbol/boolean/symbol";
+import SymbolType from '../../symbol/boolean/symbol';
 
 /**
  * check if {@param value} is valid object key/property
@@ -9,8 +9,8 @@ export default function Property(
 ) : value is PropertyKey {
 
     switch (typeof value) {
-        case "number" :
-        case "string" :
+        case 'number' :
+        case 'string' :
             return true;
     }
 

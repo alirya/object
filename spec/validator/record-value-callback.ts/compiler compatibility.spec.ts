@@ -1,31 +1,31 @@
-import ValidatorInterface from "@alirya/validator/simple";
-import Instance from "@alirya/validator/validatable/validatable";
-import RecordValueCallback from "../../../dist/validator/record-value-callback-parameters";
-import ValidateValue from "../../../dist/validator/validatable/record/record-value-parameters";
-import And from "../../../dist/validatable/and";
-import MessageMap from "../../../dist/message/message/record/map";
-import Validatable from "@alirya/validatable/validatable";
-import ValidateValuePartial from "../../../dist/validator/validatable/record/record-value-partial-parameters";
-import Message from "@alirya/message/message";
-import Type from "@alirya/type/validator/type-parameters";
+import ValidatorInterface from '@alirya/validator/simple';
+import Instance from '@alirya/validator/validatable/validatable';
+import RecordValueCallback from '../../../dist/validator/record-value-callback-parameters';
+import ValidateValue from '../../../dist/validator/validatable/record/record-value-parameters';
+import And from '../../../dist/validatable/and';
+import MessageMap from '../../../dist/message/message/record/map';
+import Validatable from '@alirya/validatable/validatable';
+import ValidateValuePartial from '../../../dist/validator/validatable/record/record-value-partial-parameters';
+import Message from '@alirya/message/message';
+import Type from '@alirya/type/validator/type-parameters';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
 
-let validator = Type("string");
+let validator = Type('string');
 
 type Type = {
     name : string,
     address : string,
-}
+};
 
 let value = {
     name : 'name',
     address : 'address',
 };
 
-describe("implicit", function() {
+describe('implicit', function() {
 
     let property = RecordValueCallback(validator, ValidateValue, And, (v)=>MessageMap(v));
 
@@ -42,9 +42,9 @@ describe("implicit", function() {
 
 });
 
-describe("explicit complete", function() {
+describe('explicit complete', function() {
 
-    describe("auto", function() {
+    describe('auto', function() {
 
         let property = RecordValueCallback<TypeValidatorValue>(validator,
             (value, validators) => ValidateValue(value, validators),
@@ -59,7 +59,7 @@ describe("explicit complete", function() {
 
     });
 
-    describe("direct", function() {
+    describe('direct', function() {
 
         let property = RecordValueCallback<TypeValidatorValue>(validator,
             (value, validators) => ValidateValue(value, validators),
@@ -75,7 +75,7 @@ describe("explicit complete", function() {
     });
 });
 
-describe("implicit partial", function() {
+describe('implicit partial', function() {
 
     let property = RecordValueCallback(validator,
         (value, validators) =>
@@ -91,9 +91,9 @@ describe("implicit partial", function() {
 
 });
 
-describe("explicit complete", function() {
+describe('explicit complete', function() {
 
-    describe("auto", function() {
+    describe('auto', function() {
 
         let property = RecordValueCallback<TypeValidatorValue>(
             validator,
@@ -110,7 +110,7 @@ describe("explicit complete", function() {
 
     });
 
-    describe("direct", function() {
+    describe('direct', function() {
 
         let property = RecordValueCallback<TypeValidatorValue>(
             validator,

@@ -1,8 +1,8 @@
-import Exists from "../../property/boolean/exists";
-import Writable from "../../property/boolean/writable-parameters";
-import {List} from "ts-toolbelt";
-import {Required} from "utility-types";
-import MultiHandlers from "./multi-handlers";
+import Exists from '../../property/boolean/exists';
+import Writable from '../../property/boolean/writable-parameters';
+import {List} from 'ts-toolbelt';
+import {Required} from 'utility-types';
+import MultiHandlers from './multi-handlers';
 
 export default class SetListAll<
     Target extends object,

@@ -1,6 +1,6 @@
-import MemoizeMethod from "../../../dist/function/memoize-method";
+import MemoizeMethod from '../../../dist/function/memoize-method';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('no argument', ()=>{
 

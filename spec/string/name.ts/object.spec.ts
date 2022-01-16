@@ -1,6 +1,6 @@
-import Name from "../../../dist/string/name";
+import Name from '../../../dist/string/name';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('custom', ()=>{
 
@@ -12,7 +12,7 @@ describe('custom', ()=>{
         expect(Name(new Test)).toBe('Test');
     });
 
-})
+});
 
 describe('native Object', ()=>{
 
@@ -20,5 +20,5 @@ describe('native Object', ()=>{
         expect(Name({})).toBe('Object');
     });
 
-})
+});
 

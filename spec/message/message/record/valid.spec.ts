@@ -1,21 +1,21 @@
-import Type from "@alirya/type/validator/type-parameters";
-import ValueAll from "../../../../dist/validator/value-all-parameters";
-import ValueCallback from "../../../../dist/validator/value-callback-parameters";
-import MapAll from "../../../../dist/validator/map-all-parameters";
-import MapCallback from "../../../../dist/validator/map-callback-parameters";
-import Value from "../../../../dist/validator/value-all-parameters";
-import Map from "../../../../dist/validator/map-all-parameters";
-import And from "../../../../dist/validatable/and";
-import Valid from "../../../../dist/message/message/record/valid";
-import MessageMap from "../../../../dist/message/message/record/map";
-import ValidatorValidatable from "../../../../dist/validator/validatable/record/infer";
-import ValidateValuePartial from "../../../../dist/validator/validatable/record/value-partial-parameters";
-import Instance from "@alirya/validator/validatable/validatable";
+import Type from '@alirya/type/validator/type-parameters';
+import ValueAll from '../../../../dist/validator/value-all-parameters';
+import ValueCallback from '../../../../dist/validator/value-callback-parameters';
+import MapAll from '../../../../dist/validator/map-all-parameters';
+import MapCallback from '../../../../dist/validator/map-callback-parameters';
+import Value from '../../../../dist/validator/value-all-parameters';
+import Map from '../../../../dist/validator/map-all-parameters';
+import And from '../../../../dist/validatable/and';
+import Valid from '../../../../dist/message/message/record/valid';
+import MessageMap from '../../../../dist/message/message/record/map';
+import ValidatorValidatable from '../../../../dist/validator/validatable/record/infer';
+import ValidateValuePartial from '../../../../dist/validator/validatable/record/value-partial-parameters';
+import Instance from '@alirya/validator/validatable/validatable';
 
-it("force console log", () => {spyOn(console, 'log').and.callThrough();});
+it('force console log', () => {spyOn(console, 'log').and.callThrough();});
 
 
-describe("value all", function() {
+describe('value all', function() {
 
     let validator = {
         name: Type('string'),
@@ -31,7 +31,7 @@ describe("value all", function() {
 });
 
 
-describe("value partial", function() {
+describe('value partial', function() {
 
     let validator = {
         name: Type('string'),
@@ -47,7 +47,7 @@ describe("value partial", function() {
 });
 
 
-describe("value callback", function() {
+describe('value callback', function() {
 
     let validator = {
         name : Type('string'),
@@ -71,7 +71,7 @@ describe("value callback", function() {
 });
 
 
-describe("value all", function() {
+describe('value all', function() {
 
     let validator = {
         name: Type('string'),
@@ -87,7 +87,7 @@ describe("value all", function() {
 });
 
 
-describe("value partial", function() {
+describe('value partial', function() {
 
     let validator = {
         name: Type('string'),
@@ -103,7 +103,7 @@ describe("value partial", function() {
 });
 
 
-describe("value callback", function() {
+describe('value callback', function() {
 
     let validator = {
         name : Type('string'),
@@ -120,7 +120,7 @@ describe("value callback", function() {
 
     let value = {
         name : 'name',
-        age : "15",
+        age : '15',
         address : 'address',
         info : {
             age : 5,

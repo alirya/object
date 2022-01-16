@@ -1,6 +1,6 @@
-import RecordParameter from "../../subject/record/allow";
-import Validator from "@alirya/validator/validator";
-import InferReturn from "@alirya/validator/validatable/infer-static";
+import RecordParameter from '../../subject/record/allow';
+import Validator from '@alirya/validator/validator';
+import InferReturn from '@alirya/validator/validatable/infer-static';
 
 export default function * MapParameters<
     Validators extends Record<PropertyKey, Validator>

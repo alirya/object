@@ -1,5 +1,5 @@
-import Value from "@alirya/value/value";
-import StrictOmit from "../strict-omit";
+import Value from '@alirya/value/value';
+import StrictOmit from '../strict-omit';
 /**
  * check if {@param object} is certain type of record
  * {@param value} use to validate object value

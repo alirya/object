@@ -1,10 +1,10 @@
-import Validator from "@alirya/validator/validator";
-import Validatable from "@alirya/validatable/validatable";
-import ReturnInfer from "./validatable/record/infer";
-import Map from "./map";
-import ValidatorsContainer from "./validators/validators";
-import Message from "@alirya/message/message";
-import MapAllParameters from "./map-all-parameters";
+import Validator from '@alirya/validator/validator';
+import Validatable from '@alirya/validatable/validatable';
+import ReturnInfer from './validatable/record/infer';
+import Map from './map';
+import ValidatorsContainer from './validators/validators';
+import Message from '@alirya/message/message';
+import MapAllParameters from './map-all-parameters';
 
 
 export type MapAllArgument<

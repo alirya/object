@@ -1,12 +1,12 @@
-import Empty from "../../dist/boolean/empty";
+import Empty from '../../dist/boolean/empty';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('valid', () => {
 
     it(`plain object`, () => {
 
-        expect(Empty({})).toBe(true)
+        expect(Empty({})).toBe(true);
     });
 
     it(`empty class`, () => {

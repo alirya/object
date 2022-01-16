@@ -1,6 +1,6 @@
-import Property from "../property/property";
-import Guard from "@alirya/boolean/validation/guard";
-import {ReadableTypeDynamic, ReadableTypeStatic} from "./value-parameters";
+import Property from '../property/property';
+import Guard from '@alirya/boolean/validation/guard';
+import {ReadableTypeDynamic, ReadableTypeStatic} from './value-parameters';
 
 export type ReadableArgumentStatic<
     ObjectType extends object,
@@ -24,7 +24,7 @@ export default function ValueParameter<
         property,
         validation
     } : ReadableArgumentStatic<ObjectType, PropertyType, Type>
-) : object is ReadableTypeStatic<ObjectType, PropertyType, Type>
+) : object is ReadableTypeStatic<ObjectType, PropertyType, Type>;
 
 export default function ValueParameter<
     ObjectType extends object = object,
@@ -36,7 +36,7 @@ export default function ValueParameter<
         property,
         validation
     } : ReadableArgumentDynamic<PropertyType, Type>
-) : object is ReadableTypeDynamic<ObjectType, PropertyType, Type>
+) : object is ReadableTypeDynamic<ObjectType, PropertyType, Type>;
 
 export default function ValueParameter<
     ObjectType extends object = object,

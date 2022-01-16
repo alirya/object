@@ -1,4 +1,4 @@
-import Empty from "./empty";
+import Empty from './empty';
 
 /**
  * check if object is not empty (contain zero property & method)

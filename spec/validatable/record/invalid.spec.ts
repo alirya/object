@@ -1,9 +1,9 @@
-import Invalid from "../../../dist/validatable/record/invalid";
-import And from "../../../dist/validatable/and";
+import Invalid from '../../../dist/validatable/record/invalid';
+import And from '../../../dist/validatable/and';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("flat", function() {
+describe('flat', function() {
 
     let record = {
         valid : {valid:true},
@@ -12,7 +12,7 @@ describe("flat", function() {
 
     let result = Invalid(record);
 
-    it("invalid", () => {
+    it('invalid', () => {
 
         if(result.invalid) {
 
@@ -20,11 +20,11 @@ describe("flat", function() {
 
         } else {
 
-            fail('property is not exits')
+            fail('property is not exits');
         }
     });
 
-    it("valid", () => {
+    it('valid', () => {
 
         expect(result.valid).toBeUndefined();
     });
@@ -33,7 +33,7 @@ describe("flat", function() {
 
 
 
-describe("check property", function() {
+describe('check property', function() {
 
     let record = {
 
@@ -57,7 +57,7 @@ describe("check property", function() {
 
     let result = Invalid(record);
 
-    it("invalid", () => {
+    it('invalid', () => {
 
         if(result.invalid) {
 
@@ -65,18 +65,18 @@ describe("check property", function() {
 
         } else {
 
-            fail('property should exits')
+            fail('property should exits');
         }
     });
 
-    it("valid", () => {
+    it('valid', () => {
 
         expect(result.valid).toBeUndefined();
     });
 
-    describe("invalids", () => {
+    describe('invalids', () => {
 
-        it("valid1", () => {
+        it('valid1', () => {
 
             if(result.invalids && result.invalids.validatables.invalid1) {
 
@@ -84,11 +84,11 @@ describe("check property", function() {
 
             } else {
 
-                fail('property should exits')
+                fail('property should exits');
             }
         });
 
-        it("valid2", () => {
+        it('valid2', () => {
 
             if(result.invalids && result.invalids.validatables.invalid2) {
 
@@ -96,12 +96,12 @@ describe("check property", function() {
 
             } else {
 
-                fail('property should exits')
+                fail('property should exits');
             }
         });
     });
 
-    it("mixed", () => {
+    it('mixed', () => {
 
         if(result.mixed) {
 
@@ -112,12 +112,12 @@ describe("check property", function() {
 
             } else {
 
-                fail('property is not exits')
+                fail('property is not exits');
             }
 
         } else {
 
-            fail('property should exits')
+            fail('property should exits');
         }
     });
 });

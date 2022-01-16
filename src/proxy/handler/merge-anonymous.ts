@@ -1,5 +1,5 @@
-import Merge from "@alirya/array/union";
-import Exists from "../../property/boolean/exists";
+import Merge from '@alirya/array/union';
+import Exists from '../../property/boolean/exists';
 
 export default function MergeAnonymous<
     Target extends object,
@@ -9,8 +9,8 @@ export default function MergeAnonymous<
     let result : Merge<Handlers> = <Merge<Handlers>>{};
 
     const properties = [
-        "getPrototypeOf", "setPrototypeOf", "isExtensible", "preventExtensions", "getOwnPropertyDescriptor", "has",
-        "get", "set", "deleteProperty", "defineProperty", "enumerate", "ownKeys", "apply", "construct",
+        'getPrototypeOf', 'setPrototypeOf', 'isExtensible', 'preventExtensions', 'getOwnPropertyDescriptor', 'has',
+        'get', 'set', 'deleteProperty', 'defineProperty', 'enumerate', 'ownKeys', 'apply', 'construct',
     ];
 
     for (let handler of handlers) {

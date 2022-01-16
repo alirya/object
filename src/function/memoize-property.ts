@@ -1,8 +1,8 @@
-import SetProperty from "../value/value/set-property-parameters";
-import Default from "../default";
-import Suffix from "@alirya/string/suffix/suffix";
+import SetProperty from '../value/value/set-property-parameters';
+import Default from '../default';
+import Suffix from '@alirya/string/suffix/suffix';
 
-const defaults = {suffix:'', configurable:true, writable:true}
+const defaults = {suffix:'', configurable:true, writable:true};
 /**
  * to be used for decorator
  *
@@ -15,7 +15,7 @@ export default function MemoizeProperty(
     configuration : Pick<PropertyDescriptor, 'configurable'|'writable'> & Partial<Suffix> = defaults
 ) : MethodDecorator  {
 
-    const {writable, configurable} = Default(configuration, defaults)
+    const {writable, configurable} = Default(configuration, defaults);
 
     return function (target, property: string, descriptor: PropertyDescriptor) {
 

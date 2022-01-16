@@ -1,5 +1,5 @@
-import {Required} from "utility-types";
-import MultiHandlers from "./multi-handlers";
+import {Required} from 'utility-types';
+import MultiHandlers from './multi-handlers';
 
 export default class IsExtensibleListAll<
     Target extends object,

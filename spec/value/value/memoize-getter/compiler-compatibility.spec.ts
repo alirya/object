@@ -1,6 +1,6 @@
-import SetGetter from "../../../../dist/value/value/set-getter-parameters";
+import SetGetter from '../../../../dist/value/value/set-getter-parameters';
 
-it("enable console log", () => spyOn(console, 'log').and.callThrough());
+it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
 describe('plain', () => {
 
@@ -10,7 +10,7 @@ describe('plain', () => {
 
             return SetGetter(this, 'data', 'string');
         }
-    }
+    };
 
     let string : string = object.data;
 
@@ -25,7 +25,7 @@ describe('different type', () => {
         // @ts-expecerror
             return SetGetter(this, 'data', 'string');
         }
-    }
+    };
     // @ts-expecerror
     let string : string = object.data;
 
@@ -79,7 +79,7 @@ describe('not exists', () => {
                 // @ts-expecerror
                 return SetGetter(object, 'c', 'string');
             }
-        }
+        };
 
         let string : string = object.data;
 
@@ -93,7 +93,7 @@ describe('not exists', () => {
 
                 return SetGetter(this, 'c', 'string');
             }
-        }
+        };
 
         let string : string = object.data;
 

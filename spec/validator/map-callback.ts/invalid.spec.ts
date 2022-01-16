@@ -1,18 +1,18 @@
-import MapCallback from "../../../dist/validator/map-callback-parameters";
-import ValidateMapPartial from "../../../dist/validator/validatable/record/map-partial-parameters";
-import ValidateMap from "../../../dist/validator/validatable/record/map-parameters";
-import And from "../../../dist/validatable/and";
-import Or from "../../../dist/validatable/or";
-import Validatable from "@alirya/validatable/validatable";
-import MessageMap from "../../../dist/message/message/record/map";
-import Type from "@alirya/type/validator/type-parameters";
-import Instance from "@alirya/validator/validatable/validatable";
-import MapCallbackFunction from "../../../dist/validator/map-callback-parameters";
-import InferReturn from "../../../dist/validator/validatable/record/infer";
+import MapCallback from '../../../dist/validator/map-callback-parameters';
+import ValidateMapPartial from '../../../dist/validator/validatable/record/map-partial-parameters';
+import ValidateMap from '../../../dist/validator/validatable/record/map-parameters';
+import And from '../../../dist/validatable/and';
+import Or from '../../../dist/validatable/or';
+import Validatable from '@alirya/validatable/validatable';
+import MessageMap from '../../../dist/message/message/record/map';
+import Type from '@alirya/type/validator/type-parameters';
+import Instance from '@alirya/validator/validatable/validatable';
+import MapCallbackFunction from '../../../dist/validator/map-callback-parameters';
+import InferReturn from '../../../dist/validator/validatable/record/infer';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("flat", function() {
+describe('flat', function() {
 
     let value = {
         name : {},
@@ -71,7 +71,7 @@ describe("flat", function() {
 });
 
 
-describe("recursive", function() {
+describe('recursive', function() {
 
     let value = {
         name : {},

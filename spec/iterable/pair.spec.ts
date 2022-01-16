@@ -1,6 +1,6 @@
-import Value from "../../dist/iterable/pair";
+import Value from '../../dist/iterable/pair';
 
-it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
+it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('property', () => {
 
@@ -9,7 +9,7 @@ describe('property', () => {
         data2 : 2,
         data3 : 3,
         data4 : 4,
-    }
+    };
 
     it('check result', function () {
 
@@ -20,7 +20,7 @@ describe('property', () => {
             ['data4', 4],
         ]);
 
-    })
+    });
 });
 
 
@@ -31,7 +31,7 @@ describe('function', () => {
         function2 : function() {},
         function3 : function() {},
         function4 : function() {},
-    }
+    };
 
     it('check result', function () {
 
@@ -42,5 +42,5 @@ describe('function', () => {
             ['function4', object.function4]
         ]);
 
-    })
+    });
 });

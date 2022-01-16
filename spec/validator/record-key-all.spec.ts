@@ -1,33 +1,33 @@
-import RecordValueCallback from "../../dist/validator/record-key-all-parameters";
-import And from "../../dist/validatable/and";
-import Or from "../../dist/validatable/or";
-import Validatable from "@alirya/validatable/validatable";
-import ValidatorInterface from "@alirya/validator/simple";
-import Message from "@alirya/message/message";
-import MessageMap from "../../dist/message/message/record/map";
-import Type from "@alirya/type/validator/type-parameters";
-import Instance from "@alirya/validator/validatable/validatable";
-import Callbacks from "@alirya/validator/callback-parameters";
+import RecordValueCallback from '../../dist/validator/record-key-all-parameters';
+import And from '../../dist/validatable/and';
+import Or from '../../dist/validatable/or';
+import Validatable from '@alirya/validatable/validatable';
+import ValidatorInterface from '@alirya/validator/simple';
+import Message from '@alirya/message/message';
+import MessageMap from '../../dist/message/message/record/map';
+import Type from '@alirya/type/validator/type-parameters';
+import Instance from '@alirya/validator/validatable/validatable';
+import Callbacks from '@alirya/validator/callback-parameters';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("compiler compatibility", function() {
+describe('compiler compatibility', function() {
 
     type TypeValidatorValue = ValidatorInterface<PropertyKey, string, Instance<PropertyKey, string>>;
 
-    let validator = Type("string");
+    let validator = Type('string');
 
     type Type = {
         name : string,
         address : string,
-    }
+    };
 
     let value = {
         name : 'name',
         address : 'address',
     };
 
-    describe("implicit", function() {
+    describe('implicit', function() {
 
         let property = RecordValueCallback(validator, And, MessageMap);
 
@@ -44,9 +44,9 @@ describe("compiler compatibility", function() {
 
     });
 
-    describe("explicit complete", function() {
+    describe('explicit complete', function() {
 
-        describe("auto", function() {
+        describe('auto', function() {
 
             let property = RecordValueCallback<TypeValidatorValue>(validator,
                 (v)=>And(v),
@@ -60,7 +60,7 @@ describe("compiler compatibility", function() {
 
         });
 
-        describe("direct", function() {
+        describe('direct', function() {
 
             let property = RecordValueCallback<TypeValidatorValue>(validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
@@ -75,7 +75,7 @@ describe("compiler compatibility", function() {
         });
     });
 
-    describe("implicit partial", function() {
+    describe('implicit partial', function() {
 
         let property = RecordValueCallback(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
@@ -89,9 +89,9 @@ describe("compiler compatibility", function() {
 
     });
 
-    describe("explicit complete", function() {
+    describe('explicit complete', function() {
 
-        describe("auto", function() {
+        describe('auto', function() {
 
             let property = RecordValueCallback<TypeValidatorValue>(
                 validator,
@@ -106,7 +106,7 @@ describe("compiler compatibility", function() {
 
         });
 
-        describe("direct", function() {
+        describe('direct', function() {
 
             let property = RecordValueCallback<TypeValidatorValue>(
                 validator,
@@ -127,9 +127,9 @@ describe("compiler compatibility", function() {
 
 
 
-describe("implicit complete", function() {
+describe('implicit complete', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
         let validator = Type('string');
 
@@ -186,7 +186,7 @@ describe("implicit complete", function() {
     });
 
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
         let validator = Callbacks<string, string>(function (value) {
             return  ['name', 'address'].includes(value);
@@ -249,7 +249,7 @@ describe("implicit complete", function() {
     });
 
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
         let validator = Callbacks<string, string>(function (value) {
             return ! ['name', 'age', 'address'].includes(value);

@@ -1,8 +1,8 @@
-import SetGetter from "../value/value/set-getter-parameters";
-import Default from "../default";
-import Suffix from "@alirya/string/suffix/suffix";
+import SetGetter from '../value/value/set-getter-parameters';
+import Default from '../default';
+import Suffix from '@alirya/string/suffix/suffix';
 
-const defaults = {suffix:'', configurable:true}
+const defaults = {suffix:'', configurable:true};
 /**
  * to be used for decorator
  *
@@ -15,7 +15,7 @@ export default function MemoizeAccessor(
     configuration : Pick<PropertyDescriptor, 'configurable'> & Partial<Suffix> = defaults
 ) : MethodDecorator  {
 
-    configuration = Default(configuration, defaults)
+    configuration = Default(configuration, defaults);
 
     return function (target, property: string, descriptor: PropertyDescriptor) {
 

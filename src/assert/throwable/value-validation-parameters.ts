@@ -1,4 +1,4 @@
-import PropertyValueValidationMessage from "../string/value-validation-parameters";
+import PropertyValueValidationMessage from '../string/value-validation-parameters';
 
 export default function ValueValidationParameters(
     property : PropertyKey,

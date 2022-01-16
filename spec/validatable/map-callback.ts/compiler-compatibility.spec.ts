@@ -1,12 +1,12 @@
-import ValidatorInterface from "@alirya/validator/simple";
-import Instance from "@alirya/validator/validatable/validatable";
-import MapCallback from "../../../dist/validatable/map-callback-parameters";
-import ValidateMap from "../../../dist/validator/validatable/record/map-parameters";
-import ValidatableInfer from "../../../dist/validator/validatable/record/infer";
-import And from "../../../dist/validatable/and";
-import MessageMap from "../../../dist/message/message/record/map";
-import Validatable from "@alirya/validatable/validatable";
-import Type from "@alirya/type/validator/type-parameters";
+import ValidatorInterface from '@alirya/validator/simple';
+import Instance from '@alirya/validator/validatable/validatable';
+import MapCallback from '../../../dist/validatable/map-callback-parameters';
+import ValidateMap from '../../../dist/validator/validatable/record/map-parameters';
+import ValidatableInfer from '../../../dist/validator/validatable/record/infer';
+import And from '../../../dist/validatable/and';
+import MessageMap from '../../../dist/message/message/record/map';
+import Validatable from '@alirya/validatable/validatable';
+import Type from '@alirya/type/validator/type-parameters';
 
 let validator = {
     name : Type('string'),
@@ -21,14 +21,14 @@ type TypeValidator = {
 type Type = {
     name : string,
     address : string,
-}
+};
 
 let value = {
     name : 'name',
     address : 'address',
 };
 
-describe("implicit", function() {
+describe('implicit', function() {
 
     let validatable = new MapCallback(value, validator, ValidateMap, And, MessageMap);
 
@@ -38,9 +38,9 @@ describe("implicit", function() {
 
 });
 
-describe("explicit", function() {
+describe('explicit', function() {
 
-    describe("auto", function() {
+    describe('auto', function() {
 
         let validatable = new MapCallback<
             Type,

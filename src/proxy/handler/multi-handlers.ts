@@ -1,4 +1,4 @@
-import {List} from "ts-toolbelt";
+import {List} from 'ts-toolbelt';
 
 export default class MultiHandlers<
     Target extends object,

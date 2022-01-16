@@ -1,5 +1,5 @@
-import Class from "@alirya/class/boolean/class";
-import NameNotFound from "./name-nofound-parameters";
+import Class from '@alirya/class/boolean/class';
+import NameNotFound from './name-nofound-parameters';
 
 export default function Name(value : any) : string {
 
@@ -23,7 +23,7 @@ export default function Name(value : any) : string {
         return constructor;
     }
 
-    if(typeof value === "object") {
+    if(typeof value === 'object') {
 
         return 'Object';
     }
