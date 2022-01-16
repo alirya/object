@@ -1,4 +1,4 @@
-import StringType from '../string/objecparameters';
+import StringType from '../string/object-parameters';
 
 export default function ObjectParameters(
     value : unknown,

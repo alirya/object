@@ -1,5 +1,5 @@
 import Value from '@alirya/value/value';
-import ObjectParameters from './objecparameters';
+import ObjectParameters from './object-parameters';
 
 export type ObjectArgument = Value & {subject?: string} & {conversion:(value:unknown)=>string};
 

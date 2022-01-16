@@ -1,5 +1,5 @@
 import GetDescriptor from '../../descriptor/boolean/getter';
-import Descriptor from '../../descriptor/from-objecparameters';
+import Descriptor from '../../descriptor/from-object-parameters';
 import HasProperty from './exists';
 
 /**

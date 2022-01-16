@@ -3,7 +3,7 @@ import Return from '@alirya/validator/validatable/simple';
 import Instance from '@alirya/validator/validatable/validatable';
 import Message from '@alirya/message/message';
 import Static from '@alirya/validator/message/function/static-parameter';
-import ObjectParameters from './objecparameters';
+import ObjectParameters from './object-parameters';
 
 export type ObjectArgument<
     Argument,

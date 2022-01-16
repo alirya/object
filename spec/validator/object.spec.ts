@@ -1,5 +1,5 @@
-import Validator from '../../dist/validator/objecparameters';
-import ObjectMessage from '../../dist/assert/string/objecparameters';
+import Validator from '../../dist/validator/object-parameters';
+import ObjectMessage from '../../dist/assert/string/object-parameters';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

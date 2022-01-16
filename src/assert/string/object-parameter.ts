@@ -1,6 +1,6 @@
 import Validatable from '@alirya/validatable/validatable';
 import Value from '@alirya/value/value';
-import ObjectParameters from './objecparameters';
+import ObjectParameters from './object-parameters';
 
 export type ObjectArgument = Validatable & Value & {subject?: string} & {conversion?:(value:unknown)=>string};
 

@@ -1,7 +1,7 @@
 import Validator from '@alirya/validator/simple';
-import ObjectValidatable from '../validatable/objecparameters';
+import ObjectValidatable from '../validatable/object-parameters';
 import Instance from '@alirya/validator/validatable/validatable';
-import ObjectString from '../assert/string/objecparameters';
+import ObjectString from '../assert/string/object-parameters';
 import Simple from '@alirya/validator/message/function/simple-parameters';
 
 export default function ObjectParameters() : Validator<unknown, object, Readonly<Instance<object, string>>>;

@@ -1,6 +1,6 @@
 import SetDescriptor from '../../descriptor/boolean/setter';
 import PropertyDescriptor from '../../descriptor/boolean/property';
-import Descriptor from '../../descriptor/from-objecparameters';
+import Descriptor from '../../descriptor/from-object-parameters';
 import HasProperty from './exists';
 
 

@@ -1,5 +1,5 @@
 import Class from '@alirya/class/boolean/class';
-import NameNotFound from './name-nofound-parameters';
+import NameNotFound from './name-not-found-parameters';
 
 export default function Name(value : any) : string {
 
