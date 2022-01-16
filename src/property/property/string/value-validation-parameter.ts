@@ -1,6 +1,6 @@
 import PropertyInterface from "../property";
-import Validatable from "@dikac/t-validatable/validatable";
-import Validation from "@dikac/t-boolean/validation/validation";
+import Validatable from "@alirya/validatable/validatable";
+import Validation from "@alirya/boolean/validation/validation";
 import PropertyValueParameters from "./value-validation-parameters";
 
 export type PropertyValueArgument = PropertyInterface & {type : string} & Validatable & Validation<any[]>;

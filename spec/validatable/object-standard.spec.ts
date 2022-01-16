@@ -1,4 +1,4 @@
-// import ValidatorStandard from "../../dist/validatable/object-standard";
+// import ValidatorStandard from "../../dist/validatable/objecstandard";
 //
 // it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
 //
@@ -16,7 +16,7 @@
 //
 //         } else {
 //
-//             // @ts-expect-error
+//             // @ts-expecerror
 //             let object : object = validatable.value;
 //             fail('validatable.valid should false')
 //         }
@@ -34,9 +34,9 @@
 //
 //         } else {
 //
-//             // @ts-expect-error
+//             // @ts-expecerror
 //             let object : object = validatable.value;
-//             // @ts-expect-error
+//             // @ts-expecerror
 //             expect(object).toEqual(1);
 //         }
 //     });
@@ -46,18 +46,18 @@
 //         let validatable = ValidatorStandard(<unknown>{});
 //
 //         try {
-//             // @ts-expect-error
+//             // @ts-expecerror
 //             validatable.valid = true;
 //             fail('exception should thrown');
 //         } catch (e) {
 //             expect(e).toBeInstanceOf(Error);
 //         }
 //
-//         // @ts-expect-error
+//         // @ts-expecerror
 //         validatable.value = true;
 //
 //         try {
-//             // @ts-expect-error
+//             // @ts-expecerror
 //             validatable.message = 'message';
 //             fail('exception should thrown');
 //         } catch (e) {

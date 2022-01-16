@@ -29,10 +29,10 @@ describe('compiler compatibility', () => {
             data.required = result.required;
             data.nullable = result.nullable;
 
-            // @ts-expect-error
+            // @ts-expecerror
             data.optional = result.optional;
 
-            // @ts-expect-error
+            // @ts-expecerror
             data.optionalUnion = result.optionalUnion;
         });
 
@@ -40,10 +40,10 @@ describe('compiler compatibility', () => {
             data.optional = value.optional;
             data.optionalUnion = value.optionalUnion;
 
-            // @ts-expect-error
+            // @ts-expecerror
             data.required = value.required;
 
-            // @ts-expect-error
+            // @ts-expecerror
             data.nullable = value.nullable;
         });
     });
@@ -76,10 +76,10 @@ describe('explicit', () => {
         expect(result.required).toBe('required');
         expect(result.nullable).toBe('nullable');
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.optional).toBeUndefined();
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.optionalUnion).toBeUndefined();
     });
 
@@ -88,10 +88,10 @@ describe('explicit', () => {
         expect(value.optional).toBe('optional');
         expect(value.optionalUnion).toBeUndefined();
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(value.required).toBeUndefined();
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(value.nullable).toBeUndefined();
     });
 });

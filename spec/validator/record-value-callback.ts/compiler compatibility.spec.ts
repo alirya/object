@@ -1,13 +1,13 @@
-import ValidatorInterface from "@dikac/t-validator/simple";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import ValidatorInterface from "@alirya/validator/simple";
+import Instance from "@alirya/validator/validatable/validatable";
 import RecordValueCallback from "../../../dist/validator/record-value-callback-parameters";
 import ValidateValue from "../../../dist/validator/validatable/record/record-value-parameters";
 import And from "../../../dist/validatable/and";
 import MessageMap from "../../../dist/message/message/record/map";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validatable from "@alirya/validatable/validatable";
 import ValidateValuePartial from "../../../dist/validator/validatable/record/record-value-partial-parameters";
-import Message from "@dikac/t-message/message";
-import Type from "@dikac/t-type/validator/type-parameters";
+import Message from "@alirya/message/message";
+import Type from "@alirya/type/validator/type-parameters";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 

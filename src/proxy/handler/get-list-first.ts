@@ -2,7 +2,7 @@ import Exists from "../../property/boolean/exists";
 import Readable from "../../property/boolean/readable-parameters";
 import {List} from "ts-toolbelt";
 import {Required} from "utility-types";
-import Function from "@dikac/t-function/boolean/function";
+import Function from "@alirya/function/boolean/function";
 import MultiHandlers from "./multi-handlers";
 
 /**

@@ -1,4 +1,4 @@
-import Validatable from "@dikac/t-validatable/validatable";
+import Validatable from "@alirya/validatable/validatable";
 import OrBoolean from "./record/boolean/or";
 import Validatables, {ValidatablesType} from "./validatables-parameters";
 

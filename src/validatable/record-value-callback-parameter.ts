@@ -1,9 +1,9 @@
-import Validator from "@dikac/t-validator/validator";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validator from "@alirya/validator/validator";
+import Validatable from "@alirya/validatable/validatable";
 import {O} from "ts-toolbelt";
-import ValidatorContainer from "@dikac/t-validator/validator/validator";
-import MessageBase from "@dikac/t-message/message";
-import Value from "@dikac/t-value/value";
+import ValidatorContainer from "@alirya/validator/validator/validator";
+import MessageBase from "@alirya/message/message";
+import Value from "@alirya/value/value";
 import RecordValueCallbackParameters from "./record-value-callback-parameters";
 
 export type RecordValueCallbackArgument<

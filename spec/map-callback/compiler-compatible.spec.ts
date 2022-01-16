@@ -19,7 +19,7 @@ describe('basic', () => {
     string = map.boolean;
     string = map.object;
 
-    //@ts-expect-error
+    //@ts-expecerror
     string = map.r;
 
 });

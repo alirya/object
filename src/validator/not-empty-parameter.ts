@@ -1,7 +1,7 @@
-import Validator from "@dikac/t-validator/validator";
+import Validator from "@alirya/validator/validator";
 import {NotEmptyType} from "../validatable/not-empty-parameters";
 import NotEmptyString from "../assert/string/not-empty-parameter";
-import Dynamic from "@dikac/t-validator/message/function/validatable-parameter";
+import Dynamic from "@alirya/validator/message/function/validatable-parameter";
 import NotEmptyParameters from "./not-empty-parameters";
 
 export default function NotEmptyParameter<MessageType>() : Validator<object, object, boolean, boolean, NotEmptyType<object, string>>;

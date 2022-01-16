@@ -1,4 +1,4 @@
-import Merge from "@dikac/t-array/union";
+import Merge from "@alirya/array/union";
 import Exists from "../../property/boolean/exists";
 
 export default function MergeAnonymous<

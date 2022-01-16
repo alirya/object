@@ -1,4 +1,4 @@
-import Callable from "@dikac/t-function/callable";
+import Callable from "@alirya/function/callable";
 
 /**
  * get record of first parameters from record of function

@@ -11,7 +11,7 @@ describe('plain', () => {
 
     let string : string = object.data;
 
-    // @ts-expect-error
+    // @ts-expecerror
     let nonExist  = object.c;
 
 });
@@ -26,7 +26,7 @@ describe('different type', () => {
 
     let object = SetPropertyCallback(source, 'data', () =>'string', true, true);
 
-    // @ts-expect-error
+    // @ts-expecerror
     let number : number = object.data;
 
     let string : string = object.data;
@@ -82,7 +82,7 @@ describe('not exists', () => {
 
         let object = SetPropertyCallback(source, 'data', () =>'string', true, true);
 
-        // @ts-expect-error
+        // @ts-expecerror
         let string : string = object.c;
 
     });
@@ -99,7 +99,7 @@ describe('not exists', () => {
 
         let object = SetPropertyCallback(source, 'value', () =>'string', true, true);
 
-        // @ts-expect-error
+        // @ts-expecerror
         let string : string = object.c;
 
     });

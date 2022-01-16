@@ -1,8 +1,8 @@
-import Message from "@dikac/t-message/message";
+import Message from "@alirya/message/message";
 import RecordInfer from "./infer";
 import RecordInferPartial from "./infer-partial";
 import MapCallbackGuard from "../../../map-callback";
-import ValueMessage from "@dikac/t-message/message/value";
+import ValueMessage from "@alirya/message/message/value";
 
 export default function Map<
     Instance extends Record<PropertyKey, Message> = Record<PropertyKey, Message>

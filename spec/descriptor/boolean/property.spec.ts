@@ -1,5 +1,5 @@
 import Property from "../../../dist/descriptor/boolean/property";
-import GetProperty from "../../../dist/descriptor/from-object-parameters";
+import GetProperty from "../../../dist/descriptor/from-objecparameters";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,9 +1,9 @@
-import Validator from "@dikac/t-validator/validator";
-import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
-import Validatable from "@dikac/t-validatable/validatable";
-import BaseValue from "@dikac/t-value/value";
+import Validator from "@alirya/validator/validator";
+import ValidatorValidatable from "@alirya/validator/validatable/validatable";
+import Validatable from "@alirya/validatable/validatable";
+import BaseValue from "@alirya/value/value";
 import Validators from "../validator/validators/validators";
-import Message from "@dikac/t-message/message";
+import Message from "@alirya/message/message";
 import ValueCallbackParameters from "./value-callback-parameters";
 
 export type ValueCallbackArgument<

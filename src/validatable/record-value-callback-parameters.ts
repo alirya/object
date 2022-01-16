@@ -1,5 +1,5 @@
-import Validator from "@dikac/t-validator/validator";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validator from "@alirya/validator/validator";
+import Validatable from "@alirya/validatable/validatable";
 import {O} from "ts-toolbelt";
 import RecordValue from "./record-value";
 import MemoizeAccessor from "../function/memoize-accessor";

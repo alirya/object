@@ -1,6 +1,6 @@
 import SetProperty from "../value/value/set-property-parameters";
 import Default from "../default";
-import Suffix from "@dikac/t-string/suffix/suffix";
+import Suffix from "@alirya/string/suffix/suffix";
 
 const defaults = {suffix:'', configurable:true, writable:true}
 /**

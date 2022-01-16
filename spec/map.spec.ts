@@ -54,7 +54,7 @@ describe('multi dimension', () => {
     let invalid : Convert<typeof single, boolean> =  {
         str : true,
         num : true,
-        // @ts-expect-error
+        // @ts-expecerror
         child : {
             str : true,
             num : true,

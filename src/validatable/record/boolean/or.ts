@@ -1,6 +1,6 @@
 import Empty from "../../../boolean/empty";
 import Valid from "../valid";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validatable from "@alirya/validatable/validatable";
 import OmitUndefined from "../../../omit-undefined";
 
 export default function Or<

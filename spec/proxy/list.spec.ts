@@ -1,13 +1,13 @@
 import List from "../../dist/proxy/list";
-import New from "@dikac/t-function/new";
-import SetListAll from "../../dist/proxy/handler/set-list-all";
-import GetListFirst from "../../dist/proxy/handler/get-list-first";
-import HasListAny from "../../dist/proxy/handler/has-list-any";
+import New from "@alirya/function/new";
+import SetListAll from "../../dist/proxy/handler/selisall";
+import GetListFirst from "../../dist/proxy/handler/gelisfirst";
+import HasListAny from "../../dist/proxy/handler/has-lisany";
 import {Mutable} from "utility-types";
 import {InspectOptions} from "util";
 import {Object} from "ts-toolbelt";
-import GetOwnPropertyDescriptorListAll from "../../dist/proxy/handler/get-own-property-descriptor-list-all";
-import GetPrototypeOfListMerge from "../../dist/proxy/handler/prototype-of-list-merge";
+import GetOwnPropertyDescriptorListAll from "../../dist/proxy/handler/geown-property-descriptor-lisall";
+import GetPrototypeOfListMerge from "../../dist/proxy/handler/prototype-of-lismerge";
 
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});

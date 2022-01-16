@@ -1,9 +1,9 @@
-import Validator from "@dikac/t-validator/simple";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validator from "@alirya/validator/simple";
+import Validatable from "@alirya/validatable/validatable";
 import MapReturn from "./validatable/record/infer";
 import ValueInterface from "./value";
 import ValidatorsContainer from "./validators/validators";
-import Message from "@dikac/t-message/message";
+import Message from "@alirya/message/message";
 import ValueAllParameters from "./value-all-parameters";
 
 export default function ValueAllParameter<

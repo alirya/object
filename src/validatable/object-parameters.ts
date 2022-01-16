@@ -1,8 +1,8 @@
-import Callback from "@dikac/t-validator/validatable/callback-function-parameters";
+import Callback from "@alirya/validator/validatable/callback-function-parameters";
 import ObjectGuard from "../boolean/object";
-import Return from "@dikac/t-validator/validatable/simple";
-import Instance from "@dikac/t-validator/validatable/validatable";
-import Static from "@dikac/t-validator/message/function/static-parameters";
+import Return from "@alirya/validator/validatable/simple";
+import Instance from "@alirya/validator/validatable/validatable";
+import Static from "@alirya/validator/message/function/static-parameters";
 
 
 export default function ObjectParameters<Argument, MessageType>(

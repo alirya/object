@@ -1,5 +1,5 @@
 import {Required} from "utility-types";
-import IsFunction from "@dikac/t-function/boolean/function";
+import IsFunction from "@alirya/function/boolean/function";
 import MultiHandlers from "./multi-handlers";
 
 export default class ApplyListFirst<

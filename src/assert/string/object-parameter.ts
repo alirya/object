@@ -1,6 +1,6 @@
-import Validatable from "@dikac/t-validatable/validatable";
-import Value from "@dikac/t-value/value";
-import ObjectParameters from "./object-parameters";
+import Validatable from "@alirya/validatable/validatable";
+import Value from "@alirya/value/value";
+import ObjectParameters from "./objecparameters";
 
 export type ObjectArgument = Validatable & Value & {subject?: string} & {conversion?:(value:unknown)=>string};
 

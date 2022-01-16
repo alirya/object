@@ -1,12 +1,12 @@
-import ValidatorInterface from "@dikac/t-validator/simple";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import ValidatorInterface from "@alirya/validator/simple";
+import Instance from "@alirya/validator/validatable/validatable";
 import MapCallback from "../../../dist/validatable/map-callback-parameters";
 import ValidateMap from "../../../dist/validator/validatable/record/map-parameters";
 import ValidatableInfer from "../../../dist/validator/validatable/record/infer";
 import And from "../../../dist/validatable/and";
 import MessageMap from "../../../dist/message/message/record/map";
-import Validatable from "@dikac/t-validatable/validatable";
-import Type from "@dikac/t-type/validator/type-parameters";
+import Validatable from "@alirya/validatable/validatable";
+import Type from "@alirya/type/validator/type-parameters";
 
 let validator = {
     name : Type('string'),

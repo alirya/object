@@ -10,7 +10,7 @@ describe('plain', () => {
 
     let string : string = object.data;
 
-    // @ts-expect-error
+    // @ts-expecerror
     let nonExist  = object.c;
 
 });
@@ -25,7 +25,7 @@ describe('different type', () => {
 
     let object = MemoizeGetterBind(source, 'data', () =>'string');
 
-    // @ts-expect-error
+    // @ts-expecerror
     let number : number = object.data;
 
     let string : string = object.data;
@@ -81,7 +81,7 @@ describe('not exists', () => {
 
         let object = MemoizeGetterBind(source, 'data', () =>'string');
 
-        // @ts-expect-error
+        // @ts-expecerror
         let string : string = object.c;
 
     });
@@ -98,7 +98,7 @@ describe('not exists', () => {
 
         let object = MemoizeGetterBind(source, 'value', () =>'string');
 
-        // @ts-expect-error
+        // @ts-expecerror
         let string : string = object.c;
 
     });

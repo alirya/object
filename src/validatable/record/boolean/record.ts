@@ -1,6 +1,6 @@
-import Validatable from "@dikac/t-validatable/validatable";
+import Validatable from "@alirya/validatable/validatable";
 import TypeRecord from "../../../boolean/record-parameters";
-import ValidatableType from "@dikac/t-validatable/boolean/validatable";
+import ValidatableType from "@alirya/validatable/boolean/validatable";
 
 /**
  * Check if {@param record} is record of {@link Validatable}

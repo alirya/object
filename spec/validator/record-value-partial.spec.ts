@@ -1,11 +1,11 @@
 import Value from "../../dist/validator/record-value-partial-parameters";
 import And from "../../dist/validatable/and";
 import Or from "../../dist/validatable/or";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validatable from "@alirya/validatable/validatable";
 import MessageMap from "../../dist/message/message/record/map";
-import Type from "@dikac/t-type/validator/type-parameters";
-import ValidatorInterface from "@dikac/t-validator/simple";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import Type from "@alirya/type/validator/type-parameters";
+import ValidatorInterface from "@alirya/validator/simple";
+import Instance from "@alirya/validator/validatable/validatable";
 
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});

@@ -4,7 +4,7 @@ import ValidateMap from "../../../dist/validator/validatable/record/map-paramete
 import And from "../../../dist/validatable/and";
 import Or from "../../../dist/validatable/or";
 import MessageMap from "../../../dist/message/message/record/map";
-import Type from "@dikac/t-type/validator/type-parameters";
+import Type from "@alirya/type/validator/type-parameters";
 import MapCallbackFunction from "../../../dist/validator/map-callback-parameters";
 import InferReturn from "../../../dist/validator/validatable/record/infer";
 
@@ -144,25 +144,25 @@ describe("recursive", function() {
             fail('validatable.validatables.user should exist');
         }
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(validatable.validatables.info.valid).toBe(true);
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(validatable.validatables.info.value).toEqual(value.info);
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(validatable.validatables.info.validatables.age.valid).toBe(true);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(typeof validatable.validatables.info.validatables.age.message).toBe('string');
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(validatable.validatables.info.validatables.hobby.valid).toBe(true);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(typeof validatable.validatables.info.validatables.hobby.message).toBe('string');
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(validatable.validatables.info.validatables.no.valid).toBe(true);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(typeof validatable.validatables.info.validatables.no.message).toBe('string');
 
     });
@@ -227,24 +227,24 @@ describe("recursive", function() {
             fail('validatable.validatables.user should exist');
         }
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(validatable.validatables.info.valid).toBe(true);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(validatable.validatables.info.value).not.toBe(value.info);
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(validatable.validatables.info.validatables.age.valid).toBe(true);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(typeof validatable.validatables.info.validatables.age.message).toBe('string');
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(validatable.validatables.info.validatables.hobby.valid).toBe(true);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(typeof validatable.validatables.info.validatables.hobby.message).toBe('string');
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(validatable.validatables.info.validatables.no.valid).toBe(true);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(typeof validatable.validatables.info.validatables.no.message).toBe('string');
     });
 

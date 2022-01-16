@@ -1,8 +1,8 @@
-import Validator from "@dikac/t-validator/validator";
-import InferBase from "@dikac/t-validator/subject/allow";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validator from "@alirya/validator/validator";
+import InferBase from "@alirya/validator/subject/allow";
+import Validatable from "@alirya/validatable/validatable";
 import ValidatableRecordCallback from "../validatable/record-value-callback-parameters";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import Instance from "@alirya/validator/validatable/validatable";
 import RecordValue from "./record-value";
 
 export default function RecordValueCallbackParameters<

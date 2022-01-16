@@ -1,5 +1,5 @@
 import Validators from "../../../dist/validator/validators/validators";
-import Validator from "@dikac/t-validator/validator";
+import Validator from "@alirya/validator/validator";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -13,7 +13,7 @@ describe('compiler compatibility', ()=>{
 
     optinal = strict.validators;
 
-    // @ts-expect-error
+    // @ts-expecerror
     strict.validators = optinal.validators;
 
 });

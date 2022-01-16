@@ -6,9 +6,9 @@
  * @param preprocess
  * @constructor
  */
-import Value from "@dikac/t-value/value";
-import ToString from "@dikac/t-string/to-string";
-import Guard from "@dikac/t-boolean/validation/guard";
+import Value from "@alirya/value/value";
+import ToString from "@alirya/string/to-string";
+import Guard from "@alirya/boolean/validation/guard";
 import GuardedJsonParameters from "./guarded-json-parameters";
 
 export default function GuardedJsonParameter<Type>(

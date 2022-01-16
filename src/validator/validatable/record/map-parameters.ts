@@ -1,5 +1,5 @@
 import RecordParameter from "../../subject/record/allow";
-import Validator from "@dikac/t-validator/validator";
+import Validator from "@alirya/validator/validator";
 import InferReturn from "./infer";
 import IteratorMap from "../iterator/map-parameters";
 

@@ -1,10 +1,10 @@
 import Value from "../../dist/validator/value-partial-parameters";
 import And from "../../dist/validatable/and";
 import Or from "../../dist/validatable/or";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validatable from "@alirya/validatable/validatable";
 import MessageMap from "../../dist/message/message/record/map";
-import Type from "@dikac/t-type/validator/type-parameters";
-import Message from "@dikac/t-message/message";
+import Type from "@alirya/type/validator/type-parameters";
+import Message from "@alirya/message/message";
 
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
@@ -392,19 +392,19 @@ describe("recursive", function() {
                 expect(validatable.validatables.info.valid).toBe(true);
                 expect(validatable.validatables.info.value).toBe(value);
 
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(validatable.validatables.info.validatables.age.valid).toBe(true);
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(typeof validatable.validatables.info.validatables.age.message).toBe('string');
 
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(validatable.validatables.info.validatables.hobby.valid).toBe(true);
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(typeof validatable.validatables.info.validatables.hobby.message).toBe('string');
 
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(validatable.validatables.info.validatables.no.valid).toBe(true);
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(typeof validatable.validatables.info.validatables.no.message).toBe('string');
 
 
@@ -478,19 +478,19 @@ describe("recursive", function() {
                 expect(validatable.validatables.info.valid).toBe(true);
                 expect(validatable.validatables.info.value).toBe(value);
 
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(validatable.validatables.info.validatables.age.valid).toBe(true);
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(typeof validatable.validatables.info.validatables.age.message).toBe('string');
 
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(validatable.validatables.info.validatables.hobby.valid).toBe(true);
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(typeof validatable.validatables.info.validatables.hobby.message).toBe('string');
 
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(validatable.validatables.info.validatables.no.valid).toBe(true);
-                // @ts-expect-error
+                // @ts-expecerror
                 expect(typeof validatable.validatables.info.validatables.no.message).toBe('string');
 
 

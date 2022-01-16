@@ -1,5 +1,5 @@
-import Validatable from "@dikac/t-validatable/validatable";
-import Value from "@dikac/t-value/value";
+import Validatable from "@alirya/validatable/validatable";
+import Value from "@alirya/value/value";
 import CompatibleParameters from "./compatible-parameters";
 
 export type CompatibleArgument = Validatable &

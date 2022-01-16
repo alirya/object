@@ -1,8 +1,8 @@
 import Infer from "./infer";
 import {O} from "ts-toolbelt";
 import MapSingle from "../../parameter/record/map-single";
-import Value from "@dikac/t-value/value";
-import ArgumentContainer from "@dikac/t-function/argument/argument";
+import Value from "@alirya/value/value";
+import ArgumentContainer from "@alirya/function/argument/argument";
 import MethodSingleParameters from "./method-single-parameters";
 
 /**

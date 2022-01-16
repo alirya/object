@@ -1,5 +1,5 @@
 import Default from "../default";
-import Suffix from "@dikac/t-string/suffix/suffix";
+import Suffix from "@alirya/string/suffix/suffix";
 import SetMethod from "../value/value/set-method-parameters";
 
 const defaults = {suffix:'', configurable:true}

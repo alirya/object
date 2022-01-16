@@ -1,11 +1,11 @@
-import Validator from "@dikac/t-validator/validator";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validator from "@alirya/validator/validator";
+import Validatable from "@alirya/validatable/validatable";
 import RecordKey from "./record-key";
-import ValidatorValidatable from "@dikac/t-validator/validatable/validatable";
-import InferBase from "@dikac/t-validator/subject/allow";
-import ValidatorContainer from "@dikac/t-validator/validator/validator";
-import Message from "@dikac/t-message/message";
-import Value from "@dikac/t-value/value";
+import ValidatorValidatable from "@alirya/validator/validatable/validatable";
+import InferBase from "@alirya/validator/subject/allow";
+import ValidatorContainer from "@alirya/validator/validator/validator";
+import Message from "@alirya/message/message";
+import Value from "@alirya/value/value";
 import RecordKeyCallbackParameters from "./record-key-callback-parameters";
 
 export type RecordKeyCallbackArgument<

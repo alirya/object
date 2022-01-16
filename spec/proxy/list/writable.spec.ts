@@ -1,7 +1,7 @@
 import List from "../../../dist/proxy/list";
-import New from "@dikac/t-function/new";
+import New from "@alirya/function/new";
 import Writable from "../../../dist/property/boolean/writable-parameters";
-import GetOwnPropertyDescriptorListAll from "../../../dist/proxy/handler/get-own-property-descriptor-list-all";
+import GetOwnPropertyDescriptorListAll from "../../../dist/proxy/handler/geown-property-descriptor-lisall";
 
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});

@@ -15,19 +15,19 @@ describe('basic', () => {
 
     let string : string;
 
-    //@ts-expect-error
+    //@ts-expecerror
     string = map.replacednumber;
 
-    //@ts-expect-error
+    //@ts-expecerror
     string = map.replacedstring;
 
-    //@ts-expect-error
+    //@ts-expecerror
     string = map.replacedboolean;
 
-    //@ts-expect-error
+    //@ts-expecerror
     string = map.replacedobject;
 
-    //@ts-expect-error
+    //@ts-expecerror
     string = map.r;
 
 });

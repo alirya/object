@@ -1,4 +1,4 @@
-import DefinePropertyHandler from "../../../dist/proxy/handler/define-property-list-all";
+import DefinePropertyHandler from "../../../dist/proxy/handler/define-property-lisall";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -18,11 +18,11 @@ describe('direct set', () => {
 
         proxy['data'] = 'data'
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(class_.data).toBe('data');
-        // @ts-expect-error
+        // @ts-expecerror
         expect(original.data).toBe('data');
-        // @ts-expect-error
+        // @ts-expecerror
         expect(object.data).toBe('data');
 
     });
@@ -44,11 +44,11 @@ describe('direct set', () => {
             }
         });
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(class_.data).toBe(5);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(original.data).toBe(5);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(object.data).toBe(5);
 
     });
@@ -75,16 +75,16 @@ describe('direct set', () => {
             }
         });
 
-        // @ts-expect-error
+        // @ts-expecerror
         proxy.value = 5;
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(class_.value).toBe(5);
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(original.value).toBe(5);
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(object.value).toBe(5);
 
     });
@@ -106,11 +106,11 @@ describe('bind', () => {
 
         proxy['data'] = 'data'
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(class_.data).toBe('data');
-        // @ts-expect-error
+        // @ts-expecerror
         expect(original.data).toBe('data');
-        // @ts-expect-error
+        // @ts-expecerror
         expect(object.data).toBe('data');
 
     });
@@ -132,11 +132,11 @@ describe('bind', () => {
             }
         });
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(class_.data).toBe(5);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(original.data).toBe(5);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(object.data).toBe(5);
 
     });
@@ -163,16 +163,16 @@ describe('bind', () => {
             }
         });
 
-        // @ts-expect-error
+        // @ts-expecerror
         proxy.value = 5;
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(class_.value).toBe(5);
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(original.value).toBe(5);
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(object.value).toBe(5);
 
     });

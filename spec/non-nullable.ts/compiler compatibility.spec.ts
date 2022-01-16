@@ -21,13 +21,13 @@ describe('nullable', ()=>{
 
 
     let nullable : NonNullable<Type> = {
-        // @ts-expect-error
+        // @ts-expecerror
         string : null,
-        // @ts-expect-error
+        // @ts-expecerror
         number : null,
-        // @ts-expect-error
+        // @ts-expecerror
         boolean : null,
-        // @ts-expect-error
+        // @ts-expecerror
         object : null,
     };
 })

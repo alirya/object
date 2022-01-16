@@ -1,7 +1,7 @@
-import Validator from "@dikac/t-validator/validator";
+import Validator from "@alirya/validator/validator";
 import MapInterface from "../../../map";
 import {O} from "ts-toolbelt";
-import InferStatic from "@dikac/t-validator/validatable/infer-static";
+import InferStatic from "@alirya/validator/validatable/infer-static";
 import IteratorRecordValue from "../iterator/record-value-parameters";
 
 export default function RecordValueParameters<

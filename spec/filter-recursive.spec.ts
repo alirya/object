@@ -1,6 +1,6 @@
 import FilterRecursive from "../dist/filter-recursive";
-import NotEmpty from "@dikac/t-string/boolean/not-empty";
-import String from "@dikac/t-string/boolean/string";
+import NotEmpty from "@alirya/string/boolean/not-empty";
+import String from "@alirya/string/boolean/string";
 import NotEmptyObject from "../dist/boolean/not-empty";
 import Object from "../dist/boolean/object";
 

@@ -1,9 +1,9 @@
-import Value from "@dikac/t-value/value";
-import Return from "@dikac/t-validator/validatable/simple";
-import Instance from "@dikac/t-validator/validatable/validatable";
-import Message from "@dikac/t-message/message";
-import Static from "@dikac/t-validator/message/function/static-parameter";
-import ObjectParameters from "./object-parameters";
+import Value from "@alirya/value/value";
+import Return from "@alirya/validator/validatable/simple";
+import Instance from "@alirya/validator/validatable/validatable";
+import Message from "@alirya/message/message";
+import Static from "@alirya/validator/message/function/static-parameter";
+import ObjectParameters from "./objecparameters";
 
 export type ObjectArgument<
     Argument,

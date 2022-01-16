@@ -1,5 +1,5 @@
 import AssertObject from "../assert/object";
-import ObjectError from "../assert/throwable/object-parameter";
+import ObjectError from "../assert/throwable/objecparameter";
 
 
 export default function ObjectParameters(

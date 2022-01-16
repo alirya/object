@@ -1,8 +1,8 @@
-import Validator from "@dikac/t-validator/simple";
-import ObjectValidatable from "../validatable/object-parameters";
-import Instance from "@dikac/t-validator/validatable/validatable";
-import ObjectString from "../assert/string/object-parameters";
-import Simple from "@dikac/t-validator/message/function/simple-parameters";
+import Validator from "@alirya/validator/simple";
+import ObjectValidatable from "../validatable/objecparameters";
+import Instance from "@alirya/validator/validatable/validatable";
+import ObjectString from "../assert/string/objecparameters";
+import Simple from "@alirya/validator/message/function/simple-parameters";
 
 export default function ObjectParameters() : Validator<unknown, object, Readonly<Instance<object, string>>>;
 

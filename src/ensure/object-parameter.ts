@@ -1,5 +1,5 @@
-import Value from "@dikac/t-value/value";
-import ObjectParameters from "./object-parameters";
+import Value from "@alirya/value/value";
+import ObjectParameters from "./objecparameters";
 
 export type ObjectArgument = Value<unknown> & {error ?: (value:unknown)=>Error};
 

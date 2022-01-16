@@ -1,4 +1,4 @@
-import Unique from "@dikac/t-array/unique-parameters";
+import Unique from "@alirya/array/unique-parameters";
 import {Required} from "utility-types";
 import MultiHandlers from "./multi-handlers";
 

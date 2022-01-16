@@ -1,5 +1,5 @@
 import Validatables from "../../../dist/validatable/validatables/validatables";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validatable from "@alirya/validatable/validatable";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -15,7 +15,7 @@ describe('compiler compatibility', ()=>{
 
     optinal.validatables = strict.validatables;
 
-    // @ts-expect-error
+    // @ts-expecerror
     strict.validatables = optinal.validatables;
 
 });

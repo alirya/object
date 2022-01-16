@@ -1,5 +1,5 @@
 import Property from "../property/property";
-import Guard from "@dikac/t-boolean/validation/guard";
+import Guard from "@alirya/boolean/validation/guard";
 import {ReadableTypeDynamic, ReadableTypeStatic} from "./value-parameters";
 
 export type ReadableArgumentStatic<

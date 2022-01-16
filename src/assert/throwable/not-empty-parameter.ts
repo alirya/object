@@ -1,4 +1,4 @@
-import Value from "@dikac/t-value/value";
+import Value from "@alirya/value/value";
 import NotEmptyParameters from "./not-empty-parameters";
 
 export default function NotEmptyParameter(

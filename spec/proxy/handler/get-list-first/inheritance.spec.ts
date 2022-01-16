@@ -1,4 +1,4 @@
-import GetListFirst from "../../../../dist/proxy/handler/get-list-first";
+import GetListFirst from "../../../../dist/proxy/handler/gelisfirst";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 

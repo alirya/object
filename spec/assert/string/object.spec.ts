@@ -1,4 +1,4 @@
-import ObjectMessage from "../../../dist/assert/string/object-parameters";
+import ObjectMessage from "../../../dist/assert/string/objecparameters";
 
 it("enable console log", () => {spyOn(console, 'log').and.callThrough()});
 

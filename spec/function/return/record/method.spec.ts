@@ -31,10 +31,10 @@ describe('compiler compatibility', () => {
 
         let string : string = result.string;
 
-        // @ts-expect-error
+        // @ts-expecerror
         let boolean : boolean = result.boolean;
 
-        // @ts-expect-error
+        // @ts-expecerror
         let number : number = result.number;
     });
 
@@ -47,7 +47,7 @@ describe('compiler compatibility', () => {
 
         let string : string = result.string;
 
-        // @ts-expect-error
+        // @ts-expecerror
         let boolean : boolean = result.boolean;
 
         let number : number = result.number;
@@ -68,11 +68,11 @@ describe('compiler compatibility', () => {
         let number : number = result.number;
     });
 
-    it('not-exist', () => {
+    it('noexist', () => {
 
         try {
 
-            // @ts-expect-error
+            // @ts-expecerror
             let result = MethodSingle(new Test(), {
                 number : [5],
                 object : [{}]
@@ -97,10 +97,10 @@ describe('test', () => {
 
         expect(result.string).toBe('data' + 'data');
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.boolean).toBe(undefined);
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.number).toBe(undefined);
     });
 
@@ -113,7 +113,7 @@ describe('test', () => {
 
         expect(result.string).toBe('data' + 'data');
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.boolean).toBe(undefined);
 
         expect(result.number).toBe(10);
@@ -134,11 +134,11 @@ describe('test', () => {
         expect(result.number).toBe(10);
     });
 
-    it('not-exist', () => {
+    it('noexist', () => {
 
         try {
 
-            // @ts-expect-error
+            // @ts-expecerror
             let result = MethodSingle(new Test(), {
                 number : [5],
                 object : [{}]

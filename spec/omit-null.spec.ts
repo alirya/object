@@ -1,4 +1,4 @@
-import OmitNull from "../dist/omit-null";
+import OmitNull from "../dist/ominull";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
 
@@ -28,7 +28,7 @@ describe('compiler compatibility', () => {
 
         data.optional = result.optional;
 
-        // @ts-expect-error
+        // @ts-expecerror
         data.optionalUnion = result.optionalUnion;
 
     });
@@ -47,10 +47,10 @@ describe('compiler compatibility', () => {
         data.required = result.required;
         data.nullable = result.nullable;
 
-        // @ts-expect-error
+        // @ts-expecerror
         data.optional = result.optional;
 
-        // @ts-expect-error
+        // @ts-expecerror
         data.optionalUnion = result.optionalUnion;
 
     });

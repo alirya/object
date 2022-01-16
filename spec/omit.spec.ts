@@ -19,10 +19,10 @@ describe(' compatibility', function () {
     let omit : globalThis.Omit<typeof source, 'string'|'number'> = result;
     let strictOmit : StrictOmit<typeof source, 'string'|'number'> = result;
 
-    // @ts-expect-error
+    // @ts-expecerror
     let string : string = result.string;
 
-    // @ts-expect-error
+    // @ts-expecerror
     let number : number = result.number;
     let boolean : boolean = result.boolean;
     let array : any[] = result.array;
@@ -46,10 +46,10 @@ it(' test', function () {
     let omit : globalThis.Omit<typeof source, 'string'|'number'> = result;
     let strictOmit : StrictOmit<typeof source, 'string'|'number'> = result;
 
-    // @ts-expect-error
+    // @ts-expecerror
     expect(result.string).toBe(undefined);
 
-    // @ts-expect-error
+    // @ts-expecerror
     expect(result.number).toBe(undefined);
 
     expect(result.boolean).toBe(true);

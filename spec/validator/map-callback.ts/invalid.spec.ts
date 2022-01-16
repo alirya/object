@@ -3,10 +3,10 @@ import ValidateMapPartial from "../../../dist/validator/validatable/record/map-p
 import ValidateMap from "../../../dist/validator/validatable/record/map-parameters";
 import And from "../../../dist/validatable/and";
 import Or from "../../../dist/validatable/or";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validatable from "@alirya/validatable/validatable";
 import MessageMap from "../../../dist/message/message/record/map";
-import Type from "@dikac/t-type/validator/type-parameters";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import Type from "@alirya/type/validator/type-parameters";
+import Instance from "@alirya/validator/validatable/validatable";
 import MapCallbackFunction from "../../../dist/validator/map-callback-parameters";
 import InferReturn from "../../../dist/validator/validatable/record/infer";
 

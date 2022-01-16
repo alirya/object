@@ -1,4 +1,4 @@
-import Type from "@dikac/t-type/validator/type-parameters";
+import Type from "@alirya/type/validator/type-parameters";
 import ValueAll from "../../../../dist/validator/value-all-parameters";
 import ValueCallback from "../../../../dist/validator/value-callback-parameters";
 import MapAll from "../../../../dist/validator/map-all-parameters";
@@ -11,7 +11,7 @@ import MessageMap from "../../../../dist/message/message/record/map";
 import ValidatorValidatable from "../../../../dist/validator/validatable/record/infer";
 import ValidateMapPartial from "../../../../dist/validator/validatable/record/map-partial-parameters";
 import ValidateValuePartial from "../../../../dist/validator/validatable/record/value-partial-parameters";
-import Instance from "@dikac/t-validator/validatable/validatable";
+import Instance from "@alirya/validator/validatable/validatable";
 
 it("force console log", () => {spyOn(console, 'log').and.callThrough();});
 

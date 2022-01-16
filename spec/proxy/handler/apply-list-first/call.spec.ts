@@ -1,4 +1,4 @@
-import ApplyListFirst from "../../../../dist/proxy/handler/apply-list-first";
+import ApplyListFirst from "../../../../dist/proxy/handler/apply-lisfirst";
 
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});

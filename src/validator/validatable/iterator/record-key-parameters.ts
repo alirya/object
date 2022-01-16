@@ -1,5 +1,5 @@
-import Validator from "@dikac/t-validator/validator";
-import Return from "@dikac/t-validator/validatable/infer-static";
+import Validator from "@alirya/validator/validator";
+import Return from "@alirya/validator/validatable/infer-static";
 
 export default function * RecordKeyParameters<
     RecordType extends Record<PropertyKey, any>,

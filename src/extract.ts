@@ -1,6 +1,6 @@
 import {Object, List} from "ts-toolbelt";
-import Value from "@dikac/t-value/value";
-import Return from "@dikac/t-function/return/return";
+import Value from "@alirya/value/value";
+import Return from "@alirya/function/return/return";
 
 /**
  * extract {@template ObjectTemplate} by {@template Key}, extracted value will be

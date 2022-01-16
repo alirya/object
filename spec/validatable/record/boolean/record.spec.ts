@@ -50,7 +50,7 @@ describe('compiler compatible', function () {
             boolean = object.invalid.valid;
 
             try {
-                // @ts-expect-error
+                // @ts-expecerror
                 boolean = object.invalid1.valid;
                 fail('object.invalid1 shlud not exists');
             } catch (e) {

@@ -27,10 +27,10 @@ describe('flat', ()=>{
         number = result.data4;
         number = result.data5;
 
-        // @ts-expect-error
+        // @ts-expecerror
         number = result.data6;
 
-        // @ts-expect-error
+        // @ts-expecerror
         let string : string = result.data6;
     });
 
@@ -74,10 +74,10 @@ describe('deep', ()=>{
         number = result.data3.data1.message;
         number = result.data3.data2.message;
 
-        // @ts-expect-error
+        // @ts-expecerror
         number = result.data6;
 
-        // @ts-expect-error
+        // @ts-expecerror
         let string : string = result.data6;
     });
 

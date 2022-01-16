@@ -1,5 +1,5 @@
 import PropertyInterface from "../property";
-import Validation from "@dikac/t-boolean/validation/validation";
+import Validation from "@alirya/boolean/validation/validation";
 import PropertyValueParameters from "./value-validation-parameters";
 
 

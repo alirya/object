@@ -1,9 +1,9 @@
-import Validator from "@dikac/t-validator/validator";
-import Validatable from "@dikac/t-validatable/validatable";
-import ReturnInfer from "@dikac/t-validator/validatable/infer-static";
+import Validator from "@alirya/validator/validator";
+import Validatable from "@alirya/validatable/validatable";
+import ReturnInfer from "@alirya/validator/validatable/infer-static";
 import RecordKey from "./record-key";
-import ValidatorContainer from "@dikac/t-validator/validator/validator";
-import Message from "@dikac/t-message/message";
+import ValidatorContainer from "@alirya/validator/validator/validator";
+import Message from "@alirya/message/message";
 import RecordKeyAllParameters from "./record-key-all-parameters";
 
 export type RecordKeyAllArgument<

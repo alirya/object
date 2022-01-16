@@ -1,5 +1,5 @@
-import Validator from "@dikac/t-validator/validator";
-import InferArgument from "@dikac/t-validator/subject/allow";
+import Validator from "@alirya/validator/validator";
+import InferArgument from "@alirya/validator/subject/allow";
 
 type Allow<Schema extends Record<PropertyKey, Validator>> = {
     [Key in keyof Schema] : InferArgument<Schema[Key]>

@@ -1,2 +1,2 @@
-# t-object
+# object
 Typescript object

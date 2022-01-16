@@ -14,7 +14,7 @@ describe('object', ()=> {
 
     } else {
 
-        // @ts-expect-error
+        // @ts-expecerror
         let property = object.property;
     }
 
@@ -34,7 +34,7 @@ describe('optional', ()=> {
 
     } else {
 
-        // @ts-expect-error
+        // @ts-expecerror
         let property : number = object.property;
         let optional : number|undefined = object.property;
     }

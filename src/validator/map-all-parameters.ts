@@ -1,5 +1,5 @@
-import Validator from "@dikac/t-validator/validator";
-import Validatable from "@dikac/t-validatable/validatable";
+import Validator from "@alirya/validator/validator";
+import Validatable from "@alirya/validatable/validatable";
 import ReturnInfer from "./validatable/record/infer";
 import ValidateMap from "./validatable/record/map-parameters";
 import Map from "./map";

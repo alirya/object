@@ -1,6 +1,6 @@
-import Message from "@dikac/t-message/message";
+import Message from "@alirya/message/message";
 import Property from "../property/property/property";
-import Delimiter from "@dikac/t-string/separator/separator";
+import Delimiter from "@alirya/string/separator/separator";
 import PropertyParameters from "./property-parameters";
 
 export type PropertyArgument<MessageValue> =

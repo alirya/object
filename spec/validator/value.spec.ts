@@ -3,11 +3,11 @@
 // import Or from "../../dist/validatable/or";
 // import ValidatablesInterface from "../../dist/validatable/validatables/validatables";
 // import Validatables from "../../dist/validatable/validatables";
-// import Validatable from "@dikac/t-validatable/validatable";
+// import Validatable from "@alirya/validatable/validatable";
 // import MessageMap from "../../dist/message/message/record/map";
-// import Type from "@dikac/t-type/validator/type";
-// import Simple from "@dikac/t-validator/simple";
-// import ValidatorValidatable from "@dikac/t-validator/validatable/dynamic";
+// import Type from "@alirya/type/validator/type";
+// import Simple from "@alirya/validator/simple";
+// import ValidatorValidatable from "@alirya/validator/validatable/dynamic";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //
@@ -29,7 +29,7 @@
 //         let validatables : ValidatablesInterface = validatable;
 //         let record : Record<PropertyKey, Validatable> = validatable.validatables;
 //
-//         // @ts-expect-error
+//         // @ts-expecerror
 //         let and : Validatables = validatable.validatables;
 //
 //         if(validatable.valid) {

@@ -17,9 +17,9 @@ describe('compiler compatibility', function () {
     let member : StrictOmit<Test, 'string'>;
     let members : StrictOmit<Test, 'string'|'boolean'>;
 
-    // @ts-expect-error
+    // @ts-expecerror
     let nonmember : StrictOmit<Test, 'non'>;
-    // @ts-expect-error
+    // @ts-expecerror
     let nonmembers : StrictOmit<Test, 'non'|'non2'>;
 
     let withValue : StrictOmit<Test, 'string'> = {

@@ -1,5 +1,5 @@
-import Validator from "../../dist/validatable/object-parameters";
-import ObjectMessage from "../../dist/assert/string/object-parameters";
+import Validator from "../../dist/validatable/objecparameters";
+import ObjectMessage from "../../dist/assert/string/objecparameters";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
 
@@ -16,7 +16,7 @@ describe(`compiler compatible`,function() {
 
         } else {
 
-            // @ts-expect-error
+            // @ts-expecerror
             let object : object = validatable.value;
             fail('validatable.valid should false')
         }
@@ -34,9 +34,9 @@ describe(`compiler compatible`,function() {
 
         } else {
 
-            // @ts-expect-error
+            // @ts-expecerror
             let object : object = validatable.value;
-            // @ts-expect-error
+            // @ts-expecerror
             expect(object).toEqual(1);
         }
     });
@@ -46,18 +46,18 @@ describe(`compiler compatible`,function() {
         let validatable = Validator(<unknown>{}, ObjectMessage);
 
         try {
-            // @ts-expect-error
+            // @ts-expecerror
             validatable.valid = true;
             fail('exception should thrown');
         } catch (e) {
             expect(e).toBeInstanceOf(Error);
         }
 
-        // @ts-expect-error
+        // @ts-expecerror
         validatable.value = true;
 
         try {
-            // @ts-expect-error
+            // @ts-expecerror
             validatable.message = 'message';
             fail('exception should thrown');
         } catch (e) {

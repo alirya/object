@@ -1,5 +1,5 @@
 import MemoizeProperty from "../../../dist/function/memoize-property";
-import Unique from "@dikac/t-array/unique-parameters";
+import Unique from "@alirya/array/unique-parameters";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,13 +1,13 @@
 import MapAll from "../../dist/validator/map-all-parameters";
 import And from "../../dist/validatable/and";
 import Or from "../../dist/validatable/or";
-import Validatable from "@dikac/t-validatable/validatable";
-import ValidatorInterface from "@dikac/t-validator/simple";
+import Validatable from "@alirya/validatable/validatable";
+import ValidatorInterface from "@alirya/validator/simple";
 import MessageMap from "../../dist/message/message/record/map";
-import Instance from "@dikac/t-validator/validatable/validatable";
-import Type from "@dikac/t-type/validator/type-parameters";
-import TypeClass from "@dikac/t-type/validator/type-parameters";
-import TypeString from "@dikac/t-type/assert/string/type-parameters";
+import Instance from "@alirya/validator/validatable/validatable";
+import Type from "@alirya/type/validator/type-parameters";
+import TypeClass from "@alirya/type/validator/type-parameters";
+import TypeString from "@alirya/type/assert/string/type-parameters";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 

@@ -17,7 +17,7 @@ describe('plain object', () => {
 
         let string : string = result.data1;
         let number : number = result.data2();
-        // @ts-expect-error
+        // @ts-expecerror
         let boolean : boolean = result.data3;
     });
 
@@ -25,7 +25,7 @@ describe('plain object', () => {
 
         expect(result.data1).toBe(result.data1);
         expect(result.data2()).toBe(result.data2());
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.data3).toBe(undefined);
     });
 
@@ -47,7 +47,7 @@ describe('plain object, getter', () => {
 
         let string : string = result.data1;
         let number : number = result.data2();
-        // @ts-expect-error
+        // @ts-expecerror
         let boolean : boolean = result.data3;
     });
 
@@ -55,7 +55,7 @@ describe('plain object, getter', () => {
 
         expect(result.data1).toBe(object.data1);
         expect(result.data2()).toBe(object.data2());
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.data3).toBe(undefined);
     });
 });
@@ -76,19 +76,19 @@ describe('plain object, setter', () => {
     describe('compiler compatibility object', () => {
 
         let string : string = result.data1;
-        // @ts-expect-error
+        // @ts-expecerror
         let number : number = result.data2;
-        // @ts-expect-error
+        // @ts-expecerror
         let boolean : boolean = result.data3;
     });
 
     it('test value', () => {
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.data1).toBe(undefined);
 
         expect(result.data2).toBe(undefined);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.data3).toBe(undefined);
     });
 });
@@ -118,7 +118,7 @@ describe('plain object', () => {
 
         let string : string = result.data1;
         let number : number = result.data2();
-        // @ts-expect-error
+        // @ts-expecerror
         let boolean : boolean = result.data3;
     });
 
@@ -126,7 +126,7 @@ describe('plain object', () => {
 
         expect(result.data1).toBe(object.data1);
         expect(result.data2()).toBe(object.data2());
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.data3).toBe(undefined);
     });
 
@@ -151,7 +151,7 @@ describe('plain object, getter', () => {
 
         let string : string = result.data1;
         let number : number = result.data2();
-        // @ts-expect-error
+        // @ts-expecerror
         let boolean : boolean = result.data3;
     });
 
@@ -159,7 +159,7 @@ describe('plain object, getter', () => {
 
         expect(result.data1).toBe(object.data1);
         expect(result.data2()).toBe(object.data2());
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.data3).toBe(undefined);
     });
 });
@@ -183,19 +183,19 @@ describe('plain object, setter', () => {
     describe('compiler compatibility object', () => {
 
         let string : string = result.data1;
-        // @ts-expect-error
+        // @ts-expecerror
         let number : number = result.data2;
-        // @ts-expect-error
+        // @ts-expecerror
         let boolean : boolean = result.data3;
     });
 
     it('test value', () => {
 
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.data1).toBe(undefined);
 
         expect(result.data2).toBe(undefined);
-        // @ts-expect-error
+        // @ts-expecerror
         expect(result.data3).toBe(undefined);
     });
 });

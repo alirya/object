@@ -1,7 +1,7 @@
-import Validatable from "@dikac/t-validatable/validatable";
-import GuardValidatable from "@dikac/t-validatable/boolean/validatable";
+import Validatable from "@alirya/validatable/validatable";
+import GuardValidatable from "@alirya/validatable/boolean/validatable";
 import Filter from "../../filter";
-import ValidatableValid from "@dikac/t-validatable/boolean/value";
+import ValidatableValid from "@alirya/validatable/boolean/value";
 /**
  * filter all valid {@link Validatable} while retain its original structure
  */

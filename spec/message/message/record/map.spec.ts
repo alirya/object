@@ -1,5 +1,5 @@
 import Map from "../../../../dist/message/message/record/map";
-import Message from "@dikac/t-message/message";
+import Message from "@alirya/message/message";
 
 it("force console log", () => {spyOn(console, 'log').and.callThrough();});
 
@@ -23,7 +23,7 @@ describe("compiler compatible", function() {
             string = result.data3;
 
             try {
-                // @ts-expect-error
+                // @ts-expecerror
                 result.data4.message;
             } catch (e) {
                 expect(e).toBeInstanceOf(Error);
@@ -34,17 +34,17 @@ describe("compiler compatible", function() {
         it("invalid type", function() {
 
             let number : number;
-            // @ts-expect-error
+            // @ts-expecerror
             number = result.data1.message;
 
-            // @ts-expect-error
+            // @ts-expecerror
             number = result.data2.message;
 
-            // @ts-expect-error
+            // @ts-expecerror
             number = result.data3.message;
 
             try {
-                // @ts-expect-error
+                // @ts-expecerror
                 result.data4.message;
             } catch (e) {
                 expect(e).toBeInstanceOf(Error);
@@ -77,7 +77,7 @@ describe("compiler compatible", function() {
                 string = result.data3;
 
                 try {
-                    // @ts-expect-error
+                    // @ts-expecerror
                     result.data4.message;
                 } catch (e) {
                     expect(e).toBeInstanceOf(Error);
@@ -87,17 +87,17 @@ describe("compiler compatible", function() {
             it("invalid type", function() {
 
                 let number : number;
-                // @ts-expect-error
+                // @ts-expecerror
                 number = result.data1.message;
 
-                // @ts-expect-error
+                // @ts-expecerror
                 number = result.data2.message;
 
-                // @ts-expect-error
+                // @ts-expecerror
                 number = result.data3.message;
 
                 try {
-                    // @ts-expect-error
+                    // @ts-expecerror
                     result.data4.message;
                 } catch (e) {
                     expect(e).toBeInstanceOf(Error);
@@ -124,7 +124,7 @@ describe("compiler compatible", function() {
                 string = result.data3;
 
                 try {
-                    // @ts-expect-error
+                    // @ts-expecerror
                     result.data4.message;
                 } catch (e) {
                     expect(e).toBeInstanceOf(Error);
@@ -134,17 +134,17 @@ describe("compiler compatible", function() {
             it("invalid type", function() {
 
                 let number : number;
-                // @ts-expect-error
+                // @ts-expecerror
                 number = result.data1.message;
 
-                // @ts-expect-error
+                // @ts-expecerror
                 number = result.data2.message;
 
-                // @ts-expect-error
+                // @ts-expecerror
                 number = result.data3.message;
 
                 try {
-                    // @ts-expect-error
+                    // @ts-expecerror
                     result.data4.message;
                 } catch (e) {
                     expect(e).toBeInstanceOf(Error);
@@ -171,7 +171,7 @@ describe("type equal", function() {
         expect(result.data3).toBe(message.data3.message);
 
         try {
-            // @ts-expect-error
+            // @ts-expecerror
             result.data4.message;
         } catch (e) {
             expect(e).toBeInstanceOf(Error);
@@ -198,7 +198,7 @@ describe("type different", function() {
         expect(result.data3).toBe(message.data3.message);
 
         try {
-            // @ts-expect-error
+            // @ts-expecerror
             result.data4.message;
         } catch (e) {
             expect(e).toBeInstanceOf(Error);
@@ -229,7 +229,7 @@ describe("type different", function() {
         expect(result.data3).toBe(message.data3.message);
 
         try {
-            // @ts-expect-error
+            // @ts-expecerror
             result.data4.message;
         } catch (e) {
             expect(e).toBeInstanceOf(Error);

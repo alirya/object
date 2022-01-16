@@ -1,4 +1,4 @@
-import DeletePropertyHandler from "../../../dist/proxy/handler/delete-property-list-all";
+import DeletePropertyHandler from "../../../dist/proxy/handler/delete-property-lisall";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 

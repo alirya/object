@@ -1,8 +1,8 @@
-import Validator from "@dikac/t-validator/validator";
+import Validator from "@alirya/validator/validator";
 import MapInterface from "../../../map";
-import Return from "@dikac/t-validator/validatable/infer-static";
-import Value from "@dikac/t-value/value";
-import ValidatorContainer from "@dikac/t-validator/validator/validator";
+import Return from "@alirya/validator/validatable/infer-static";
+import Value from "@alirya/value/value";
+import ValidatorContainer from "@alirya/validator/validator/validator";
 import RecordKeyParameters from "./record-key-parameters";
 
 export default function RecordKeyParameter<

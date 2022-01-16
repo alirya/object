@@ -1,5 +1,5 @@
 import CallValidator from "../../../../dist/validator/validatable/record/map-parameters";
-import Type from "@dikac/t-type/validator/type-parameters";
+import Type from "@alirya/type/validator/type-parameters";
 
 it("force console log", () => spyOn(console, 'log').and.callThrough());
 

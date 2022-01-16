@@ -22,11 +22,11 @@ describe('different type', () => {
 
         get data () : number {
 
-        // @ts-expect-error
+        // @ts-expecerror
             return SetProperty(this, 'data', 'string');
         }
     }
-    // @ts-expect-error
+    // @ts-expecerror
     let string : string = object.data;
 
 });
@@ -76,7 +76,7 @@ describe('not exists', () => {
 
             get data ()  {
 
-                // @ts-expect-error
+                // @ts-expecerror
                 return SetProperty(object, 'c', 'string');
             }
         }

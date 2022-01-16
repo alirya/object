@@ -1,6 +1,6 @@
-import Type from "@dikac/t-type/validator/type-parameters";
+import Type from "@alirya/type/validator/type-parameters";
 import Record from "../../../../dist/validator/validatable/record/record-value-parameters";
-import Validator from "@dikac/t-validator/validator";
+import Validator from "@alirya/validator/validator";
 
 it("force console log", () => spyOn(console, 'log').and.callThrough());
 

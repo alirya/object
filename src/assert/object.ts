@@ -1,6 +1,6 @@
 import Guard from "../boolean/object";
-import Callback from "@dikac/t-function/assert/callback-parameters";
-import StringError from "./throwable/object-parameters";
+import Callback from "@alirya/function/assert/callback-parameters";
+import StringError from "./throwable/objecparameters";
 
 export default function Object_(
     value : unknown,

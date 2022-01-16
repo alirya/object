@@ -1,5 +1,5 @@
-import Validatable from "@dikac/t-validatable/validatable";
-import Value from "@dikac/t-value/value";
+import Validatable from "@alirya/validatable/validatable";
+import Value from "@alirya/value/value";
 import EmptyParameters from "./empty-parameters";
 
 export type EmptyArgument = Validatable & Value<object> & {subject?: string};

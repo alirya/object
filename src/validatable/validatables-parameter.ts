@@ -1,5 +1,5 @@
-import Validatable from "@dikac/t-validatable/validatable";
-import Validation from "@dikac/t-boolean/validation/validation";
+import Validatable from "@alirya/validatable/validatable";
+import Validation from "@alirya/boolean/validation/validation";
 import ValidatablesInterface from "./validatables/validatables";
 import ValidatablesParameters from "./validatables-parameters";
 

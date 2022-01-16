@@ -1,7 +1,7 @@
 import RecordParameter from "../../subject/record/allow";
-import Validator from "@dikac/t-validator/validator";
+import Validator from "@alirya/validator/validator";
 import InferReturn from "./infer";
-import Value from "@dikac/t-value/value";
+import Value from "@alirya/value/value";
 import ValidatorsContainer from "../../validators/validators";
 import MapPartialParameters from "./map-partial-parameters";
 
