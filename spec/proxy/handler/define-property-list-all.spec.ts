@@ -1,4 +1,4 @@
-import DefinePropertyHandler from '../../../dist/proxy/handler/define-property-lisall';
+import DefinePropertyHandler from '../../../dist/proxy/handler/define-property-list-all';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

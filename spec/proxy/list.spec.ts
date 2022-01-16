@@ -1,12 +1,12 @@
 import List from '../../dist/proxy/list';
 import New from '@alirya/function/new';
-import SetListAll from '../../dist/proxy/handler/selisall';
+import SetListAll from '../../dist/proxy/handler/selist-all';
 import GetListFirst from '../../dist/proxy/handler/gelisfirst';
 import HasListAny from '../../dist/proxy/handler/has-lisany';
 import {Mutable} from 'utility-types';
 import {InspectOptions} from 'util';
 import {Object} from 'ts-toolbelt';
-import GetOwnPropertyDescriptorListAll from '../../dist/proxy/handler/geown-property-descriptor-lisall';
+import GetOwnPropertyDescriptorListAll from '../../dist/proxy/handler/geown-property-descriptor-list-all';
 import GetPrototypeOfListMerge from '../../dist/proxy/handler/prototype-of-lismerge';
 
 

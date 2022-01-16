@@ -1,5 +1,5 @@
 import GetHandler from '../../../../dist/proxy/handler/gelisfirst';
-import GetOwnPropertyDescriptorListAll from '../../../../dist/proxy/handler/geown-property-descriptor-lisall';
+import GetOwnPropertyDescriptorListAll from '../../../../dist/proxy/handler/geown-property-descriptor-list-all';
 import MergeAnonymous from '../../../../dist/proxy/handler/merge-anonymous';
 import GetPrototypeOfListMerge from '../../../../dist/proxy/handler/prototype-of-lismerge';
 

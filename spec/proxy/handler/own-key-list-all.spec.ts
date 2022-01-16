@@ -1,4 +1,4 @@
-import OwnKeyList from '../../../dist/proxy/handler/own-key-lisall';
+import OwnKeyList from '../../../dist/proxy/handler/own-key-list-all';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

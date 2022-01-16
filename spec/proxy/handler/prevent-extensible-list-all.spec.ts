@@ -1,4 +1,4 @@
-import PreventExtensibleList from '../../../dist/proxy/handler/prevenextensible-lisall';
+import PreventExtensibleList from '../../../dist/proxy/handler/prevenextensible-list-all';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

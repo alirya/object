@@ -1,4 +1,4 @@
-import GetOwnPropertyDescriptorList from '../../../dist/proxy/handler/geown-property-descriptor-lisall';
+import GetOwnPropertyDescriptorList from '../../../dist/proxy/handler/geown-property-descriptor-list-all';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
