@@ -1,20 +1,20 @@
 import List from '../../dist/proxy/list';
 import New from '@alirya/function/new';
-import SetListAll from '../../dist/proxy/handler/selist-all';
-import GetListFirst from '../../dist/proxy/handler/gelisfirst';
-import HasListAny from '../../dist/proxy/handler/has-lisany';
+import SetListAll from '../../dist/proxy/handler/set-list-all';
+import GetListFirst from '../../dist/proxy/handler/get-list-first';
+import HasListAny from '../../dist/proxy/handler/has-list-any';
 import {Mutable} from 'utility-types';
 import {InspectOptions} from 'util';
 import {Object} from 'ts-toolbelt';
-import GetOwnPropertyDescriptorListAll from '../../dist/proxy/handler/geown-property-descriptor-list-all';
-import GetPrototypeOfListMerge from '../../dist/proxy/handler/prototype-of-lismerge';
+import GetOwnPropertyDescriptorListAll from '../../dist/proxy/handler/get-own-property-descriptor-list-all';
+import GetPrototypeOfListMerge from '../../dist/proxy/handler/prototype-of-list-merge';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 
-describe('compiler compatibility', () => {
+it('compiler compatibility', () => {
 
     let map = new Map();
     let set = new Set();
@@ -499,9 +499,9 @@ describe('plain object', () => {
 });
 
 
-describe('function', () => {
-
-
+//describe('function', () => {
+//
+//
 // let proxy = new Proxy(function (value){
 //     console.log(value);
 // }, new Debug);
@@ -792,7 +792,7 @@ describe('function', () => {
 //         });
 //
 //     });
-});
+//});
 
 
 

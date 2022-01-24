@@ -16,7 +16,7 @@ import Instance from '@alirya/validator/validatable/validatable';
 it('force console log', () => {spyOn(console, 'log').and.callThrough();});
 
 
-describe('value all', function() {
+it('value all', function() {
 
     let validator = {
         name: Type('string'),
@@ -32,7 +32,7 @@ describe('value all', function() {
 });
 
 
-describe('value partial', function() {
+it('value partial', function() {
 
     let validator = {
         name: Type('string'),
@@ -48,7 +48,7 @@ describe('value partial', function() {
 });
 
 
-describe('value callback', function() {
+it('value callback', function() {
 
     let validator = {
         name : Type('string'),
@@ -72,7 +72,7 @@ describe('value callback', function() {
 });
 
 
-describe('value all', function() {
+it('value all', function() {
 
     let validator = {
         name: Type('string'),
@@ -88,7 +88,7 @@ describe('value all', function() {
 });
 
 
-describe('value partial', function() {
+it('value partial', function() {
 
     let validator = {
         name: Type('string'),
@@ -104,7 +104,7 @@ describe('value partial', function() {
 });
 
 
-describe('value callback', function() {
+it('value callback', function() {
 
     let c =  MapCallback({
             age : Type('number'),

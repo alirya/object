@@ -12,7 +12,7 @@ describe('compiler compatibility', () => {
         optionalUnion : undefined|string;
     }
 
-    describe('explicit', () => {
+    it('explicit', () => {
 
         let data : Test = {
             required : 'required',
@@ -26,15 +26,15 @@ describe('compiler compatibility', () => {
         data.required = result.required;
         data.nullable = result.nullable;
 
-        // @ts-expecerror
+        // @ts-expect-error
         data.optional = result.optional;
 
-        // @ts-expecerror
+        // @ts-expect-error
         data.optionalUnion = result.optionalUnion;
 
     });
 
-    describe('implicit', () => {
+    it('implicit', () => {
 
         let data = {
             required : 'required',
@@ -48,10 +48,10 @@ describe('compiler compatibility', () => {
         data.required = result.required;
         data.nullable = result.nullable;
 
-        // @ts-expecerror
+        // @ts-expect-error
         data.optional = result.optional;
 
-        // @ts-expecerror
+        // @ts-expect-error
         data.optionalUnion = result.optionalUnion;
 
     });

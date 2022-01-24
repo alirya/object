@@ -1,4 +1,4 @@
-import GetListFirst from '../../../dist/proxy/handler/gelisfirst';
+import GetListFirst from '../../../dist/proxy/handler/get-list-first';
 import List from '../../../dist/proxy/list';
 
 export class Parent {

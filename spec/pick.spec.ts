@@ -13,11 +13,11 @@ describe('plain object', () => {
 
     let result = Pick(object, 'data1','data2');
 
-    describe('compiler compatibility object', () => {
+    it('compiler compatibility object', () => {
 
         let string : string = result.data1;
         let number : number = result.data2();
-        // @ts-expecerror
+        // @ts-expect-error
         let boolean : boolean = result.data3;
     });
 
@@ -25,7 +25,7 @@ describe('plain object', () => {
 
         expect(result.data1).toBe(result.data1);
         expect(result.data2()).toBe(result.data2());
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.data3).toBe(undefined);
     });
 
@@ -43,11 +43,11 @@ describe('plain object, getter', () => {
 
     let result = Pick(object, 'data1','data2');
 
-    describe('compiler compatibility object', () => {
+    it('compiler compatibility object', () => {
 
         let string : string = result.data1;
         let number : number = result.data2();
-        // @ts-expecerror
+        // @ts-expect-error
         let boolean : boolean = result.data3;
     });
 
@@ -55,7 +55,7 @@ describe('plain object, getter', () => {
 
         expect(result.data1).toBe(object.data1);
         expect(result.data2()).toBe(object.data2());
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.data3).toBe(undefined);
     });
 });
@@ -73,22 +73,22 @@ describe('plain object, setter', () => {
 
     let result = Pick(object, 'data1','data2');
 
-    describe('compiler compatibility object', () => {
+    it('compiler compatibility object', () => {
 
         let string : string = result.data1;
-        // @ts-expecerror
+        // @ts-expect-error
         let number : number = result.data2;
-        // @ts-expecerror
+        // @ts-expect-error
         let boolean : boolean = result.data3;
     });
 
     it('test value', () => {
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.data1).toBe(undefined);
 
         expect(result.data2).toBe(undefined);
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.data3).toBe(undefined);
     });
 });
@@ -114,11 +114,11 @@ describe('plain object', () => {
 
     let result = Pick(object, 'data1','data2');
 
-    describe('compiler compatibility object', () => {
+    it('compiler compatibility object', () => {
 
         let string : string = result.data1;
         let number : number = result.data2();
-        // @ts-expecerror
+        // @ts-expect-error
         let boolean : boolean = result.data3;
     });
 
@@ -126,7 +126,7 @@ describe('plain object', () => {
 
         expect(result.data1).toBe(object.data1);
         expect(result.data2()).toBe(object.data2());
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.data3).toBe(undefined);
     });
 
@@ -147,11 +147,11 @@ describe('plain object, getter', () => {
 
     let result = Pick(object, 'data1','data2');
 
-    describe('compiler compatibility object', () => {
+    it('compiler compatibility object', () => {
 
         let string : string = result.data1;
         let number : number = result.data2();
-        // @ts-expecerror
+        // @ts-expect-error
         let boolean : boolean = result.data3;
     });
 
@@ -159,7 +159,7 @@ describe('plain object, getter', () => {
 
         expect(result.data1).toBe(object.data1);
         expect(result.data2()).toBe(object.data2());
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.data3).toBe(undefined);
     });
 });
@@ -180,22 +180,22 @@ describe('plain object, setter', () => {
 
     let result = Pick(object, 'data1','data2');
 
-    describe('compiler compatibility object', () => {
+    it('compiler compatibility object', () => {
 
         let string : string = result.data1;
-        // @ts-expecerror
+        // @ts-expect-error
         let number : number = result.data2;
-        // @ts-expecerror
+        // @ts-expect-error
         let boolean : boolean = result.data3;
     });
 
     it('test value', () => {
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.data1).toBe(undefined);
 
         expect(result.data2).toBe(undefined);
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.data3).toBe(undefined);
     });
 });

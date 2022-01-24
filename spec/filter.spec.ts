@@ -19,13 +19,13 @@ describe('compiler compatibility', function() {
         let boolean : boolean;
         boolean = result.boolean;
 
-        // @ts-expecerror
+        // @ts-expect-error
         boolean = result.string;
 
-        // @ts-expecerror
+        // @ts-expect-error
         boolean = result.array;
 
-        // @ts-expecerror
+        // @ts-expect-error
         boolean = result.object;
 
     });
@@ -39,10 +39,10 @@ describe('compiler compatibility', function() {
         object = result.object;
         object = result.array;
 
-        // @ts-expecerror
+        // @ts-expect-error
         object = result.string;
 
-        // @ts-expecerror
+        // @ts-expect-error
         object = result.boolean;
     });
 
@@ -54,13 +54,13 @@ describe('compiler compatibility', function() {
 
         array = result.array;
 
-        // @ts-expecerror
+        // @ts-expect-error
         array = result.object;
 
-        // @ts-expecerror
+        // @ts-expect-error
         array = result.string;
 
-        // @ts-expecerror
+        // @ts-expect-error
         array = result.boolean;
     });
 
@@ -81,11 +81,11 @@ describe('check value', function() {
         let result = Filter(record,(v:any) : v is boolean => typeof v === 'boolean');
 
         expect(result.boolean).toBe(true);
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.string).toBe(undefined);
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.array).toBe(undefined);
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.object).toBe(undefined);
     });
 
@@ -93,9 +93,9 @@ describe('check value', function() {
 
         let result = Filter(record,(v:any) : v is object => typeof v === 'object');
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.boolean).toBe(undefined);
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.string).toBe(undefined);
 
         expect(result.array).toBe(result.array);
@@ -109,11 +109,11 @@ describe('check value', function() {
 
         expect(result.array).toBe(result.array);
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.boolean).toBe(undefined);
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.string).toBe(undefined);
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.object).toBe(undefined);
     });
 

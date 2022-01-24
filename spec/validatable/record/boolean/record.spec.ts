@@ -50,7 +50,7 @@ describe('compiler compatible', function () {
             boolean = object.invalid.valid;
 
             try {
-                // @ts-expecerror
+                // @ts-expect-error
                 boolean = object.invalid1.valid;
                 fail('object.invalid1 shlud not exists');
             } catch (e) {
@@ -105,7 +105,6 @@ describe('invalid single dimension', function () {
         let result = Record(object);
         expect(result).toBeFalse();
     });
-
 });
 
 

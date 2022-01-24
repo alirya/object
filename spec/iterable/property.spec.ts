@@ -2,7 +2,7 @@ import Value from '../../dist/iterable/value';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe('property', () => {
+it('property', () => {
 
     let object = {
         data1 : 1,

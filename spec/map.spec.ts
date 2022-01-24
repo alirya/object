@@ -14,7 +14,7 @@ interface Multi extends Single {
     child ?: Multi;
 }
 
-describe('single dimension', () => {
+it('single dimension', () => {
 
     let single : Record<string, string> = {
         str : 'string',
@@ -28,7 +28,7 @@ describe('single dimension', () => {
     };
 });
 
-describe('multi dimension', () => {
+it('multi dimension', () => {
 
     let single  = {
         str : 'string',
@@ -54,7 +54,7 @@ describe('multi dimension', () => {
     let invalid : Convert<typeof single, boolean> =  {
         str : true,
         num : true,
-        // @ts-expecerror
+        // @ts-expect-error
         child : {
             str : true,
             num : true,
@@ -67,7 +67,7 @@ describe('multi dimension', () => {
 });
 
 
-describe('complex', () => {
+it('complex', () => {
 
     interface Data {
 

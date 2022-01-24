@@ -13,7 +13,7 @@ describe('compiler compatibility', ()=>{
 
     optinal = strict.validators;
 
-    // @ts-expecerror
+    // @ts-expect-error
     strict.validators = optinal.validators;
 
 });

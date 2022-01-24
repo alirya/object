@@ -12,14 +12,14 @@ interface Test {
 }
 
 
-describe('compiler compatibility', function () {
+it('compiler compatibility', function () {
 
     let member : StrictOmit<Test, 'string'>;
     let members : StrictOmit<Test, 'string'|'boolean'>;
 
-    // @ts-expecerror
+    // @ts-expect-error
     let nonmember : StrictOmit<Test, 'non'>;
-    // @ts-expecerror
+    // @ts-expect-error
     let nonmembers : StrictOmit<Test, 'non'|'non2'>;
 
     let withValue : StrictOmit<Test, 'string'> = {
@@ -29,7 +29,7 @@ describe('compiler compatibility', function () {
 
 });
 
-describe('utility types compiler compatibility', function () {
+it('utility types compiler compatibility', function () {
 
     let member : UtilityTypesOmit<Test, 'string'>;
     let members : UtilityTypesOmit<Test, 'string'|'boolean'>;
@@ -44,7 +44,7 @@ describe('utility types compiler compatibility', function () {
 
 });
 
-describe('ts toolbelt compiler compatibility', function () {
+it('ts toolbelt compiler compatibility', function () {
 
     let member : Object.Omit<Test, 'string'>;
     let members : Object.Omit<Test, 'string'|'boolean'>;
@@ -59,7 +59,7 @@ describe('ts toolbelt compiler compatibility', function () {
 
 });
 
-describe('native compiler compatibility', function () {
+it('native compiler compatibility', function () {
 
     let member : globalThis.Omit<Test, 'string'>;
     let members : globalThis.Omit<Test, 'string'|'boolean'>;

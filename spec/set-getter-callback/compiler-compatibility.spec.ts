@@ -2,7 +2,7 @@ import MemoizeGetterBind from '../../dist/set-getter-callback-parameters';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
-describe('plain', () => {
+it('plain', () => {
 
     let source = {};
 
@@ -10,13 +10,13 @@ describe('plain', () => {
 
     let string : string = object.data;
 
-    // @ts-expecerror
+    // @ts-expect-error
     let nonExist  = object.c;
 
 });
 
 
-describe('different type', () => {
+it('different type', () => {
 
     let source = {
 
@@ -25,7 +25,7 @@ describe('different type', () => {
 
     let object = MemoizeGetterBind(source, 'data', () =>'string');
 
-    // @ts-expecerror
+    // @ts-expect-error
     let number : number = object.data;
 
     let string : string = object.data;
@@ -38,7 +38,7 @@ describe('class', () => {
         readonly data : string;
     }
 
-    describe('implement', () => {
+    it('implement', () => {
 
         class Implementer implements Interface {
 
@@ -55,7 +55,7 @@ describe('class', () => {
 
     });
 
-    describe('class', () => {
+    it('class', () => {
 
         class Test  {
 
@@ -74,19 +74,19 @@ describe('class', () => {
 
 describe('not exists', () => {
 
-    describe('var', () => {
+    it('var', () => {
 
         let source = {};
 
 
         let object = MemoizeGetterBind(source, 'data', () =>'string');
 
-        // @ts-expecerror
+        // @ts-expect-error
         let string : string = object.c;
 
     });
 
-    describe('multi', () => {
+    it('multi', () => {
 
         let source = {
 
@@ -98,7 +98,7 @@ describe('not exists', () => {
 
         let object = MemoizeGetterBind(source, 'value', () =>'string');
 
-        // @ts-expecerror
+        // @ts-expect-error
         let string : string = object.c;
 
     });

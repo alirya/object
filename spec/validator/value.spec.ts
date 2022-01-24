@@ -29,7 +29,7 @@
 //         let validatables : ValidatablesInterface = validatable;
 //         let record : Record<PropertyKey, Validatable> = validatable.validatables;
 //
-//         // @ts-expecerror
+//         // @ts-expect-error
 //         let and : Validatables = validatable.validatables;
 //
 //         if(validatable.valid) {

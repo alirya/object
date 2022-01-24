@@ -10,7 +10,7 @@ interface Type {
     object : object|null;
 }
 
-describe('nullable', ()=>{
+it('nullable', ()=>{
 
     let strict : NonNullable<Type> = {
         string : '',
@@ -21,13 +21,13 @@ describe('nullable', ()=>{
 
 
     let nullable : NonNullable<Type> = {
-        // @ts-expecerror
+        // @ts-expect-error
         string : null,
-        // @ts-expecerror
+        // @ts-expect-error
         number : null,
-        // @ts-expecerror
+        // @ts-expect-error
         boolean : null,
-        // @ts-expecerror
+        // @ts-expect-error
         object : null,
     };
 });

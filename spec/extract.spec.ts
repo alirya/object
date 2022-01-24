@@ -24,26 +24,26 @@ describe('compiler compatibility', () => {
         let result = extract.return;
         let value = extract.value;
 
-        describe('result', () => {
+        it('result', () => {
 
             data.required = result.required;
             data.nullable = result.nullable;
 
-            // @ts-expecerror
+            // @ts-expect-error
             data.optional = result.optional;
 
-            // @ts-expecerror
+            // @ts-expect-error
             data.optionalUnion = result.optionalUnion;
         });
 
-        describe('value', () => {
+        it('value', () => {
             data.optional = value.optional;
             data.optionalUnion = value.optionalUnion;
 
-            // @ts-expecerror
+            // @ts-expect-error
             data.required = value.required;
 
-            // @ts-expecerror
+            // @ts-expect-error
             data.nullable = value.nullable;
         });
     });
@@ -76,10 +76,10 @@ describe('explicit', () => {
         expect(result.required).toBe('required');
         expect(result.nullable).toBe('nullable');
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.optional).toBeUndefined();
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.optionalUnion).toBeUndefined();
     });
 
@@ -88,10 +88,10 @@ describe('explicit', () => {
         expect(value.optional).toBe('optional');
         expect(value.optionalUnion).toBeUndefined();
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(value.required).toBeUndefined();
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(value.nullable).toBeUndefined();
     });
 });

@@ -1,4 +1,4 @@
-import GetMemoizeKeys from '../../../../dist/proxy/handler/gememoize-keys';
+import GetMemoizeKeys from '../../../../dist/proxy/handler/get-memoize-keys';
 
 describe('class', () => {
 

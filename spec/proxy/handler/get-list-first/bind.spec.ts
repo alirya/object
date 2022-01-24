@@ -1,4 +1,4 @@
-import GetHandler from '../../../../dist/proxy/handler/gelisfirst';
+import GetHandler from '../../../../dist/proxy/handler/get-list-first';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});

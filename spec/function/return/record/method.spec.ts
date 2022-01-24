@@ -23,7 +23,7 @@ class Test {
 
 describe('compiler compatibility', () => {
 
-    describe('partial 1', () => {
+    it('partial 1', () => {
 
         let result = MethodSingle(new Test(), {
             string : ['data']
@@ -31,14 +31,14 @@ describe('compiler compatibility', () => {
 
         let string : string = result.string;
 
-        // @ts-expecerror
+        // @ts-expect-error
         let boolean : boolean = result.boolean;
 
-        // @ts-expecerror
+        // @ts-expect-error
         let number : number = result.number;
     });
 
-    describe('partial 2', () => {
+    it('partial 2', () => {
 
         let result = MethodSingle(new Test(), {
             string : ['data'],
@@ -47,13 +47,13 @@ describe('compiler compatibility', () => {
 
         let string : string = result.string;
 
-        // @ts-expecerror
+        // @ts-expect-error
         let boolean : boolean = result.boolean;
 
         let number : number = result.number;
     });
 
-    describe('all', () => {
+    it('all', () => {
 
         let result = MethodSingle(new Test(), {
             string : ['data'],
@@ -72,7 +72,7 @@ describe('compiler compatibility', () => {
 
         try {
 
-            // @ts-expecerror
+            // @ts-expect-error
             let result = MethodSingle(new Test(), {
                 number : [5],
                 object : [{}]
@@ -97,10 +97,10 @@ describe('test', () => {
 
         expect(result.string).toBe('data' + 'data');
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.boolean).toBe(undefined);
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.number).toBe(undefined);
     });
 
@@ -113,7 +113,7 @@ describe('test', () => {
 
         expect(result.string).toBe('data' + 'data');
 
-        // @ts-expecerror
+        // @ts-expect-error
         expect(result.boolean).toBe(undefined);
 
         expect(result.number).toBe(10);
@@ -138,7 +138,7 @@ describe('test', () => {
 
         try {
 
-            // @ts-expecerror
+            // @ts-expect-error
             let result = MethodSingle(new Test(), {
                 number : [5],
                 object : [{}]

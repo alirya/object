@@ -2,7 +2,7 @@ import MapCallback from '../../dist/map-callback';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe('basic', () => {
+it('basic', () => {
 
     let source = {
         number : 1,
@@ -19,13 +19,13 @@ describe('basic', () => {
     string = map.boolean;
     string = map.object;
 
-    //@ts-expecerror
+    //@ts-expect-error
     string = map.r;
 
 });
 
 
-describe('callback parameter', () => {
+it('callback parameter', () => {
 
     let source = {
         number : 1,

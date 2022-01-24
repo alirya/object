@@ -16,7 +16,7 @@ describe('flat', ()=>{
 
     let result = Standard(data);
 
-    describe('compiler compatibility', () => {
+    it('compiler compatibility', () => {
 
 
         let number : number;
@@ -27,10 +27,10 @@ describe('flat', ()=>{
         number = result.data4;
         number = result.data5;
 
-        // @ts-expecerror
+        // @ts-expect-error
         number = result.data6;
 
-        // @ts-expecerror
+        // @ts-expect-error
         let string : string = result.data6;
     });
 
@@ -64,7 +64,7 @@ describe('deep', ()=>{
 
     let result = Standard(data);
 
-    describe('compiler compatibility', () => {
+    it('compiler compatibility', () => {
 
 
         let number : number;
@@ -74,10 +74,10 @@ describe('deep', ()=>{
         number = result.data3.data1.message;
         number = result.data3.data2.message;
 
-        // @ts-expecerror
+        // @ts-expect-error
         number = result.data6;
 
-        // @ts-expecerror
+        // @ts-expect-error
         let string : string = result.data6;
     });
 

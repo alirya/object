@@ -2,7 +2,7 @@ import MapKeyCallback from '../../dist/map-key-callback';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe('basic', () => {
+it('basic', () => {
 
     let source = {
         number : 1,
@@ -15,25 +15,25 @@ describe('basic', () => {
 
     let string : string;
 
-    //@ts-expecerror
+    //@ts-expect-error
     string = map.replacednumber;
 
-    //@ts-expecerror
+    //@ts-expect-error
     string = map.replacedstring;
 
-    //@ts-expecerror
+    //@ts-expect-error
     string = map.replacedboolean;
 
-    //@ts-expecerror
+    //@ts-expect-error
     string = map.replacedobject;
 
-    //@ts-expecerror
+    //@ts-expect-error
     string = map.r;
 
 });
 
 
-describe('callback parameter', () => {
+it('callback parameter', () => {
 
     let source = {
         number : 1,

@@ -40,7 +40,7 @@ describe('implicit complete', function() {
 
         let record : Record<PropertyKey, Validatable> = validatable.validatables;
 
-        // @ts-expecerror
+        // @ts-expect-error
         let and : Validatables = validatable.validatables;
 
         if(validatable.valid) {

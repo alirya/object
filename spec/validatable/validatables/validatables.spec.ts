@@ -15,7 +15,7 @@ describe('compiler compatibility', ()=>{
 
     optinal.validatables = strict.validatables;
 
-    // @ts-expecerror
+    // @ts-expect-error
     strict.validatables = optinal.validatables;
 
 });

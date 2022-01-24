@@ -3,7 +3,7 @@ import Property from '../../../../dist/property/boolean/exists';
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
-describe('object', ()=> {
+it('object', ()=> {
 
 
     let object: object = {};
@@ -14,13 +14,13 @@ describe('object', ()=> {
 
     } else {
 
-        // @ts-expecerror
+        // @ts-expect-error
         let property = object.property;
     }
 
 });
 
-describe('optional', ()=> {
+it('optional', ()=> {
 
     class Class {
         property ?: number;
@@ -34,7 +34,7 @@ describe('optional', ()=> {
 
     } else {
 
-        // @ts-expecerror
+        // @ts-expect-error
         let property : number = object.property;
         let optional : number|undefined = object.property;
     }

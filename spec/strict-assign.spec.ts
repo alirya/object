@@ -1,4 +1,4 @@
-import StrictAssign from '../dist/stricassign';
+import StrictAssign from '../dist/strict-assign';
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 interface Data {
@@ -9,7 +9,7 @@ interface Data {
 
 describe('compiler compatible', function () {
 
-    describe('partial', function () {
+    it('partial', function () {
 
         let target : Data = {
             string : 'string'
@@ -22,14 +22,14 @@ describe('compiler compatible', function () {
 
         let result = StrictAssign(target, source);
 
-        // @ts-expecerror
+        // @ts-expect-error
         let string : string = result.string;
         let number : number = result.number;
         let boolean : boolean = result.boolean;
 
     });
 
-    describe('extra source', function () {
+    it('extra source', function () {
 
         let target : Data = {
             string : 'string'
@@ -43,7 +43,7 @@ describe('compiler compatible', function () {
 
         let result = StrictAssign(target, source);
 
-        // @ts-expecerror
+        // @ts-expect-error
         let string : string = result.string;
         let number : number = result.number;
         let boolean : boolean = result.boolean;
