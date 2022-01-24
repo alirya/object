@@ -14,15 +14,15 @@ export default function MethodSingleParameters<
     Argument extends object,
     Type extends MapSingle<Argument>,
 >(
-    value : Type,
+    object : Type,
     argument : Argument
 ) : O.Pick<Infer<Type>, keyof Argument> {
 
     let result = {};
 
-    for (const [property, value] of Object.entries(argument)) {
+    for (const [property, arg] of Object.entries(argument)) {
 
-        result[property] = value[property](value);
+        result[property] = object[property](arg);
     }
 
     return <O.Pick<Infer<Type>, keyof Argument>> result;

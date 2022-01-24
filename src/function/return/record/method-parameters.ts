@@ -19,9 +19,9 @@ export default function MethodParameters<
 
     let result = {};
 
-    for (const [property, value] of Object.entries(argument)) {
+    for (const [property, args] of Object.entries(argument)) {
 
-        result[property] = value[property](...<any>value);
+        result[property] = object[property](...<any>args);
     }
 
     return <O.Pick<Infer<Type>, keyof Argument>> result;
