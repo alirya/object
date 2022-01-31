@@ -3,7 +3,7 @@ import Validator from '@alirya/validator/validator';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe('compiler compatibility', ()=>{
+it('compiler compatibility', ()=>{
 
     let strict : Validators<Record<PropertyKey, Validator>> = {
         validators : {}

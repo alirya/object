@@ -31,7 +31,7 @@ describe('explicit typed', function() {
     };
 
 
-    describe('implicit', function() {
+    it('implicit', function() {
 
         let property = Map(validator, And, MessageMap);
 
@@ -43,7 +43,7 @@ describe('explicit typed', function() {
 
     });
 
-    describe('auto', function() {
+    it('auto', function() {
 
         let property = Map<
             globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>
@@ -59,7 +59,7 @@ describe('explicit typed', function() {
 
     });
 
-    describe('direct', function() {
+    it('direct', function() {
 
         let property = Map<TypeValidator>(validator, And, (v)=>MessageMap(RemoveUndefined(v)));
 

@@ -48,16 +48,27 @@ it('missing', function() {
         name : 'name',
     };
 
-    // @ts-expect-error
-    let validatable = new MapCallback(value, validator, ValidateMap.Parameter, And, MessageMap);
 
-    // @ts-expect-error
-    expect(value).not.toEqual(validatable.value);
+    let validatable = new MapCallback(
+      // @ts-expect-error
+      value,
+      validator, ValidateMap, And, MessageMap);
 
-    // @ts-expect-error
-    expect({name : 'name', address : 'address'}).not.toEqual(validatable.value);
 
-    // @ts-expect-error
-    expect({name : 'name', address : undefined}).toEqual(validatable.value);
+    expect(value).not.toEqual(
+      // @ts-expect-error
+      validatable.value
+    );
+
+
+    expect({name : 'name', address : 'address'}).not.toEqual(
+      // @ts-expect-error
+      validatable.value
+    );
+
+    expect({name : 'name', address : undefined}).toEqual(
+      // @ts-expect-error
+      validatable.value
+    );
 
 });

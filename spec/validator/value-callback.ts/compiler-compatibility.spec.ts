@@ -31,7 +31,7 @@ describe('implicit complete', function() {
 
     let validatable = property('data');
 
-    describe('implicit complete', function() {
+    it('implicit complete', function() {
 
         let key : Validatable = validatable.validatables.name;
         key = validatable.validatables.address;
@@ -56,7 +56,7 @@ describe('implicit complete', function() {
     });
 });
 
-describe('explicit complete', function() {
+it('explicit complete', function() {
 
     let property = ValueCallback<string>(validator,
         (value, validators) => ValidateValue(value, validators),
@@ -79,7 +79,7 @@ describe('explicit complete', function() {
 
 });
 
-describe('implicit partial', function() {
+it('implicit partial', function() {
 
     let property = ValueCallback(validator,
         (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),
@@ -101,7 +101,7 @@ describe('implicit partial', function() {
     }
 });
 
-describe('explicit complete', function() {
+it('explicit complete', function() {
 
     let property = ValueCallback<unknown, string>(validator,
         (value, validators) => <ValidatorValidatable<typeof validator>>ValidateValuePartial(value, validators),

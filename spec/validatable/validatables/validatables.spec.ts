@@ -3,7 +3,7 @@ import Validatable from '@alirya/validatable/validatable';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe('compiler compatibility', ()=>{
+it('compiler compatibility', ()=>{
 
     let strict : Validatables<Record<PropertyKey, Validatable>> = {
         validatables : {}

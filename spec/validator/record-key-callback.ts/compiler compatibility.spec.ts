@@ -27,7 +27,7 @@ describe('compiler compatibility', function() {
         address : 'address',
     };
 
-    describe('implicit', function() {
+    it('implicit', function() {
 
         let property = RecordValueCallback(validator, ValidateKey, And, (v)=>MessageMap(v));
 
@@ -46,7 +46,7 @@ describe('compiler compatibility', function() {
 
     describe('explicit complete', function() {
 
-        describe('auto', function() {
+        it('auto', function() {
 
             let property = RecordValueCallback<TypeValidatorValue>(validator,
                 (value, validators) => ValidateKey(value, validators),
@@ -61,7 +61,7 @@ describe('compiler compatibility', function() {
 
         });
 
-        describe('direct', function() {
+        it('direct', function() {
 
             let property = RecordValueCallback<TypeValidatorValue>(validator,
                 (value, validators) => ValidateKey(value, validators),
@@ -77,7 +77,7 @@ describe('compiler compatibility', function() {
         });
     });
 
-    describe('implicit partial', function() {
+    it('implicit partial', function() {
 
         let property = RecordValueCallback(validator,
             (value, validators) =>
@@ -95,7 +95,7 @@ describe('compiler compatibility', function() {
 
     describe('explicit complete', function() {
 
-        describe('auto', function() {
+        it('auto', function() {
 
             let property = RecordValueCallback<TypeValidatorValue>(
                 validator,
@@ -112,7 +112,7 @@ describe('compiler compatibility', function() {
 
         });
 
-        describe('direct', function() {
+        it('direct', function() {
 
             let property = RecordValueCallback<TypeValidatorValue>(
                 validator,

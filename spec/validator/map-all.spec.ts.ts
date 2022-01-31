@@ -33,7 +33,7 @@ describe('compiler compatibility', function() {
         address : 'address',
     };
 
-    describe('implicit complete', function() {
+    it('implicit complete', function() {
 
         let property = MapAll(validator, And, MessageMap);
 
@@ -46,7 +46,7 @@ describe('compiler compatibility', function() {
 
     describe('explicit complete', function() {
 
-        describe('auto', function() {
+        it('auto', function() {
 
             let property = MapAll<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(
                 validator,
@@ -61,7 +61,7 @@ describe('compiler compatibility', function() {
 
         });
 
-        describe('direct', function() {
+        it('direct', function() {
 
             let property = MapAll<TypeValidator>(validator,
                 (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),

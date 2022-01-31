@@ -25,7 +25,7 @@ let value = {
     address : 'address',
 };
 
-describe('implicit', function() {
+it('implicit', function() {
 
     let property = RecordValueCallback(validator, ValidateValue, And, (v)=>MessageMap(v));
 
@@ -44,7 +44,7 @@ describe('implicit', function() {
 
 describe('explicit complete', function() {
 
-    describe('auto', function() {
+    it('auto', function() {
 
         let property = RecordValueCallback<TypeValidatorValue>(validator,
             (value, validators) => ValidateValue(value, validators),
@@ -59,7 +59,7 @@ describe('explicit complete', function() {
 
     });
 
-    describe('direct', function() {
+    it('direct', function() {
 
         let property = RecordValueCallback<TypeValidatorValue>(validator,
             (value, validators) => ValidateValue(value, validators),
@@ -75,7 +75,7 @@ describe('explicit complete', function() {
     });
 });
 
-describe('implicit partial', function() {
+it('implicit partial', function() {
 
     let property = RecordValueCallback(validator,
         (value, validators) =>
@@ -93,7 +93,7 @@ describe('implicit partial', function() {
 
 describe('explicit complete', function() {
 
-    describe('auto', function() {
+    it('auto', function() {
 
         let property = RecordValueCallback<TypeValidatorValue>(
             validator,
@@ -110,7 +110,7 @@ describe('explicit complete', function() {
 
     });
 
-    describe('direct', function() {
+    it('direct', function() {
 
         let property = RecordValueCallback<TypeValidatorValue>(
             validator,

@@ -26,7 +26,7 @@ describe('compiler compatibility', function() {
         address : 'address',
     };
 
-    describe('implicit', function() {
+    it('implicit', function() {
 
         let property = RecordValue(validator, And, MessageMap);
 
@@ -45,7 +45,7 @@ describe('compiler compatibility', function() {
 
     describe('explicit complete', function() {
 
-        describe('auto', function() {
+        it('auto', function() {
 
             let property = RecordValue<TypeValidatorValue>(validator,
                 (v)=>And(v),
@@ -59,7 +59,7 @@ describe('compiler compatibility', function() {
 
         });
 
-        describe('direct', function() {
+        it('direct', function() {
 
             let property = RecordValue<TypeValidatorValue>(validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
@@ -74,7 +74,7 @@ describe('compiler compatibility', function() {
         });
     });
 
-    describe('implicit partial', function() {
+    it('implicit partial', function() {
 
         let property = RecordValue(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
@@ -90,7 +90,7 @@ describe('compiler compatibility', function() {
 
     describe('explicit complete', function() {
 
-        describe('auto', function() {
+        it('auto', function() {
 
             let property = RecordValue<TypeValidatorValue>(
                 validator,
@@ -105,7 +105,7 @@ describe('compiler compatibility', function() {
 
         });
 
-        describe('direct', function() {
+        it('direct', function() {
 
             let property = RecordValue<TypeValidatorValue>(
                 validator,

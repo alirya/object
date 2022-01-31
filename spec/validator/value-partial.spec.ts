@@ -16,7 +16,7 @@ describe('compiler compatibility', function() {
         address : Type('string'),
     };
 
-    describe('implicit partial', function() {
+    it('implicit partial', function() {
 
         let property = Value(validator, And, MessageMap);
 
@@ -28,7 +28,7 @@ describe('compiler compatibility', function() {
 
     });
 
-    describe('explicit complete', function() {
+    it('explicit complete', function() {
 
         let property = Value<string, string, {name : string, address : string}, typeof validator>(validator,
             And,

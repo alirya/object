@@ -2,7 +2,7 @@ import SetGetter from '../../../../dist/value/value/set-getter-parameters';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
-describe('plain', () => {
+it('plain', () => {
 
     let object = {
 
@@ -16,7 +16,7 @@ describe('plain', () => {
 
 });
 
-describe('different type', () => {
+it('different type', () => {
 
     let object = {
 
@@ -37,7 +37,7 @@ describe('class', () => {
         readonly data : string;
     }
 
-    describe('implement', () => {
+    it('implement', () => {
 
         class Implementer implements Interface {
 
@@ -52,7 +52,7 @@ describe('class', () => {
 
     });
 
-    describe('class', () => {
+    it('class', () => {
 
         class Test  {
 
@@ -70,7 +70,7 @@ describe('class', () => {
 
 describe('not exists', () => {
 
-    describe('var', () => {
+    it('var', () => {
 
         let object = {
 
@@ -85,7 +85,7 @@ describe('not exists', () => {
 
     });
 
-    describe('this', () => {
+    it('this', () => {
 
         let object = {
 

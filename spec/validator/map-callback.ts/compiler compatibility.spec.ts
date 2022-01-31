@@ -31,7 +31,7 @@ let value = {
     address : 'address',
 };
 
-describe('implicit complete', function() {
+it('implicit complete', function() {
 
     let property = MapCallback(validator, ValidateMap, And, MessageMap);
 
@@ -45,7 +45,7 @@ describe('implicit complete', function() {
 
 describe('explicit complete', function() {
 
-    describe('auto', function() {
+    it('auto', function() {
 
         let property = MapCallback<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(validator,
             ValidateMap,
@@ -60,7 +60,7 @@ describe('explicit complete', function() {
 
     });
 
-    describe('direct', function() {
+    it('direct', function() {
 
         let property = MapCallback<TypeValidator>(validator,
             ValidateMap,
@@ -76,7 +76,7 @@ describe('explicit complete', function() {
     });
 });
 
-describe('implicit partial', function() {
+it('implicit partial', function() {
 
     let property = MapCallback(validator,
         (value, validators) =>
@@ -94,7 +94,7 @@ describe('implicit partial', function() {
 
 describe('explicit complete', function() {
 
-    describe('auto', function() {
+    it('auto', function() {
 
         let property = MapCallback<globalThis.Record<keyof typeof validator, ValidatorInterface<any, string, Instance<any, string>>>>(
             validator,
@@ -111,7 +111,7 @@ describe('explicit complete', function() {
 
     });
 
-    describe('direct', function() {
+    it('direct', function() {
 
         let property = MapCallback<TypeValidator>(
             validator,

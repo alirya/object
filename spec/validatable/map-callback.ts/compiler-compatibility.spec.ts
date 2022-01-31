@@ -28,7 +28,7 @@ let value = {
     address : 'address',
 };
 
-describe('implicit', function() {
+it('implicit', function() {
 
     let validatable = new MapCallback(value, validator, ValidateMap, And, MessageMap);
 
@@ -40,7 +40,7 @@ describe('implicit', function() {
 
 describe('explicit', function() {
 
-    describe('auto', function() {
+    it('auto', function() {
 
         let validatable = new MapCallback<
             Type,

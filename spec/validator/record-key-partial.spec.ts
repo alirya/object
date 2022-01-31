@@ -21,7 +21,7 @@ describe('compiler compatibility', function() {
         address : 'string',
     };
 
-    describe('implicit partial', function() {
+    it('implicit partial', function() {
 
         let property = Value(validator, And, MessageMap);
 
@@ -33,7 +33,7 @@ describe('compiler compatibility', function() {
 
     });
 
-    describe('explicit complete', function() {
+    it('explicit complete', function() {
 
         let property = Value/*<Record<PropertyKey, any>, Record<string, any>, TypeValidatorValue>*/(validator, And, MessageMap);
 

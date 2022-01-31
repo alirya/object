@@ -6,7 +6,7 @@ it('force console log', () => spyOn(console, 'log').and.callThrough());
 
 describe('compiler compatibility', function() {
 
-    describe('explicit valid', function() {
+    it('explicit valid', function() {
 
         type ValueValidator = Validator<any, number>;
 
@@ -25,7 +25,7 @@ describe('compiler compatibility', function() {
         Record<Value, ValueValidator>(record, value);
     });
 
-    describe('implicit', function() {
+    it('implicit', function() {
 
         let value = Type('number');
 
@@ -37,7 +37,7 @@ describe('compiler compatibility', function() {
         Record(record, value);
     });
 
-    describe('auto', function() {
+    it('auto', function() {
 
         let value = Type('number');
 

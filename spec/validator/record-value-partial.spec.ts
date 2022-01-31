@@ -20,19 +20,20 @@ describe('compiler compatibility', function() {
         address : 'string',
     };
 
-    describe('implicit partial', function() {
+    it('implicit partial', function() {
 
         let property = Value(validator, And, MessageMap);
 
         let validatable = property(value);
 
         let unknown : unknown = validatable.value;
+        let trues : true = validatable.valid;
 
-        let string : typeof value= validatable.value;
+        let string : typeof value = validatable.value;
 
     });
 
-    describe('explicit complete', function() {
+    it('explicit complete', function() {
 
         let property = Value<TypeValidatorValue>(validator, And, MessageMap);
 
