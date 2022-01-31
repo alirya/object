@@ -9,14 +9,12 @@ export default function * ValueParameters<
     validators : Validators,
 ) : Iterable<[keyof Validators, InferReturn<Validators[keyof Validators]>]> {
 
-    let object  = {};
-
     for(let property in validators) {
 
         const validator = validators[property];
 
         yield [
-            object[<PropertyKey>property],
+            <PropertyKey>property,
             validator(value) as InferReturn<Validators[keyof Validators]>
         ];
     }

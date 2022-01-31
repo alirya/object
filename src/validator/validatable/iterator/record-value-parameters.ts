@@ -10,11 +10,9 @@ export default function * RecordValueParameters<
     validator : ValidatorType,
 ) : Iterable<[keyof RecordType, Return<ValidatorType>]> {
 
-    let result = {};
-
     for(const key in value) {
 
-        yield [result[key as PropertyKey], validator(value[key]) as Return<ValidatorType>];
+        yield [key as PropertyKey, validator(value[key]) as Return<ValidatorType>];
     }
 }
 

@@ -166,8 +166,8 @@ describe('implicit incomplete', function() {
 
             let validator = Callbacks<string, string>(function (value) {
                 return  ['name', 'address'].includes(value);
-            }, function (result){
-                return result.value + ' ' + (result.valid ? 'valid' : 'true');
+            }, function (value, valid){
+                return value + ' ' + (valid ? 'valid' : 'true');
             }, );
 
             let property = Value(
@@ -207,8 +207,8 @@ describe('implicit incomplete', function() {
 
             let validator = Callbacks<string, string>(function (value) {
                 return  ['name', 'address'].includes(value);
-            }, function (result){
-                return result.value + ' ' + (result.valid ? 'valid' : 'true');
+            }, function (value, valid){
+                return value + ' ' + (valid ? 'valid' : 'true');
             }, );
 
             let property = Value(
@@ -257,8 +257,8 @@ describe('implicit incomplete', function() {
 
             let validator = Callbacks<string, string>(function (value) {
                 return ! ['name', 'age', 'address'].includes(value);
-            },function (result){
-                return result.value + ' ' + (result.valid ? 'valid' : 'true');
+            },function (value, valid){
+                return value + ' ' + (valid ? 'valid' : 'true');
             });
 
             let property = Value(
@@ -293,8 +293,8 @@ describe('implicit incomplete', function() {
 
             let validator = Callbacks<string, string>(function (value) {
                 return ! ['name', 'age', 'address'].includes(value);
-            },function (result){
-                return result.value + ' ' + (result.valid ? 'valid' : 'true');
+            },function (value, valid){
+                return value + ' ' + (valid ? 'valid' : 'true');
             });
 
             let property = Value(

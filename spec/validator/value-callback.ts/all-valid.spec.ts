@@ -1,6 +1,6 @@
 import Type from '@alirya/type/validator/type-parameters';
 import ValueCallback from '../../../dist/validator/value-callback-parameters';
-import ValidateValue from '../../../dist/validator/validatable/record/value-parameter';
+import ValidateValue from '../../../dist/validator/validatable/record/value-parameters';
 import And from '../../../dist/validatable/and';
 import MessageMap from '../../../dist/message/message/record/map';
 import Or from '../../../dist/validatable/or';

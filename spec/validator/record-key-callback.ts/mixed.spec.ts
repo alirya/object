@@ -10,8 +10,8 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 let validator = Callbacks<string, string>( function (value) {
     return  ['name', 'address'].includes(value);
-}, function (result){
-    return result.value + ' ' + (result.valid ? 'valid' : 'true');
+}, function (value, valid){
+    return value + ' ' + (valid ? 'valid' : 'true');
 },);
 
 let value = {
