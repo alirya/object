@@ -1,5 +1,5 @@
 import Validator from '@alirya/validator/validator';
-import EmptyValidatable, {EmptyType} from '../validatable/empty-parameters';
+import {EmptyType} from '../validatable/empty-parameters';
 import EmptyString from '../assert/string/empty-parameter';
 import Dynamic from '@alirya/validator/message/function/validatable-parameter';
 import EmptyParameters from './empty-parameters';

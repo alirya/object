@@ -1,5 +1,4 @@
 import Value from '@alirya/value/value';
-import Validatable from '@alirya/validatable/validatable';
 import Message from '@alirya/message/message';
 import NotEmptyArgument from '../boolean/not-empty';
 import NotEmptyParameters from './not-empty-parameters';
