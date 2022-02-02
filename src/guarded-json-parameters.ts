@@ -1,7 +1,7 @@
 /**
- * Parse json string to object and check for certain type according to {@param validator}
- * @param json
- * @param validator
+ * Parse json string to object and check for certain type according to {@param validation}
+ * @param value
+ * @param validation
  * @param error
  * @param preprocess
  * @constructor

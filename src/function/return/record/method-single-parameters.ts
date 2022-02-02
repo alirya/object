@@ -6,7 +6,7 @@ import MapSingle from '../../parameter/record/map-single';
  * call an record of function or object, by using key from {@param argument} and it's value
  * as first argument
  *
- * @param value
+ * @param object
  * @param argument
  */
 
