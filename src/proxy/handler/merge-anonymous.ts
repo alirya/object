@@ -1,4 +1,4 @@
-import Merge from '@alirya/array/union';
+import Merge from '@alirya/array/intersect';
 import Exists from '../../property/boolean/exists';
 
 export default function MergeAnonymous<

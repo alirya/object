@@ -1,4 +1,4 @@
-import Merge from '@alirya/array/union';
+import Merge from '@alirya/array/intersect';
 import MergeAnonymous from './handler/merge-anonymous';
 
 export default function List<Objects extends object[]>(
