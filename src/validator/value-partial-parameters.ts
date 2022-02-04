@@ -35,7 +35,7 @@ import ValueInterface from './value';
  * result after processing {@template Validators} with {@template BaseType} or {@template ValueType}
  */
 
-export type ValuePartialType<
+export type ValuePartialReturn<
     BaseType = unknown,
     ValueType extends BaseType = BaseType,
     MessageType = unknown,
@@ -54,9 +54,9 @@ export default function ValuePartialParameters<
      validation : (result:Partial<ReturnInfer<Validators>>) => ValidatableType,
      message : (result:Partial<ReturnInfer<Validators>>) => MessageType,
      stop : boolean = false,
-) : ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType> {
+) : ValuePartialReturn<BaseType, ValueType, MessageType, Validators, ValidatableType> {
 
-    return <ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType>> ValueCallback(
+    return <ValuePartialReturn<BaseType, ValueType, MessageType, Validators, ValidatableType>> ValueCallback(
         validators,
         (value, validators)  => ValidateValuePartial(value, validators, stop),
         validation,

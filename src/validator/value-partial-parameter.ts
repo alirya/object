@@ -3,7 +3,7 @@ import Validatable from '@alirya/validatable/validatable';
 import ReturnInfer from './validatable/record/infer';
 import ValidatorsContainer from './validators/validators';
 import Message from '@alirya/message/message';
-import ValuePartialParameters, {ValuePartialType} from './value-partial-parameters';
+import ValuePartialParameters, {ValuePartialReturn} from './value-partial-parameters';
 
 
 /**
@@ -63,7 +63,7 @@ export default function ValuePartialParameter<
         message,
         stop = false,
     } : ValuePartialArgument<BaseType, ValueType, MessageType, Validators, ValidatableType>
-) : ValuePartialType<BaseType, ValueType, MessageType, Validators, ValidatableType> {
+) : ValuePartialReturn<BaseType, ValueType, MessageType, Validators, ValidatableType> {
 
     return ValuePartialParameters(
         validators,
