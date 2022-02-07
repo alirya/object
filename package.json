@@ -3,6 +3,7 @@
   "version": "0.37.1",
   "description": "Typescript object",
   "dependencies": {
+    "tslib": "^2.3.1",
     "@alirya/array": "0.26.0",
     "@alirya/boolean": "0.11.0",
     "@alirya/class": "0.3.1",
