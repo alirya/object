@@ -6,7 +6,7 @@ import RecordKey from './record-key';
 import RecordKeyCallback from './record-key-callback-parameters';
 
 export default function RecordKeyAllParameters<
-    ValidatorType extends Validator = Validator,
+    ValidatorType extends Validator<PropertyKey, PropertyKey> = Validator<PropertyKey, PropertyKey>,
     ValidatableType extends Validatable = Validatable,
     MessageType = unknown,
 >(
