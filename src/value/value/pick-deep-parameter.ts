@@ -3,20 +3,21 @@ import Object_ from "../../object/object";
 import PickDeepParameters from "./pick-deep-parameters";
 
 export type PickDeepParameterArgument<
-    Properties extends PropertyKey[],
-    Record extends Object.P.Record<Properties, unknown>,
+    Properties extends ReadonlyArray<PropertyKey>,
+    Record extends object,
 > = Object_<Record> & {
     properties : Properties
 }
 
 export default function PickDeepParameter<
-    Properties extends PropertyKey[],
-    Record extends Object.P.Record<Properties, unknown>,
+    Properties extends ReadonlyArray<PropertyKey>,
+    Record extends object,
 >(  {
         object,
         properties,
     } : PickDeepParameterArgument<Properties, Record>
-) : Object.P.Pick<Record, Properties>  {
+) : Object.Path<Record, Properties>  {
 
-    return PickDeepParameters(object, properties);
+
+    return (PickDeepParameters as any)(object, ...properties);
 }
