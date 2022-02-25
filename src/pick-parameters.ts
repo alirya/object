@@ -11,7 +11,7 @@ import {List} from 'ts-toolbelt';
  * @param keys
  * key for selection
  */
-export default function Pick<
+export default function PickParameters<
     ObjectType extends object,
     Key extends (keyof ObjectType)[]
 >(object : ObjectType, ...keys : Key) : globalThis.Pick<ObjectType, List.UnionOf<Key>> {

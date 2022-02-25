@@ -4,7 +4,7 @@ import RecordParameter from '../validator/subject/record/allow';
 import RecordBase from '../validator/subject/record/allow';
 import Instance from '@alirya/validator/validatable/validatable';
 import Map from './map';
-import Pick from '../pick';
+import PickParameters from '../pick-parameters';
 import MemoizeAccessor from '../function/memoize-accessor';
 
 
@@ -52,7 +52,7 @@ export default class MapCallbackParameters<
     @MemoizeAccessor()
     get value () : ValueType {
 
-        return Pick(this.#value, ...Object.keys(this.validators)) as ValueType;
+        return PickParameters(this.#value, ...Object.keys(this.validators)) as ValueType;
     }
 
     @MemoizeAccessor()
