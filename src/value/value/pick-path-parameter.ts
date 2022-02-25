@@ -1,17 +1,17 @@
 import {Object} from "ts-toolbelt";
 import Object_ from "../../object/object";
-import PickDeepParameters from "./pick-deep-parameters";
+import PickPathParameters from "./pick-path-parameters";
 
 export type PickDeepParameterArgument<
     Properties extends ReadonlyArray<PropertyKey>,
-    Record extends object,
+    Record extends Object.P.Record<Properties, unknown> = Object.P.Record<Properties, unknown>,
 > = Object_<Record> & {
     properties : Properties
 }
 
-export default function PickDeepParameter<
+export default function PickPathParameter<
     Properties extends ReadonlyArray<PropertyKey>,
-    Record extends object,
+    Record extends Object.P.Record<Properties, unknown> = Object.P.Record<Properties, unknown>,
 >(  {
         object,
         properties,
@@ -19,5 +19,5 @@ export default function PickDeepParameter<
 ) : Object.Path<Record, Properties>  {
 
 
-    return (PickDeepParameters as any)(object, ...properties);
+    return (PickPathParameters as any)(object, ...properties);
 }
