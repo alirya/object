@@ -1,4 +1,4 @@
-import Pick from '../dist/pick';
+import Pick from '../../dist/select-parameters';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -12,14 +12,6 @@ describe('plain object', () => {
     };
 
     let result = Pick(object, 'data1','data2');
-
-    it('compiler compatibility object', () => {
-
-        let string : string = result.data1;
-        let number : number = result.data2();
-        // @ts-expect-error
-        let boolean : boolean = result.data3;
-    });
 
     it('test value', () => {
 
@@ -40,16 +32,7 @@ describe('plain object, getter', () => {
         get data3 () { return true;},
     };
 
-
     let result = Pick(object, 'data1','data2');
-
-    it('compiler compatibility object', () => {
-
-        let string : string = result.data1;
-        let number : number = result.data2();
-        // @ts-expect-error
-        let boolean : boolean = result.data3;
-    });
 
     it('test value', () => {
 
@@ -69,18 +52,7 @@ describe('plain object, setter', () => {
         set data3 (value: string) {},
     };
 
-    let string : string = object.data1;
-
     let result = Pick(object, 'data1','data2');
-
-    it('compiler compatibility object', () => {
-
-        let string : string = result.data1;
-        // @ts-expect-error
-        let number : number = result.data2;
-        // @ts-expect-error
-        let boolean : boolean = result.data3;
-    });
 
     it('test value', () => {
 
@@ -92,13 +64,6 @@ describe('plain object, setter', () => {
         expect(result.data3).toBe(undefined);
     });
 });
-
-
-
-
-
-
-
 
 describe('plain object', () => {
 
@@ -113,14 +78,6 @@ describe('plain object', () => {
     let object = new Class('data1', function () { return 1; }, true);
 
     let result = Pick(object, 'data1','data2');
-
-    it('compiler compatibility object', () => {
-
-        let string : string = result.data1;
-        let number : number = result.data2();
-        // @ts-expect-error
-        let boolean : boolean = result.data3;
-    });
 
     it('test value', () => {
 
@@ -147,14 +104,6 @@ describe('plain object, getter', () => {
 
     let result = Pick(object, 'data1','data2');
 
-    it('compiler compatibility object', () => {
-
-        let string : string = result.data1;
-        let number : number = result.data2();
-        // @ts-expect-error
-        let boolean : boolean = result.data3;
-    });
-
     it('test value', () => {
 
         expect(result.data1).toBe(object.data1);
@@ -179,15 +128,6 @@ describe('plain object, setter', () => {
     let string : string = object.data1;
 
     let result = Pick(object, 'data1','data2');
-
-    it('compiler compatibility object', () => {
-
-        let string : string = result.data1;
-        // @ts-expect-error
-        let number : number = result.data2;
-        // @ts-expect-error
-        let boolean : boolean = result.data3;
-    });
 
     it('test value', () => {
 
