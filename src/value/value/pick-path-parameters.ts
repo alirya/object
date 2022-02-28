@@ -1,4 +1,5 @@
 import {Object} from "ts-toolbelt";
+import {get} from 'lodash';
 
 export default function PickPathParameters<
     Properties extends ReadonlyArray<PropertyKey>,
@@ -8,13 +9,15 @@ export default function PickPathParameters<
     ...properties: Properties
 ) : Object.Path<Record, Properties>  {
 
-    let value : Object.Path<Record, Properties>|Record = object;
+    if(properties.length) {
 
-    for (const property of properties) {
+        return get(object, properties);
 
-        value = value[property];
+    } else {
+
+        return object as Object.Path<Record, Properties>;
     }
 
-    return value as Object.Path<Record, Properties>;
+
 }
 

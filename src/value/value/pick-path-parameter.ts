@@ -7,7 +7,7 @@ export type PickDeepParameterArgument<
     Record extends Object.P.Record<Properties, unknown> = Object.P.Record<Properties, unknown>,
 > = Object_<Record> & {
     properties : Properties
-}
+};
 
 export default function PickPathParameter<
     Properties extends ReadonlyArray<PropertyKey>,

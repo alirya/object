@@ -16,7 +16,7 @@ describe('plain object', () => {
 
         expect(
             SelectParameters(object, 'data1','data2')
-        ).toBe(
+        ).toEqual(
             SelectParameter({object, keys:['data1', 'data2']})
         );
 

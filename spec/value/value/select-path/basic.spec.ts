@@ -29,7 +29,7 @@ describe('valid', ()=>{
             }
         }
 
-        expect(PickDeepParameters(source)).toBe(source);
+        expect(PickDeepParameters(source)).toEqual(source);
 
     });
 });
@@ -62,15 +62,7 @@ describe('invalid', ()=>{
             }
         }
 
-        try {
-
-            PickDeepParameters(source as any, 'data', 'array', 'number')
-            fail('error should be thrown');
-
-        } catch (error) {
-
-            expect(error).toBeInstanceOf(Error);
-        }
+        expect(PickDeepParameters(source as any, 'data', 'array', 'number')).toBe(undefined);
 
     });
 });
