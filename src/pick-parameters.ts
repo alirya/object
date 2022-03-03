@@ -1,9 +1,10 @@
 import {List} from 'ts-toolbelt';
+import ReadableParameters from "./property/boolean/readable-parameters";
 
 /**
  * implementation of {@link globalThis.Pick}
  *
- * get value from {@param object} by {@param keys}
+ * get defined or getter property value from {@param object} by {@param keys}
  *
  * @param object
  * source
@@ -13,15 +14,19 @@ import {List} from 'ts-toolbelt';
  */
 export default function PickParameters<
     ObjectType extends object,
-    Key extends (keyof ObjectType)[]
+    Key extends ReadonlyArray<keyof ObjectType> = ReadonlyArray<keyof ObjectType>
 >(object : ObjectType, ...keys : Key) : globalThis.Pick<ObjectType, List.UnionOf<Key>> {
 
     const result = {};
 
     for (const property of keys) {
 
-        result[<PropertyKey>property] = object[property];
+        if(ReadableParameters(object, property)) {
+
+            result[<PropertyKey>property] = object[property];
+        }
     }
 
     return result as globalThis.Pick<ObjectType, List.UnionOf<Key>>;
 }
+
