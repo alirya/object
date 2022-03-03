@@ -6,7 +6,7 @@ import {Object} from "ts-toolbelt";
 type ReplacePath<
     Target extends object,
     Replace extends any,
-    Properties extends PropertyKey[],
+    Properties extends ReadonlyArray<PropertyKey>,
 > = Object.P.Omit<Target, Properties> & Object.P.Record<Properties, Replace>;
 
 export default ReplacePath;
