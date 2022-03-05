@@ -1,6 +1,6 @@
 {
   "name": "@alirya/object",
-  "version": "0.37.1",
+  "version": "0.37.2",
   "description": "Typescript object",
   "dependencies": {
     "@alirya/array": "^0.26.0",
@@ -8,9 +8,9 @@
     "@alirya/class": "^0.3.1",
     "@alirya/function": "^0.15.0",
     "@alirya/message": "^0.12.0",
-    "@alirya/string": "^0.16.2",
+    "@alirya/string": "^0.16.3",
     "@alirya/validatable": "^0.20.0",
-    "@alirya/validator": "^0.19.1",
+    "@alirya/validator": "^0.19.2",
     "@alirya/value": "^0.15.0",
     "is-empty-object": "^1.1.1",
     "ts-toolbelt": "^9.6.0",
