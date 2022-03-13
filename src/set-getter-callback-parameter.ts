@@ -1,4 +1,4 @@
-import SetGetterCallbackParameters, {SetGetterCallbackParametersReturn as SetGetterCallbackParameterReturn} from "./set-getter-callback-parameters";
+import SetGetterCallbackParameters, {SetGetterCallbackTypeDynamic, SetGetterCallbackTypeStatic} from './set-getter-callback-parameters';
 
 /**
  * set return from {@param factory} to getter for {@param object}
@@ -13,29 +13,69 @@ import SetGetterCallbackParameters, {SetGetterCallbackParametersReturn as SetGet
  * @param configurable
  */
 
-export type SetGetterCallbackParameterArgument<
+
+
+export type SetGetterCallbackArgumentStatic<
     This extends object,
     Key extends keyof This
-> = {
+    > = {
     object : This,
     property : Key,
     factory : ()=>This[Key],
     configurable ?: boolean
-    writable ?: boolean
-}
+};
+
+export type SetGetterCallbackArgumentDynamic<
+    This extends object,
+    Key extends PropertyKey,
+    Type
+    > = {
+    object : This,
+    property : Key,
+    factory : ()=>Type,
+    configurable ?: boolean
+};
+
+
+
 
 
 export default function SetGetterCallbackParameter<
     This extends object,
     Key extends keyof This
->(  {
+    >(
+    {
         object,
         property,
         factory,
         configurable,
-        writable,
-    } : SetGetterCallbackParameterArgument<This, Key>
-) : SetGetterCallbackParameterReturn<This, Key> {
+    } : SetGetterCallbackArgumentStatic<This, Key>
+) : SetGetterCallbackTypeStatic<This, Key>;
 
-    return SetGetterCallbackParameters(object, property, factory, configurable, writable)
+export default function SetGetterCallbackParameter<
+    This extends object,
+    Key extends PropertyKey,
+    Type
+    >(
+    {
+        object,
+        property,
+        factory,
+        configurable,
+    } : SetGetterCallbackArgumentDynamic<This, Key, Type>
+) : SetGetterCallbackTypeDynamic<This, Key, Type>;
+
+export default function SetGetterCallbackParameter<
+    This extends object,
+    Key extends keyof This
+    >(
+    {
+        object,
+        property,
+        factory,
+        configurable,
+    } : SetGetterCallbackArgumentStatic<This, Key>
+) {
+
+    return SetGetterCallbackParameters(object, property, factory, configurable);
 }
