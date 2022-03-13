@@ -1,7 +1,10 @@
-import SetPropertyCallbackParameters, {SetPropertyCallbackTypeDynamic, SetPropertyCallbackTypeStatic} from './set-property-callback-parameters';
+import SetPropertyCallbackParameters, {
+    SetPropertyCallbackParametersReturn as SetPropertyCallbackParameterReturn
+} from "./set-property-callback-parameters";
 
+export {SetPropertyCallbackParameterReturn}
 
-export type SetPropertyCallbackArgumentStatic<
+export type SetPropertyCallbackParameterArgument<
     This extends object,
     Key extends keyof This
 > = {
@@ -10,60 +13,19 @@ export type SetPropertyCallbackArgumentStatic<
     factory : ()=>This[Key],
     writable ?: boolean,
     configurable ?: boolean
-};
-
-export type SetPropertyCallbackArgumentDynamic<
-    This extends object,
-    Key extends PropertyKey,
-    Type
-> = {
-    object : This,
-    property : Key,
-    factory : ()=>Type,
-    writable ?: boolean,
-    configurable ?: boolean
-};
-
+}
 
 export default function SetPropertyCallbackParameter<
     This extends object,
     Key extends keyof This
-    >(
-    {
+>(  {
         object,
         property,
         factory,
         writable,
         configurable,
-    } : SetPropertyCallbackArgumentStatic<This, Key>
-) : SetPropertyCallbackTypeStatic<This, Key>;
+    } : SetPropertyCallbackParameterArgument<This, Key>
+) : SetPropertyCallbackParameterReturn<This, Key> {
 
-export default function SetPropertyCallbackParameter<
-    This extends object,
-    Key extends PropertyKey,
-    Type
-    >(
-    {
-        object,
-        property,
-        factory,
-        writable,
-        configurable,
-    } : SetPropertyCallbackArgumentDynamic<This, Key, Type>
-) : SetPropertyCallbackTypeDynamic<This, Key, Type>;
-
-export default function SetPropertyCallbackParameter<
-    This extends object,
-    Key extends keyof This
-    >(
-    {
-        object,
-        property,
-        factory,
-        writable,
-        configurable,
-    } : SetPropertyCallbackArgumentStatic<This, Key>
-) {
-
-    return SetPropertyCallbackParameters(object, property, factory, writable, configurable);
+    return SetPropertyCallbackParameters(object, property, factory, writable, configurable)
 }

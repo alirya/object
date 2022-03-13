@@ -1,17 +1,11 @@
-import {O} from 'ts-toolbelt';
-import {Required} from 'utility-types';
-import SetPropertyCallback from './set-property-callback-parameters';
+import {O} from "ts-toolbelt";
+import {Required} from "utility-types";
+import SetPropertyCallback from "./set-property-callback-parameters";
 
-export type SetGetterCallbackTypeStatic<
+export type SetGetterCallbackParametersReturn<
     This extends object,
     Key extends keyof This
-    > = O.Readonly<Required<This, Key>>;
-
-export type SetGetterCallbackTypeDynamic<
-    This extends object,
-    Key extends PropertyKey,
-    Type
-    > = Omit<This, Key> & O.Readonly<Record<Key, Type>>;
+    > = O.Readonly<Required<This, Key>>
 
 /**
  * set return from {@param factory} to getter for {@param object}
@@ -24,6 +18,7 @@ export type SetGetterCallbackTypeDynamic<
  *
  * @param factory
  * @param configurable
+ * @param writable
  */
 export default function SetGetterCallbackParameters<
     This extends object,
@@ -32,30 +27,10 @@ export default function SetGetterCallbackParameters<
     object : This,
     property : Key,
     factory : ()=>This[Key],
-    configurable ?: boolean
-) : SetGetterCallbackTypeStatic<This, Key>;
-
-export default function SetGetterCallbackParameters<
-    This extends object,
-    Key extends PropertyKey,
-    Type
->(
-    object : This,
-    property : Key,
-    factory : ()=>Type,
-    configurable ?: boolean
-) : SetGetterCallbackTypeDynamic<This, Key, Type>;
-
-export default function SetGetterCallbackParameters<
-    This extends object,
-    Type
->(
-    object : This,
-    property : PropertyKey,
-    factory : ()=>Type,
     configurable : boolean = true,
-) {
+    writable : boolean = false,
+) : SetGetterCallbackParametersReturn<This, Key> {
 
-    return SetPropertyCallback(object, property, factory, false, configurable);
+    return SetPropertyCallback(object, property, factory, writable, configurable);
 }
 
