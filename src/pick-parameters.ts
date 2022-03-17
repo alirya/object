@@ -1,5 +1,5 @@
 import {List} from 'ts-toolbelt';
-import ReadableParameters from "./property/boolean/readable-parameters";
+import ReadableParameters from './property/boolean/readable-parameters';
 
 /**
  * implementation of {@link globalThis.Pick}

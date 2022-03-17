@@ -1,25 +1,25 @@
-import ValueAllParameter from "../../dist/validator/value-all-parameter";
-import ValueAll from "../../dist/validator/value-all-parameters";
-import And from "../../dist/validatable/and";
-import Or from "../../dist/validatable/or";
-import ValidatablesInterface from "../../dist/validatable/validatables/validatables";
-import Validatables from "../../dist/validatable/validatables/validatables";
-import Validatable from "@alirya/validatable/validatable";
-import MessageMap from "../../dist/message/message/record/map";
-import Type from "@alirya/type/validator/type-parameters";
-import Simple from "@alirya/validator/simple";
-import ValidatorValidatable from "@alirya/validator/validatable/validatable";
+import ValueAllParameter from '../../dist/validator/value-all-parameter';
+import ValueAll from '../../dist/validator/value-all-parameters';
+import And from '../../dist/validatable/and';
+import Or from '../../dist/validatable/or';
+import ValidatablesInterface from '../../dist/validatable/validatables/validatables';
+import Validatables from '../../dist/validatable/validatables/validatables';
+import Validatable from '@alirya/validatable/validatable';
+import MessageMap from '../../dist/message/message/record/map';
+import Type from '@alirya/type/validator/type-parameters';
+import Simple from '@alirya/validator/simple';
+import ValidatorValidatable from '@alirya/validator/validatable/validatable';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-describe("compiler compatibility", function() {
+describe('compiler compatibility', function() {
 
     let validator = {
         name : Type('string'),
         address : Type('string'),
     };
 
-    describe("implicit complete", function() {
+    describe('implicit complete', function() {
 
         let property = ValueAll(validator, (v)=>And(v), MessageMap);
 
@@ -46,7 +46,7 @@ describe("compiler compatibility", function() {
 
     });
 
-    describe("explicit complete", function() {
+    describe('explicit complete', function() {
 
         let property = ValueAll<string>(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
@@ -62,9 +62,9 @@ describe("compiler compatibility", function() {
 });
 
 
-describe("implicit complete", function() {
+describe('implicit complete', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
         let value = 'data';
 
@@ -122,7 +122,7 @@ describe("implicit complete", function() {
     });
 
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
         it(`and validation`, () => {
 
@@ -179,7 +179,7 @@ describe("implicit complete", function() {
     });
 
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
         it(`and validation`, () => {
 
@@ -234,9 +234,9 @@ describe("implicit complete", function() {
 
 
 
-describe("recursive", function() {
+describe('recursive', function() {
 
-    describe("all valid", function() {
+    describe('all valid', function() {
 
         let value = 'data';
 
@@ -343,7 +343,7 @@ describe("recursive", function() {
     });
 
 
-    describe("mixed", function() {
+    describe('mixed', function() {
 
         it(`and validation`, () => {
 
@@ -447,7 +447,7 @@ describe("recursive", function() {
         });
     });
 
-    describe("all invalid", function() {
+    describe('all invalid', function() {
 
 
         it(`and validation`, () => {

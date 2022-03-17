@@ -1,4 +1,4 @@
-import ReplacePath from "../../dist/replace-path";
+import ReplacePath from '../../dist/replace-path';
 
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
@@ -12,7 +12,7 @@ it('test', () =>{
                 number : 1
             }
         }
-    }
+    };
 
 
     const updated : ReplacePath<typeof source, string, ['parent', 'child', 'number']> = {
@@ -21,7 +21,7 @@ it('test', () =>{
                 number : '1'
             }
         }
-    }
+    };
 
 
-})
+});

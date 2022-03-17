@@ -1,4 +1,4 @@
-import {Object} from "ts-toolbelt";
+import {Object} from 'ts-toolbelt';
 
 /**
  * Replace {@template Object} value with {@template Replace} at {@template Property}

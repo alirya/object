@@ -1,4 +1,4 @@
-import SelectParameter from "./pick-parameter";
+import SelectParameter from './pick-parameter';
 
 
 export default SelectParameter;

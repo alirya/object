@@ -1,3 +1,3 @@
-import SelectPathParameters from "./pick-path-parameters";
+import SelectPathParameters from './pick-path-parameters';
 
 export default SelectPathParameters;

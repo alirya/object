@@ -1,6 +1,6 @@
-import {Object} from "ts-toolbelt";
-import Object_ from "../../object/object";
-import PickPathParameters from "./pick-path-parameters";
+import {Object} from 'ts-toolbelt';
+import Object_ from '../../object/object';
+import PickPathParameters from './pick-path-parameters';
 
 export type PickDeepParameterArgument<
     Properties extends ReadonlyArray<PropertyKey>,

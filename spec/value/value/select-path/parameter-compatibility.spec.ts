@@ -1,5 +1,5 @@
-import PickDeepParameters from "../../../../dist/value/value/select-path-parameters";
-import PickDeepParameter from "../../../../dist/value/value/select-path-parameter";
+import PickDeepParameters from '../../../../dist/value/value/select-path-parameters';
+import PickDeepParameter from '../../../../dist/value/value/select-path-parameter';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -14,7 +14,7 @@ describe('valid', ()=>{
                 object : {},
                 boolean : true,
             }
-        }
+        };
 
         expect(
             PickDeepParameters(object, 'data', 'number')
@@ -37,7 +37,7 @@ describe('invalid', ()=>{
                 object : {},
                 boolean : true,
             }
-        }
+        };
 
         expect(PickDeepParameters(source as any, 'data', 'array')).toBe(undefined);
     });
@@ -51,7 +51,7 @@ describe('invalid', ()=>{
                 object : {},
                 boolean : true,
             }
-        }
+        };
 
         expect(PickDeepParameters(source as any, 'data', 'array', 'number')).toBe(undefined);
 

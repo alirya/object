@@ -1,6 +1,6 @@
 import {List} from 'ts-toolbelt';
-import Object_ from "./object/object";
-import PickParameters from "./pick-parameters";
+import Object_ from './object/object';
+import PickParameters from './pick-parameters';
 
 /**
  * implementation of {@link globalThis.Pick}

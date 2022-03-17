@@ -1,4 +1,4 @@
-import {Object} from "ts-toolbelt";
+import {Object} from 'ts-toolbelt';
 import {get} from 'lodash';
 
 export default function PickPathParameters<
