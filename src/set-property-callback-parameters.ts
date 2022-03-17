@@ -15,6 +15,7 @@ export type SetPropertyCallbackTypeDynamic<
 
 
 /**
+ * @deprecated
  * set property from {@param factory} to getter for {@param object}
  * should be used outside
  *

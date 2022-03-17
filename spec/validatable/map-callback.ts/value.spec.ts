@@ -50,25 +50,25 @@ it('missing', function() {
 
 
     let validatable = new MapCallback(
-      // @ts-expect-error
-      value,
-      validator, ValidateMap, And, MessageMap);
+        // @ts-expect-error
+        value,
+        validator, ValidateMap, And, MessageMap);
 
 
-    expect(value).not.toEqual(
-      // @ts-expect-error
-      validatable.value
+    expect(value).toEqual(
+        // @ts-expect-error
+        validatable.value
     );
 
 
     expect({name : 'name', address : 'address'}).not.toEqual(
-      // @ts-expect-error
-      validatable.value
+        // @ts-expect-error
+        validatable.value
     );
 
-    expect({name : 'name', address : undefined}).toEqual(
-      // @ts-expect-error
-      validatable.value
+    expect({name : 'name', address : undefined}).not.toEqual(
+        // @ts-expect-error
+        validatable.value
     );
 
 });

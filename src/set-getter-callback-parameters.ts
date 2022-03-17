@@ -14,6 +14,7 @@ export type SetGetterCallbackTypeDynamic<
     > = Omit<This, Key> & O.Readonly<Record<Key, Type>>;
 
 /**
+ * @deprecated
  * set return from {@param factory} to getter for {@param object}
  * should be used outside
  *

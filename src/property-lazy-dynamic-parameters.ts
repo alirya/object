@@ -1,7 +1,13 @@
 import MemoizeGetter from './value/value/set-property-parameters';
 import {O} from 'ts-toolbelt';
 
-export type PropertyLazyDynamicParametersReturn<
+export type PropertyLazyDynamicParametersWritableReturn<
+    This extends object,
+    Key extends PropertyKey,
+    Type
+> = Omit<This, Key> & Record<Key, Type>;
+
+export type PropertyLazyDynamicParametersReadonlyReturn<
     This extends object,
     Key extends PropertyKey,
     Type
@@ -33,9 +39,39 @@ export default function PropertyLazyDynamicParameters<
     object : This,
     property : Key,
     factory : ()=>Type,
+    writable : false,
+    configurable ?: boolean
+) : PropertyLazyDynamicParametersReadonlyReturn<This, Key, Type>;
+
+/**
+ * Strict key and infer type
+ */
+export default function PropertyLazyDynamicParameters<
+    This extends object,
+    Key extends PropertyKey,
+    Type
+>(
+    object : This,
+    property : Key,
+    factory : ()=>Type,
+    writable ?: true,
+    configurable ?: boolean
+) : PropertyLazyDynamicParametersWritableReturn<This, Key, Type>;
+
+/**
+ * Strict key and infer type
+ */
+export default function PropertyLazyDynamicParameters<
+    This extends object,
+    Key extends PropertyKey,
+    Type
+>(
+    object : This,
+    property : Key,
+    factory : ()=>Type,
     writable : boolean = true,
     configurable : boolean = true
-) : PropertyLazyDynamicParametersReturn<This, Key, Type> {
+) : PropertyLazyDynamicParametersWritableReturn<This, Key, Type> {
 
     return Object.defineProperty(object, property, {
         configurable : true,
@@ -48,7 +84,7 @@ export default function PropertyLazyDynamicParameters<
                 configurable
             );
         }
-    }) as PropertyLazyDynamicParametersReturn<This, Key, Type>;
+    }) as PropertyLazyDynamicParametersWritableReturn<This, Key, Type>;
 }
 
 

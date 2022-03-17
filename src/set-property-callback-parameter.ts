@@ -24,7 +24,9 @@ export type SetPropertyCallbackArgumentDynamic<
     configurable ?: boolean
 };
 
-
+/**
+ * @deprecated
+ */
 export default function SetPropertyCallbackParameter<
     This extends object,
     Key extends keyof This

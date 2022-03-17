@@ -1,9 +1,24 @@
-import SetPropertyCallbackParameter from './property-lazy-dynamic-parameter';
-import {PropertyLazyStaticParametersReturn} from "./property-lazy-static-parameters";
+import PropertyLazyStaticParameters, {
+    PropertyLazyStaticParametersWritableReturn as PropertyLazyStaticParameterWritableReturn,
+    PropertyLazyStaticParametersReadonlyReturn as PropertyLazyStaticParameterReadonlyReturn,
+} from './property-lazy-static-parameters';
 
-export type SetPropertyCallbackArgumentStatic<
+export {PropertyLazyStaticParameterWritableReturn, PropertyLazyStaticParameterReadonlyReturn};
+
+export type PropertyLazyStaticParameterWritableArgument<
     This extends object,
-    Key extends keyof This
+    Key extends keyof This,
+> = {
+    object : This,
+    property : Key,
+    factory : ()=>This[Key],
+    writable ?: true,
+    configurable ?: boolean
+};
+
+export type PropertyLazyStaticParameterReadonlyArgument<
+    This extends object,
+    Key extends keyof This,
 > = {
     object : This,
     property : Key,
@@ -12,14 +27,44 @@ export type SetPropertyCallbackArgumentStatic<
     configurable ?: boolean
 };
 
-export default SetPropertyCallbackParameter as <
+export default function PropertyLazyStaticParameter<
     This extends object,
-    Key extends keyof This
+    Key extends keyof This,
+    Type
 >(  {
         object,
         property,
         factory,
         writable,
         configurable,
-    } : SetPropertyCallbackArgumentStatic<This, Key>
-) => PropertyLazyStaticParametersReturn<This, Key>;
+    } : PropertyLazyStaticParameterWritableArgument<This, Key>
+) : PropertyLazyStaticParameterWritableReturn<This, Key>;
+
+export default function PropertyLazyStaticParameter<
+    This extends object,
+    Key extends keyof This,
+    Type
+>(  {
+        object,
+        property,
+        factory,
+        writable,
+        configurable,
+    } : PropertyLazyStaticParameterReadonlyArgument<This, Key>
+) : PropertyLazyStaticParameterReadonlyReturn<This, Key>;
+
+export default function PropertyLazyStaticParameter<
+    This extends object,
+    Key extends keyof This,
+    Type
+    >(  {
+            object,
+            property,
+            factory,
+            writable,
+            configurable,
+        } : PropertyLazyStaticParameterWritableArgument<This, Key>
+) : PropertyLazyStaticParameterWritableReturn<This, Key> {
+
+    return PropertyLazyStaticParameters<This, Key>(object, property, factory, writable, configurable);
+}

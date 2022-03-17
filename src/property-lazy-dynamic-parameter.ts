@@ -1,7 +1,23 @@
-import PropertyLazyDynamicParameters , {PropertyLazyDynamicParametersReturn as PropertyLazyDynamicParameterReturn} from './property-lazy-dynamic-parameters';
+import PropertyLazyDynamicParameters, {
+    PropertyLazyDynamicParametersWritableReturn as PropertyLazyDynamicParameterWritableReturn,
+    PropertyLazyDynamicParametersReadonlyReturn as PropertyLazyDynamicParameterReadonlyReturn,
+} from './property-lazy-dynamic-parameters';
 
-export {PropertyLazyDynamicParameterReturn};
-export type PropertyLazyDynamicParameterArgument<
+export {PropertyLazyDynamicParameterWritableReturn, PropertyLazyDynamicParameterReadonlyReturn};
+
+export type PropertyLazyDynamicParameterWritableArgument<
+    This extends object,
+    Key extends PropertyKey,
+    Type
+> = {
+    object : This,
+    property : Key,
+    factory : ()=>Type,
+    writable ?: true,
+    configurable ?: boolean
+};
+
+export type PropertyLazyDynamicParameterReadonlyArgument<
     This extends object,
     Key extends PropertyKey,
     Type
@@ -23,8 +39,34 @@ export default function PropertyLazyDynamicParameter<
         factory,
         writable,
         configurable,
-    } : PropertyLazyDynamicParameterArgument<This, Key, Type>
-) : PropertyLazyDynamicParameterReturn<This, Key, Type> {
+    } : PropertyLazyDynamicParameterWritableArgument<This, Key, Type>
+) : PropertyLazyDynamicParameterWritableReturn<This, Key, Type>;
+
+export default function PropertyLazyDynamicParameter<
+    This extends object,
+    Key extends PropertyKey,
+    Type
+>(  {
+        object,
+        property,
+        factory,
+        writable,
+        configurable,
+    } : PropertyLazyDynamicParameterReadonlyArgument<This, Key, Type>
+) : PropertyLazyDynamicParameterReadonlyReturn<This, Key, Type>;
+
+export default function PropertyLazyDynamicParameter<
+    This extends object,
+    Key extends PropertyKey,
+    Type
+>(  {
+        object,
+        property,
+        factory,
+        writable,
+        configurable,
+    } : PropertyLazyDynamicParameterWritableArgument<This, Key, Type>
+) : PropertyLazyDynamicParameterWritableReturn<This, Key, Type> {
 
     return PropertyLazyDynamicParameters<This, Key, Type>(object, property, factory, writable, configurable);
 }
