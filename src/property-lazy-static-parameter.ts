@@ -2,6 +2,7 @@ import PropertyLazyStaticParameters, {
     PropertyLazyStaticParametersWritableReturn as PropertyLazyStaticParameterWritableReturn,
     PropertyLazyStaticParametersReadonlyReturn as PropertyLazyStaticParameterReadonlyReturn,
 } from './property-lazy-static-parameters';
+import Callable from '@alirya/function/callable';
 
 export {PropertyLazyStaticParameterWritableReturn, PropertyLazyStaticParameterReadonlyReturn};
 
@@ -11,7 +12,7 @@ export type PropertyLazyStaticParameterWritableArgument<
 > = {
     object : This,
     property : Key,
-    factory : ()=>This[Key],
+    factory : Callable<[This], This[Key]>,
     writable ?: true,
     configurable ?: boolean
 };
@@ -22,7 +23,7 @@ export type PropertyLazyStaticParameterReadonlyArgument<
 > = {
     object : This,
     property : Key,
-    factory : ()=>This[Key],
+    factory : Callable<[This], This[Key]>,
     writable ?: boolean,
     configurable ?: boolean
 };

@@ -2,6 +2,7 @@ import PropertyLazyDynamicParameters, {
     PropertyLazyDynamicParametersWritableReturn as PropertyLazyDynamicParameterWritableReturn,
     PropertyLazyDynamicParametersReadonlyReturn as PropertyLazyDynamicParameterReadonlyReturn,
 } from './property-lazy-dynamic-parameters';
+import Callable from '@alirya/function/callable';
 
 export {PropertyLazyDynamicParameterWritableReturn, PropertyLazyDynamicParameterReadonlyReturn};
 
@@ -12,7 +13,7 @@ export type PropertyLazyDynamicParameterWritableArgument<
 > = {
     object : This,
     property : Key,
-    factory : ()=>Type,
+    factory : Callable<[This], Type>,
     writable ?: true,
     configurable ?: boolean
 };
@@ -24,7 +25,7 @@ export type PropertyLazyDynamicParameterReadonlyArgument<
 > = {
     object : This,
     property : Key,
-    factory : ()=>Type,
+    factory : Callable<[This], Type>,
     writable ?: boolean,
     configurable ?: boolean
 };
