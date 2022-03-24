@@ -1,5 +1,6 @@
 import MemoizeGetter from './value/value/set-property-parameters';
 import {O} from 'ts-toolbelt';
+import Callable from '@alirya/function/callable';
 
 export type PropertyLazyDynamicParametersWritableReturn<
     This extends object,
@@ -38,7 +39,7 @@ export default function PropertyLazyDynamicParameters<
 >(
     object : This,
     property : Key,
-    factory : ()=>Type,
+    factory : Callable<[This], Type>,
     writable : false,
     configurable ?: boolean
 ) : PropertyLazyDynamicParametersReadonlyReturn<This, Key, Type>;
@@ -53,7 +54,7 @@ export default function PropertyLazyDynamicParameters<
 >(
     object : This,
     property : Key,
-    factory : ()=>Type,
+    factory : Callable<[This], Type>,
     writable ?: true,
     configurable ?: boolean
 ) : PropertyLazyDynamicParametersWritableReturn<This, Key, Type>;
@@ -68,7 +69,7 @@ export default function PropertyLazyDynamicParameters<
 >(
     object : This,
     property : Key,
-    factory : ()=>Type,
+    factory : Callable<[This], Type>,
     writable : boolean = true,
     configurable : boolean = true
 ) : PropertyLazyDynamicParametersWritableReturn<This, Key, Type> {
@@ -79,7 +80,7 @@ export default function PropertyLazyDynamicParameters<
             return MemoizeGetter(
                 object,
                 property as (keyof This)|PropertyKey as keyof This,
-                factory(),
+                factory(object),
                 writable,
                 configurable
             );
