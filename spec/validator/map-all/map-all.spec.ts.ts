@@ -97,7 +97,7 @@ describe('implicit complete', function() {
 
             let and = property(value);
 
-            expect(and.valid).toBe(false);
+            expect<boolean>(and.valid).toBe(false);
             expect(and.value).toBe(value);
 
             expect(and.validatables.name.valid).toBe(true);
@@ -160,7 +160,7 @@ describe('implicit complete', function() {
 
             let and = property(value);
 
-            expect(and.valid).toBe(false);
+            expect<boolean>(and.valid).toBe(false);
             expect(and.value).toEqual(value);
 
             expect(and.validatables.name.valid).toBe(false);
@@ -184,7 +184,7 @@ describe('implicit complete', function() {
             let property = MapAll(validator, (v)=>Or(v), MessageMap);
 
             let or = property(value);
-            expect(or.valid).toBe(false);
+            expect<boolean>(or.valid).toBe(false);
             expect(or.value).toEqual(value);
 
             expect(or.validatables.name.message).toBe('[object Object] invalid');
@@ -341,7 +341,7 @@ describe('recursive', function() {
 
             let and = property(value);
 
-            expect(and.valid).toBe(false);
+            expect<boolean>(and.valid).toBe(false);
             expect(and.value).toBe(value);
 
             expect(and.validatables.name.valid).toBe(true);
@@ -443,7 +443,7 @@ describe('recursive', function() {
 
             let and = property(value);
 
-            expect(and.valid).toBe(false);
+            expect<boolean>(and.valid).toBe(false);
             expect(and.value).toEqual(value);
 
             expect(and.validatables.name.valid).toBe(false);
@@ -484,7 +484,7 @@ describe('recursive', function() {
             let property = MapAll(validator, (v)=>Or(v), MessageMap);
 
             let or = property(value);
-            expect(or.valid).toBe(false);
+            expect<boolean>(or.valid).toBe(false);
             expect(or.value).toEqual(value);
 
             expect(or.validatables.name.message).toBe('[object Object] invalid');

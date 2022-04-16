@@ -4,7 +4,7 @@ export default function CatchError<Callback extends Callable>(callback: Callback
 
     try {
 
-        return callback();
+        return callback() as ReturnType<Callback>;
 
     } catch (error) {
 
