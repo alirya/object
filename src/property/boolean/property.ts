@@ -11,6 +11,7 @@ export default function Property(
     switch (typeof value) {
         case 'number' :
         case 'string' :
+        case 'symbol' :
             return true;
     }
 
