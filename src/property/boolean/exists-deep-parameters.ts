@@ -42,6 +42,10 @@ export default function ExistsDeepParameters<
                if(Object_(next)) {
 
                     return ExistsDeepParameters(next, property);
+
+               } else {
+
+                    return properties.length === 0;
                }
 
           }
