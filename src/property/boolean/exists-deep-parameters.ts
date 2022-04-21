@@ -41,7 +41,7 @@ export default function ExistsDeepParameters<
 
                if(Object_(next)) {
 
-                    return ExistsDeepParameters(next, property);
+                    return ExistsDeepParameters(next, ...properties);
 
                } else {
 

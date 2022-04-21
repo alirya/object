@@ -8,6 +8,11 @@ let object =  {
     b : {
         a : 1,
         b : 1
+    },
+    c : {
+        c : {
+            c : 1
+        }
     }
 };
 
@@ -18,6 +23,7 @@ describe(`parameters`, () => {
 
         expect(ExistsDeepParameters(object, 'a', )).toBe(true);
         expect(ExistsDeepParameters(object, 'b', )).toBe(true);
+        expect(ExistsDeepParameters(object, 'c', 'c', 'c')).toBe(true);
         expect(ExistsDeepParameters(object, 'b', 'a')).toBe(true);
         expect(ExistsDeepParameters(object, 'b', 'b')).toBe(true);
 
@@ -36,6 +42,7 @@ describe(`parameters`, () => {
 
         expect(ExistsDeepParameter({object, properties:['a']})).toBe(true);
         expect(ExistsDeepParameter({object, properties:['b']})).toBe(true);
+        expect(ExistsDeepParameter({object, properties:['c', 'c', 'c']})).toBe(true);
         expect(ExistsDeepParameter({object, properties:['b', 'a']})).toBe(true);
         expect(ExistsDeepParameter({object, properties:['b', 'b']})).toBe(true);
 
