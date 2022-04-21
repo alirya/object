@@ -1,4 +1,3 @@
-import ValueAllParameter from '../../dist/validator/value-all-parameter';
 import ValueAll from '../../dist/validator/value-all-parameters';
 import And from '../../dist/validatable/and';
 import Or from '../../dist/validatable/or';

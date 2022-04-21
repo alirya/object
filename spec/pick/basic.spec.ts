@@ -1,4 +1,3 @@
-import NonNullable from '../../dist/non-nullable';
 import PickParameters from '../../dist/pick-parameters';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});

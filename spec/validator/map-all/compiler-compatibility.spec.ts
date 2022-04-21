@@ -1,11 +1,10 @@
 import MapAll from '../../../dist/validator/map-all-parameters';
 import And from '../../../dist/validatable/and';
-import Or from '../../../dist/validatable/or';
-import Validatable from '../../../../validatable/dist/validatable';
-import ValidatorInterface from '../../../../validator/dist/simple';
+import Validatable from '@alirya/validatable/validatable';
+import ValidatorInterface from '@alirya/validator/simple';
 import MessageMap from '../../../dist/message/message/record/map';
-import Instance from '../../../../validator/dist/validatable/validatable';
-import Type from '../../../../type/dist/validator/type-parameters';
+import Instance from '@alirya/validator/validatable/validatable';
+import Type from '@alirya/type/validator/type-parameters';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
