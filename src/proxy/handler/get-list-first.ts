@@ -4,6 +4,9 @@ import {List} from 'ts-toolbelt';
 import {Required} from 'utility-types';
 import Function from '@alirya/function/boolean/function';
 import MultiHandlers from './multi-handlers';
+import HasListAny from "./has-list-any";
+import PrototypeOfListMerge from "./prototype-of-list-merge";
+import GetOwnPropertyDescriptorListAll from "./get-own-property-descriptor-list-all";
 
 /**
  * construct or bind {@link ProxyHandler} for property getter from
@@ -21,6 +24,17 @@ export default class GetListFirst<
      */
     private handler : Partial<Record<keyof List.UnionOf<Objects>, List.UnionOf<Objects>>> = {};
 
+    private hasHandler : HasListAny<Target, Objects>;
+    private descriptors : GetOwnPropertyDescriptorListAll<Target, Objects>;
+
+    constructor(handlers : Objects, withTarget : boolean = true) {
+
+        super(handlers, withTarget);
+
+        this.hasHandler = new HasListAny(handlers, withTarget);
+        this.descriptors = new GetOwnPropertyDescriptorListAll(handlers, withTarget);
+    }
+
     /**
      * reset cached mapping
      */
@@ -36,6 +50,9 @@ export default class GetListFirst<
     bindTo<Argument extends Target>(handler : ProxyHandler<Argument>) : Required<ProxyHandler<Argument>, 'get'> {
 
         handler.get = (target: Target, property: PropertyKey, receiver: any) => this.get(target, property, receiver);
+
+        this.hasHandler.bindTo(handler);
+        this.descriptors.bindTo(handler);
 
         return handler as Required<ProxyHandler<Argument>, 'get'>;
     }
@@ -76,5 +93,15 @@ export default class GetListFirst<
         (this.handler as Partial<Record<keyof List.UnionOf<Objects>, List.UnionOf<Objects>>>)[property] = {[property]:undefined};
 
         return undefined;
+    }
+
+    has(target: Target, value: any): boolean {
+
+        return this.hasHandler.has(target, value as string);
+    }
+
+    getOwnPropertyDescriptor(target: Target, property: PropertyKey) : PropertyDescriptor | undefined {
+
+        return this.descriptors.getOwnPropertyDescriptor(target, property);
     }
 }

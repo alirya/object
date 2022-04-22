@@ -2,6 +2,9 @@ import GetHandler from '../../../../dist/proxy/handler/get-list-first';
 import GetOwnPropertyDescriptorListAll from '../../../../dist/proxy/handler/get-own-property-descriptor-list-all';
 import MergeAnonymous from '../../../../dist/proxy/handler/merge-anonymous';
 import GetPrototypeOfListMerge from '../../../../dist/proxy/handler/prototype-of-list-merge';
+import ReadableParameters from "../../../../dist/property/boolean/readable-parameters";
+import ExistsParameters from "../../../../dist/property/boolean/exists-parameters";
+import PickParameters from "../../../../dist/pick-parameters";
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -74,7 +77,11 @@ describe('original handler', () => {
 
     it('check value', ()=>{
 
-        expect<any>(proxy2.data).toBe(undefined);
+        expect(proxy2.data).toBe('property 1');
+        expect(ReadableParameters(proxy2, 'data')).toBe(true);
+        expect(ExistsParameters(proxy2, 'data')).toBe(true);
+        expect(PickParameters(proxy2, 'data')).toEqual({data:'property 1'});
+
         expect(proxy2[Symbol.iterator]).toBe(undefined);
 
         let iterated : boolean = false;

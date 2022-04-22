@@ -4,7 +4,7 @@ it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
 describe('valid', ()=>{
 
-    it('pick', ()=>{
+    it('exists', ()=>{
 
         const source = {
             data : {
@@ -14,6 +14,13 @@ describe('valid', ()=>{
                 boolean : true,
             }
         };
+
+        expect(SetPathParameters(source, 5, 'data', 'number').data.number).toBe(source.data.number);
+    });
+
+    it('empty', ()=>{
+
+        const source : any = {};
 
         expect(SetPathParameters(source, 5, 'data', 'number').data.number).toBe(source.data.number);
     });
