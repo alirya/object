@@ -1,6 +1,7 @@
 import Exists from '../../property/boolean/exists';
 import {Required} from 'utility-types';
 import MultiHandlers from './multi-handlers';
+import Descriptor from "../../descriptor/from-object-parameters";
 
 export default class GetOwnPropertyDescriptorListAll<
     Target extends object,
@@ -33,7 +34,8 @@ export default class GetOwnPropertyDescriptorListAll<
 
         for(const object of this.getHandler(target)) {
 
-            const descriptor = Reflect.getOwnPropertyDescriptor(object, property);
+           // const descriptor = Reflect.getOwnPropertyDescriptor(object, property);
+            const descriptor = Descriptor(object, property);
 
             if(descriptor) {
 

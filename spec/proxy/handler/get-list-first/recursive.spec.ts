@@ -82,23 +82,16 @@ describe('original handler', () => {
         expect(ExistsParameters(proxy2, 'data')).toBe(true);
         expect(PickParameters(proxy2, 'data')).toEqual({data:'property 1'});
 
-        expect(proxy2[Symbol.iterator]).toBe(undefined);
+        expect(typeof proxy2[Symbol.iterator]).toBe("function");
 
-        let iterated : boolean = false;
+        let values : string[] = [];
 
-        try {
+        for (let string of proxy2) {
 
-            for (let string of proxy2) {
-
-                iterated = true;
-            }
-
-            fail('error should be thorwn');
-
-        } catch (e) {
-
-            expect(e).toBeInstanceOf(Error);
+            values.push(string);
         }
+
+        expect(values).toEqual(['1', '2', '2', '3']);
 
     });
 
