@@ -1,7 +1,6 @@
 import {Object} from 'ts-toolbelt';
 import Object_ from './object/object';
 import SetPathParameters from './set-path-parameters';
-import {PickDeepParameterArgument} from './value/value/pick-path-parameter';
 import Value from '@alirya/value/value';
 
 

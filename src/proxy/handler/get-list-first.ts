@@ -5,7 +5,6 @@ import {Required} from 'utility-types';
 import Function from '@alirya/function/boolean/function';
 import MultiHandlers from './multi-handlers';
 import HasListAny from "./has-list-any";
-import PrototypeOfListMerge from "./prototype-of-list-merge";
 import GetOwnPropertyDescriptorListAll from "./get-own-property-descriptor-list-all";
 
 /**

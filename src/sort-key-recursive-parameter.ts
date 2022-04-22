@@ -1,6 +1,4 @@
-import SortKeyParameters from './sort-key-parameters';
 import Callable from '@alirya/function/callable';
-import IsObject from '@alirya/object/boolean/object';
 import SortKeyRecursiveParameters from './sort-key-recursive-parameters';
 
 export default function SortKeyRecursiveParameter<
