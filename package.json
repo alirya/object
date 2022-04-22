@@ -1,6 +1,6 @@
 {
   "name": "@alirya/object",
-  "version": "0.37.7",
+  "version": "0.37.8",
   "description": "Typescript object",
   "publishConfig": {
     "directory": "dist"
