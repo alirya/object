@@ -48,7 +48,7 @@
     "utility-types": "^3.10.0",
     "package-version-git-tag": "^3.0.0",
     "@alirya/type": "^0.7.1",
-    "cpx": "^1.5.0"
+    "cpx2": "^4.2.0"
   },
   "scripts": {
     "spec-run-js": "node -r esm node_modules/jasmine/bin/jasmine.js --config=./jasmine.json",
