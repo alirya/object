@@ -1,5 +1,5 @@
-import Object_ from "./object/object";
-import ReadonlyParameters, {ReadonlyPropertiesParametersReturn as ReadonlyPropertiesParameterReturn} from "./readonly-parameters";
+import Object_ from './object/object';
+import ReadonlyParameters, {ReadonlyPropertiesParametersReturn as ReadonlyPropertiesParameterReturn} from './readonly-parameters';
 
 export {ReadonlyPropertiesParameterReturn};
 

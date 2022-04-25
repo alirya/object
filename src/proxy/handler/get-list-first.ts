@@ -4,8 +4,8 @@ import {List} from 'ts-toolbelt';
 import {Required} from 'utility-types';
 import Function from '@alirya/function/boolean/function';
 import MultiHandlers from './multi-handlers';
-import HasListAny from "./has-list-any";
-import GetOwnPropertyDescriptorListAll from "./get-own-property-descriptor-list-all";
+import HasListAny from './has-list-any';
+import GetOwnPropertyDescriptorListAll from './get-own-property-descriptor-list-all';
 
 /**
  * construct or bind {@link ProxyHandler} for property getter from

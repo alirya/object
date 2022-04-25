@@ -1,6 +1,6 @@
 import PickParameters from '../../dist/pick-parameters';
-import List from "../../dist/proxy/list";
-import GetListFirst from "../../dist/proxy/handler/get-list-first";
+import List from '../../dist/proxy/list';
+import GetListFirst from '../../dist/proxy/handler/get-list-first';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -19,7 +19,7 @@ it('property', ()=>{
 it('getter class', ()=>{
 
     class Getter  {
-        get data() {return 1}
+        get data() {return 1;}
     }
 
 

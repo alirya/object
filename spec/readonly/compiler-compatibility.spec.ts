@@ -1,4 +1,4 @@
-import {ReadonlyPropertiesParametersReturn} from "../../dist/readonly-parameters";
+import {ReadonlyPropertiesParametersReturn} from '../../dist/readonly-parameters';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -17,10 +17,10 @@ describe('partial', () => {
 
 
         // @ts-expect-error
-        readonly.number = 1
+        readonly.number = 1;
 
         // @ts-expect-error
-        readonly.boolean = true
+        readonly.boolean = true;
 
         readonly.string = 'a';
         readonly.object = {};

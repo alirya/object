@@ -1,7 +1,7 @@
 import Exists from '../../property/boolean/exists';
 import {Required} from 'utility-types';
 import MultiHandlers from './multi-handlers';
-import Descriptor from "../../descriptor/from-object-parameters";
+import Descriptor from '../../descriptor/from-object-parameters';
 
 export default class GetOwnPropertyDescriptorListAll<
     Target extends object,

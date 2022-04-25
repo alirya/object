@@ -1,4 +1,4 @@
-import Callable from "@alirya/function/callable";
+import Callable from '@alirya/function/callable';
 
 export default function CatchError<Callback extends Callable>(callback: Callback) : ReturnType<Callback>|Error {
 
