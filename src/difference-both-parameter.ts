@@ -1,7 +1,5 @@
 import Equal from '@alirya/boolean/equal-parameter';
-import Validation from '@alirya/boolean/validation/validation';
 import DifferenceBothParameters from './difference-both-parameters';
-import {DifferenceParameterArgument} from './difference-parameter';
 import {A} from 'ts-toolbelt';
 import Compare from '@alirya/boolean/compare/compare';
 import Callable from '@alirya/function/callable';

@@ -1,6 +1,5 @@
-import ProcessEnv = NodeJS.ProcessEnv;
+
 import Callable from '@alirya/function/callable';
-import SetPathParameters from './set-path-parameters';
 import EnvironmentParameters from './environment-parameters';
 
 
