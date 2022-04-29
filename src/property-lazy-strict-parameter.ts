@@ -1,7 +1,7 @@
-import PropertyLazyStaticParameters, {
+import PropertyLazyStrictParameters, {
     PropertyLazyStaticParametersWritableReturn as PropertyLazyStaticParameterWritableReturn,
     PropertyLazyStaticParametersReadonlyReturn as PropertyLazyStaticParameterReadonlyReturn,
-} from './property-lazy-static-parameters';
+} from './property-lazy-strict-parameters';
 import Callable from '@alirya/function/callable';
 
 export {PropertyLazyStaticParameterWritableReturn, PropertyLazyStaticParameterReadonlyReturn};
@@ -28,7 +28,7 @@ export type PropertyLazyStaticParameterReadonlyArgument<
     configurable ?: boolean
 };
 
-export default function PropertyLazyStaticParameter<
+export default function PropertyLazyStrictParameter<
     This extends object,
     Key extends keyof This,
     Type
@@ -41,7 +41,7 @@ export default function PropertyLazyStaticParameter<
     } : PropertyLazyStaticParameterWritableArgument<This, Key>
 ) : PropertyLazyStaticParameterWritableReturn<This, Key>;
 
-export default function PropertyLazyStaticParameter<
+export default function PropertyLazyStrictParameter<
     This extends object,
     Key extends keyof This,
     Type
@@ -54,7 +54,7 @@ export default function PropertyLazyStaticParameter<
     } : PropertyLazyStaticParameterReadonlyArgument<This, Key>
 ) : PropertyLazyStaticParameterReadonlyReturn<This, Key>;
 
-export default function PropertyLazyStaticParameter<
+export default function PropertyLazyStrictParameter<
     This extends object,
     Key extends keyof This,
     Type
@@ -67,5 +67,5 @@ export default function PropertyLazyStaticParameter<
         } : PropertyLazyStaticParameterWritableArgument<This, Key>
 ) : PropertyLazyStaticParameterWritableReturn<This, Key> {
 
-    return PropertyLazyStaticParameters<This, Key>(object, property, factory, writable, configurable);
+    return PropertyLazyStrictParameters<This, Key>(object, property, factory, writable, configurable);
 }

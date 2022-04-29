@@ -14,6 +14,8 @@ export type PropertyLazyStaticParametersWritableReturn<
 > = Required<This, Key>;
 
 /**
+ * strict version of {@see PropertyLazyDynamicParameters}
+ *
  * set property from {@param factory} to getter for {@param object}
  * should be used outside
  *
@@ -28,7 +30,7 @@ export type PropertyLazyStaticParametersWritableReturn<
  * @param configurable
  */
 
-export default function PropertyLazyStaticParameters<
+export default function PropertyLazyStrictParameters<
     This extends object,
     Key extends keyof This
 >(
@@ -39,7 +41,7 @@ export default function PropertyLazyStaticParameters<
     configurable ?: boolean
 ) : PropertyLazyStaticParametersWritableReturn<This, Key>;
 
-export default function PropertyLazyStaticParameters<
+export default function PropertyLazyStrictParameters<
     This extends object,
     Key extends keyof This
 >(
@@ -50,7 +52,7 @@ export default function PropertyLazyStaticParameters<
     configurable ?: boolean
 ) : PropertyLazyStaticParametersReadonlyReturn<This, Key>;
 
-export default function PropertyLazyStaticParameters<
+export default function PropertyLazyStrictParameters<
     This extends object,
     Key extends keyof This
 >(

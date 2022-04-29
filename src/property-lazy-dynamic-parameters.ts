@@ -15,6 +15,8 @@ export type PropertyLazyDynamicParametersReadonlyReturn<
 > = Omit<This, Key> & O.Readonly<Record<Key, Type>>;
 
 /**
+ * dynamic version of {@see PropertyLazyStaticParameters}
+ *
  * set property from {@param factory} to getter for {@param object}
  * should be used outside
  *

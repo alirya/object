@@ -1,4 +1,4 @@
-import SetPropertyCallback from '../../dist/property-lazy-static-parameters';
+import SetPropertyCallback from '../../dist/property-lazy-strict-parameters';
 
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
