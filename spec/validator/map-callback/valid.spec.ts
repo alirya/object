@@ -1,11 +1,10 @@
-import MapCallback from '../../../dist/validator/map-callback-parameters';
-import ValidateMapPartial from '../../../dist/validator/validatable/record/map-partial-parameters';
-import ValidateMap from '../../../dist/validator/validatable/record/map-parameters';
+import {MapCallbackParameters} from '../../../dist/validator/map-callback';
+import {MapPartialParameters} from '../../../dist/validator/validatable/record/map-partial';
+import {MapParameters} from '../../../dist/validator/validatable/record/map';
 import And from '../../../dist/validatable/and';
 import Or from '../../../dist/validatable/or';
 import MessageMap from '../../../dist/message/message/record/map';
 import Type from '@alirya/type/validator/type-parameters';
-import MapCallbackFunction from '../../../dist/validator/map-callback-parameters';
 import InferReturn from '../../../dist/validator/validatable/record/infer';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -26,7 +25,7 @@ describe('flat', function() {
             user : Type('string'),
         };
 
-        let property = MapCallback<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap, And, MessageMap);
+        let property = MapCallbackParameters<typeof validator, InferReturn<typeof validator>>(validator, MapParameters, And, MessageMap);
 
         let validatable = property(value);
 
@@ -52,7 +51,7 @@ describe('flat', function() {
             user : Type('string'),
         };
 
-        let property = MapCallback<typeof validator, InferReturn<typeof validator>>(validator, ValidateMap, Or, MessageMap);
+        let property = MapCallbackParameters<typeof validator, InferReturn<typeof validator>>(validator, MapParameters, Or, MessageMap);
 
         let validatable = property(value);
 
@@ -92,17 +91,17 @@ describe('recursive', function() {
             name : Type('string'),
             address : Type('string'),
             user : Type('string'),
-            info : MapCallbackFunction({
+            info : MapCallbackParameters({
                     age : Type('number'),
                     hobby : Type('string'),
                     no : Type('number')
                 },
-                (value, validators) => ValidateMapPartial(value, validators),
+                (value, validators) => MapPartialParameters(value, validators),
                 And, MessageMap)
         };
 
-        let property = MapCallback(validator,
-            (value, validators) => ValidateMapPartial(value, validators),
+        let property = MapCallbackParameters(validator,
+            (value, validators) => MapPartialParameters(value, validators),
             And,
             MessageMap
         );
@@ -174,17 +173,17 @@ describe('recursive', function() {
             name : Type('string'),
             address : Type('string'),
             user : Type('string'),
-            info : MapCallbackFunction({
+            info : MapCallbackParameters({
                     age : Type('number'),
                     hobby : Type('string'),
                     no : Type('number')
                 },
-                (value, validators) => ValidateMapPartial(value, validators),
+                (value, validators) => MapPartialParameters(value, validators),
                 Or, MessageMap)
         };
 
-        let property = MapCallback(validator,
-            (value, validators) => ValidateMapPartial(value, validators),
+        let property = MapCallbackParameters(validator,
+            (value, validators) => MapPartialParameters(value, validators),
             Or,
             MessageMap
         );

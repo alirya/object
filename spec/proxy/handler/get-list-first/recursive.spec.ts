@@ -2,9 +2,9 @@ import GetHandler from '../../../../dist/proxy/handler/get-list-first';
 import GetOwnPropertyDescriptorListAll from '../../../../dist/proxy/handler/get-own-property-descriptor-list-all';
 import MergeAnonymous from '../../../../dist/proxy/handler/merge-anonymous';
 import GetPrototypeOfListMerge from '../../../../dist/proxy/handler/prototype-of-list-merge';
-import ReadableParameters from "../../../../dist/property/boolean/readable-parameters";
-import ExistsParameters from "../../../../dist/property/boolean/exists-parameters";
-import PickParameters from "../../../../dist/pick-parameters";
+import {ReadableParameters} from '../../../../dist/property/boolean/readable';
+import {ExistsParameters} from '../../../../dist/property/boolean/exists';
+import {PickParameters} from '../../../../dist/pick';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -82,7 +82,7 @@ describe('original handler', () => {
         expect(ExistsParameters(proxy2, 'data')).toBe(true);
         expect(PickParameters(proxy2, 'data')).toEqual({data:'property 1'});
 
-        expect(typeof proxy2[Symbol.iterator]).toBe("function");
+        expect(typeof proxy2[Symbol.iterator]).toBe('function');
 
         let values : string[] = [];
 

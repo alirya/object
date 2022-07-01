@@ -1,6 +1,6 @@
-import SetProperty from '../../../../dist/value/value/set-property-parameters';
-import Readable from '../../../../dist/property/boolean/readable-parameters';
-import Writable from '../../../../dist/property/boolean/writable-parameters';
+import {SetPropertyParameters} from '../../../../dist/value/value/set-property';
+import {ReadableParameters} from '../../../../dist/property/boolean/readable';
+import {WritableParameters} from '../../../../dist/property/boolean/writable';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -13,15 +13,15 @@ describe('plain', () => {
         get data ()  {
 
             called++;
-            return SetProperty(this, 'data', Math.random().toString(), false);
+            return SetPropertyParameters(this, 'data', Math.random().toString(), false);
         }
     };
 
     it('check initial', ()=>{
 
         expect(called).toBe(0);
-        expect(Readable(object, 'data')).toBe(true);
-        expect(Writable(object, 'data')).toBe(false);
+        expect(ReadableParameters(object, 'data')).toBe(true);
+        expect(WritableParameters(object, 'data')).toBe(false);
 
     });
 
@@ -31,8 +31,8 @@ describe('plain', () => {
         expect(typeof result).toBe('string');
         expect(called).toBe(1);
 
-        expect(Readable(object, 'data')).toBe(true);
-        expect(Writable(object, 'data')).toBe(false);
+        expect(ReadableParameters(object, 'data')).toBe(true);
+        expect(WritableParameters(object, 'data')).toBe(false);
 
     });
 
@@ -45,8 +45,8 @@ describe('plain', () => {
         expect(object.data).toBe(object.data);
         expect(called).toBe(1);
 
-        expect(Readable(object, 'data')).toBe(true);
-        expect(Writable(object, 'data')).toBe(false);
+        expect(ReadableParameters(object, 'data')).toBe(true);
+        expect(WritableParameters(object, 'data')).toBe(false);
 
     });
 
@@ -63,7 +63,7 @@ describe('class', () => {
         get data ()  {
 
             called++;
-            return SetProperty(this, 'data', Math.random().toString(), false);
+            return SetPropertyParameters(this, 'data', Math.random().toString(), false);
         }
     }
 
@@ -73,8 +73,8 @@ describe('class', () => {
 
         expect(called).toBe(0);
 
-        expect(Readable(object, 'data')).toBe(true);
-        expect(Writable(object, 'data')).toBe(false);
+        expect(ReadableParameters(object, 'data')).toBe(true);
+        expect(WritableParameters(object, 'data')).toBe(false);
 
     });
 
@@ -84,8 +84,8 @@ describe('class', () => {
         expect(typeof result).toBe('string');
         expect(called).toBe(1);
 
-        expect(Readable(object, 'data')).toBe(true);
-        expect(Writable(object, 'data')).toBe(false);
+        expect(ReadableParameters(object, 'data')).toBe(true);
+        expect(WritableParameters(object, 'data')).toBe(false);
 
     });
 
@@ -98,8 +98,8 @@ describe('class', () => {
         expect(object.data).toBe(object.data);
         expect(called).toBe(1);
 
-        expect(Readable(object, 'data')).toBe(true);
-        expect(Writable(object, 'data')).toBe(false);
+        expect(ReadableParameters(object, 'data')).toBe(true);
+        expect(WritableParameters(object, 'data')).toBe(false);
 
     });
 

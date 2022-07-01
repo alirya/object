@@ -1,5 +1,5 @@
 import Type from '@alirya/type/validator/type-parameters';
-import Record from '../../../../dist/validator/validatable/record/record-value-parameters';
+import {RecordValueParameters} from '../../../../dist/validator/validatable/record/record-value';
 import Validator from '@alirya/validator/validator';
 
 it('force console log', () => spyOn(console, 'log').and.callThrough());
@@ -23,7 +23,7 @@ describe('compiler compatibility', function() {
             validator2 : 10,
         };
 
-        Record(record, value);
+        RecordValueParameters(record, value);
     });
 
     it('implicit', function() {
@@ -36,7 +36,7 @@ describe('compiler compatibility', function() {
             validator2 : 10,
         };
 
-        Record(record, value);
+        RecordValueParameters(record, value);
     });
 
     it('auto', function() {
@@ -49,6 +49,6 @@ describe('compiler compatibility', function() {
             validator2 : 10,
         };
 
-        Record(record, value);
+        RecordValueParameters(record, value);
     });
 });

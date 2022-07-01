@@ -1,6 +1,6 @@
 import Default from '../default';
 import Suffix from '@alirya/string/suffix/suffix';
-import SetMethod from '../value/value/set-method-parameters';
+import SetMethod from '../value/value/set-method';
 
 const defaults = {suffix:'', configurable:true};
 /**
@@ -25,7 +25,7 @@ export default function MemoizeMethod(
 
         descriptor.value = function (...args) {
 
-            return SetMethod(
+            return SetMethod.Parameters(
                 this,
                 property,
                 this[symbol](args),

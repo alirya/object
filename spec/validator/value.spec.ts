@@ -1,4 +1,4 @@
-import ValueAll from '../../dist/validator/value-all-parameters';
+import {ValueAllParameters} from '../../dist/validator/value-all';
 import And from '../../dist/validatable/and';
 import Or from '../../dist/validatable/or';
 import ValidatablesInterface from '../../dist/validatable/validatables/validatables';
@@ -20,7 +20,7 @@ describe('compiler compatibility', function() {
 
     describe('implicit complete', function() {
 
-        let property = ValueAll(validator, (v)=>And(v), MessageMap);
+        let property = ValueAllParameters(validator, (v)=>And(v), MessageMap);
 
         let validatable = property('data');
 
@@ -47,7 +47,7 @@ describe('compiler compatibility', function() {
 
     describe('explicit complete', function() {
 
-        let property = ValueAll<string>(validator,
+        let property = ValueAllParameters<string>(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -75,7 +75,7 @@ describe('implicit complete', function() {
                 user : Type('string'),
             };
 
-            let property = ValueAll(validator, (v)=>And(v), MessageMap);
+            let property = ValueAllParameters(validator, (v)=>And(v), MessageMap);
 
             let validatable = property(value);
 
@@ -101,7 +101,7 @@ describe('implicit complete', function() {
                 user : Type('string'),
             };
 
-            let property = ValueAll(validator, (v)=>Or(v), MessageMap);
+            let property = ValueAllParameters(validator, (v)=>Or(v), MessageMap);
 
             let validatable = property(value);
 
@@ -131,7 +131,7 @@ describe('implicit complete', function() {
                 address : Type('string'),
             };
 
-            let property = ValueAll<unknown, string>(validator, (v)=>And(v), MessageMap);
+            let property = ValueAllParameters<unknown, string>(validator, (v)=>And(v), MessageMap);
 
             let and = property(<unknown>'data');
 
@@ -158,7 +158,7 @@ describe('implicit complete', function() {
                 address : Type('string'),
             };
 
-            let property = ValueAll<unknown, string>(validator,(v)=>Or(v), MessageMap);
+            let property = ValueAllParameters<unknown, string>(validator,(v)=>Or(v), MessageMap);
 
             let or = property('data');
 
@@ -188,7 +188,7 @@ describe('implicit complete', function() {
                 address : Type('string'),
             };
 
-            let property = ValueAll<unknown, string>(validator,(v)=>And(v), MessageMap);
+            let property = ValueAllParameters<unknown, string>(validator,(v)=>And(v), MessageMap);
 
             let and = property({});
 
@@ -213,7 +213,7 @@ describe('implicit complete', function() {
                 address : Type('string'),
             };
 
-            let property = ValueAll<unknown, string>(validator,(v)=>Or(v), MessageMap);
+            let property = ValueAllParameters<unknown, string>(validator,(v)=>Or(v), MessageMap);
 
             let or = property({});
             expect(or.valid).toBe(false);
@@ -246,14 +246,14 @@ describe('recursive', function() {
                 name : Type('string'),
                 address : Type('string'),
                 user : Type('string'),
-                info : ValueAll({
+                info : ValueAllParameters({
                     age : Type('string'),
                     hobby : Type('string'),
                     no : Type('string'),
                 }, (v)=>And(v), MessageMap)
             };
 
-            let property = ValueAll(validator, (v)=>And(v), MessageMap);
+            let property = ValueAllParameters(validator, (v)=>And(v), MessageMap);
 
             let validatable = property(value);
 
@@ -296,14 +296,14 @@ describe('recursive', function() {
                 name : Type('string'),
                 address : Type('string'),
                 user : Type('string'),
-                info : ValueAll({
+                info : ValueAllParameters({
                     age : Type('string'),
                     hobby : Type('string'),
                     no : Type('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
-            let property = ValueAll(validator, (v)=>Or(v), MessageMap);
+            let property = ValueAllParameters(validator, (v)=>Or(v), MessageMap);
 
             let validatable = property(value);
 
@@ -350,14 +350,14 @@ describe('recursive', function() {
                 name : Type('string'),
                 age : Type('number'),
                 address : Type('string'),
-                info : ValueAll({
+                info : ValueAllParameters({
                     age : Type('string'),
                     hobby : Type('number'),
                     no : Type('string'),
                 }, (v)=>And(v), MessageMap)
             };
 
-            let property = ValueAll(validator,(v)=>And(v), MessageMap);
+            let property = ValueAllParameters(validator,(v)=>And(v), MessageMap);
 
             let and = property('data');
 
@@ -401,14 +401,14 @@ describe('recursive', function() {
                 name : Type('string'),
                 age : Type('number'),
                 address : Type('string'),
-                info : ValueAll({
+                info : ValueAllParameters({
                     age : Type('string'),
                     hobby : Type('number'),
                     no : Type('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
-            let property = ValueAll(validator,(v)=>Or(v), MessageMap);
+            let property = ValueAllParameters(validator,(v)=>Or(v), MessageMap);
 
             let or = property('data');
 
@@ -455,14 +455,14 @@ describe('recursive', function() {
             name : Type('string'),
             age : Type('number'),
             address : Type('string'),
-            info : ValueAll/*<unknown, string|number>*/({
+            info : ValueAllParameters/*<unknown, string|number>*/({
                 age : Type('string'),
                 hobby : Type('number'),
                 no : Type('string'),
             }, (v)=>And(v), MessageMap)
         };
 
-        let property = ValueAll/*<unknown, string|number>*/(validator,(v)=>And(v), MessageMap);
+        let property = ValueAllParameters/*<unknown, string|number>*/(validator,(v)=>And(v), MessageMap);
 
             let and = property({});
 
@@ -504,14 +504,14 @@ describe('recursive', function() {
                 name : Type('string'),
                 age : Type('number'),
                 address : Type('string'),
-                info : ValueAll/*<unknown, string|number>*/({
+                info : ValueAllParameters/*<unknown, string|number>*/({
                     age : Type('string'),
                     hobby : Type('number'),
                     no : Type('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
-            let property = ValueAll/*<unknown, string|number>*/(validator,(v)=>Or(v), MessageMap);
+            let property = ValueAllParameters/*<unknown, string|number>*/(validator,(v)=>Or(v), MessageMap);
 
             let or = property({});
             expect<boolean>(or.valid).toBe(false);

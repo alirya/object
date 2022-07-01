@@ -1,4 +1,4 @@
-import Value from '../../dist/validator/record-value-partial-parameters';
+import {RecordValuePartialParameters} from '../../dist/validator/record-value-partial';
 import And from '../../dist/validatable/and';
 import Or from '../../dist/validatable/or';
 import Validatable from '@alirya/validatable/validatable';
@@ -22,7 +22,7 @@ describe('compiler compatibility', function() {
 
     it('implicit partial', function() {
 
-        let property = Value(validator, And, MessageMap);
+        let property = RecordValuePartialParameters(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -35,7 +35,7 @@ describe('compiler compatibility', function() {
 
     it('explicit complete', function() {
 
-        let property = Value<TypeValidatorValue>(validator, And, MessageMap);
+        let property = RecordValuePartialParameters<TypeValidatorValue>(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -59,7 +59,7 @@ describe('implicit incomplete', function() {
 
             let validator = Type('string');
 
-            let property = Value(
+            let property = RecordValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -110,7 +110,7 @@ describe('implicit incomplete', function() {
 
             let validator = Type('string');
 
-            let property = Value(
+            let property = RecordValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -169,7 +169,7 @@ describe('implicit incomplete', function() {
 
             let validator = Type('string');
 
-            let property = Value(
+            let property = RecordValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -207,7 +207,7 @@ describe('implicit incomplete', function() {
 
             let validator = Type('string');
 
-            let property = Value(
+            let property = RecordValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -252,7 +252,7 @@ describe('implicit incomplete', function() {
 
             let validator = Type('string');
 
-            let property = Value(
+            let property = RecordValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -285,7 +285,7 @@ describe('implicit incomplete', function() {
 
             let validator = Type('string');
 
-            let property = Value(
+            let property = RecordValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap

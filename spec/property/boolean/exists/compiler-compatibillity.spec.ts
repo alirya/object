@@ -8,7 +8,7 @@ it('object', ()=> {
 
     let object: object = {};
 
-    if(Property(object, 'property')) {
+    if(Property.Parameters(object, 'property')) {
 
         let property = object.property;
 
@@ -28,7 +28,7 @@ it('optional', ()=> {
 
     let object = new Class();
 
-    if(Property(object, 'property')) {
+    if(Property.Parameters(object, 'property')) {
 
         let property : number = object.property;
 

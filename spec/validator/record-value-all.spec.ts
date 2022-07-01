@@ -1,4 +1,4 @@
-import RecordValue from '../../dist/validator/record-value-all-parameters';
+import {RecordValueAllParameters} from '../../dist/validator/record-value-all';
 import And from '../../dist/validatable/and';
 import Or from '../../dist/validatable/or';
 import Validatable from '@alirya/validatable/validatable';
@@ -28,7 +28,7 @@ describe('compiler compatibility', function() {
 
     it('implicit', function() {
 
-        let property = RecordValue(validator, And, MessageMap);
+        let property = RecordValueAllParameters(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -47,7 +47,7 @@ describe('compiler compatibility', function() {
 
         it('auto', function() {
 
-            let property = RecordValue<TypeValidatorValue>(validator,
+            let property = RecordValueAllParameters<TypeValidatorValue>(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -61,7 +61,7 @@ describe('compiler compatibility', function() {
 
         it('direct', function() {
 
-            let property = RecordValue<TypeValidatorValue>(validator,
+            let property = RecordValueAllParameters<TypeValidatorValue>(validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 MessageMap
             );
@@ -76,7 +76,7 @@ describe('compiler compatibility', function() {
 
     it('implicit partial', function() {
 
-        let property = RecordValue(validator,
+        let property = RecordValueAllParameters(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -92,7 +92,7 @@ describe('compiler compatibility', function() {
 
         it('auto', function() {
 
-            let property = RecordValue<TypeValidatorValue>(
+            let property = RecordValueAllParameters<TypeValidatorValue>(
                 validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 MessageMap
@@ -107,7 +107,7 @@ describe('compiler compatibility', function() {
 
         it('direct', function() {
 
-            let property = RecordValue<TypeValidatorValue>(
+            let property = RecordValueAllParameters<TypeValidatorValue>(
                 validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 (v)=>MessageMap(<globalThis.Record<any, Message>>v)
@@ -140,7 +140,7 @@ describe('implicit complete', function() {
 
         it(`and validation`, () => {
 
-            let property =  RecordValue(validator,
+            let property =  RecordValueAllParameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -163,7 +163,7 @@ describe('implicit complete', function() {
 
         it(`or validation`, () => {
 
-            let property =  RecordValue(validator,
+            let property =  RecordValueAllParameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );
@@ -197,7 +197,7 @@ describe('implicit complete', function() {
 
         it(`and validation`, () => {
 
-            let property = RecordValue(validator,
+            let property = RecordValueAllParameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -221,7 +221,7 @@ describe('implicit complete', function() {
 
         it(`or validation `, () => {
 
-            let property = RecordValue(validator,
+            let property = RecordValueAllParameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );
@@ -256,7 +256,7 @@ describe('implicit complete', function() {
 
         it(`and validation`, () => {
 
-            let property = RecordValue(validator,
+            let property = RecordValueAllParameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -278,7 +278,7 @@ describe('implicit complete', function() {
 
         it(`or validation `, () => {
 
-            let property = RecordValue(validator,
+            let property = RecordValueAllParameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );

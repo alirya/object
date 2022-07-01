@@ -1,5 +1,5 @@
 import Class from '@alirya/class/boolean/class';
-import NameNotFound from './name-not-found-parameters';
+import NameNotFound from './name-not-found';
 
 export default function Name(value : any) : string {
 
@@ -28,5 +28,5 @@ export default function Name(value : any) : string {
         return 'Object';
     }
 
-    throw new Error(NameNotFound(false, value));
+    throw new Error(NameNotFound.Parameters(false, value));
 }

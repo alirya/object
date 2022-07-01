@@ -1,4 +1,4 @@
-import MemoizeGetterBind from '../../dist/property-lazy-static-parameters';
+import {PropertyLazyStaticParameters} from '../../dist/property-lazy-static';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -6,7 +6,7 @@ it('plain', () => {
 
     let source = {};
 
-    let object = MemoizeGetterBind(
+    let object = PropertyLazyStaticParameters(
         source,
         // @ts-expect-errors
         'data',
@@ -30,7 +30,7 @@ it('different type', () => {
         get data () : number { return  1;}
     };
 
-    let object = MemoizeGetterBind(
+    let object = PropertyLazyStaticParameters(
         source,
         'data',
         // @ts-expect-errors
@@ -64,7 +64,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Implementer();
-        let type : Interface = MemoizeGetterBind(source, 'data', () =>'string', false);
+        let type : Interface = PropertyLazyStaticParameters(source, 'data', () =>'string', false);
         let string : string = type.data;
 
     });
@@ -80,7 +80,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Test();
-        let type : Interface = MemoizeGetterBind(source, 'data', () =>'string', false);
+        let type : Interface = PropertyLazyStaticParameters(source, 'data', () =>'string', false);
         let string : string = type.data;
 
     });
@@ -93,7 +93,7 @@ describe('not exists', () => {
         let source = {};
 
 
-        let object = MemoizeGetterBind(
+        let object = PropertyLazyStaticParameters(
             source,
             // @ts-expect-errors
             'data',
@@ -116,7 +116,7 @@ describe('not exists', () => {
         };
 
 
-        let object = MemoizeGetterBind(
+        let object = PropertyLazyStaticParameters(
             source,
             // @ts-expect-errors
             'value',

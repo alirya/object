@@ -1,4 +1,3 @@
-// import Sentence from "../../../dist/property/message/sentence";
 //
 // it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 //

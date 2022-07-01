@@ -1,5 +1,5 @@
-import PickDeepParameters from '../../../../dist/value/value/select-path-parameters';
-import PickDeepParameter from '../../../../dist/value/value/select-path-parameter';
+import {SelectPathParameters} from '../../../../dist/value/value/select-path';
+import {SelectPathParameter} from '../../../../dist/value/value/select-path';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -17,9 +17,9 @@ describe('valid', ()=>{
         };
 
         expect(
-            PickDeepParameters(object, 'data', 'number')
+            SelectPathParameters(object, 'data', 'number')
         ).toBe(
-            PickDeepParameter<['data', 'number'], typeof object>({object, properties: ['data', 'number']})
+            SelectPathParameter<['data', 'number'], typeof object>({object, properties: ['data', 'number']})
         );
     });
 
@@ -39,7 +39,7 @@ describe('invalid', ()=>{
             }
         };
 
-        expect(PickDeepParameters(source as any, 'data', 'array')).toBe(undefined);
+        expect(SelectPathParameters(source as any, 'data', 'array')).toBe(undefined);
     });
 
     it('out of bound', ()=>{
@@ -53,7 +53,7 @@ describe('invalid', ()=>{
             }
         };
 
-        expect(PickDeepParameters(source as any, 'data', 'array', 'number')).toBe(undefined);
+        expect(SelectPathParameters(source as any, 'data', 'array', 'number')).toBe(undefined);
 
     });
 });

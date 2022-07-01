@@ -1,11 +1,11 @@
 import Guard from '../boolean/object';
-import Callback from '@alirya/function/assert/callback-parameters';
-import StringError from './throwable/object-parameters';
+import Callback from '@alirya/function/assert/callback';
+import StringError from './throwable/object';
 
 export default function Object_(
     value : unknown,
-    error : (value:unknown)=>Error = StringError
+    error : (value:unknown)=>Error = StringError.Parameters
 ) : asserts value is object {
 
-    Callback(value, Guard, error);
+    Callback.Parameters(value, Guard, error);
 }

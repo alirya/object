@@ -1,4 +1,4 @@
-import CallValidator from '../../../../dist/validator/validatable/record/map-partial-parameters';
+import {MapPartialParameters} from '../../../../dist/validator/validatable/record/map-partial';
 import Type from '@alirya/type/validator/type-parameters';
 
 it('force console log', () => spyOn(console, 'log').and.callThrough());
@@ -18,7 +18,7 @@ describe('stop on invalid', function() {
             validator2 : 10,
         };
 
-        let result = CallValidator(value, validator);
+        let result = MapPartialParameters(value, validator);
 
 
             it('match validator1', ()=> {
@@ -59,7 +59,7 @@ describe('stop on invalid', function() {
             validator2 : 'str',
         };
 
-        let result = CallValidator(value, validator);
+        let result = MapPartialParameters(value, validator);
 
         it('match validator1', ()=> {
 
@@ -93,7 +93,7 @@ describe('stop on invalid', function() {
             validator3 : 'str 2',
         };
 
-        let result = CallValidator(value, validator);
+        let result = MapPartialParameters(value, validator);
 
         it('match validator1', ()=> {
 

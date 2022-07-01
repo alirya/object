@@ -1,12 +1,3 @@
-// import ValueCallback from "../../../dist/validatable/value-callback";
-// import Type from "@alirya/type/validator/type";
-// import TypeMessage from "@alirya/type/validatable/string/type";
-// import TypeString from "@alirya/type/string";
-// import ValidateValue from "../../../dist/validator/validatable/record/value";
-// import And from "../../../dist/validatable/and";
-// import MessageMap from "../../../dist/message/message/record/map";
-// import Validator from "@alirya/validator/validator";
-// import Validatable from "@alirya/validatable/validatable";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //

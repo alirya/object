@@ -1,4 +1,4 @@
-import SetPropertyCallback from '../../dist/property-lazy-static-parameters';
+import {PropertyLazyStaticParameters} from '../../dist/property-lazy-static';
 
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
@@ -9,7 +9,7 @@ describe('plain', () => {
 
         let source = {};
 
-        let object = SetPropertyCallback(
+        let object = PropertyLazyStaticParameters(
             source,
             // @ts-expect-errors
             'data',
@@ -30,7 +30,7 @@ describe('plain', () => {
 
         let source : {data ?: string} = {};
 
-        let object = SetPropertyCallback(source, 'data', () =>'string', true, true);
+        let object = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
 
         let string : string = object.data;
 
@@ -48,7 +48,7 @@ describe('different type', () => {
             get data () : number { return  1;}
         };
 
-        let object = SetPropertyCallback(
+        let object = PropertyLazyStaticParameters(
             source,
             'data',
             // @ts-expect-errors
@@ -71,7 +71,7 @@ describe('different type', () => {
             get data () : number|string { return  1;}
         };
 
-        let object = SetPropertyCallback(source, 'data', () =>'string', true, true);
+        let object = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
 
         let numberString : number|string = object.data;
 
@@ -102,7 +102,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Implementer();
-        let type : Interface = SetPropertyCallback(source, 'data', () =>'string', true, true);
+        let type : Interface = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
         let string : string = type.data;
 
     });
@@ -118,7 +118,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Test();
-        let type : Interface = SetPropertyCallback(source, 'data', () =>'string', true, true);
+        let type : Interface = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
         let string : string = type.data;
 
     });
@@ -131,7 +131,7 @@ describe('not exists', () => {
         let source = {};
 
 
-        let object = SetPropertyCallback(
+        let object = PropertyLazyStaticParameters(
             source,
             // @ts-expect-error
             'data',
@@ -155,7 +155,7 @@ describe('not exists', () => {
         };
 
 
-        let object = SetPropertyCallback(
+        let object = PropertyLazyStaticParameters(
             source,
             // @ts-expect-error
             'value',

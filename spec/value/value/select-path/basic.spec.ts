@@ -1,4 +1,4 @@
-import PickDeepParameters from '../../../../dist/value/value/pick-path-parameters';
+import {PickPathParameters} from '../../../../dist/value/value/pick-path';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -15,7 +15,7 @@ describe('valid', ()=>{
             }
         };
 
-        expect(PickDeepParameters(source, 'data', 'number')).toBe(1);
+        expect(PickPathParameters(source, 'data', 'number')).toBe(1);
     });
 
     it('empty pick', ()=>{
@@ -29,7 +29,7 @@ describe('valid', ()=>{
             }
         };
 
-        expect(PickDeepParameters(source)).toEqual(source);
+        expect(PickPathParameters(source)).toEqual(source);
 
     });
 });
@@ -48,7 +48,7 @@ describe('invalid', ()=>{
             }
         };
 
-        expect(PickDeepParameters(source as any, 'data', 'array')).toBe(undefined);
+        expect(PickPathParameters(source as any, 'data', 'array')).toBe(undefined);
     });
 
     it('out of bound', ()=>{
@@ -62,7 +62,7 @@ describe('invalid', ()=>{
             }
         };
 
-        expect(PickDeepParameters(source as any, 'data', 'array', 'number')).toBe(undefined);
+        expect(PickPathParameters(source as any, 'data', 'array', 'number')).toBe(undefined);
 
     });
 });

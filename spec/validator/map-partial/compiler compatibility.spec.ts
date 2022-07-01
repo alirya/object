@@ -1,4 +1,4 @@
-import Map from '../../../dist/validator/map-partial-parameters';
+import {MapPartialParameters} from '../../../dist/validator/map-partial';
 import And from '../../../dist/validatable/and';
 import ValidatorInterface from '@alirya/validator/simple';
 import MessageMap from '../../../dist/message/message/record/map';
@@ -33,7 +33,7 @@ describe('explicit typed', function() {
 
     it('implicit', function() {
 
-        let property = Map(validator, And, MessageMap);
+        let property = MapPartialParameters(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -45,7 +45,7 @@ describe('explicit typed', function() {
 
     it('auto', function() {
 
-        let property = Map<
+        let property = MapPartialParameters<
             globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>
             >(validator,
             And,
@@ -61,7 +61,7 @@ describe('explicit typed', function() {
 
     it('direct', function() {
 
-        let property = Map<TypeValidator>(validator, And, (v)=>MessageMap(RemoveUndefined(v)));
+        let property = MapPartialParameters<TypeValidator>(validator, And, (v)=>MessageMap(RemoveUndefined(v)));
 
         let validatable = property(value);
 

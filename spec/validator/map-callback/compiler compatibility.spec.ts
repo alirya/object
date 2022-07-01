@@ -1,6 +1,6 @@
-import MapCallback from '../../../dist/validator/map-callback-parameters';
-import ValidateMapPartial from '../../../dist/validator/validatable/record/map-partial-parameters';
-import ValidateMap from '../../../dist/validator/validatable/record/map-parameters';
+import {MapCallbackParameters} from '../../../dist/validator/map-callback';
+import {MapPartialParameters} from '../../../dist/validator/validatable/record/map-partial';
+import {MapParameters} from '../../../dist/validator/validatable/record/map';
 import And from '../../../dist/validatable/and';
 import Validatable from '@alirya/validatable/validatable';
 import ValidatorInterface from '@alirya/validator/simple';
@@ -33,7 +33,7 @@ let value = {
 
 it('implicit complete', function() {
 
-    let property = MapCallback(validator, ValidateMap, And, MessageMap);
+    let property = MapCallbackParameters(validator, MapParameters, And, MessageMap);
 
     let validatable = property(value);
 
@@ -47,8 +47,8 @@ describe('explicit complete', function() {
 
     it('auto', function() {
 
-        let property = MapCallback<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(validator,
-            ValidateMap,
+        let property = MapCallbackParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(validator,
+            MapParameters,
             And,
             MessageMap
         );
@@ -62,8 +62,8 @@ describe('explicit complete', function() {
 
     it('direct', function() {
 
-        let property = MapCallback<TypeValidator>(validator,
-            ValidateMap,
+        let property = MapCallbackParameters<TypeValidator>(validator,
+            MapParameters,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -78,9 +78,9 @@ describe('explicit complete', function() {
 
 it('implicit partial', function() {
 
-    let property = MapCallback(validator,
+    let property = MapCallbackParameters(validator,
         (value, validators) =>
-            <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+            <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),
         (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
         MessageMap
     );
@@ -96,10 +96,10 @@ describe('explicit complete', function() {
 
     it('auto', function() {
 
-        let property = MapCallback<globalThis.Record<keyof typeof validator, ValidatorInterface<any, string, Instance<any, string>>>>(
+        let property = MapCallbackParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<any, string, Instance<any, string>>>>(
             validator,
             (value, validators) =>
-                <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+                <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -113,10 +113,10 @@ describe('explicit complete', function() {
 
     it('direct', function() {
 
-        let property = MapCallback<TypeValidator>(
+        let property = MapCallbackParameters<TypeValidator>(
             validator,
             (value, validators) =>
-                <Record<PropertyKey, Instance<any, string>>>ValidateMapPartial(value, validators),
+                <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             (v)=>MessageMap(<globalThis.Record<any, Message>>v)
         );

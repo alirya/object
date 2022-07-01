@@ -1,4 +1,4 @@
-import Map from '../../../dist/validator/map-partial-parameters';
+import {MapPartialParameters} from '../../../dist/validator/map-partial';
 import And from '../../../dist/validatable/and';
 import Or from '../../../dist/validatable/or';
 import Validatable from '@alirya/validatable/validatable';
@@ -25,7 +25,7 @@ describe('implicit incomplete', function() {
 
     it(`and validation`, () => {
 
-        let property = Map(validator,
+        let property = MapPartialParameters(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -53,7 +53,7 @@ describe('implicit incomplete', function() {
 
     it(`or validation `, () => {
 
-        let property = Map(validator,
+        let property = MapPartialParameters(validator,
             (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -103,14 +103,14 @@ describe('recursive', function() {
             name : Type('string'),
             age : Type('number'),
             address : Type('string'),
-            info : Map({
+            info : MapPartialParameters({
                 age : Type('number'),
                 hobby : Type('string'),
                 no : Type('number'),
             },(v)=>And(v), MessageMap)
         };
 
-        let property = Map(validator,
+        let property = MapPartialParameters(validator,
             (v)=>And(v),
             MessageMap
         );
@@ -143,14 +143,14 @@ describe('recursive', function() {
             name : Type('string'),
             age : Type('number'),
             address : Type('string'),
-            info : Map({
+            info : MapPartialParameters({
                 age : Type('number'),
                 hobby : Type('string'),
                 no : Type('number'),
             },(v)=>Or(v), MessageMap)
         };
 
-        let property = Map(validator,
+        let property = MapPartialParameters(validator,
             (v)=>Or(v),
             MessageMap
         );

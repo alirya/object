@@ -1,4 +1,4 @@
-import PropertyType from '../../../dist/property/boolean/value-parameters';
+import {ValueParameters} from '../../../dist/property/boolean/value';
 import Type from '../../../dist/boolean/object';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -12,7 +12,7 @@ describe('test', function () {
             data : {}
         };
 
-        let result = PropertyType(data, 'data', Type);
+        let result = ValueParameters(data, 'data', Type);
         expect(result).toBeTrue();
     });
 
@@ -22,7 +22,7 @@ describe('test', function () {
             data : 1
         };
 
-        let result = PropertyType(data, 'data', Type);
+        let result = ValueParameters(data, 'data', Type);
         expect(result).toBeFalse();
     });
 

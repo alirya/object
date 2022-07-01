@@ -1,5 +1,5 @@
 import Validatable from '@alirya/validatable/validatable';
-import TypeRecord from '../../../boolean/record-parameters';
+import TypeRecord from '../../../boolean/record';
 import ValidatableType from '@alirya/validatable/boolean/validatable';
 
 /**
@@ -27,5 +27,5 @@ export default function Record<
     property ? : (value:PropertyKey)=>value is Key
 ) : record is Object {
 
-    return TypeRecord(record, ValidatableType, <(value:PropertyKey)=>value is Key>property);
+    return TypeRecord.Parameters(record, ValidatableType, <(value:PropertyKey)=>value is Key>property);
 }

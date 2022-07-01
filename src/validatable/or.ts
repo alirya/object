@@ -1,6 +1,6 @@
 import Validatable from '@alirya/validatable/validatable';
 import OrBoolean from './record/boolean/or';
-import Validatables, {ValidatablesType as OrReturn} from './validatables-parameters';
+import Validatables, {ValidatablesType as OrReturn} from './validatables';
 
 export default function Or<
     Object extends Partial<Record<PropertyKey, Validatable>>
@@ -8,5 +8,5 @@ export default function Or<
     validatables : Object
 ) : OrReturn<Object, boolean> {
 
-    return new Validatables(validatables, OrBoolean);
+    return new Validatables.Parameters(validatables, OrBoolean);
 }

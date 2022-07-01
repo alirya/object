@@ -1,4 +1,4 @@
-import Pick from '../../dist/select-parameters';
+import {SelectParameters} from '../../dist/select';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -10,7 +10,7 @@ describe('plain object', () => {
         data3 : true,
     };
 
-    let result = Pick(object, 'data1','data2');
+    let result = SelectParameters(object, 'data1','data2');
 
     it('compiler compatibility object', () => {
 
@@ -31,7 +31,7 @@ describe('plain object, getter', () => {
     };
 
 
-    let result = Pick(object, 'data1','data2');
+    let result = SelectParameters(object, 'data1','data2');
 
     it('compiler compatibility object', () => {
 
@@ -51,7 +51,7 @@ describe('plain object, setter', () => {
         set data3 (value: string) {},
     };
 
-    let result = Pick(object, 'data1','data2');
+    let result = SelectParameters(object, 'data1','data2');
 
     it('compiler compatibility object', () => {
 
@@ -75,7 +75,7 @@ describe('plain object', () => {
 
     let object = new Class('data1', function () { return 1; }, true);
 
-    let result = Pick(object, 'data1','data2');
+    let result = SelectParameters(object, 'data1','data2');
 
     it('compiler compatibility object', () => {
 
@@ -99,7 +99,7 @@ describe('plain object, getter', () => {
 
     let object = new Class();
 
-    let result = Pick(object, 'data1','data2');
+    let result = SelectParameters(object, 'data1','data2');
 
     it('compiler compatibility object', () => {
 
@@ -124,7 +124,7 @@ describe('plain object, setter', () => {
 
     let string : string = object.data1;
 
-    let result = Pick(object, 'data1','data2');
+    let result = SelectParameters(object, 'data1','data2');
 
     it('compiler compatibility object', () => {
 

@@ -1,6 +1,6 @@
 import Callbacks from '@alirya/validator/callback-parameters';
-import RecordValueCallbacks from '../../../dist/validator/record-key-callback-parameters';
-import ValidateKeys from '../../../dist/validator/validatable/record/record-key-parameters';
+import {RecordKeyCallbackParameters} from '../../../dist/validator/record-key-callback';
+import {RecordKeyParameters} from '../../../dist/validator/validatable/record/record-key';
 import And from '../../../dist/validatable/and';
 import MessageMap from '../../../dist/message/message/record/map';
 import Or from '../../../dist/validatable/or';
@@ -23,7 +23,7 @@ let value = {
 
 it(`and validation`, () => {
 
-let property = RecordValueCallbacks<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKeys, And, MessageMap);
+let property = RecordKeyCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, RecordKeyParameters, And, MessageMap);
 
     let and = property(value);
 
@@ -44,7 +44,7 @@ let property = RecordValueCallbacks<typeof validator, Record<PropertyKey, Infer<
 
 it(`or validation `, () => {
 
-    let property = RecordValueCallbacks<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateKeys, Or, MessageMap);
+    let property = RecordKeyCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, RecordKeyParameters, Or, MessageMap);
 
     let or = property(value);
 

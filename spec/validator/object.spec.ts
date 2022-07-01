@@ -1,5 +1,5 @@
-import Validator from '../../dist/validator/object-parameters';
-import ObjectMessage from '../../dist/assert/string/object-parameters';
+import {ObjectParameters} from '../../dist/validator/object';
+import ObjectMessage from '../../dist/assert/string/object';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -7,7 +7,7 @@ describe(`compiler compatible`,function() {
 
     it(`valid value`,function() {
 
-        let validator = Validator(ObjectMessage);
+        let validator = ObjectParameters(ObjectMessage.Parameters);
         let validatable = validator(<unknown>new Array());
 
         if(validatable.valid) {
@@ -26,7 +26,7 @@ describe(`compiler compatible`,function() {
 
     it(`invalid value`,function() {
 
-        let validator = Validator(ObjectMessage);
+        let validator = ObjectParameters(ObjectMessage.Parameters);
         let validatable = validator(1);
 
         if(validatable.valid) {
@@ -46,7 +46,7 @@ describe(`compiler compatible`,function() {
 
     it(`readonly`,function() {
 
-        let validator = Validator(ObjectMessage);
+        let validator = ObjectParameters(ObjectMessage.Parameters);
         let validatable = validator({});
 
         try {
@@ -74,7 +74,7 @@ describe(`compiler compatible`,function() {
 
 it(`valid`,function() {
 
-    let validator = Validator(ObjectMessage);
+    let validator = ObjectParameters(ObjectMessage.Parameters);
     let validatable = validator({});
 
     expect(validatable.valid).toBe(true);
@@ -85,7 +85,7 @@ it(`valid`,function() {
 
 it(`invalid`,function() {
 
-    let validator = Validator(ObjectMessage);
+    let validator = ObjectParameters(ObjectMessage.Parameters);
     let validatable = validator('a');
 
     expect(validatable.valid).toBe(false);

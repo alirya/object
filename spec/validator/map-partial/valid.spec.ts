@@ -1,4 +1,4 @@
-import Map from '../../../dist/validator/map-partial-parameters';
+import {MapPartialParameters} from '../../../dist/validator/map-partial';
 import And from '../../../dist/validatable/and';
 import Or from '../../../dist/validatable/or';
 import Validatable from '@alirya/validatable/validatable';
@@ -23,7 +23,7 @@ describe('flat', function() {
             user : Type('string'),
         };
 
-        let property = Map(validator,
+        let property = MapPartialParameters(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -76,7 +76,7 @@ describe('flat', function() {
             user : Type('string'),
         };
 
-        let property = Map(validator,
+        let property = MapPartialParameters(validator,
             (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -144,14 +144,14 @@ describe('recursive', function() {
             name : Type('string'),
             address : Type('string'),
             user : Type('string'),
-            info : Map({
+            info : MapPartialParameters({
                 age : Type('number'),
                 hobby : Type('string'),
                 no : Type('number'),
             },(v)=>And(v), MessageMap)
         };
 
-        let property = Map(validator,
+        let property = MapPartialParameters(validator,
             (v)=>And(v),
             MessageMap
         );
@@ -226,14 +226,14 @@ describe('recursive', function() {
             name : Type('string'),
             address : Type('string'),
             user : Type('string'),
-            info : Map({
+            info : MapPartialParameters({
                 age : Type('number'),
                 hobby : Type('string'),
                 no : Type('number'),
             },(v)=>Or(v), MessageMap)
         };
 
-        let property = Map(validator,
+        let property = MapPartialParameters(validator,
             (v)=>Or(v),
             MessageMap
         );

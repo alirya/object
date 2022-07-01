@@ -1,4 +1,4 @@
-import SetProperty from '../value/value/set-property-parameters';
+import SetProperty from '../value/value/set-property';
 import Default from '../default';
 import Suffix from '@alirya/string/suffix/suffix';
 
@@ -25,7 +25,7 @@ export default function MemoizeProperty(
 
         descriptor.get = function () {
 
-            return SetProperty(
+            return SetProperty.Parameters(
                 this, property, this[symbol], writable, configurable
             );
 

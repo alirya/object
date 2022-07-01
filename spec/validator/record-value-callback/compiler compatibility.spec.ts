@@ -1,11 +1,11 @@
 import ValidatorInterface from '@alirya/validator/simple';
 import Instance from '@alirya/validator/validatable/validatable';
-import RecordValueCallback from '../../../dist/validator/record-value-callback-parameters';
-import ValidateValue from '../../../dist/validator/validatable/record/record-value-parameters';
+import {RecordValueCallbackParameters} from '../../../dist/validator/record-value-callback';
+import {RecordValueParameters} from '../../../dist/validator/validatable/record/record-value';
 import And from '../../../dist/validatable/and';
 import MessageMap from '../../../dist/message/message/record/map';
 import Validatable from '@alirya/validatable/validatable';
-import ValidateValuePartial from '../../../dist/validator/validatable/record/record-value-partial-parameters';
+import {RecordValuePartialParameters} from '../../../dist/validator/validatable/record/record-value-partial';
 import Message from '@alirya/message/message';
 import Type from '@alirya/type/validator/type-parameters';
 
@@ -27,7 +27,7 @@ let value = {
 
 it('implicit', function() {
 
-    let property = RecordValueCallback(validator, ValidateValue, And, (v)=>MessageMap(v));
+    let property = RecordValueCallbackParameters(validator, RecordValueParameters, And, (v)=>MessageMap(v));
 
     let validatable = property(value);
 
@@ -46,8 +46,8 @@ describe('explicit complete', function() {
 
     it('auto', function() {
 
-        let property = RecordValueCallback<TypeValidatorValue>(validator,
-            (value, validators) => ValidateValue(value, validators),
+        let property = RecordValueCallbackParameters<TypeValidatorValue>(validator,
+            (value, validators) => RecordValueParameters(value, validators),
             (v)=>And(v),
             MessageMap
         );
@@ -61,8 +61,8 @@ describe('explicit complete', function() {
 
     it('direct', function() {
 
-        let property = RecordValueCallback<TypeValidatorValue>(validator,
-            (value, validators) => ValidateValue(value, validators),
+        let property = RecordValueCallbackParameters<TypeValidatorValue>(validator,
+            (value, validators) => RecordValueParameters(value, validators),
             (v)=>And(<globalThis.Record<any, Validatable>>v),
             MessageMap
         );
@@ -77,9 +77,9 @@ describe('explicit complete', function() {
 
 it('implicit partial', function() {
 
-    let property = RecordValueCallback(validator,
+    let property = RecordValueCallbackParameters(validator,
         (value, validators) =>
-            <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
+            <Record<PropertyKey, Instance<any, string>>>RecordValuePartialParameters(value, validators),
         (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
         MessageMap
     );
@@ -95,10 +95,10 @@ describe('explicit complete', function() {
 
     it('auto', function() {
 
-        let property = RecordValueCallback<TypeValidatorValue>(
+        let property = RecordValueCallbackParameters<TypeValidatorValue>(
             validator,
             (value, validators) =>
-                <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
+                <Record<PropertyKey, Instance<any, string>>>RecordValuePartialParameters(value, validators),
             (v)=>And(<globalThis.Record<any, Validatable>>v),
             MessageMap
         );
@@ -112,10 +112,10 @@ describe('explicit complete', function() {
 
     it('direct', function() {
 
-        let property = RecordValueCallback<TypeValidatorValue>(
+        let property = RecordValueCallbackParameters<TypeValidatorValue>(
             validator,
             (value, validators) =>
-                <Record<PropertyKey, Instance<any, string>>>ValidateValuePartial(value, validators),
+                <Record<PropertyKey, Instance<any, string>>>RecordValuePartialParameters(value, validators),
             (v)=>And(<globalThis.Record<any, Validatable>>v),
             (v)=>MessageMap(<globalThis.Record<any, Message>>v)
         );
