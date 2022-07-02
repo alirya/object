@@ -1,6 +1,6 @@
 {
   "name": "@alirya/object",
-  "version": "0.37.8",
+  "version": "0.37.9",
   "description": "Typescript object",
   "publishConfig": {
     "directory": "dist"
@@ -47,7 +47,7 @@
     "ts-toolbelt": "^9.6.0",
     "utility-types": "^3.10.0",
     "package-version-git-tag": "^3.0.0",
-    "@alirya/type": "^0.7.1",
+    "@alirya/type": "^0.7.2",
     "cpx2": "^4.2.0"
   },
   "scripts": {
