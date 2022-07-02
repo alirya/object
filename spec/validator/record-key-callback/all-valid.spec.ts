@@ -1,4 +1,4 @@
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import {RecordKeyCallbackParameters} from '../../../dist/validator/record-key-callback';
 import {RecordKeyParameters} from '../../../dist/validator/validatable/record/record-key';
 import And from '../../../dist/validatable/and';
@@ -8,7 +8,7 @@ import Infer from '@alirya/validator/validatable/infer-static';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-let validator = Type('string');
+let validator = TypeParameters('string');
 
 let value = {
     name : 'string',

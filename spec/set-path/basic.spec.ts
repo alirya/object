@@ -1,4 +1,4 @@
-import SetPathParameters from '../../dist/set-path-parameters';
+import {SetPathParameters} from '../../dist/set-path';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

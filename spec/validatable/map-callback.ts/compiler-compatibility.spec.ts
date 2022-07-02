@@ -6,11 +6,11 @@ import ValidatableInfer from '../../../dist/validator/validatable/record/infer';
 import And from '../../../dist/validatable/and';
 import MessageMap from '../../../dist/message/message/record/map';
 import Validatable from '@alirya/validatable/validatable';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 
 let validator = {
-    name : Type('string'),
-    address : Type('string'),
+    name : TypeParameters('string'),
+    address : TypeParameters('string'),
 };
 
 type TypeValidator = {

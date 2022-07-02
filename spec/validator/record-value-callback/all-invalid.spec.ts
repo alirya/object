@@ -1,4 +1,4 @@
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import {RecordValueCallbackParameters} from '../../../dist/validator/record-value-callback';
 import {RecordValueParameters} from '../../../dist/validator/validatable/record/record-value';
 import And from '../../../dist/validatable/and';
@@ -11,7 +11,7 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('all invalid', function() {
 
-    let validator = Type('string');
+    let validator = TypeParameters('string');
 
     let value = {
         name : true,

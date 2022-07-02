@@ -3,7 +3,7 @@ import And from '../../dist/validatable/and';
 import Or from '../../dist/validatable/or';
 import Validatable from '@alirya/validatable/validatable';
 import MessageMap from '../../dist/message/message/record/map';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import ValidatorInterface from '@alirya/validator/simple';
 import Instance from '@alirya/validator/validatable/validatable';
 import Callbacks from '@alirya/validator/callback-parameters';
@@ -13,7 +13,7 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', function() {
 
-    let validator = Type('string');
+    let validator = TypeParameters('string');
     type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
 
     let value = {
@@ -48,7 +48,7 @@ describe('implicit incomplete', function() {
 
     describe('all valid', function() {
 
-        let validator = Type('string');
+        let validator = TypeParameters('string');
 
         let value = {
             name : 'string',

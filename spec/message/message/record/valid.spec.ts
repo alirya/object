@@ -1,4 +1,4 @@
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import {ValueAllParameters} from '../../../../dist/validator/value-all';
 import {ValueCallbackParameters} from '../../../../dist/validator/value-callback';
 import {MapAllParameters} from '../../../../dist/validator/map-all';
@@ -16,13 +16,13 @@ it('force console log', () => {spyOn(console, 'log').and.callThrough();});
 it('value all', function() {
 
     let validator = {
-        name: Type('string'),
-        address: Type('string'),
-        user: Type('string'),
+        name: TypeParameters('string'),
+        address: TypeParameters('string'),
+        user: TypeParameters('string'),
         info: ValueAllParameters({
-            age: Type('string'),
-            hobby: Type('string'),
-            no: Type('string'),
+            age: TypeParameters('string'),
+            hobby: TypeParameters('string'),
+            no: TypeParameters('string'),
         }, (v) => And(v), Valid)
     };
     let property = ValueAllParameters(validator, (v)=>And(v), Valid);
@@ -32,13 +32,13 @@ it('value all', function() {
 it('value partial', function() {
 
     let validator = {
-        name: Type('string'),
-        address: Type('string'),
-        user: Type('string'),
+        name: TypeParameters('string'),
+        address: TypeParameters('string'),
+        user: TypeParameters('string'),
         info: ValueAllParameters({
-            age: Type('string'),
-            hobby: Type('string'),
-            no: Type('string'),
+            age: TypeParameters('string'),
+            hobby: TypeParameters('string'),
+            no: TypeParameters('string'),
         }, (v) => And(v), Valid)
     };
     let property = ValueAllParameters(validator, (v)=>And(v), Valid);
@@ -48,13 +48,13 @@ it('value partial', function() {
 it('value callback', function() {
 
     let validator = {
-        name : Type('string'),
-        address : Type('string'),
-        user : Type('string'),
+        name : TypeParameters('string'),
+        address : TypeParameters('string'),
+        user : TypeParameters('string'),
         info : ValueCallbackParameters({
-                age : Type('string'),
-                hobby : Type('string'),
-                no : Type('string'),
+                age : TypeParameters('string'),
+                hobby : TypeParameters('string'),
+                no : TypeParameters('string'),
             }, (value, validators) => <ValidatorValidatable<typeof validator>>ValuePartialParameters(value, validators),
             And,
             Valid
@@ -72,13 +72,13 @@ it('value callback', function() {
 it('value all', function() {
 
     let validator = {
-        name: Type('string'),
-        address: Type('string'),
-        user: Type('string'),
+        name: TypeParameters('string'),
+        address: TypeParameters('string'),
+        user: TypeParameters('string'),
         info: MapAllParameters({
-            age: Type('string'),
-            hobby: Type('string'),
-            no: Type('string'),
+            age: TypeParameters('string'),
+            hobby: TypeParameters('string'),
+            no: TypeParameters('string'),
         }, (v) => And(v), Valid)
     };
     let property = MapAllParameters(validator, (v)=>And(v), Valid);
@@ -88,13 +88,13 @@ it('value all', function() {
 it('value partial', function() {
 
     let validator = {
-        name: Type('string'),
-        address: Type('string'),
-        user: Type('string'),
+        name: TypeParameters('string'),
+        address: TypeParameters('string'),
+        user: TypeParameters('string'),
         info: MapAllParameters({
-            age: Type('string'),
-            hobby: Type('string'),
-            no: Type('string'),
+            age: TypeParameters('string'),
+            hobby: TypeParameters('string'),
+            no: TypeParameters('string'),
         }, (v) => And(v), Valid)
     };
     let property = MapAllParameters(validator, (v)=>And(v), Valid);
@@ -104,13 +104,13 @@ it('value partial', function() {
 it('value callback', function() {
 
     let validator = {
-        name : Type('string'),
-        age : Type('number'),
-        address : Type('string'),
+        name : TypeParameters('string'),
+        age : TypeParameters('number'),
+        address : TypeParameters('string'),
         info : MapCallbackParameters({
-                age : Type('number'),
-                hobby : Type('string'),
-                no : Type('number')
+                age : TypeParameters('number'),
+                hobby : TypeParameters('string'),
+                no : TypeParameters('number')
             },
             (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValuePartialParameters(value, validators),
             And, MessageMap)

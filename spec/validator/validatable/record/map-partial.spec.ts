@@ -1,5 +1,5 @@
 import {MapPartialParameters} from '../../../../dist/validator/validatable/record/map-partial';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 
 it('force console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -9,8 +9,8 @@ describe('stop on invalid', function() {
     describe('all valid', function() {
 
         let validator = {
-            validator1 : Type('number'),
-            validator2 : Type('number'),
+            validator1 : TypeParameters('number'),
+            validator2 : TypeParameters('number'),
         };
 
         let value = {
@@ -50,8 +50,8 @@ describe('stop on invalid', function() {
     describe('all invalid', function() {
 
         let validator = {
-            validator1 : Type('number'),
-            validator2 : Type('number'),
+            validator1 : TypeParameters('number'),
+            validator2 : TypeParameters('number'),
         };
 
         let value = {
@@ -82,9 +82,9 @@ describe('stop on invalid', function() {
     describe('mixed', function() {
 
         let validator = {
-            validator1 : Type('number'),
-            validator2 : Type('number'),
-            validator3 : Type('number'),
+            validator1 : TypeParameters('number'),
+            validator2 : TypeParameters('number'),
+            validator3 : TypeParameters('number'),
         };
 
         let value = {

@@ -1,4 +1,4 @@
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import {RecordValueParameters} from '../../../../dist/validator/validatable/record/record-value';
 import Validator from '@alirya/validator/validator';
 
@@ -15,7 +15,7 @@ describe('compiler compatibility', function() {
             validator2 : number,
         };
 
-        let value : ValueValidator = Type('number');
+        let value : ValueValidator = TypeParameters('number');
 
         let record : Value = {
             validator1 : 10,
@@ -27,7 +27,7 @@ describe('compiler compatibility', function() {
 
     it('implicit', function() {
 
-        let value = Type('number');
+        let value = TypeParameters('number');
 
         let record = {
             validator1 : 10,
@@ -39,7 +39,7 @@ describe('compiler compatibility', function() {
 
     it('auto', function() {
 
-        let value = Type('number');
+        let value = TypeParameters('number');
 
         let record = {
             validator1 : 10,

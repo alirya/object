@@ -5,7 +5,7 @@ import ValidatablesInterface from '../../dist/validatable/validatables/validatab
 import Validatables from '../../dist/validatable/validatables/validatables';
 import Validatable from '@alirya/validatable/validatable';
 import MessageMap from '../../dist/message/message/record/map';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import Simple from '@alirya/validator/simple';
 import ValidatorValidatable from '@alirya/validator/validatable/validatable';
 
@@ -14,8 +14,8 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 describe('compiler compatibility', function() {
 
     let validator = {
-        name : Type('string'),
-        address : Type('string'),
+        name : TypeParameters('string'),
+        address : TypeParameters('string'),
     };
 
     describe('implicit complete', function() {
@@ -70,9 +70,9 @@ describe('implicit complete', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
             };
 
             let property = ValueAllParameters(validator, (v)=>And(v), MessageMap);
@@ -96,9 +96,9 @@ describe('implicit complete', function() {
         it(`or validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
             };
 
             let property = ValueAllParameters(validator, (v)=>Or(v), MessageMap);
@@ -126,9 +126,9 @@ describe('implicit complete', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+                address : TypeParameters('string'),
             };
 
             let property = ValueAllParameters<unknown, string>(validator, (v)=>And(v), MessageMap);
@@ -153,9 +153,9 @@ describe('implicit complete', function() {
         it(`or validation `, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+                address : TypeParameters('string'),
             };
 
             let property = ValueAllParameters<unknown, string>(validator,(v)=>Or(v), MessageMap);
@@ -183,9 +183,9 @@ describe('implicit complete', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+                address : TypeParameters('string'),
             };
 
             let property = ValueAllParameters<unknown, string>(validator,(v)=>And(v), MessageMap);
@@ -208,9 +208,9 @@ describe('implicit complete', function() {
         it(`or validation `, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+                address : TypeParameters('string'),
             };
 
             let property = ValueAllParameters<unknown, string>(validator,(v)=>Or(v), MessageMap);
@@ -243,13 +243,13 @@ describe('recursive', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
                 info : ValueAllParameters({
-                    age : Type('string'),
-                    hobby : Type('string'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('string'),
+                    no : TypeParameters('string'),
                 }, (v)=>And(v), MessageMap)
             };
 
@@ -293,13 +293,13 @@ describe('recursive', function() {
         it(`or validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
                 info : ValueAllParameters({
-                    age : Type('string'),
-                    hobby : Type('string'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('string'),
+                    no : TypeParameters('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
@@ -347,13 +347,13 @@ describe('recursive', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
                 info : ValueAllParameters({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, (v)=>And(v), MessageMap)
             };
 
@@ -398,13 +398,13 @@ describe('recursive', function() {
         it(`or validation `, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
                 info : ValueAllParameters({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
@@ -452,13 +452,13 @@ describe('recursive', function() {
         it(`and validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
+            name : TypeParameters('string'),
+            age : TypeParameters('number'),
+            address : TypeParameters('string'),
             info : ValueAllParameters/*<unknown, string|number>*/({
-                age : Type('string'),
-                hobby : Type('number'),
-                no : Type('string'),
+                age : TypeParameters('string'),
+                hobby : TypeParameters('number'),
+                no : TypeParameters('string'),
             }, (v)=>And(v), MessageMap)
         };
 
@@ -501,13 +501,13 @@ describe('recursive', function() {
         it(`or validation `, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
                 info : ValueAllParameters/*<unknown, string|number>*/({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 

@@ -5,7 +5,7 @@ import Validatable from '@alirya/validatable/validatable';
 import ValidatorInterface from '@alirya/validator/simple';
 import Message from '@alirya/message/message';
 import MessageMap from '../../dist/message/message/record/map';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import Instance from '@alirya/validator/validatable/validatable';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -14,7 +14,7 @@ describe('compiler compatibility', function() {
 
     type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
 
-    let validator = Type('string');
+    let validator = TypeParameters('string');
 
     type Type = {
         name : string,
@@ -130,7 +130,7 @@ describe('implicit complete', function() {
 
     describe('all valid', function() {
 
-        let validator = Type('string');
+        let validator = TypeParameters('string');
 
         let value = {
             name : 'string',
@@ -193,7 +193,7 @@ describe('implicit complete', function() {
             address : 'string',
         };
 
-        let validator = Type('string');
+        let validator = TypeParameters('string');
 
         it(`and validation`, () => {
 
@@ -252,7 +252,7 @@ describe('implicit complete', function() {
             address : 3,
         };
 
-        let validator = Type('string');
+        let validator = TypeParameters('string');
 
         it(`and validation`, () => {
 

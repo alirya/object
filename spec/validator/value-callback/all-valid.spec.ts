@@ -1,4 +1,4 @@
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import {ValueCallbackParameters} from '../../../dist/validator/value-callback';
 import {ValueParameters} from '../../../dist/validator/validatable/record/value';
 import And from '../../../dist/validatable/and';
@@ -20,9 +20,9 @@ describe('flat', function() {
     };
 
     let validator = {
-        name : Type('string'),
-        address : Type('string'),
-        user : Type('string'),
+        name : TypeParameters('string'),
+        address : TypeParameters('string'),
+        user : TypeParameters('string'),
     };
 
     let value = 'data';
@@ -75,13 +75,13 @@ describe('recursive', function() {
     it(`and validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
+            name : TypeParameters('string'),
+            address : TypeParameters('string'),
+            user : TypeParameters('string'),
             info : ValueCallbackParameters({
-                    age : Type('string'),
-                    hobby : Type('string'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('string'),
+                    no : TypeParameters('string'),
                 }, (value, validators) => <ValidatorValidatable<typeof validator>>ValuePartialParameters(value, validators),
                 (v)=>And(v),
                 MessageMap)
@@ -162,13 +162,13 @@ describe('recursive', function() {
 
 
         let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
+            name : TypeParameters('string'),
+            address : TypeParameters('string'),
+            user : TypeParameters('string'),
             info : ValueCallbackParameters({
-                    age : Type('string'),
-                    hobby : Type('string'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('string'),
+                    no : TypeParameters('string'),
                 }, (value, validators) => <ValidatorValidatable<typeof validator>>ValuePartialParameters(value, validators),
                 (v)=>Or(v),
                 MessageMap)

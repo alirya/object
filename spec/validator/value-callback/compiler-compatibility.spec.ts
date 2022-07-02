@@ -1,4 +1,4 @@
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import {ValueCallbackParameters} from '../../../dist/validator/value-callback';
 import {ValueParameters} from '../../../dist/validator/validatable/record/value';
 import And from '../../../dist/validatable/and';
@@ -16,8 +16,8 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 let validator = {
-    name : Type('string'),
-    address : Type('string'),
+    name : TypeParameters('string'),
+    address : TypeParameters('string'),
 };
 
 type Messages = {

@@ -3,7 +3,7 @@ import And from '../../../dist/validatable/and';
 import Or from '../../../dist/validatable/or';
 import Validatable from '@alirya/validatable/validatable';
 import MessageMap from '../../../dist/message/message/record/map';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -19,9 +19,9 @@ describe('flat', function() {
     it(`and validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
+            name : TypeParameters('string'),
+            age : TypeParameters('number'),
+            address : TypeParameters('string'),
         };
 
         let property = MapPartialParameters(validator,
@@ -59,9 +59,9 @@ describe('flat', function() {
     it(`or validation `, () => {
 
         let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
+            name : TypeParameters('string'),
+            age : TypeParameters('number'),
+            address : TypeParameters('string'),
         };
 
         let property = MapPartialParameters(validator,
@@ -112,13 +112,13 @@ describe('recursive', function() {
     it(`and validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
+            name : TypeParameters('string'),
+            age : TypeParameters('number'),
+            address : TypeParameters('string'),
             info : MapPartialParameters({
-                age : Type('number'),
-                hobby : Type('string'),
-                no : Type('number'),
+                age : TypeParameters('number'),
+                hobby : TypeParameters('string'),
+                no : TypeParameters('number'),
             },(v)=>And(v), MessageMap)
         };
 
@@ -163,13 +163,13 @@ describe('recursive', function() {
     it(`or validation `, () => {
 
         let validator = {
-            name : Type('string'),
-            age : Type('number'),
-            address : Type('string'),
+            name : TypeParameters('string'),
+            age : TypeParameters('number'),
+            address : TypeParameters('string'),
             info : MapPartialParameters({
-                age : Type('number'),
-                hobby : Type('string'),
-                no : Type('number'),
+                age : TypeParameters('number'),
+                hobby : TypeParameters('string'),
+                no : TypeParameters('number'),
             },(v)=>Or(v), MessageMap)
         };
 

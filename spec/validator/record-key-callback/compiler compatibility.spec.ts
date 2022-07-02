@@ -7,7 +7,7 @@ import MessageMap from '../../../dist/message/message/record/map';
 import ValidatorValidatable from '@alirya/validator/validatable/validatable';
 import Validatable from '@alirya/validatable/validatable';
 import {RecordKeyPartialParameters} from '../../../dist/validator/validatable/record/record-key-partial';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -15,7 +15,7 @@ describe('compiler compatibility', function() {
 
     type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
 
-    let validator = Type('string');
+    let validator = TypeParameters('string');
 
     type Type = {
         name : string,

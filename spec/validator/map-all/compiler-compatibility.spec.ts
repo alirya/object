@@ -4,15 +4,15 @@ import Validatable from '@alirya/validatable/validatable';
 import ValidatorInterface from '@alirya/validator/simple';
 import MessageMap from '../../../dist/message/message/record/map';
 import Instance from '@alirya/validator/validatable/validatable';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 
 let validator = {
-    name : Type('string'),
-    address : Type('string'),
+    name : TypeParameters('string'),
+    address : TypeParameters('string'),
 };
 
 type TypeValidator = {

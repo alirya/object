@@ -4,7 +4,7 @@ import {MapParameters} from '../../../dist/validator/validatable/record/map';
 import And from '../../../dist/validatable/and';
 import Or from '../../../dist/validatable/or';
 import MessageMap from '../../../dist/message/message/record/map';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import InferReturn from '../../../dist/validator/validatable/record/infer';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -20,9 +20,9 @@ describe('flat', function() {
     it(`and validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
+            name : TypeParameters('string'),
+            address : TypeParameters('string'),
+            user : TypeParameters('string'),
         };
 
         let property = MapCallbackParameters<typeof validator, InferReturn<typeof validator>>(validator, MapParameters, And, MessageMap);
@@ -46,9 +46,9 @@ describe('flat', function() {
     it(`or validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
+            name : TypeParameters('string'),
+            address : TypeParameters('string'),
+            user : TypeParameters('string'),
         };
 
         let property = MapCallbackParameters<typeof validator, InferReturn<typeof validator>>(validator, MapParameters, Or, MessageMap);
@@ -88,13 +88,13 @@ describe('recursive', function() {
     it(`and validation`, () => {
 
         let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
+            name : TypeParameters('string'),
+            address : TypeParameters('string'),
+            user : TypeParameters('string'),
             info : MapCallbackParameters({
-                    age : Type('number'),
-                    hobby : Type('string'),
-                    no : Type('number')
+                    age : TypeParameters('number'),
+                    hobby : TypeParameters('string'),
+                    no : TypeParameters('number')
                 },
                 (value, validators) => MapPartialParameters(value, validators),
                 And, MessageMap)
@@ -170,13 +170,13 @@ describe('recursive', function() {
 
 
         let validator = {
-            name : Type('string'),
-            address : Type('string'),
-            user : Type('string'),
+            name : TypeParameters('string'),
+            address : TypeParameters('string'),
+            user : TypeParameters('string'),
             info : MapCallbackParameters({
-                    age : Type('number'),
-                    hobby : Type('string'),
-                    no : Type('number')
+                    age : TypeParameters('number'),
+                    hobby : TypeParameters('string'),
+                    no : TypeParameters('number')
                 },
                 (value, validators) => MapPartialParameters(value, validators),
                 Or, MessageMap)

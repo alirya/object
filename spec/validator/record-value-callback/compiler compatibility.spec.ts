@@ -7,13 +7,13 @@ import MessageMap from '../../../dist/message/message/record/map';
 import Validatable from '@alirya/validatable/validatable';
 import {RecordValuePartialParameters} from '../../../dist/validator/validatable/record/record-value-partial';
 import Message from '@alirya/message/message';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
 
-let validator = Type('string');
+let validator = TypeParameters('string');
 
 type Type = {
     name : string,

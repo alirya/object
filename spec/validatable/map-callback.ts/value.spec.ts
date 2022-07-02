@@ -2,11 +2,11 @@ import {MapCallbackParameters} from '../../../dist/validatable/map-callback';
 import {MapParameters} from '../../../dist/validator/validatable/record/map';
 import And from '../../../dist/validatable/and';
 import MessageMap from '../../../dist/message/message/record/map';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 
 let validator = {
-    name : Type('string'),
-    address : Type('string'),
+    name : TypeParameters('string'),
+    address : TypeParameters('string'),
 };
 
 

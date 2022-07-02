@@ -3,7 +3,7 @@ import And from '../../dist/validatable/and';
 import Or from '../../dist/validatable/or';
 import Validatable from '@alirya/validatable/validatable';
 import MessageMap from '../../dist/message/message/record/map';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import Message from '@alirya/message/message';
 
 
@@ -12,8 +12,8 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 describe('compiler compatibility', function() {
 
     let validator = {
-        name : Type('string'),
-        address : Type('string'),
+        name : TypeParameters('string'),
+        address : TypeParameters('string'),
     };
 
     it('implicit partial', function() {
@@ -53,9 +53,9 @@ describe('implicit incomplete', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
             };
 
             let property = ValuePartialParameters(
@@ -107,9 +107,9 @@ describe('implicit incomplete', function() {
         it(`or validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
             };
 
             let property = ValuePartialParameters(
@@ -164,9 +164,9 @@ describe('implicit incomplete', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
             };
 
             let property = ValuePartialParameters(
@@ -206,9 +206,9 @@ describe('implicit incomplete', function() {
 
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
             };
 
             let property = ValuePartialParameters(
@@ -249,9 +249,9 @@ describe('implicit incomplete', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
             };
 
 
@@ -286,9 +286,9 @@ describe('implicit incomplete', function() {
         it(`or validation `, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
             };
 
 
@@ -334,13 +334,13 @@ describe('recursive', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
                 info : ValuePartialParameters({
-                    age : Type('string'),
-                    hobby : Type('string'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('string'),
+                    no : TypeParameters('string'),
                 }, (v)=>And(v), MessageMap)
             };
 
@@ -419,13 +419,13 @@ describe('recursive', function() {
         it(`or validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
                 info : ValuePartialParameters({
-                    age : Type('string'),
-                    hobby : Type('string'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('string'),
+                    no : TypeParameters('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
@@ -511,13 +511,13 @@ describe('recursive', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
                 info : ValuePartialParameters({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, (v)=>And(v), MessageMap)
             };
 
@@ -560,13 +560,13 @@ describe('recursive', function() {
         it(`or validation `, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
                 info : ValuePartialParameters({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
@@ -615,13 +615,13 @@ describe('recursive', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
                 info : ValuePartialParameters({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, And, MessageMap)
             };
 
@@ -662,13 +662,13 @@ describe('recursive', function() {
 
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
                 info : ValuePartialParameters({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
