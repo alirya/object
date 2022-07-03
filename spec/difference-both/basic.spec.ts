@@ -1,4 +1,4 @@
-import DifferenceParameters from '../../dist/difference-both-parameters';
+import {DifferenceBothParameters} from '../../dist/difference-both';
 import {TypeEqualParameters} from '@alirya/type/boolean/type-equal';
 
 
@@ -20,7 +20,7 @@ describe('basic', function () {
     it('force console log', () => {
 
         expect(
-            DifferenceParameters(target, compare, TypeEqualParameters)
+            DifferenceBothParameters(target, compare, TypeEqualParameters)
         ).toEqual({
             string : 'a',
             boolean : true,

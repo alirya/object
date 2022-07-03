@@ -1,6 +1,7 @@
-import Equal from '@alirya/boolean/equal-parameters';
+import Equal from '@alirya/boolean/equal';
 import Callable from '@alirya/function/callable';
 import {A} from 'ts-toolbelt';
+import Compare from '@alirya/boolean/compare/compare';
 
 export type DifferenceBothParametersArgumentValidation<Type extends object, Compare extends object = Type>
     = Callable<[A.At<Type, keyof Type|keyof Compare>, A.At<Compare, keyof Type|keyof Compare>, keyof Type|keyof Compare], boolean>;
@@ -31,13 +32,13 @@ export type DifferenceBothParametersArgumentValidation<Type extends object, Comp
  *          boolean : true,
  *      }
  */
-export default function DifferenceBothParameters<
+export function DifferenceBothParameters<
     Value extends object,
     CompareType extends object = Value
 >(
     object: Value,
     compare : CompareType,
-    validation : DifferenceBothParametersArgumentValidation<Value, CompareType> = Equal as DifferenceBothParametersArgumentValidation<Value, CompareType>
+    validation : DifferenceBothParametersArgumentValidation<Value, CompareType> = Equal.Parameters as DifferenceBothParametersArgumentValidation<Value, CompareType>
 ) : Partial<Value> & Partial<Omit<CompareType, keyof Value>> {
 
     const results : Partial<Value|CompareType> = {};
@@ -67,3 +68,43 @@ export default function DifferenceBothParameters<
 
     return results as Partial<Value & Omit<CompareType, keyof Value>>;
 }
+
+
+
+export type DifferenceBothParameterArgumentValidation<Type extends object, CompareType extends object> = {
+    object :  A.At<Type, keyof Type|keyof CompareType>;
+    compare : A.At<CompareType, keyof Type|keyof CompareType>;
+    key: keyof Type|keyof CompareType;
+};
+
+export type DifferenceBothParameterArgument<Type extends object, CompareType extends object> = Compare<Readonly<Type>> & {
+    object: Readonly<Type>,
+    validation:  Callable<[DifferenceBothParameterArgumentValidation<Type, CompareType>], boolean>,
+};
+
+/**
+ * option version of {@see DifferenceBothParameters}
+ * @param list
+ * @param validation
+ */
+export function DifferenceBothParameter<Value extends object, CompareType extends object = Value>(
+    {
+        object,
+        compare,
+        validation = ({object, compare}) => Equal.Parameter({value:object, compare}),
+    } : DifferenceBothParameterArgument<Value, CompareType>
+) : Partial<Value> {
+
+    return DifferenceBothParameters(
+        object,
+        compare,
+        (object, compare : any, key) => validation({key, object, compare})
+    );
+}
+
+
+namespace DifferenceBoth {
+    export const Parameters = DifferenceBothParameters;
+    export const Parameter = DifferenceBothParameter;
+}
+export default DifferenceBoth;

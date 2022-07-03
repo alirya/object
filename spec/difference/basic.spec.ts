@@ -1,4 +1,4 @@
-import DifferenceParameters from '../../dist/difference-parameters';
+import {DifferenceParameters} from '../../dist/difference';
 import {TypeEqualParameters} from '@alirya/type/boolean/type-equal';
 
 

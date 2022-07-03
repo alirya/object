@@ -1,6 +1,5 @@
-
 import Callable from '@alirya/function/callable';
-import SetPathParameters from './set-path-parameters';
+import {SetPathParameters} from './set-path';
 
 /**
  * parse data from flat key
@@ -26,7 +25,7 @@ import SetPathParameters from './set-path-parameters';
  *
  * @param callback
  */
-export default function EnvironmentParameters<
+export function EnvironmentParameters<
     Assumption extends object,
     Flat extends Record<string, any> = Record<string, any>
 >(
@@ -58,3 +57,28 @@ export default function EnvironmentParameters<
 
     return config;
 }
+
+
+export function EnvironmentParameter<
+    Assumption extends object,
+    Flat extends Record<string, any> = Record<string, any>
+>(  {
+        object,
+        prefix,
+        callback = (keys, key, value)=>value
+    } : {
+        object: Flat,
+        prefix: string,
+        callback : Callable<[keys:string[], key:string, value:any], Flat[keyof Flat]>,
+    }
+) : Partial<Assumption> {
+
+    return EnvironmentParameters(object, prefix, callback);
+}
+
+
+namespace Environment {
+    export const Parameters = EnvironmentParameters;
+    export const Parameter = EnvironmentParameter;
+}
+export default Environment;
