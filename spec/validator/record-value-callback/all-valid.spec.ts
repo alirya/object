@@ -1,6 +1,6 @@
-import Type from '@alirya/type/validator/type-parameters';
-import RecordValueCallback from '../../../dist/validator/record-value-callback-parameters';
-import ValidateValue from '../../../dist/validator/validatable/record/record-value-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
+import {RecordValueCallbackParameters} from '../../../dist/validator/record-value-callback';
+import {RecordValueParameters} from '../../../dist/validator/validatable/record/record-value';
 import And from '../../../dist/validatable/and';
 import MessageMap from '../../../dist/message/message/record/map';
 import Or from '../../../dist/validatable/or';
@@ -10,7 +10,7 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('flat', function() {
 
-    let validator = Type('string');
+    let validator = TypeParameters('string');
 
     let value = {
         name : 'string',
@@ -20,7 +20,7 @@ describe('flat', function() {
 
     it(`and validation`, () => {
 
-        let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue, And, MessageMap);
+        let property = RecordValueCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, RecordValueParameters, And, MessageMap);
 
         let validatable = property(value);
 
@@ -40,7 +40,7 @@ describe('flat', function() {
 
     it(`or validation`, () => {
 
-        let property = RecordValueCallback<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, ValidateValue, Or, MessageMap);
+        let property = RecordValueCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, RecordValueParameters, Or, MessageMap);
 
         let validatable = property(value);
 

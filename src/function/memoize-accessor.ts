@@ -1,4 +1,4 @@
-import SetGetter from '../value/value/set-getter-parameters';
+import SetGetter from '../value/value/set-getter';
 import Default from '../default';
 import Suffix from '@alirya/string/suffix/suffix';
 
@@ -25,7 +25,7 @@ export default function MemoizeAccessor(
 
         descriptor.get = function () {
 
-            return SetGetter(
+            return SetGetter.Parameters(
                 this,
                 property,
                 this[symbol],

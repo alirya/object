@@ -1,6 +1,6 @@
-import PickParameters from '../../dist/pick-parameters';
-import List from '../../dist/proxy/list';
-import GetListFirst from '../../dist/proxy/handler/get-list-first';
+import {PickParameters} from '../../dist/pick';
+import List from '@alirya/proxy/list';
+import GetListFirst from '@alirya/proxy/handler/get-list-first';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

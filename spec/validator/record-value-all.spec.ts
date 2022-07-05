@@ -1,11 +1,11 @@
-import RecordValue from '../../dist/validator/record-value-all-parameters';
+import {RecordValueAllParameters} from '../../dist/validator/record-value-all';
 import And from '../../dist/validatable/and';
 import Or from '../../dist/validatable/or';
 import Validatable from '@alirya/validatable/validatable';
 import ValidatorInterface from '@alirya/validator/simple';
 import Message from '@alirya/message/message';
 import MessageMap from '../../dist/message/message/record/map';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import Instance from '@alirya/validator/validatable/validatable';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -14,7 +14,7 @@ describe('compiler compatibility', function() {
 
     type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
 
-    let validator = Type('string');
+    let validator = TypeParameters('string');
 
     type Type = {
         name : string,
@@ -28,7 +28,7 @@ describe('compiler compatibility', function() {
 
     it('implicit', function() {
 
-        let property = RecordValue(validator, And, MessageMap);
+        let property = RecordValueAllParameters(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -47,7 +47,7 @@ describe('compiler compatibility', function() {
 
         it('auto', function() {
 
-            let property = RecordValue<TypeValidatorValue>(validator,
+            let property = RecordValueAllParameters<TypeValidatorValue>(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -61,7 +61,7 @@ describe('compiler compatibility', function() {
 
         it('direct', function() {
 
-            let property = RecordValue<TypeValidatorValue>(validator,
+            let property = RecordValueAllParameters<TypeValidatorValue>(validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 MessageMap
             );
@@ -76,7 +76,7 @@ describe('compiler compatibility', function() {
 
     it('implicit partial', function() {
 
-        let property = RecordValue(validator,
+        let property = RecordValueAllParameters(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
@@ -92,7 +92,7 @@ describe('compiler compatibility', function() {
 
         it('auto', function() {
 
-            let property = RecordValue<TypeValidatorValue>(
+            let property = RecordValueAllParameters<TypeValidatorValue>(
                 validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 MessageMap
@@ -107,7 +107,7 @@ describe('compiler compatibility', function() {
 
         it('direct', function() {
 
-            let property = RecordValue<TypeValidatorValue>(
+            let property = RecordValueAllParameters<TypeValidatorValue>(
                 validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 (v)=>MessageMap(<globalThis.Record<any, Message>>v)
@@ -130,7 +130,7 @@ describe('implicit complete', function() {
 
     describe('all valid', function() {
 
-        let validator = Type('string');
+        let validator = TypeParameters('string');
 
         let value = {
             name : 'string',
@@ -140,7 +140,7 @@ describe('implicit complete', function() {
 
         it(`and validation`, () => {
 
-            let property =  RecordValue(validator,
+            let property =  RecordValueAllParameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -163,7 +163,7 @@ describe('implicit complete', function() {
 
         it(`or validation`, () => {
 
-            let property =  RecordValue(validator,
+            let property =  RecordValueAllParameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );
@@ -193,11 +193,11 @@ describe('implicit complete', function() {
             address : 'string',
         };
 
-        let validator = Type('string');
+        let validator = TypeParameters('string');
 
         it(`and validation`, () => {
 
-            let property = RecordValue(validator,
+            let property = RecordValueAllParameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -221,7 +221,7 @@ describe('implicit complete', function() {
 
         it(`or validation `, () => {
 
-            let property = RecordValue(validator,
+            let property = RecordValueAllParameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );
@@ -252,11 +252,11 @@ describe('implicit complete', function() {
             address : 3,
         };
 
-        let validator = Type('string');
+        let validator = TypeParameters('string');
 
         it(`and validation`, () => {
 
-            let property = RecordValue(validator,
+            let property = RecordValueAllParameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
@@ -278,7 +278,7 @@ describe('implicit complete', function() {
 
         it(`or validation `, () => {
 
-            let property = RecordValue(validator,
+            let property = RecordValueAllParameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );

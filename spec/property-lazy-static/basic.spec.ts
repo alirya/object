@@ -1,4 +1,4 @@
-import SetPropertyCallback from '../../dist/property-lazy-strict-parameters';
+import {PropertyLazyStaticParameters} from '../../dist/property-lazy-static';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -8,7 +8,7 @@ describe('plain', () => {
     let result : string;
     let soruce : {data ?: string} = {};
 
-    let object = SetPropertyCallback(soruce, 'data', () =>{
+    let object = PropertyLazyStaticParameters(soruce, 'data', () =>{
         called++;
         return Math.random().toString();
     }, true, true);
@@ -59,7 +59,7 @@ describe('class', () => {
     let source = new Test();
 
 
-    let object = SetPropertyCallback(source, 'data', () =>{
+    let object = PropertyLazyStaticParameters(source, 'data', () =>{
         calledCallback++;
         return Math.random().toString();
     }, true, true);

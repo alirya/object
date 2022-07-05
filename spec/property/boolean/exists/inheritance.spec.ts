@@ -1,4 +1,4 @@
-import Property from '../../../../dist/property/boolean/exists';
+import {ExistsParameters} from '../../../../dist/property/boolean/exists';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -13,7 +13,7 @@ it(`native method`, () => {
         }
     }
 
-    expect(Property([], 'splice')).toBe(true);
+    expect(ExistsParameters([], 'splice')).toBe(true);
 });
 
 it(`method`, () => {
@@ -35,8 +35,8 @@ it(`method`, () => {
     }
 
     let object = new Children(1, 2);
-    expect(Property(object, 'parent')).toBe(true);
-    expect(Property(object, 'children')).toBe(true);
+    expect(ExistsParameters(object, 'parent')).toBe(true);
+    expect(ExistsParameters(object, 'children')).toBe(true);
 });
 
 // it(`property`, () => {

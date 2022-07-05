@@ -1,5 +1,5 @@
-import ExistsDeepParameters from '../../../../dist/property/boolean/exists-deep-parameters';
-import ExistsDeepParameter from '../../../../dist/property/boolean/exists-deep-parameter';
+import {ExistsDeepParameters} from '../../../../dist/property/boolean/exists-deep';
+import {ExistsDeepParameter} from '../../../../dist/property/boolean/exists-deep';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

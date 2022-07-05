@@ -1,4 +1,4 @@
-import MemoizeGetterBind from '../../dist/property-lazy-dynamic-parameters';
+import {PropertyLazyDynamicParameters} from '../../dist/property-lazy-dynamic';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -8,7 +8,7 @@ describe('plain', () => {
     let result : string;
     let soruce = {};
 
-    let object = MemoizeGetterBind(soruce, 'data', () =>{
+    let object = PropertyLazyDynamicParameters(soruce, 'data', () =>{
         called++;
         return Math.random().toString();
     }, false);
@@ -59,7 +59,7 @@ describe('class', () => {
     let source = new Test();
 
 
-    let object = MemoizeGetterBind(source, 'data', () =>{
+    let object = PropertyLazyDynamicParameters(source, 'data', () =>{
         calledCallback++;
         return Math.random().toString();
     }, false);

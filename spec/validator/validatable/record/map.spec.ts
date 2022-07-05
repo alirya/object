@@ -1,5 +1,5 @@
-import CallValidator from '../../../../dist/validator/validatable/record/map-parameters';
-import Type from '@alirya/type/validator/type-parameters';
+import {MapParameters} from '../../../../dist/validator/validatable/record/map';
+import {TypeParameters} from '@alirya/type/validator/type';
 
 it('force console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -8,8 +8,8 @@ describe('continue on invalid', function() {
     describe('all valid', function() {
 
         let validator = {
-            validator1 : Type('number'),
-            validator2 : Type('number'),
+            validator1 : TypeParameters('number'),
+            validator2 : TypeParameters('number'),
         };
 
         let value = {
@@ -17,7 +17,7 @@ describe('continue on invalid', function() {
             validator2 : 10,
         };
 
-        let result = CallValidator(value, validator);
+        let result = MapParameters(value, validator);
         it('match validator1', ()=> expect(result.validator1.valid).toBe(true));
         it('match validator2', ()=> expect(result.validator2.valid).toBe(true));
 
@@ -26,8 +26,8 @@ describe('continue on invalid', function() {
     describe('all invalid', function() {
 
         let validator = {
-            validator1 : Type('number'),
-            validator2 : Type('number'),
+            validator1 : TypeParameters('number'),
+            validator2 : TypeParameters('number'),
         };
 
         let value = {
@@ -35,7 +35,7 @@ describe('continue on invalid', function() {
             validator2 : 'str',
         };
 
-        let result = CallValidator(value, validator);
+        let result = MapParameters(value, validator);
         it('match validator1', ()=> expect(result.validator1.valid).toBe(false));
         it('match validator2', ()=> expect(result.validator2.valid).toBe(false));
 
@@ -44,8 +44,8 @@ describe('continue on invalid', function() {
     describe('mixed', function() {
 
         let validator = {
-            validator1 : Type('number'),
-            validator2 : Type('number'),
+            validator1 : TypeParameters('number'),
+            validator2 : TypeParameters('number'),
         };
 
         let value = {
@@ -53,7 +53,7 @@ describe('continue on invalid', function() {
             validator2 : 'str',
         };
 
-        let result = CallValidator(value, validator);
+        let result = MapParameters(value, validator);
         it('match validator1', ()=> expect(result.validator1.valid).toBe(true));
         it('match validator2', ()=> expect(result.validator2.valid).toBe(false));
 
@@ -65,17 +65,17 @@ describe('continue on invalid', function() {
 describe('extended validatable', function() {
 
     let validator = {
-        validator1 : Type('number'),
-        validator2 : Type('number'),
+        validator1 : TypeParameters('number'),
+        validator2 : TypeParameters('number'),
 
-        validator4 : Type('string'),
-        validator5 : Type('string'),
+        validator4 : TypeParameters('string'),
+        validator5 : TypeParameters('string'),
 
-        validator7 : Type('number'),
-        validator8 : Type('number'),
+        validator7 : TypeParameters('number'),
+        validator8 : TypeParameters('number'),
 
-        validator10 : Type('string'),
-        validator11 : Type('string')
+        validator10 : TypeParameters('string'),
+        validator11 : TypeParameters('string')
     };
 
     let value = {
@@ -92,7 +92,7 @@ describe('extended validatable', function() {
         validator11 : 10,
     };
 
-    let result = CallValidator(value, validator);
+    let result = MapParameters(value, validator);
 
     it('match validator1', ()=> expect(result.validator1.valid).toBe(true));
     it('match validator1', ()=> expect(typeof result.validator1.message).toBe('string'));

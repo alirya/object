@@ -1,4 +1,3 @@
-// import ValidatorStandard from "../../dist/validatable/objecstandard";
 //
 // it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
 //

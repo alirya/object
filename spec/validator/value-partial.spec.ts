@@ -1,9 +1,9 @@
-import Value from '../../dist/validator/value-partial-parameters';
+import {ValuePartialParameters} from '../../dist/validator/value-partial';
 import And from '../../dist/validatable/and';
 import Or from '../../dist/validatable/or';
 import Validatable from '@alirya/validatable/validatable';
 import MessageMap from '../../dist/message/message/record/map';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import Message from '@alirya/message/message';
 
 
@@ -12,13 +12,13 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 describe('compiler compatibility', function() {
 
     let validator = {
-        name : Type('string'),
-        address : Type('string'),
+        name : TypeParameters('string'),
+        address : TypeParameters('string'),
     };
 
     it('implicit partial', function() {
 
-        let property = Value(validator, And, MessageMap);
+        let property = ValuePartialParameters(validator, And, MessageMap);
 
         let validatable = property('data');
 
@@ -30,7 +30,7 @@ describe('compiler compatibility', function() {
 
     it('explicit complete', function() {
 
-        let property = Value<string, string, {name : string, address : string}, typeof validator>(validator,
+        let property = ValuePartialParameters<string, string, {name : string, address : string}, typeof validator>(validator,
             And,
             (v)=><{name : string, address : string}>MessageMap(<{name : Message<string>, address : Message<string>}>v)
         );
@@ -53,12 +53,12 @@ describe('implicit incomplete', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
             };
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -107,12 +107,12 @@ describe('implicit incomplete', function() {
         it(`or validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
             };
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -164,12 +164,12 @@ describe('implicit incomplete', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
             };
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -206,12 +206,12 @@ describe('implicit incomplete', function() {
 
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
             };
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -249,13 +249,13 @@ describe('implicit incomplete', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
             };
 
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -286,13 +286,13 @@ describe('implicit incomplete', function() {
         it(`or validation `, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
             };
 
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -334,17 +334,17 @@ describe('recursive', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
-                info : Value({
-                    age : Type('string'),
-                    hobby : Type('string'),
-                    no : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
+                info : ValuePartialParameters({
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('string'),
+                    no : TypeParameters('string'),
                 }, (v)=>And(v), MessageMap)
             };
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>And(v),
                 MessageMap
@@ -419,17 +419,17 @@ describe('recursive', function() {
         it(`or validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                address : Type('string'),
-                user : Type('string'),
-                info : Value({
-                    age : Type('string'),
-                    hobby : Type('string'),
-                    no : Type('string'),
+                name : TypeParameters('string'),
+                address : TypeParameters('string'),
+                user : TypeParameters('string'),
+                info : ValuePartialParameters({
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('string'),
+                    no : TypeParameters('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>Or(v),
                 MessageMap
@@ -511,17 +511,17 @@ describe('recursive', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
-                info : Value({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
+                info : ValuePartialParameters({
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, (v)=>And(v), MessageMap)
             };
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v), MessageMap
             );
@@ -560,17 +560,17 @@ describe('recursive', function() {
         it(`or validation `, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
-                info : Value({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
+                info : ValuePartialParameters({
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v), MessageMap
             );
@@ -615,18 +615,18 @@ describe('recursive', function() {
         it(`and validation`, () => {
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
-                info : Value({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
+                info : ValuePartialParameters({
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, And, MessageMap)
             };
 
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -662,18 +662,18 @@ describe('recursive', function() {
 
 
             let validator = {
-                name : Type('string'),
-                age : Type('number'),
-                address : Type('string'),
-                info : Value({
-                    age : Type('string'),
-                    hobby : Type('number'),
-                    no : Type('string'),
+                name : TypeParameters('string'),
+                age : TypeParameters('number'),
+                address : TypeParameters('string'),
+                info : ValuePartialParameters({
+                    age : TypeParameters('string'),
+                    hobby : TypeParameters('number'),
+                    no : TypeParameters('string'),
                 }, (v)=>Or(v), MessageMap)
             };
 
 
-            let property = Value(
+            let property = ValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap

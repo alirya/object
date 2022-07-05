@@ -1,4 +1,4 @@
-import PickParameters from '../../dist/pick-parameters';
+import {PickParameters} from '../../dist/pick';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

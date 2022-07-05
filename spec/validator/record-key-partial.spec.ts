@@ -1,9 +1,9 @@
-import Value from '../../dist/validator/record-key-partial-parameters';
+import {RecordKeyPartialParameters} from '../../dist/validator/record-key-partial';
 import And from '../../dist/validatable/and';
 import Or from '../../dist/validatable/or';
 import Validatable from '@alirya/validatable/validatable';
 import MessageMap from '../../dist/message/message/record/map';
-import Type from '@alirya/type/validator/type-parameters';
+import {TypeParameters} from '@alirya/type/validator/type';
 import ValidatorInterface from '@alirya/validator/simple';
 import Instance from '@alirya/validator/validatable/validatable';
 import Callbacks from '@alirya/validator/callback-parameters';
@@ -13,7 +13,7 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', function() {
 
-    let validator = Type('string');
+    let validator = TypeParameters('string');
     type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
 
     let value = {
@@ -23,7 +23,7 @@ describe('compiler compatibility', function() {
 
     it('implicit partial', function() {
 
-        let property = Value(validator, And, MessageMap);
+        let property = RecordKeyPartialParameters(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -35,7 +35,7 @@ describe('compiler compatibility', function() {
 
     it('explicit complete', function() {
 
-        let property = Value/*<Record<PropertyKey, any>, Record<string, any>, TypeValidatorValue>*/(validator, And, MessageMap);
+        let property = RecordKeyPartialParameters/*<Record<PropertyKey, any>, Record<string, any>, TypeValidatorValue>*/(validator, And, MessageMap);
 
         let validatable = property(value);
 
@@ -48,7 +48,7 @@ describe('implicit incomplete', function() {
 
     describe('all valid', function() {
 
-        let validator = Type('string');
+        let validator = TypeParameters('string');
 
         let value = {
             name : 'string',
@@ -58,7 +58,7 @@ describe('implicit incomplete', function() {
 
         it(`and validation`, () => {
 
-            let property = Value(
+            let property = RecordKeyPartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -106,7 +106,7 @@ describe('implicit incomplete', function() {
 
         it(`or validation`, () => {
 
-            let property = Value(
+            let property = RecordKeyPartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -170,7 +170,7 @@ describe('implicit incomplete', function() {
                 return value + ' ' + (valid ? 'valid' : 'true');
             }, );
 
-            let property = Value(
+            let property = RecordKeyPartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -211,7 +211,7 @@ describe('implicit incomplete', function() {
                 return value + ' ' + (valid ? 'valid' : 'true');
             }, );
 
-            let property = Value(
+            let property = RecordKeyPartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -261,7 +261,7 @@ describe('implicit incomplete', function() {
                 return value + ' ' + (valid ? 'valid' : 'true');
             });
 
-            let property = Value(
+            let property = RecordKeyPartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
@@ -297,7 +297,7 @@ describe('implicit incomplete', function() {
                 return value + ' ' + (valid ? 'valid' : 'true');
             });
 
-            let property = Value(
+            let property = RecordKeyPartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap

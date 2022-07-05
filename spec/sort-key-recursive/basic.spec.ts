@@ -1,5 +1,5 @@
-import SortKeyRecursiveParameters from '../../dist/sort-key-recursive-parameters';
-import SortKeyRecursiveParameter from '../../dist/sort-key-recursive-parameter';
+import {SortKeyRecursiveParameters} from '../../dist/sort-key-recursive';
+import {SortKeyRecursiveParameter} from '../../dist/sort-key-recursive';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

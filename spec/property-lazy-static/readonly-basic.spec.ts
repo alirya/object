@@ -1,4 +1,4 @@
-import MemoizeGetterBind from '../../dist/property-lazy-strict-parameters';
+import {PropertyLazyStaticParameters} from '../../dist/property-lazy-static';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -8,7 +8,7 @@ describe('plain', () => {
     let result : string;
     let soruce = {};
 
-    let object = MemoizeGetterBind(
+    let object = PropertyLazyStaticParameters(
         soruce,
         // @ts-expect-errors
         'data', () =>{
@@ -72,7 +72,7 @@ describe('class', () => {
     let source = new Test();
 
 
-    let object = MemoizeGetterBind(source, 'data',
+    let object = PropertyLazyStaticParameters(source, 'data',
         // @ts-expect-errors
         () =>{
             calledCallback++;
