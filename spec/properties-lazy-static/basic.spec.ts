@@ -1,4 +1,4 @@
-import SetPropertiesCallback from '../../dist/properties-lazy-strict-parameters';
+import {PropertiesLazyStrictParameters} from '../../dist/properties-lazy-strict';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -9,7 +9,7 @@ describe('plain', () => {
     let result : string;
     let soruce : {data ?: string} = {};
 
-    let object = SetPropertiesCallback(soruce, {
+    let object = PropertiesLazyStrictParameters(soruce, {
             get data  () {
             called++;
             return Math.random().toString();
@@ -61,7 +61,7 @@ describe('class', () => {
 
     let source = new Test();
 
-    let object = SetPropertiesCallback(
+    let object = PropertiesLazyStrictParameters(
         source,
         {
             get data() {

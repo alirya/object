@@ -1,4 +1,4 @@
-import SetPropertiesCallback from '../../dist/properties-lazy-strict-parameters';
+import {PropertiesLazyStrictParameters} from '../../dist/properties-lazy-strict';
 
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
@@ -9,7 +9,7 @@ describe('plain', () => {
 
         let source = {};
 
-        let object = SetPropertiesCallback(
+        let object = PropertiesLazyStrictParameters(
             source,
             {
                 get data () {
@@ -32,7 +32,7 @@ describe('plain', () => {
 
         let source : {data ?: string} = {};
 
-        let object = SetPropertiesCallback(source, {
+        let object = PropertiesLazyStrictParameters(source, {
             get data () {
                 return 'string';
             }
@@ -54,7 +54,7 @@ describe('different type', () => {
             get data () : number { return  1;}
         };
 
-        let object = SetPropertiesCallback(
+        let object = PropertiesLazyStrictParameters(
             source,
             {
                 // @ts-expect-error
@@ -80,7 +80,7 @@ describe('different type', () => {
             get data () : number|string { return  1;}
         };
 
-        let object = SetPropertiesCallback(source, {
+        let object = PropertiesLazyStrictParameters(source, {
             get data () {
                 return 'string';
             }
@@ -115,7 +115,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Implementer();
-        let type : Interface = SetPropertiesCallback(source, {
+        let type : Interface = PropertiesLazyStrictParameters(source, {
             get data () {
                 return 'string';
             }
@@ -135,7 +135,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Test();
-        let type : Interface = SetPropertiesCallback(source, {
+        let type : Interface = PropertiesLazyStrictParameters(source, {
             get data () {
                 return 'string';
             }
@@ -152,7 +152,7 @@ describe('not exists', () => {
         let source = {};
 
 
-        let object = SetPropertiesCallback(
+        let object = PropertiesLazyStrictParameters(
             source,
             {
                 get data () {
@@ -178,7 +178,7 @@ describe('not exists', () => {
         };
 
 
-        let object = SetPropertiesCallback(
+        let object = PropertiesLazyStrictParameters(
             source,
             {
                 get data () {

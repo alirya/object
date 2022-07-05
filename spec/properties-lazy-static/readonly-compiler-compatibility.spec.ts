@@ -1,4 +1,4 @@
-import MemoizeGetterBind from '../../dist/properties-lazy-strict-parameters';
+import {PropertiesLazyStrictParameters} from '../../dist/properties-lazy-strict';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -6,7 +6,7 @@ it('plain', () => {
 
     let source = {};
 
-    let object = MemoizeGetterBind(
+    let object = PropertiesLazyStrictParameters(
         source,
         {
             get data () {
@@ -32,7 +32,7 @@ it('different type', () => {
         get data () : number { return  1;}
     };
 
-    let object = MemoizeGetterBind(
+    let object = PropertiesLazyStrictParameters(
         source,
         {
             // @ts-expect-errors
@@ -69,7 +69,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Implementer();
-        let type : Interface = MemoizeGetterBind(
+        let type : Interface = PropertiesLazyStrictParameters(
             source,
             {
                 get data () {
@@ -93,7 +93,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Test();
-        let type : Interface = MemoizeGetterBind(
+        let type : Interface = PropertiesLazyStrictParameters(
             source,
             {
                 get data () {
@@ -114,7 +114,7 @@ describe('not exists', () => {
         let source = {};
 
 
-        let object = MemoizeGetterBind(
+        let object = PropertiesLazyStrictParameters(
             source,
             {
                 get data () {
@@ -139,7 +139,7 @@ describe('not exists', () => {
         };
 
 
-        let object = MemoizeGetterBind(
+        let object = PropertiesLazyStrictParameters(
             source,
             {
                 get data () {

@@ -1,4 +1,4 @@
-import MemoizeGetterBind from '../../dist/properties-lazy-strict-parameters';
+import {PropertiesLazyStrictParameters} from '../../dist/properties-lazy-strict';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -8,7 +8,7 @@ describe('plain', () => {
     let result : string;
     let soruce = {};
 
-    let object = MemoizeGetterBind(
+    let object = PropertiesLazyStrictParameters(
         soruce,
         {
             get 'data' () {
@@ -75,7 +75,7 @@ describe('class', () => {
     let source = new Test();
 
 
-    let object = MemoizeGetterBind(
+    let object = PropertiesLazyStrictParameters(
         source,
         {
             // @ts-expect-errors

@@ -1,4 +1,4 @@
-import SetPropertiesCallback from '../../dist/properties-lazy-dynamic-parameters';
+import {PropertiesLazyDynamicParameters} from '../../dist/properties-lazy-dynamic';
 
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
@@ -7,7 +7,7 @@ it('plain', () => {
 
     let source = {};
 
-    let object = SetPropertiesCallback(source, { get data () { return 'string'; } }, true, true);
+    let object = PropertiesLazyDynamicParameters(source, { get data () { return 'string'; } }, true, true);
 
     let string : string = object.data;
 
@@ -24,7 +24,7 @@ it('different type', () => {
         get data () : number { return  1;}
     };
 
-    let object = SetPropertiesCallback(source, { get data () { return 'string'; } }, true, true);
+    let object = PropertiesLazyDynamicParameters(source, { get data () { return 'string'; } }, true, true);
 
     // @ts-expect-error
     let number : number = object.data;
@@ -51,7 +51,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Implementer();
-        let type : Interface = SetPropertiesCallback(source, { get data () { return 'string'; } }, true, true);
+        let type : Interface = PropertiesLazyDynamicParameters(source, { get data () { return 'string'; } }, true, true);
         let string : string = type.data;
 
     });
@@ -67,7 +67,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Test();
-        let type : Interface = SetPropertiesCallback(source, { get data () { return 'string'; } }, true, true);
+        let type : Interface = PropertiesLazyDynamicParameters(source, { get data () { return 'string'; } }, true, true);
         let string : string = type.data;
 
     });
@@ -80,7 +80,7 @@ describe('not exists', () => {
         let source = {};
 
 
-        let object = SetPropertiesCallback(source, { get data () { return 'string'; } }, true, true);
+        let object = PropertiesLazyDynamicParameters(source, { get data () { return 'string'; } }, true, true);
 
         // @ts-expect-error
         let string : string = object.c;
@@ -97,7 +97,7 @@ describe('not exists', () => {
         };
 
 
-        let object = SetPropertiesCallback(source, { get value () { return 'string'; } }, true, true);
+        let object = PropertiesLazyDynamicParameters(source, { get value () { return 'string'; } }, true, true);
 
         // @ts-expect-error
         let string : string = object.c;

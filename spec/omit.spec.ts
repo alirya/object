@@ -14,7 +14,7 @@ it(' compatibility', function () {
         object : {},
     };
 
-    let result = Omit(source, 'string', 'number');
+    let result = Omit.Parameters(source, 'string', 'number');
 
     let omit : globalThis.Omit<typeof source, 'string'|'number'> = result;
     let strictOmit : StrictOmit<typeof source, 'string'|'number'> = result;
@@ -41,7 +41,7 @@ it(' test', function () {
         object : {},
     };
 
-    let result = Omit(source, 'string', 'number');
+    let result = Omit.Parameters(source, 'string', 'number');
 
     let omit : globalThis.Omit<typeof source, 'string'|'number'> = result;
     let strictOmit : StrictOmit<typeof source, 'string'|'number'> = result;

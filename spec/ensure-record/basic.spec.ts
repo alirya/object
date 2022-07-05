@@ -1,4 +1,4 @@
-import EnsureRecordParameters from '../../dist/ensure-record-parameters';
+import {EnsureRecordParameters} from '../../dist/ensure-record';
 import Boolean from '@alirya/boolean/boolean';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});

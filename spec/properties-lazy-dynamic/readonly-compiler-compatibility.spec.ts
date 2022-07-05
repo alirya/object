@@ -1,4 +1,4 @@
-import MemoizeGetterBind from '../../dist/properties-lazy-dynamic-parameters';
+import {PropertiesLazyDynamicParameters} from '../../dist/properties-lazy-dynamic';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -6,7 +6,7 @@ it('plain', () => {
 
     let source = {};
 
-    let object = MemoizeGetterBind(source, { get data() { return 'string'; } }, false);
+    let object = PropertiesLazyDynamicParameters(source, { get data() { return 'string'; } }, false);
 
     let string : string = object.data;
 
@@ -23,7 +23,7 @@ it('different type', () => {
         get data () : number { return  1;}
     };
 
-    let object = MemoizeGetterBind(source, { get data() { return 'string'; } }, false);
+    let object = PropertiesLazyDynamicParameters(source, { get data() { return 'string'; } }, false);
 
     // @ts-expect-error
     let number : number = object.data;
@@ -50,7 +50,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Implementer();
-        let type : Interface = MemoizeGetterBind(source, { get data() { return 'string'; } }, false);
+        let type : Interface = PropertiesLazyDynamicParameters(source, { get data() { return 'string'; } }, false);
         let string : string = type.data;
 
     });
@@ -66,7 +66,7 @@ describe('class', () => {
         }
 
         let source : Interface = new Test();
-        let type : Interface = MemoizeGetterBind(source, { get data() { return 'string'; } }, false);
+        let type : Interface = PropertiesLazyDynamicParameters(source, { get data() { return 'string'; } }, false);
         let string : string = type.data;
 
     });
@@ -79,7 +79,7 @@ describe('not exists', () => {
         let source = {};
 
 
-        let object = MemoizeGetterBind(source, { get data() { return 'string'; } }, false);
+        let object = PropertiesLazyDynamicParameters(source, { get data() { return 'string'; } }, false);
 
         // @ts-expect-error
         let string : string = object.c;
@@ -96,7 +96,7 @@ describe('not exists', () => {
         };
 
 
-        let object = MemoizeGetterBind(source, { get value() { return 'string'; } }, false);
+        let object = PropertiesLazyDynamicParameters(source, { get value() { return 'string'; } }, false);
 
         // @ts-expect-error
         let string : string = object.c;
