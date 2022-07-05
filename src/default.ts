@@ -9,8 +9,7 @@ export default function Default<
 >(
     target : Destination,
     source : Source
-) : Assign<Source, OmitByValue<Destination, undefined>>
-{
+) : Assign<Source, OmitByValue<Destination, undefined>> {
 
     for (let property in source) {
 

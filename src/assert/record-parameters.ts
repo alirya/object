@@ -1,5 +1,5 @@
-import Callback from '@alirya/function/assert/callback-parameters';
-import Guard from '../boolean/record-parameters';
+import {CallbackParameters} from '@alirya/function/assert/callback';
+import Guard from '../boolean/record';
 import Map from '../map';
 
 
@@ -21,5 +21,5 @@ export default function RecordParameters<
     error : (value:unknown)=>Error,
 ) : asserts list is Result {
 
-    Callback(list, (value : Object)=>Guard(value, validation), error);
+    CallbackParameters(list, (value : Object)=>Guard.Parameters(value, validation), error);
 }
