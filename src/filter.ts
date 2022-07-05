@@ -15,7 +15,7 @@ export default function Filter<
 ) : O.Select<Object, Type>;
 
 export default function Filter<
-    Object extends Record<PropertyKey, unknown>
+    Object extends Record<PropertyKey, any>
 >(
     record : Object,
     filter : (value:O.UnionOf<Object>, key:keyof Object)=>boolean,

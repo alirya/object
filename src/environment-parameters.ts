@@ -1,4 +1,3 @@
-
 import Callable from '@alirya/function/callable';
 import SetPathParameters from './set-path-parameters';
 
@@ -25,9 +24,10 @@ import SetPathParameters from './set-path-parameters';
  * prefix of key, will not be included
  *
  * @param callback
+ * callback for processing value
  */
 export default function EnvironmentParameters<
-    Assumption extends object,
+    Assumption extends Record<string, any>,
     Flat extends Record<string, any> = Record<string, any>
 >(
     object: Flat,

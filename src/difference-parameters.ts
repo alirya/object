@@ -2,7 +2,7 @@ import Equal from '@alirya/boolean/equal-parameters';
 import Callable from '@alirya/function/callable';
 import {A} from 'ts-toolbelt';
 
-export type DifferenceParametersArgumentValidation<Type extends object, Compare extends object = Type>
+export type DifferenceParametersArgumentValidation<Type extends Record<PropertyKey, any>, Compare extends Record<PropertyKey, any> = Type>
     = Callable<[Type[keyof Type], A.At<Compare, keyof Type>, keyof Type], boolean>;
 /**
  * return all data from {@param object} that does not match with {@param compare}
@@ -31,7 +31,7 @@ export type DifferenceParametersArgumentValidation<Type extends object, Compare 
  *          boolean : true,
  *      }
  */
-export default function DifferenceParameters<Type extends object, Compare extends object = Type>(
+export default function DifferenceParameters<Type extends Record<PropertyKey, any>, Compare extends Record<PropertyKey, any> = Type>(
     object: Type,
     compare : Compare,
     validation : DifferenceParametersArgumentValidation<Type, Compare> = Equal as DifferenceParametersArgumentValidation<Type, Compare>

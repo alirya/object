@@ -2,6 +2,8 @@ import Exists from '../../property/boolean/exists';
 import {Required} from 'utility-types';
 import MultiHandlers from './multi-handlers';
 import Descriptor from '../../descriptor/from-object-parameters';
+import MergeGetterSetterParameters from '../../../dist/descriptor/merge-getter-setter-parameters';
+import OmitUndefined from '../../omit-undefined';
 
 export default class GetOwnPropertyDescriptorListAll<
     Target extends object,
@@ -55,11 +57,16 @@ export default class GetOwnPropertyDescriptorListAll<
 
         } else  {
 
-            const descriptor : PropertyDescriptor = <PropertyDescriptor> descriptors.shift();
+            let descriptor : PropertyDescriptor = <PropertyDescriptor> descriptors.shift();
 
             for (const compare of descriptors) {
 
                 for(const prop of ['configurable', 'enumerable', /*'value',*/ 'writable', 'get', 'set']) {
+
+                    if(descriptor[prop] === undefined || compare[prop] === undefined) {
+
+                        continue;
+                    }
 
                     if(descriptor[prop] !== compare[prop]) {
 
@@ -67,7 +74,12 @@ export default class GetOwnPropertyDescriptorListAll<
                     }
                 }
 
+               // let descriptor2 = MergeGetterSetterParameters(descriptor as any, compare);
+                descriptor = Object.assign({}, OmitUndefined(descriptor), OmitUndefined(compare));
+               // console.log(descriptor2);
             }
+
+            //console.log(descriptor);
 
             // @ts-ignore
             this.descriptor[property] = descriptor;

@@ -1,10 +1,9 @@
-
 import Callable from '@alirya/function/callable';
 import EnvironmentParameters from './environment-parameters';
 
 
 export default function EnvironmentParameter<
-    Assumption extends object,
+    Assumption extends Record<string, any>,
     Flat extends Record<string, any> = Record<string, any>
 >(  {
         object,

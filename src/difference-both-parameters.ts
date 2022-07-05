@@ -2,7 +2,7 @@ import Equal from '@alirya/boolean/equal-parameters';
 import Callable from '@alirya/function/callable';
 import {A} from 'ts-toolbelt';
 
-export type DifferenceBothParametersArgumentValidation<Type extends object, Compare extends object = Type>
+export type DifferenceBothParametersArgumentValidation<Type extends Record<PropertyKey, any>, Compare extends Record<PropertyKey, any> = Type>
     = Callable<[A.At<Type, keyof Type|keyof Compare>, A.At<Compare, keyof Type|keyof Compare>, keyof Type|keyof Compare], boolean>;
 /**
  * return data from {@param object} and {@param compare} that does not match with
@@ -32,8 +32,8 @@ export type DifferenceBothParametersArgumentValidation<Type extends object, Comp
  *      }
  */
 export default function DifferenceBothParameters<
-    Value extends object,
-    CompareType extends object = Value
+    Value extends Record<PropertyKey, any>,
+    CompareType extends Record<PropertyKey, any> = Value
 >(
     object: Value,
     compare : CompareType,
@@ -45,10 +45,10 @@ export default function DifferenceBothParameters<
 
     for(const key in object) {
 
-        if(!validation(object[key as string], compare[key as PropertyKey], key)) {
+        if(!validation(object[key as string], compare[key], key)) {
 
             keys.push(key);
-            results[key as string] = object[key];
+            results[key] = object[key];
         }
     }
 
@@ -59,9 +59,9 @@ export default function DifferenceBothParameters<
             continue;
         }
 
-        if(!validation(object[key as string], compare[key as PropertyKey], key)) {
+        if(!validation(object[key as string], compare[key], key)) {
 
-            results[key as string] = compare[key];
+            results[key] = compare[key];
         }
     }
 
