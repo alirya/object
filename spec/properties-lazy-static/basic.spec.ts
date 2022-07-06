@@ -1,4 +1,4 @@
-import {PropertiesLazyStrictParameters} from '../../dist/properties-lazy-strict';
+import {PropertiesLazyStrictParameters} from '../../dist/properties-lazy-strict.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

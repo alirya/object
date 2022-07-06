@@ -1,6 +1,6 @@
 import {List} from 'ts-toolbelt';
-import Object_ from './object/object';
-import OmitParameters from './omit-parameters';
+import Object_ from './object/object.js';
+import OmitParameters from './omit-parameters.js';
 /**
  * implementation of {@link globalThis.Omit}
  *

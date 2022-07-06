@@ -1,4 +1,4 @@
-import Property from '../../../../dist/property/boolean/exists';
+import Property from '../../../../dist/property/boolean/exists.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

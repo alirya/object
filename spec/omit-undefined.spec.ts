@@ -1,4 +1,4 @@
-import OmitUndefined from '../dist/omit-undefined';
+import OmitUndefined from '../dist/omit-undefined.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

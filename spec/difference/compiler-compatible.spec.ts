@@ -1,5 +1,5 @@
-import {DifferenceParameters} from '../../dist/difference';
-import {TypeEqualParameters} from '@alirya/type/boolean/type-equal';
+import {DifferenceParameters} from '../../dist/difference.js';
+import {TypeEqualParameters} from '@alirya/type/boolean/type-equal.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

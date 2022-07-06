@@ -1,4 +1,4 @@
-import {SetGetterParameters} from '../../../../dist/value/value/set-getter';
+import {SetGetterParameters} from '../../../../dist/value/value/set-getter.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

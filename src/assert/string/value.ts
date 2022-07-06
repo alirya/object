@@ -1,5 +1,5 @@
-import Validatable from '@alirya/validatable/validatable';
-import Property from '../../property/property/property';
+import Validatable from '@alirya/validatable/validatable.js';
+import Property from '../../property/property/property.js';
 /**
  * {@param valid} type is valid or not
  * {@param property} object property

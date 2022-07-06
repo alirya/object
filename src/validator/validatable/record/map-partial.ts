@@ -1,9 +1,9 @@
-import RecordParameter from '../../subject/record/allow';
-import Validator from '@alirya/validator/validator';
-import InferReturn from './infer';
-import IteratorMap from '../iterator/map';
-import Value from '@alirya/value/value';
-import ValidatorsContainer from '../../validators/validators';
+import RecordParameter from '../../subject/record/allow.js';
+import Validator from '@alirya/validator/validator.js';
+import InferReturn from './infer.js';
+import IteratorMap from '../iterator/map.js';
+import Value from '@alirya/value/value.js';
+import ValidatorsContainer from '../../validators/validators.js';
 
 export function MapPartialParameters<
     Validators extends Record<PropertyKey, Validator>

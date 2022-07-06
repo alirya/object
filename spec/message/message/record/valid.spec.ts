@@ -1,14 +1,14 @@
-import {TypeParameters} from '@alirya/type/validator/type';
-import {ValueAllParameters} from '../../../../dist/validator/value-all';
-import {ValueCallbackParameters} from '../../../../dist/validator/value-callback';
-import {MapAllParameters} from '../../../../dist/validator/map-all';
-import {MapCallbackParameters} from '../../../../dist/validator/map-callback';
-import And from '../../../../dist/validatable/and';
-import Valid from '../../../../dist/message/message/record/valid';
-import MessageMap from '../../../../dist/message/message/record/map';
-import ValidatorValidatable from '../../../../dist/validator/validatable/record/infer';
-import {ValuePartialParameters} from '../../../../dist/validator/validatable/record/value-partial';
-import Instance from '@alirya/validator/validatable/validatable';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import {ValueAllParameters} from '../../../../dist/validator/value-all.js';
+import {ValueCallbackParameters} from '../../../../dist/validator/value-callback.js';
+import {MapAllParameters} from '../../../../dist/validator/map-all.js';
+import {MapCallbackParameters} from '../../../../dist/validator/map-callback.js';
+import And from '../../../../dist/validatable/and.js';
+import Valid from '../../../../dist/message/message/record/valid.js';
+import MessageMap from '../../../../dist/message/message/record/map.js';
+import ValidatorValidatable from '../../../../dist/validator/validatable/record/infer.js';
+import {ValuePartialParameters} from '../../../../dist/validator/validatable/record/value-partial.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
 
 it('force console log', () => {spyOn(console, 'log').and.callThrough();});
 

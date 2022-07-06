@@ -1,5 +1,5 @@
-import {MapPartialParameters} from '../../../../dist/validator/validatable/record/map-partial';
-import {TypeParameters} from '@alirya/type/validator/type';
+import {MapPartialParameters} from '../../../../dist/validator/validatable/record/map-partial.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
 
 it('force console log', () => spyOn(console, 'log').and.callThrough());
 

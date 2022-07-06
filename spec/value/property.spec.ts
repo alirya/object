@@ -1,4 +1,4 @@
-import Property from '../../dist/value/property';
+import Property from '../../dist/value/property.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

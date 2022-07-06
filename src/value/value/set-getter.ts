@@ -1,5 +1,5 @@
-import Value from '@alirya/value/value';
-import Property from '../../property/property/property';
+import Value from '@alirya/value/value.js';
+import Property from '../../property/property/property.js';
 
 /**
  * set {@param value} for getter value for {@param object}

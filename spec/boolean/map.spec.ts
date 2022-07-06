@@ -1,4 +1,4 @@
-import Structure, {Validation} from '../../dist/boolean/map';
+import Structure, {Validation} from '../../dist/boolean/map.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

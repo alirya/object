@@ -1,6 +1,6 @@
 import {Object} from 'ts-toolbelt';
 import {get} from 'lodash';
-import Object_ from '../../object/object';
+import Object_ from '../../object/object.js';
 
 export function PickPathParameters<
     Properties extends ReadonlyArray<PropertyKey>,

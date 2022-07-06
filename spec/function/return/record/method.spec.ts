@@ -1,4 +1,4 @@
-import {MethodParameters} from '../../../../dist/function/return/record/method';
+import {MethodParameters} from '../../../../dist/function/return/record/method.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

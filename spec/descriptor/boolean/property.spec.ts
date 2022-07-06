@@ -1,5 +1,5 @@
-import Property from '../../../dist/descriptor/boolean/property';
-import {FromObjectParameters} from '../../../dist/descriptor/from-object';
+import Property from '../../../dist/descriptor/boolean/property.js';
+import {FromObjectParameters} from '../../../dist/descriptor/from-object.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,5 +1,5 @@
-import MemoizeProperty from '../../../dist/function/memoize-property';
-import Unique from '@alirya/array/unique-parameters';
+import MemoizeProperty from '../../../dist/function/memoize-property.js';
+import Unique from '@alirya/array/unique-parameters.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

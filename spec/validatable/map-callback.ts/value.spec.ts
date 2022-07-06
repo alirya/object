@@ -1,8 +1,8 @@
-import {MapCallbackParameters} from '../../../dist/validatable/map-callback';
-import {MapParameters} from '../../../dist/validator/validatable/record/map';
-import And from '../../../dist/validatable/and';
-import MessageMap from '../../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
+import {MapCallbackParameters} from '../../../dist/validatable/map-callback.js';
+import {MapParameters} from '../../../dist/validator/validatable/record/map.js';
+import And from '../../../dist/validatable/and.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
 
 let validator = {
     name : TypeParameters('string'),

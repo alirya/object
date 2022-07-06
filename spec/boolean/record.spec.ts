@@ -1,4 +1,4 @@
-import {RecordParameters} from '../../dist/boolean/record';
+import {RecordParameters} from '../../dist/boolean/record.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

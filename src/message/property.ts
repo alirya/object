@@ -1,6 +1,6 @@
-import Message from '@alirya/message/message';
-import Property from '../property/property/property';
-import Delimiter from '@alirya/string/separator/separator';
+import Message from '@alirya/message/message.js';
+import Property from '../property/property/property.js';
+import Delimiter from '@alirya/string/separator/separator.js';
 
 export function PropertyParameters<MessageValue>(
     message : Message<MessageValue>,

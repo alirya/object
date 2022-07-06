@@ -1,6 +1,6 @@
-import {SetPropertyParameters} from '../../../../dist/value/value/set-property';
-import {ReadableParameters} from '../../../../dist/property/boolean/readable';
-import {WritableParameters} from '../../../../dist/property/boolean/writable';
+import {SetPropertyParameters} from '../../../../dist/value/value/set-property.js';
+import {ReadableParameters} from '../../../../dist/property/boolean/readable.js';
+import {WritableParameters} from '../../../../dist/property/boolean/writable.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

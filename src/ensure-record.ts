@@ -1,7 +1,7 @@
-import AssertList from './assert/record-parameters';
-import {CallbackParameters} from '../../function/dist/ensure/callback';
-import {RecordParameters} from './boolean/record';
-import GuardValidation from '@alirya/boolean/validation/guard';
+import AssertList from './assert/record-parameters.js';
+import {CallbackParameters} from '../../function/dist/ensure/callback.js';
+import {RecordParameters} from './boolean/record.js';
+import GuardValidation from '@alirya/boolean/validation/guard.js';
 
 /**
  * Check if {@param list} is list of {@template Value}

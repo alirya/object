@@ -1,5 +1,5 @@
-import Callable from '@alirya/function/callable';
-import {SetPathParameters} from './set-path';
+import Callable from '@alirya/function/callable.js';
+import {SetPathParameters} from './set-path.js';
 
 /**
  * parse data from flat key

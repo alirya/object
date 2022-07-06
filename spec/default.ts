@@ -1,4 +1,4 @@
-import Default from '../dist/default';
+import Default from '../dist/default.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

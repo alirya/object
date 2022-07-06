@@ -1,4 +1,4 @@
-import Value from '../../dist/iterable/value';
+import Value from '../../dist/iterable/value.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

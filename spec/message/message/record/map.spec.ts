@@ -1,5 +1,5 @@
-import Map from '../../../../dist/message/message/record/map';
-import Message from '@alirya/message/message';
+import Map from '../../../../dist/message/message/record/map.js';
+import Message from '@alirya/message/message.js';
 
 it('force console log', () => {spyOn(console, 'log').and.callThrough();});
 

@@ -1,6 +1,6 @@
-import MemoizeGetter from './value/value/set-property';
+import MemoizeGetter from './value/value/set-property.js';
 import {O} from 'ts-toolbelt';
-import Callable from '@alirya/function/callable';
+import Callable from '@alirya/function/callable.js';
 
 export type PropertyLazyDynamicWritableReturn<
     This extends object,

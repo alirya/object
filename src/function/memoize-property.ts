@@ -1,6 +1,6 @@
-import SetProperty from '../value/value/set-property';
-import Default from '../default';
-import Suffix from '@alirya/string/suffix/suffix';
+import SetProperty from '../value/value/set-property.js';
+import Default from '../default.js';
+import Suffix from '@alirya/string/suffix/suffix.js';
 
 const defaults = {suffix:'', configurable:true, writable:true};
 /**

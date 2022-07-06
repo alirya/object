@@ -1,10 +1,10 @@
-import {TypeParameters} from '@alirya/type/validator/type';
-import {RecordValueCallbackParameters} from '../../../dist/validator/record-value-callback';
-import {RecordValueParameters} from '../../../dist/validator/validatable/record/record-value';
-import And from '../../../dist/validatable/and';
-import MessageMap from '../../../dist/message/message/record/map';
-import Or from '../../../dist/validatable/or';
-import Infer from '@alirya/validator/validatable/infer-static';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import {RecordValueCallbackParameters} from '../../../dist/validator/record-value-callback.js';
+import {RecordValueParameters} from '../../../dist/validator/validatable/record/record-value.js';
+import And from '../../../dist/validatable/and.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import Or from '../../../dist/validatable/or.js';
+import Infer from '@alirya/validator/validatable/infer-static.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

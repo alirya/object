@@ -1,8 +1,8 @@
-import Value from '@alirya/value/value';
-import Validatable from '@alirya/validatable/validatable';
-import Message from '@alirya/message/message';
-import EmptyArgument from '../boolean/empty';
-import MemoizeAccessor from '../function/memoize-accessor';
+import Value from '@alirya/value/value.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import Message from '@alirya/message/message.js';
+import EmptyArgument from '../boolean/empty.js';
+import MemoizeAccessor from '../function/memoize-accessor.js';
 
 export type EmptyType<Type extends object, MessageType> = Readonly<Value<Type> & Message<MessageType> & Validatable>;
 

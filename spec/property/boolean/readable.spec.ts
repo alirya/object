@@ -1,4 +1,4 @@
-import {ReadableParameters} from '../../../dist/property/boolean/readable';
+import {ReadableParameters} from '../../../dist/property/boolean/readable.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,4 +1,4 @@
-import SymbolType from '../../symbol/boolean/symbol';
+import SymbolType from '../../symbol/boolean/symbol.js';
 
 /**
  * check if {@param value} is valid object key/property

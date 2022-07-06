@@ -1,4 +1,4 @@
-import EmptyType from '../string/empty';
+import EmptyType from '../string/empty.js';
 
 export function EmptyParameters(
      value : object,
@@ -9,7 +9,7 @@ export function EmptyParameters(
 }
 
 
-import Value from '@alirya/value/value';
+import Value from '@alirya/value/value.js';
 
 export type EmptyArgument = Value<object> & {subject?: string};
 

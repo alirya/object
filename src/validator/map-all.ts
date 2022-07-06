@@ -1,11 +1,11 @@
-import Validator from '@alirya/validator/validator';
-import Validatable from '@alirya/validatable/validatable';
-import ReturnInfer from './validatable/record/infer';
-import ValidateMap from './validatable/record/map';
-import MapCallback, {MapCallbackReturn as MapAllReturn} from './map-callback';
-import ValidatorsContainer from './validators/validators';
-import Message from '@alirya/message/message';
-import Instance from '@alirya/validator/validatable/validatable';
+import Validator from '@alirya/validator/validator.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import ReturnInfer from './validatable/record/infer.js';
+import ValidateMap from './validatable/record/map.js';
+import MapCallback, {MapCallbackReturn as MapAllReturn} from './map-callback.js';
+import ValidatorsContainer from './validators/validators.js';
+import Message from '@alirya/message/message.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
 
 export function MapAllParameters<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,

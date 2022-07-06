@@ -1,4 +1,4 @@
-import {SetPropertyParameters} from '../../../../dist/value/value/set-property';
+import {SetPropertyParameters} from '../../../../dist/value/value/set-property.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

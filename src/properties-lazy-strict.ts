@@ -1,6 +1,6 @@
 import {O} from 'ts-toolbelt';
 import {Required} from 'utility-types';
-import {PropertiesLazyDynamicParameters} from './properties-lazy-dynamic';
+import {PropertiesLazyDynamicParameters} from './properties-lazy-dynamic.js';
 
 export type PropertiesLazyStaticReturnReadonly<
     This extends Record<PropertyKey, unknown>,

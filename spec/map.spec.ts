@@ -1,5 +1,5 @@
-import Map from '../dist/map-callback';
-import Convert from '../dist/map';
+import Map from '../dist/map-callback.js';
+import Convert from '../dist/map.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

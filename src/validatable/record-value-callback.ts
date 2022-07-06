@@ -1,11 +1,11 @@
-import Validator from '@alirya/validator/validator';
-import Validatable from '@alirya/validatable/validatable';
+import Validator from '@alirya/validator/validator.js';
+import Validatable from '@alirya/validatable/validatable.js';
 import {O} from 'ts-toolbelt';
-import RecordValue from './record-value';
-import MemoizeAccessor from '../function/memoize-accessor';
-import ValidatorContainer from '@alirya/validator/validator/validator';
-import MessageBase from '@alirya/message/message';
-import Value from '@alirya/value/value';
+import RecordValue from './record-value.js';
+import MemoizeAccessor from '../function/memoize-accessor.js';
+import ValidatorContainer from '@alirya/validator/validator/validator.js';
+import MessageBase from '@alirya/message/message.js';
+import Value from '@alirya/value/value.js';
 
 export class RecordValueCallbackParameters<
     MessageType = unknown,

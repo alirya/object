@@ -1,4 +1,4 @@
-import MapKeyCallback from '../../dist/map-key-callback';
+import MapKeyCallback from '../../dist/map-key-callback.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

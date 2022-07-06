@@ -1,4 +1,4 @@
-import OmitNull from '../dist/omit-null';
+import OmitNull from '../dist/omit-null.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

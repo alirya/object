@@ -1,4 +1,4 @@
-import Type from '../../../dist/property/boolean/property';
+import Type from '../../../dist/property/boolean/property.js';
 
 
 describe('boolean', function() {

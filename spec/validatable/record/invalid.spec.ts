@@ -1,5 +1,5 @@
-import Invalid from '../../../dist/validatable/record/invalid';
-import And from '../../../dist/validatable/and';
+import Invalid from '../../../dist/validatable/record/invalid.js';
+import And from '../../../dist/validatable/and.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

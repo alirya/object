@@ -1,4 +1,4 @@
-import Object_ from './object/object';
+import Object_ from './object/object.js';
 import {List} from 'ts-toolbelt';
 /**
  * implementation of {@link globalThis.Omit}

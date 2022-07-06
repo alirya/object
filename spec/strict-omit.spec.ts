@@ -1,4 +1,4 @@
-import StrictOmit from '../dist/strict-omit';
+import StrictOmit from '../dist/strict-omit.js';
 import {Omit as UtilityTypesOmit} from 'utility-types';
 import {Object} from 'ts-toolbelt';
 

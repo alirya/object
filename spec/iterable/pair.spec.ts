@@ -1,4 +1,4 @@
-import Value from '../../dist/iterable/pair';
+import Value from '../../dist/iterable/pair.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

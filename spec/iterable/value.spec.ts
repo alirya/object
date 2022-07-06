@@ -1,4 +1,4 @@
-import Property from '../../dist/iterable/property';
+import Property from '../../dist/iterable/property.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,7 +1,7 @@
 import {
     PickPathParameters as SelectPathParameters,
     PickPathParameter as SelectPathParameter
-} from './pick-path';
+} from './pick-path.js';
 
 export {SelectPathParameters};
 export {SelectPathParameter};

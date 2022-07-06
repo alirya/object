@@ -1,5 +1,5 @@
-import {ValueParameters} from '../../../dist/property/boolean/value';
-import Type from '../../../dist/boolean/object';
+import {ValueParameters} from '../../../dist/property/boolean/value.js';
+import Type from '../../../dist/boolean/object.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

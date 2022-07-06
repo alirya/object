@@ -1,8 +1,8 @@
-import Infer from './infer';
+import Infer from './infer.js';
 import {O} from 'ts-toolbelt';
-import MapSingle from '../../parameter/record/map-single';
-import Value from '@alirya/value/value';
-import ArgumentContainer from '@alirya/function/argument/argument';
+import MapSingle from '../../parameter/record/map-single.js';
+import Value from '@alirya/value/value.js';
+import ArgumentContainer from '@alirya/function/argument/argument.js';
 
 /**
  * call an record of function or object, by using key from {@param argument} and it's value

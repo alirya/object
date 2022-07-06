@@ -1,11 +1,11 @@
-import {MapCallbackParameters} from '../../../dist/validator/map-callback';
-import {MapPartialParameters} from '../../../dist/validator/validatable/record/map-partial';
-import {MapParameters} from '../../../dist/validator/validatable/record/map';
-import And from '../../../dist/validatable/and';
-import Or from '../../../dist/validatable/or';
-import MessageMap from '../../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
-import InferReturn from '../../../dist/validator/validatable/record/infer';
+import {MapCallbackParameters} from '../../../dist/validator/map-callback.js';
+import {MapPartialParameters} from '../../../dist/validator/validatable/record/map-partial.js';
+import {MapParameters} from '../../../dist/validator/validatable/record/map.js';
+import And from '../../../dist/validatable/and.js';
+import Or from '../../../dist/validatable/or.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import InferReturn from '../../../dist/validator/validatable/record/infer.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

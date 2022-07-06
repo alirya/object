@@ -1,4 +1,4 @@
-import Type from '../../../dist/symbol/boolean/symbol';
+import Type from '../../../dist/symbol/boolean/symbol.js';
 
 
 describe('boolean', function() {

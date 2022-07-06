@@ -1,5 +1,5 @@
-import Record from '../../../../dist/validatable/record/boolean/record';
-import And from '../../../../dist/validatable/and';
+import Record from '../../../../dist/validatable/record/boolean/record.js';
+import And from '../../../../dist/validatable/and.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

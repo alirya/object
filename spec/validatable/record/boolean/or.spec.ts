@@ -1,4 +1,4 @@
-import Or from '../../../../dist/validatable/record/boolean/or';
+import Or from '../../../../dist/validatable/record/boolean/or.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,10 +1,10 @@
-import {MapPartialParameters} from '../../../dist/validator/map-partial';
-import And from '../../../dist/validatable/and';
-import ValidatorInterface from '@alirya/validator/simple';
-import MessageMap from '../../../dist/message/message/record/map';
-import RemoveUndefined from '../../../dist/omit-undefined';
-import {TypeParameters} from '@alirya/type/validator/type';
-import Instance from '@alirya/validator/validatable/validatable';
+import {MapPartialParameters} from '../../../dist/validator/map-partial.js';
+import And from '../../../dist/validatable/and.js';
+import ValidatorInterface from '@alirya/validator/simple.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import RemoveUndefined from '../../../dist/omit-undefined.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

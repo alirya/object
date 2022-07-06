@@ -1,10 +1,10 @@
-import Validator from '@alirya/validator/validator';
-import Validatable from '@alirya/validatable/validatable';
-import ValidatableContainer from '@alirya/validatable/validatable/validatable';
-import ValidatorContainer from '@alirya/validator/validator/validator';
-import Value from '@alirya/value/value';
-import Validatables from './validatables/validatables';
-import Message from '@alirya/message/message';
+import Validator from '@alirya/validator/validator.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import ValidatableContainer from '@alirya/validatable/validatable/validatable.js';
+import ValidatorContainer from '@alirya/validator/validator/validator.js';
+import Value from '@alirya/value/value.js';
+import Validatables from './validatables/validatables.js';
+import Message from '@alirya/message/message.js';
 import {O} from 'ts-toolbelt';
 
 export default interface RecordValue<

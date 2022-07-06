@@ -1,5 +1,5 @@
-import MemoizeMethod from '../../../dist/function/memoize-method';
-import Unique from '@alirya/array/unique-parameters';
+import MemoizeMethod from '../../../dist/function/memoize-method.js';
+import Unique from '@alirya/array/unique-parameters.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

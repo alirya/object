@@ -1,6 +1,6 @@
-import {CallbackParameters} from '@alirya/function/assert/callback';
-import Guard from '../boolean/record';
-import Map from '../map';
+import {CallbackParameters} from '@alirya/function/assert/callback.js';
+import Guard from '../boolean/record.js';
+import Map from '../map.js';
 
 
 /**

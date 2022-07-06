@@ -1,6 +1,6 @@
-import Validatable from '@alirya/validatable/validatable';
-import ValidatablesInterface from './validatables/validatables';
-import Validation from '@alirya/boolean/validation/validation';
+import Validatable from '@alirya/validatable/validatable.js';
+import ValidatablesInterface from './validatables/validatables.js';
+import Validation from '@alirya/boolean/validation/validation.js';
 
 export type ValidatablesType<
     RecordType extends Partial<Record<PropertyKey, Validatable>> = Partial<Record<PropertyKey, Validatable>>,

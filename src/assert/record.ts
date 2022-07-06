@@ -1,6 +1,6 @@
-import {CallbackParameters} from '@alirya/function/assert/callback';
-import Guard from '../boolean/record';
-import GuardValidation from '@alirya/boolean/validation/guard';
+import {CallbackParameters} from '@alirya/function/assert/callback.js';
+import Guard from '../boolean/record.js';
+import GuardValidation from '@alirya/boolean/validation/guard.js';
 
 
 /**

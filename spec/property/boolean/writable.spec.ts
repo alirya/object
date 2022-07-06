@@ -1,4 +1,4 @@
-import {WritableParameters} from '../../../dist/property/boolean/writable';
+import {WritableParameters} from '../../../dist/property/boolean/writable.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

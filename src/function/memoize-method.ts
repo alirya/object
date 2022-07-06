@@ -1,6 +1,6 @@
-import Default from '../default';
-import Suffix from '@alirya/string/suffix/suffix';
-import SetMethod from '../value/value/set-method';
+import Default from '../default.js';
+import Suffix from '@alirya/string/suffix/suffix.js';
+import SetMethod from '../value/value/set-method.js';
 
 const defaults = {suffix:'', configurable:true};
 /**

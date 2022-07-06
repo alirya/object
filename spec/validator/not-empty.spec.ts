@@ -1,6 +1,6 @@
-import {NotEmptyParameters} from '../../dist/validator/not-empty';
-import {EmptyParameters} from '../../dist/assert/string/empty';
-import Name from '../../dist/string/name';
+import {NotEmptyParameters} from '../../dist/validator/not-empty.js';
+import {EmptyParameters} from '../../dist/assert/string/empty.js';
+import Name from '../../dist/string/name.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

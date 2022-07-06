@@ -1,5 +1,5 @@
 import {O} from 'ts-toolbelt';
-import {PropertyLazyDynamicParameters} from './property-lazy-dynamic';
+import {PropertyLazyDynamicParameters} from './property-lazy-dynamic.js';
 
 export type PropertiesLazyDynamicReturnWritable<
     This extends Record<PropertyKey, any>,

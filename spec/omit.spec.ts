@@ -1,5 +1,5 @@
-import Omit from '../dist/omit';
-import StrictOmit from '../dist/strict-omit';
+import Omit from '../dist/omit.js';
+import StrictOmit from '../dist/strict-omit.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

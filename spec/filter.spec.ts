@@ -1,4 +1,4 @@
-import Filter from '../dist/filter';
+import Filter from '../dist/filter.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,5 +1,5 @@
 import ProcessEnv = NodeJS.ProcessEnv;
-import {EnvironmentParameters} from '../../dist/environment';
+import {EnvironmentParameters} from '../../dist/environment.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

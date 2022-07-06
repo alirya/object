@@ -1,6 +1,6 @@
-import PropertyValueValidationMessage from '../string/value-validation';
-import Validatable from '@alirya/validatable/validatable';
-import Property from '../../property/property/property';
+import PropertyValueValidationMessage from '../string/value-validation.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import Property from '../../property/property/property.js';
 
 export function ValueValidationParameters(
     property : PropertyKey,

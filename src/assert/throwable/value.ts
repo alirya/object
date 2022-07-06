@@ -1,5 +1,5 @@
-import PropertyValueMessage from '../string/value';
-import Property from '../../property/property/property';
+import PropertyValueMessage from '../string/value.js';
+import Property from '../../property/property/property.js';
 
 export function ValueParameters(
     property : PropertyKey,

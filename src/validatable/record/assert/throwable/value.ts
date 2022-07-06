@@ -1,4 +1,4 @@
-import ValueMessage from '../../boolean/string/value';
+import ValueMessage from '../../boolean/string/value.js';
 
 export default function Value(
     property: PropertyKey,

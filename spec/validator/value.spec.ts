@@ -1,13 +1,13 @@
-import {ValueAllParameters} from '../../dist/validator/value-all';
-import And from '../../dist/validatable/and';
-import Or from '../../dist/validatable/or';
-import ValidatablesInterface from '../../dist/validatable/validatables/validatables';
-import Validatables from '../../dist/validatable/validatables/validatables';
-import Validatable from '@alirya/validatable/validatable';
-import MessageMap from '../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
-import Simple from '@alirya/validator/simple';
-import ValidatorValidatable from '@alirya/validator/validatable/validatable';
+import {ValueAllParameters} from '../../dist/validator/value-all.js';
+import And from '../../dist/validatable/and.js';
+import Or from '../../dist/validatable/or.js';
+import ValidatablesInterface from '../../dist/validatable/validatables/validatables.js';
+import Validatables from '../../dist/validatable/validatables/validatables.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import MessageMap from '../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import Simple from '@alirya/validator/simple.js';
+import ValidatorValidatable from '@alirya/validator/validatable/validatable.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

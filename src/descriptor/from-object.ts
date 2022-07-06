@@ -1,5 +1,5 @@
-import Value from '@alirya/value/value';
-import Property from '../property/property/property';
+import Value from '@alirya/value/value.js';
+import Property from '../property/property/property.js';
 
 export function FromObjectParameters(value : object, property : PropertyKey) : undefined|PropertyDescriptor {
 

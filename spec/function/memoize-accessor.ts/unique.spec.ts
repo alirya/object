@@ -1,5 +1,5 @@
-import MemoizeAccessor from '../../../dist/function/memoize-accessor';
-import Unique from '@alirya/array/unique-parameters';
+import MemoizeAccessor from '../../../dist/function/memoize-accessor.js';
+import Unique from '@alirya/array/unique-parameters.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

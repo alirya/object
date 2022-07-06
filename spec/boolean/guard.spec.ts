@@ -1,4 +1,4 @@
-import Type from '../../dist/boolean/object';
+import Type from '../../dist/boolean/object.js';
 
 
 describe('boolean', function() {

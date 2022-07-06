@@ -1,4 +1,4 @@
-import StrictAssign from '../dist/strict-assign';
+import StrictAssign from '../dist/strict-assign.js';
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 interface Data {

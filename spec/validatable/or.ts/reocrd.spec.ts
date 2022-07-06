@@ -1,4 +1,4 @@
-import Or from '../../../dist/validatable/or';
+import Or from '../../../dist/validatable/or.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

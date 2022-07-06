@@ -1,13 +1,13 @@
-import ValidatorInterface from '@alirya/validator/simple';
-import Instance from '@alirya/validator/validatable/validatable';
-import {RecordKeyCallbackParameters} from '../../../dist/validator/record-key-callback';
-import {RecordKeyParameters} from '../../../dist/validator/validatable/record/record-key';
-import And from '../../../dist/validatable/and';
-import MessageMap from '../../../dist/message/message/record/map';
-import ValidatorValidatable from '@alirya/validator/validatable/validatable';
-import Validatable from '@alirya/validatable/validatable';
-import {RecordKeyPartialParameters} from '../../../dist/validator/validatable/record/record-key-partial';
-import {TypeParameters} from '@alirya/type/validator/type';
+import ValidatorInterface from '@alirya/validator/simple.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
+import {RecordKeyCallbackParameters} from '../../../dist/validator/record-key-callback.js';
+import {RecordKeyParameters} from '../../../dist/validator/validatable/record/record-key.js';
+import And from '../../../dist/validatable/and.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import ValidatorValidatable from '@alirya/validator/validatable/validatable.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import {RecordKeyPartialParameters} from '../../../dist/validator/validatable/record/record-key-partial.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

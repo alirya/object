@@ -1,9 +1,9 @@
-import Validator from '@alirya/validator/validator';
-import EmptyValidatable, {EmptyType as EmptyParametersReturn} from '../validatable/empty';
-import EmptyString from '../assert/string/empty';
-import {ValidatableParameters} from '@alirya/validator/message/function/validatable';
-import {EmptyType as EmptyParameterReturn} from '../validatable/empty';
-import {ValidatableParameter} from '@alirya/validator/message/function/validatable';
+import Validator from '@alirya/validator/validator.js';
+import EmptyValidatable, {EmptyType as EmptyParametersReturn} from '../validatable/empty.js';
+import EmptyString from '../assert/string/empty.js';
+import {ValidatableParameters} from '@alirya/validator/message/function/validatable.js';
+import {EmptyType as EmptyParameterReturn} from '../validatable/empty.js';
+import {ValidatableParameter} from '@alirya/validator/message/function/validatable.js';
 
 
 export function EmptyParameters() : Validator<object, object, boolean, boolean, EmptyParametersReturn<object, string>>;

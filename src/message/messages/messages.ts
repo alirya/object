@@ -1,4 +1,4 @@
-import Message from '@alirya/message/message';
+import Message from '@alirya/message/message.js';
 
 export default interface Messages<
     Object extends Partial<Record<PropertyKey, Message>> = Partial<Record<PropertyKey, Message>>

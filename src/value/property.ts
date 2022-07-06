@@ -1,4 +1,4 @@
-import Value from '@alirya/value/value';
+import Value from '@alirya/value/value.js';
 
 export default class Property<Key extends keyof Object, Object extends object> implements Value<Object[Key]> {
 

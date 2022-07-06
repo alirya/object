@@ -1,4 +1,4 @@
-import Type from '../../../dist/descriptor/boolean/getter';
+import Type from '../../../dist/descriptor/boolean/getter.js';
 
 describe('getter/setter', function() {
 

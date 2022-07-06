@@ -1,10 +1,10 @@
-import {ValuePartialParameters} from '../../dist/validator/value-partial';
-import And from '../../dist/validatable/and';
-import Or from '../../dist/validatable/or';
-import Validatable from '@alirya/validatable/validatable';
-import MessageMap from '../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
-import Message from '@alirya/message/message';
+import {ValuePartialParameters} from '../../dist/validator/value-partial.js';
+import And from '../../dist/validatable/and.js';
+import Or from '../../dist/validatable/or.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import MessageMap from '../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import Message from '@alirya/message/message.js';
 
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});

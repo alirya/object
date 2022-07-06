@@ -1,4 +1,4 @@
-import And from '../../../dist/validatable/and';
+import And from '../../../dist/validatable/and.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

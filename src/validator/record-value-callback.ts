@@ -1,14 +1,14 @@
-import Validator from '@alirya/validator/validator';
-import InferBase from '@alirya/validator/subject/allow';
-import Validatable from '@alirya/validatable/validatable';
-import ValidatableRecordCallback from '../validatable/record-value-callback';
-import Instance from '@alirya/validator/validatable/validatable';
-import ValidatorContainer from '@alirya/validator/validator/validator';
-import MessageType from '@alirya/message/message';
-import Value from '@alirya/value/value';
-import SimpleValidator from '@alirya/validator/simple';
-import InferType from '@alirya/validator/subject/expectation';
-import ValidatableRecord from '../validatable/record-value';
+import Validator from '@alirya/validator/validator.js';
+import InferBase from '@alirya/validator/subject/allow.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import ValidatableRecordCallback from '../validatable/record-value-callback.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
+import ValidatorContainer from '@alirya/validator/validator/validator.js';
+import MessageType from '@alirya/message/message.js';
+import Value from '@alirya/value/value.js';
+import SimpleValidator from '@alirya/validator/simple.js';
+import InferType from '@alirya/validator/subject/expectation.js';
+import ValidatableRecord from '../validatable/record-value.js';
 
 export function RecordValueCallbackParameters<
     ValidatorType extends Validator = Validator,

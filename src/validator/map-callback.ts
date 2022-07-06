@@ -1,14 +1,14 @@
-import Validator from '@alirya/validator/validator';
-import Validatable from '@alirya/validatable/validatable';
-import RecordParameter from './subject/record/allow';
-import ValidatableMapCallback from '../validatable/map-callback';
-import Instance from '@alirya/validator/validatable/validatable';
-import ValidatorsContainer from './validators/validators';
-import Message from '@alirya/message/message';
-import ValidatorSimple from '@alirya/validator/simple';
-import ValidatableMap from '../validatable/map';
-import RecordBase from './subject/record/allow';
-import RecordType from './subject/record/expectation';
+import Validator from '@alirya/validator/validator.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import RecordParameter from './subject/record/allow.js';
+import ValidatableMapCallback from '../validatable/map-callback.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
+import ValidatorsContainer from './validators/validators.js';
+import Message from '@alirya/message/message.js';
+import ValidatorSimple from '@alirya/validator/simple.js';
+import ValidatableMap from '../validatable/map.js';
+import RecordBase from './subject/record/allow.js';
+import RecordType from './subject/record/expectation.js';
 
 export function MapCallbackParameters<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,

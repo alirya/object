@@ -1,4 +1,4 @@
-import Type from '../../../dist/descriptor/boolean/setter';
+import Type from '../../../dist/descriptor/boolean/setter.js';
 
 
 

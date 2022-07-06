@@ -1,12 +1,12 @@
-import Validator from '@alirya/validator/validator';
-import Validatable from '@alirya/validatable/validatable';
-import ValidatableValueCallback from '../validatable/value-callback';
-import Instance from '@alirya/validator/validatable/validatable';
-import BaseValue from '@alirya/value/value';
-import ValidatorsContainer from './validators/validators';
-import Message from '@alirya/message/message';
-import ValidatableValue from '../validatable/value';
-import Dynamic from '@alirya/validator/validatable/validatable';
+import Validator from '@alirya/validator/validator.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import ValidatableValueCallback from '../validatable/value-callback.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
+import BaseValue from '@alirya/value/value.js';
+import ValidatorsContainer from './validators/validators.js';
+import Message from '@alirya/message/message.js';
+import ValidatableValue from '../validatable/value.js';
+import Dynamic from '@alirya/validator/validatable/validatable.js';
 
 
 /**

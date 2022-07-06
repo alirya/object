@@ -1,8 +1,8 @@
-import GetDescriptor from '../../descriptor/boolean/getter';
-import Descriptor from '../../descriptor/from-object';
-import HasProperty from './exists';
-import Value from '@alirya/value/value';
-import Property from '../property/property';
+import GetDescriptor from '../../descriptor/boolean/getter.js';
+import Descriptor from '../../descriptor/from-object.js';
+import HasProperty from './exists.js';
+import Value from '@alirya/value/value.js';
+import Property from '../property/property.js';
 
 /**
  * check if property is readable

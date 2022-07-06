@@ -1,7 +1,7 @@
-import {Readonly} from 'ts-toolbelt/out/Object/Readonly';
-import {UnionOf} from 'ts-toolbelt/out/List/UnionOf';
-import {WritableParameters} from './property/boolean/writable';
-import Object_ from './object/object';
+import {Readonly} from 'ts-toolbelt/out/Object/Readonly.js';
+import {UnionOf} from 'ts-toolbelt/out/List/UnionOf.js';
+import {WritableParameters} from './property/boolean/writable.js';
+import Object_ from './object/object.js';
 
 export type ReadonlyPropertiesReturn<Keys extends (keyof Type)[], Type extends object> = Readonly<Type, UnionOf<Keys>>;
 

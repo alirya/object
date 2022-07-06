@@ -1,5 +1,5 @@
-import {SelectParameters} from '../../dist/select';
-import {SelectParameter} from '../../dist/select';
+import {SelectParameters} from '../../dist/select.js';
+import {SelectParameter} from '../../dist/select.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,4 +1,4 @@
-import NonNullable from '../../dist/non-nullable';
+import NonNullable from '../../dist/non-nullable.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

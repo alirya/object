@@ -1,4 +1,4 @@
-import Extract from '../dist/extract';
+import Extract from '../dist/extract.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

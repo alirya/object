@@ -1,7 +1,7 @@
 import {O} from 'ts-toolbelt';
-import IsObject from './boolean/object';
+import IsObject from './boolean/object.js';
 import {DeepPartial} from 'utility-types';
-import RecursiveUnion from './recursive-union';
+import RecursiveUnion from './recursive-union.js';
 
 export default function FilterRecursive<
     Object extends Record<PropertyKey, any>

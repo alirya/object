@@ -1,4 +1,4 @@
-import {PropertyLazyDynamicParameters} from '../../dist/property-lazy-dynamic';
+import {PropertyLazyDynamicParameters} from '../../dist/property-lazy-dynamic.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

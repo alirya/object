@@ -1,11 +1,11 @@
-import Validator from '@alirya/validator/simple';
-import Validatable from '@alirya/validatable/validatable';
-import ValidateValue from './validatable/record/value';
-import MapReturn from './validatable/record/infer';
-import ValueCallback, {ValueCallbackReturn as ValueAllReturn} from './value-callback';
-import ValidatorsContainer from './validators/validators';
-import Message from '@alirya/message/message';
-import Dynamic from '@alirya/validator/validatable/validatable';
+import Validator from '@alirya/validator/simple.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import ValidateValue from './validatable/record/value.js';
+import MapReturn from './validatable/record/infer.js';
+import ValueCallback, {ValueCallbackReturn as ValueAllReturn} from './value-callback.js';
+import ValidatorsContainer from './validators/validators.js';
+import Message from '@alirya/message/message.js';
+import Dynamic from '@alirya/validator/validatable/validatable.js';
 
 /**
  * more specific implementation of {@link ValueCallback}

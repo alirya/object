@@ -1,4 +1,4 @@
-import Standard from '../../../../dist/message/message/record/map';
+import Standard from '../../../../dist/message/message/record/map.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

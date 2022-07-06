@@ -1,5 +1,5 @@
-import {ReadonlyParameters} from '../../dist/readonly';
-import CatchError from './catch-error';
+import {ReadonlyParameters} from '../../dist/readonly.js';
+import CatchError from './catch-error.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
