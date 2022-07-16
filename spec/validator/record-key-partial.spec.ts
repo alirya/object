@@ -6,7 +6,7 @@ import MessageMap from '../../dist/message/message/record/map';
 import {TypeParameters} from '@alirya/type/validator/type';
 import ValidatorInterface from '@alirya/validator/simple';
 import Instance from '@alirya/validator/validatable/validatable';
-import Callbacks from '@alirya/validator/callback-parameters';
+import {CallbackParameters} from '@alirya/validator/callback';
 
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -164,7 +164,7 @@ describe('implicit incomplete', function() {
 
         it(`and validation`, () => {
 
-            let validator = Callbacks<string, string>(function (value) {
+            let validator = CallbackParameters<string, string>(function (value) {
                 return  ['name', 'address'].includes(value);
             }, function (value, valid){
                 return value + ' ' + (valid ? 'valid' : 'true');
@@ -205,7 +205,7 @@ describe('implicit incomplete', function() {
 
         it(`or validation `, () => {
 
-            let validator = Callbacks<string, string>(function (value) {
+            let validator = CallbackParameters<string, string>(function (value) {
                 return  ['name', 'address'].includes(value);
             }, function (value, valid){
                 return value + ' ' + (valid ? 'valid' : 'true');
@@ -255,7 +255,7 @@ describe('implicit incomplete', function() {
 
         it(`and validation`, () => {
 
-            let validator = Callbacks<string, string>(function (value) {
+            let validator = CallbackParameters<string, string>(function (value) {
                 return ! ['name', 'age', 'address'].includes(value);
             },function (value, valid){
                 return value + ' ' + (valid ? 'valid' : 'true');
@@ -291,7 +291,7 @@ describe('implicit incomplete', function() {
 
         it(`or validation `, () => {
 
-            let validator = Callbacks<string, string>(function (value) {
+            let validator = CallbackParameters<string, string>(function (value) {
                 return ! ['name', 'age', 'address'].includes(value);
             },function (value, valid){
                 return value + ' ' + (valid ? 'valid' : 'true');

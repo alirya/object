@@ -1,4 +1,4 @@
-import Callbacks from '@alirya/validator/callback-parameters';
+import {CallbackParameters} from '@alirya/validator/callback';
 import {RecordKeyCallbackParameters} from '../../../dist/validator/record-key-callback';
 import {RecordKeyParameters} from '../../../dist/validator/validatable/record/record-key';
 import And from '../../../dist/validatable/and';
@@ -8,7 +8,7 @@ import Infer from '@alirya/validator/validatable/infer-static';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-let validator = Callbacks<string, string>(function (value) {
+let validator = CallbackParameters<string, string>(function (value) {
     return ! ['name', 'age', 'address'].includes(value);
 },function (value, valid){
     return value + ' ' + (valid ? 'valid' : 'true');

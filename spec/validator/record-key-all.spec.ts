@@ -7,7 +7,7 @@ import Message from '@alirya/message/message';
 import MessageMap from '../../dist/message/message/record/map';
 import {TypeParameters} from '@alirya/type/validator/type';
 import Instance from '@alirya/validator/validatable/validatable';
-import Callbacks from '@alirya/validator/callback-parameters';
+import {CallbackParameters} from '@alirya/validator/callback';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -188,7 +188,7 @@ describe('implicit complete', function() {
 
     describe('mixed', function() {
 
-        let validator = Callbacks<string, string>(function (value) {
+        let validator = CallbackParameters<string, string>(function (value) {
             return  ['name', 'address'].includes(value);
         }, function (value, valid){
             return value + ' ' + (valid ? 'valid' : 'true');
@@ -251,7 +251,7 @@ describe('implicit complete', function() {
 
     describe('all invalid', function() {
 
-        let validator = Callbacks<string, string>(function (value) {
+        let validator = CallbackParameters<string, string>(function (value) {
             return ! ['name', 'age', 'address'].includes(value);
         },function (value, valid){
             return value + ' ' + (valid ? 'valid' : 'true');

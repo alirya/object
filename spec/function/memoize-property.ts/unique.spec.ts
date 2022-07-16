@@ -1,5 +1,5 @@
 import MemoizeProperty from '../../../dist/function/memoize-property';
-import Unique from '@alirya/array/unique-parameters';
+import {UniqueParameters} from '@alirya/array/unique';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -27,7 +27,7 @@ for(let i = 0; i<=5; i++) {
 
     it(`check value for difference new instance (${i})`, ()=>{
 
-        let filtered = Unique(tests, ((value1, value2) => value1.data === value2.data));
+        let filtered = UniqueParameters(tests, ((value1, value2) => value1.data === value2.data));
         expect(filtered.length).toBe(tests.length);
 
     });
