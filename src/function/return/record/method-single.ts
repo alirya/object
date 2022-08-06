@@ -3,7 +3,7 @@ import {O} from 'ts-toolbelt';
 import MapSingle from '../../parameter/record/map-single';
 import Value from '@alirya/value/value';
 import ArgumentContainer from '@alirya/function/argument/argument';
-
+// TODO MOVE TO MAP
 /**
  * call an record of function or object, by using key from {@param argument} and it's value
  * as first argument

@@ -7,6 +7,7 @@ import {SetPathParameters} from './set-path';
  * this parse value from flat name key as path of object
  *
  * example:
+ * prefix PREFIX_KEY
  * {
  *     PREFIX_KEY_A : value1,
  *     PREFIX_KEY_B : value2,
