@@ -1,4 +1,4 @@
-import Extract from '../dist/extract';
+import Extract, {ExtractParameters} from '../dist/extract';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -20,9 +20,9 @@ describe('compiler compatibility', () => {
             optionalUnion : undefined,
         };
 
-        let extract = new Extract(data, ['required', 'nullable']);
-        let result = extract.return;
-        let value = extract.value;
+        let extract = ExtractParameters(data, ['required', 'nullable']);
+        let result = extract.result;
+        let value = extract.object;
 
         it('result', () => {
 
@@ -67,9 +67,9 @@ describe('explicit', () => {
         optional : 'optional',
     };
 
-    let extract = new Extract(data, ['required', 'nullable']);
-    let result = extract.return;
-    let value = extract.value;
+    let extract = ExtractParameters(data, ['required', 'nullable']);
+    let result = extract.result;
+    let value = extract.object;
 
     it('result', () => {
 

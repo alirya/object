@@ -56,3 +56,14 @@ it(`or validation `, () => {
     expect(or.validatables.address.message).toBe('address true');
     expect(or.validatables.address.valid).toBe(false);
 });
+
+it(`invalid type`, () => {
+
+    let property = RecordKeyCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>(validator, RecordKeyParameters, And, MessageMap);
+
+    let and = property(1 as any);
+
+    expect<boolean>(and.valid).toBe(false);
+    expect(and.value).toEqual(1);
+
+});

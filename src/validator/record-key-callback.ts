@@ -11,6 +11,7 @@ import Instance from '@alirya/validator/validatable/validatable';
 import InferExpectation from '@alirya/validator/subject/expectation';
 import InferSubject from '@alirya/validator/subject/subject';
 import ValidatableRecord from '../validatable/record-value';
+import {ObjectParameters} from './object';
 
 export function RecordKeyCallbackParameters<
     ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
@@ -24,7 +25,16 @@ export function RecordKeyCallbackParameters<
     message : (result:Result)=>MessageType,
 ) : RecordKeyCallbackReturn<ValidatorType, Result, ValidatableType, MessageType> {
 
+    const objectValidator = ObjectParameters();
+
     return function (value) {
+
+        const validatable =  objectValidator(value);
+
+        if(!validatable.valid) {
+
+            return validatable;
+        }
 
         return new ValidatableRecordCallback.Parameters(value, validator, handler, validation, message);
 

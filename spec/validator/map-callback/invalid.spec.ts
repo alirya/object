@@ -168,3 +168,26 @@ describe('recursive', function() {
 
 });
 
+
+describe('invalid type', function() {
+
+    it(`and validation`, () => {
+
+        let validator = {
+            name : TypeParameters('string'),
+            age : TypeParameters('number'),
+            address : TypeParameters('string'),
+        };
+
+        let property = MapCallbackParameters<typeof validator, InferReturn<typeof validator>>(validator, MapParameters, And, MessageMap);
+
+        // TODO MAKE NON ANY
+        let and = property(undefined as any);
+
+        expect<boolean>(and.valid).toBe(false);
+        expect(and.value).toEqual(undefined);
+        // TODO MORE TEST ON NON OBJECT
+
+    });
+
+});
