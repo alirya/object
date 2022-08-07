@@ -1,5 +1,16 @@
 import Object_ from './object/object';
 import {List} from 'ts-toolbelt';
+
+/**
+ * Strict Omit
+ * native, {@package utility-types}, {@package ts-toolbelt} does not provide strict
+ */
+export type OmitStrict<Object extends object, Key extends keyof Object> = globalThis.Omit<Object, Key>;
+export type OmitType<
+    ObjectType extends object,
+    Keys extends (keyof ObjectType)[]
+> = Omit<ObjectType, List.UnionOf<Keys>>;
+
 /**
  * implementation of {@link globalThis.Omit}
  *
@@ -17,7 +28,7 @@ export function OmitParameters<
 >(
     object : ObjectType,
     ... keys : Keys
-) : Omit<ObjectType, List.UnionOf<Keys>> {
+) : OmitType<ObjectType, Keys> {
 
     let result = {};
 
@@ -31,7 +42,7 @@ export function OmitParameters<
         result[property] = value;
     }
 
-    return result as Omit<ObjectType, List.UnionOf<Keys>>;
+    return result as OmitType<ObjectType, Keys>;
 
 }
 
@@ -54,7 +65,7 @@ export function OmitParameter<
         object,
         keys
     } : Object_<ObjectType> & {keys:Keys}
-) : Omit<ObjectType, List.UnionOf<Keys>> {
+) : OmitType<ObjectType, Keys> {
 
     return OmitParameters(object, ...keys);
 }
