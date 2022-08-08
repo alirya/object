@@ -6,7 +6,7 @@ const defaults = {suffix:'', configurable:true};
 /**
  * to be used for decorator
  *
- * memoize value from getter and convert to property
+ * memoize value from method
  *
  * @param configuration
  * @default {suffix:'', configurable:true}
