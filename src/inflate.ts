@@ -1,6 +1,7 @@
 import Callable from '@alirya/function/callable';
 import {SetPathParameters} from './set-path';
 import Escape from '../../string/dist/pattern/escape';
+import NotEmpty from '../../string/dist/ensure/not-empty';
 
 
 export type InflateType<
@@ -57,6 +58,8 @@ export function InflateParameters<
     keys : Callable<[key:string, keys:string[], value:Flat[keyof Flat]], string[]> = ( key, keys, value)=>keys,
 ) : InflateType<Flat, Value> {
 
+    delimiter = NotEmpty(delimiter);
+
     let config = {};
 
     if(prefix.match(/[^A-Za-z0-9_]/)) {
@@ -71,7 +74,7 @@ export function InflateParameters<
 
     for (let key in object) {
 
-        if(key.match(delimiterMatch)) {
+        if(key.match(prefixMatch)) {
 
             let path = key.replace(prefixMatch, '').split(delimiterMatch);
 
