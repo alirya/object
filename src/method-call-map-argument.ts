@@ -21,7 +21,7 @@ export type MethodCallMapArgumentType<
 
 export function MethodCallMapArgumentParameters<
     Argument extends Record<PropertyKey, unknown>,
-    Type extends ArgumentMapClass<Argument>,
+    Type extends ArgumentMapClass<Argument> = ArgumentMapClass<Argument>,
 >(
     object : Type,
     argument : Argument
