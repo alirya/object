@@ -1,5 +1,5 @@
 import {PropertyParameters} from '../../../../dist/property/assert/property';
-import String from '../../../../../string/dist/assert/string';
+import String from '@alirya/string/assert/string';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

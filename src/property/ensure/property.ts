@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 import {Required} from 'utility-types';
-import Callable from '../../../../function/dist/callable';
+import Callable from '@alirya/function/callable';
 
 
 export function PropertyParameters<

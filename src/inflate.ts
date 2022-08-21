@@ -1,7 +1,7 @@
 import Callable from '@alirya/function/callable';
 import {SetPathParameters} from './set-path';
-import Escape from '../../string/dist/pattern/escape';
-import NotEmpty from '../../string/dist/ensure/not-empty';
+import Escape from '@alirya/string/pattern/escape';
+import NotEmpty from '@alirya/string/ensure/not-empty';
 
 
 export type InflateType<

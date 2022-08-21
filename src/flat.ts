@@ -1,7 +1,7 @@
 import Callable from '@alirya/function/callable';
 import Object_ from './boolean/object';
-import IsArray from '../../array/dist/boolean/array';
-import {TrimParameters} from '../../string/dist/trim';
+import IsArray from '@alirya/array/boolean/array';
+import {TrimParameters} from '@alirya/string/trim';
 
 
 /**
