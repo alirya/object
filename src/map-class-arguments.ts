@@ -3,7 +3,7 @@ import Callable from '@alirya/function/callable';
 /**
  * get record of parameters from record of function
  */
-type Infer<Values extends object> = {
+type MapClassArguments<Values extends Record<PropertyKey, unknown[]>> = {
     [Key in keyof Values] : Values[Key] extends Callable ? Parameters<Values[Key]> : never
 };
-export default Infer;
+export default MapClassArguments;

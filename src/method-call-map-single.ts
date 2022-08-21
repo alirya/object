@@ -1,14 +1,14 @@
 import MapReturn from './map-return';
 import {O} from 'ts-toolbelt';
-import MapSingle from './function/parameter/record/map-single';
+import ArgumentMapClass from './argument-map-class';
 import Value from '@alirya/value/value';
 import ArgumentContainer from '@alirya/function/argument/argument';
-import Map from './function/parameter/record/map';
+import ArgumentsMapClass from './arguments-map-class';
 
 
 export type MethodCallMapSingleType<
     Argument extends Record<PropertyKey, unknown>,
-    Type extends MapSingle<Argument>,
+    Type extends ArgumentMapClass<Argument>,
     > = O.Pick<MapReturn<Type>, keyof Argument>;
 
 /**
@@ -21,7 +21,7 @@ export type MethodCallMapSingleType<
 
 export function MethodCallMapSingleSingleParameters<
     Argument extends Record<PropertyKey, unknown>,
-    Type extends MapSingle<Argument>,
+    Type extends ArgumentMapClass<Argument>,
 >(
     object : Type,
     argument : Argument
@@ -52,14 +52,14 @@ export function MethodCallMapSingleSingleParameters<
 
 export type MethodCallMapSingleSingleArgument<
     Argument extends Record<PropertyKey, unknown>,
-    Type extends MapSingle<Argument>,
+    Type extends ArgumentMapClass<Argument>,
 > =
     Value<Type> &
     ArgumentContainer<Argument>;
 
 export function MethodCallMapSingleSingleParameter<
     Argument extends Record<PropertyKey, unknown>,
-    Type extends MapSingle<Argument>,
+    Type extends ArgumentMapClass<Argument>,
     >(
     {
         value,
@@ -77,7 +77,7 @@ namespace MethodCallMapSingleSingle {
     export const Parameter = MethodCallMapSingleSingleParameter;
     export type Argument<
         Argument extends Record<PropertyKey, unknown>,
-        Type extends MapSingle<Argument>,
+        Type extends ArgumentMapClass<Argument>,
     > = MethodCallMapSingleSingleArgument<
         Argument,
         Type

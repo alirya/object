@@ -1,10 +1,10 @@
 import MapReturn from './map-return';
 import {O} from 'ts-toolbelt';
-import Map from './function/parameter/record/map';
+import ArgumentsMapClass from './arguments-map-class';
 
 export type MethodCallMapType<
     Argument extends Record<PropertyKey, unknown[]>,
-    Type extends Map<Argument>,
+    Type extends ArgumentsMapClass<Argument>,
 > = O.Pick<MapReturn<Type>, keyof Argument>;
 
 /**
@@ -16,7 +16,7 @@ export type MethodCallMapType<
  */
 export function MethodCallMapParameters<
     Argument extends Record<PropertyKey, unknown[]>,
-    Type extends Map<Argument>,
+    Type extends ArgumentsMapClass<Argument>,
 >(
     object : Type,
     argument : Argument
@@ -38,12 +38,12 @@ export function MethodCallMapParameters<
 
 export type MethodCallMapArgument<
     Argument extends Record<PropertyKey, unknown[]>,
-    Type extends Map<Argument>
+    Type extends ArgumentsMapClass<Argument>
     > = { object:Type } & { argument:Argument };
 
 export function MethodCallMapParameter<
     Argument extends Record<PropertyKey, unknown[]>,
-    Type extends Map<Argument>,
+    Type extends ArgumentsMapClass<Argument>,
 >(
     {
         object,
@@ -60,7 +60,7 @@ namespace MethodCallMap {
     export const Parameter = MethodCallMapParameter;
     export type Argument<
         Argument extends Record<PropertyKey, unknown[]>,
-        Type extends Map<Argument>
+        Type extends ArgumentsMapClass<Argument>
     > = MethodCallMapArgument<
         Argument,
         Type
