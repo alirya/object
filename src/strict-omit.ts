@@ -1,4 +1,5 @@
 /**
+ * @deprecated
  * Strict Omit
  * native, {@package utility-types}, {@package ts-toolbelt} does not provide strict
  */

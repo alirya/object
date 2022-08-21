@@ -9,6 +9,7 @@ import ValidatorSimple from '@alirya/validator/simple';
 import ValidatableMap from '../validatable/map';
 import RecordBase from './subject/record/allow';
 import RecordType from './subject/record/expectation';
+import {ObjectParameters} from './object';
 
 export function MapCallbackParameters<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,
@@ -22,7 +23,17 @@ export function MapCallbackParameters<
     message : (result:Result)=>MessageType,
 ) : MapCallbackReturn<Validators, Result, ValidatableType, MessageType> {
 
+    const objectValidator = ObjectParameters();
+
+    // TODO ADD TYPE FOR NON OBJECT RETURN?
     return function (value ) {
+
+        const validatable = objectValidator(value);
+
+        if(!validatable.valid) {
+
+            return validatable;
+        }
 
         return new ValidatableMapCallback.Parameters(value, validators, map, validation, message);
 

@@ -9,6 +9,7 @@ import Value from '@alirya/value/value';
 import SimpleValidator from '@alirya/validator/simple';
 import InferType from '@alirya/validator/subject/expectation';
 import ValidatableRecord from '../validatable/record-value';
+import {ObjectParameters} from './object';
 
 export function RecordValueCallbackParameters<
     ValidatorType extends Validator = Validator,
@@ -22,7 +23,16 @@ export function RecordValueCallbackParameters<
     message : (result:Result)=>Message,
 ) : RecordValueCallbackReturn<ValidatorType, Result, ValidatableType, Message> {
 
+    const objectValidator = ObjectParameters();
+
     return function (value) {
+
+        const validatable =  objectValidator(value);
+
+        if(!validatable.valid) {
+
+            return validatable;
+        }
 
         return new ValidatableRecordCallback.Parameters(value, validator, handler, validation, message);
 

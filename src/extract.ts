@@ -1,45 +1,80 @@
-import {Object, List} from 'ts-toolbelt';
-import Value from '@alirya/value/value';
-import Return from '@alirya/function/return/return';
+import {O, L} from 'ts-toolbelt';
 
 /**
  * extract {@template ObjectTemplate} by {@template Key}, extracted value will be
  * removed from {@template ObjectTemplate}
  */
-export default class Extract<
+export type ExtractReturn<
     ObjectTemplate extends object,
     Key extends (keyof ObjectTemplate)[] = (keyof ObjectTemplate)[]
-> implements
-    Readonly<Value<Omit<ObjectTemplate, List.UnionOf<Key>>> & Return<Object.Pick<ObjectTemplate, List.UnionOf<Key>>>>
-{
-    /**
-     * extraction result
-     */
-    readonly return : Object.Pick<ObjectTemplate, List.UnionOf<Key>> = <Object.Pick<ObjectTemplate, List.UnionOf<Key>>>{};
+> = {
+    keys : Key,
+    result : O.Pick<ObjectTemplate, L.UnionOf<Key>>,
+    object : Omit<ObjectTemplate, L.UnionOf<Key>>,
+};
 
-    /**
-     * contain original object source
-     */
-    readonly value : Omit<ObjectTemplate, List.UnionOf<Key>>;
+export function ExtractParameters<
+    ObjectTemplate extends object,
+    Key extends (keyof ObjectTemplate)[] = (keyof ObjectTemplate)[]
+>(
+    object : ObjectTemplate,
+    keys : [...Key]
+) : ExtractReturn<ObjectTemplate, Key> {
 
-    /**
-     * @param value
-     * source
-     *
-     * @param keys
-     * key for extraction
-     */
-    constructor(
-        value : ObjectTemplate,
-        readonly keys : Key
-    ) {
+    const result : Partial<ObjectTemplate> = {};
 
-        this.value = value;
+    for(const key of keys) {
 
-        for(let key of this.keys) {
-
-            this.return[<PropertyKey>key] =  value[key];
-            delete value[key];
-        }
+        result[key] =  object[key];
+        delete object[key];
     }
+
+    return {
+        result : result as O.Pick<ObjectTemplate, L.UnionOf<Key>>,
+        object,
+        keys
+    };
 }
+
+export type ExtractParameterArgument<
+    ObjectTemplate extends object,
+    Key extends (keyof ObjectTemplate)[] = (keyof ObjectTemplate)[]
+> = {
+    object : ObjectTemplate,
+    keys : [...Key]
+};
+
+
+export function ExtractParameter<
+    ObjectTemplate extends object,
+    Key extends (keyof ObjectTemplate)[] = (keyof ObjectTemplate)[]
+>(
+    {
+        object,
+        keys
+    } : ExtractParameterArgument<ObjectTemplate, Key>
+) : ExtractReturn<ObjectTemplate, Key> {
+
+    return ExtractParameters(object, keys);
+}
+
+
+namespace Extract {
+    export type Return<
+        ObjectTemplate extends object,
+        Key extends (keyof ObjectTemplate)[] = (keyof ObjectTemplate)[]
+    > = ExtractReturn<
+        ObjectTemplate,
+        Key
+    >;
+    export const Parameters = ExtractParameters;
+    export type ParameterArgument<
+        ObjectTemplate extends object,
+        Key extends (keyof ObjectTemplate)[] = (keyof ObjectTemplate)[]
+    > = ExtractParameterArgument<
+        ObjectTemplate,
+        Key
+    >;
+    export const Parameter = ExtractParameter;
+}
+export default Extract;

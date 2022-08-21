@@ -57,4 +57,17 @@ describe('all invalid', function() {
         expect(typeof or.validatables.address.message).toBe('string');
         expect(or.validatables.address.valid).toBe(false);
     });
+
+    it(`invalid type`, () => {
+
+        let property = RecordValueCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>
+        (validator, RecordValueParameters, And, MessageMap);
+
+        let and = property(null as any);
+
+        expect<boolean>(and.valid).toBe(false);
+        expect(and.value).toEqual(null);
+
+    });
 });
+

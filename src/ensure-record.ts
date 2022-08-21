@@ -1,5 +1,5 @@
 import AssertList from './assert/record-parameters';
-import {CallbackParameters} from '../../function/dist/ensure/callback';
+import {CallbackParameters} from '@alirya/function/ensure/callback';
 import {RecordParameters} from './boolean/record';
 import GuardValidation from '@alirya/boolean/validation/guard';
 

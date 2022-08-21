@@ -6,6 +6,7 @@ import Or from '../../../dist/validatable/or';
 import MessageMap from '../../../dist/message/message/record/map';
 import {TypeParameters} from '@alirya/type/validator/type';
 import InferReturn from '../../../dist/validator/validatable/record/infer';
+import {OmitParameters} from '../../../dist/omit';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -245,6 +246,32 @@ describe('recursive', function() {
         expect(validatable.validatables.info.validatables.no.valid).toBe(true);
         // @ts-expect-error
         expect(typeof validatable.validatables.info.validatables.no.message).toBe('string');
+    });
+
+});
+
+
+describe('extras', function() {
+
+    let value = {
+        user : 'user',
+        name : 'name',
+        address : 'address',
+    };
+
+    it(`and validation`, () => {
+
+        let validator = {
+            name : TypeParameters('string'),
+            address : TypeParameters('string'),
+        };
+
+        let property = MapCallbackParameters<typeof validator, InferReturn<typeof validator>>(validator, MapParameters, And, MessageMap);
+
+        let validatable = property(value);
+
+        expect(validatable.valid).toBe(true);
+        expect<{name : string, address : string}>(validatable.value).toEqual(OmitParameters(value, 'user'));
     });
 
 });

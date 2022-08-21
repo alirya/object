@@ -1,5 +1,6 @@
 import Map from './map';
 
+// TODO MERGE WITH MAP?
 /**
  * Calls {@param replace} on each property value from {@param object}
  *
