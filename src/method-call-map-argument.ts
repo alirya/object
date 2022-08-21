@@ -6,28 +6,28 @@ import ArgumentContainer from '@alirya/function/argument/argument';
 import ArgumentsMapClass from './arguments-map-class';
 
 
-export type MethodCallMapSingleType<
+export type MethodCallMapArgumentType<
     Argument extends Record<PropertyKey, unknown>,
     Type extends ArgumentMapClass<Argument>,
     > = O.Pick<MapReturn<Type>, keyof Argument>;
 
 /**
- * call an record of function or object, by using key from {@param argument} and it's value
+ * call a record of function or object, by using key from {@param argument} and it's value
  * as first argument
  *
  * @param object
  * @param argument
  */
 
-export function MethodCallMapSingleSingleParameters<
+export function MethodCallMapArgumentParameters<
     Argument extends Record<PropertyKey, unknown>,
     Type extends ArgumentMapClass<Argument>,
 >(
     object : Type,
     argument : Argument
-) : MethodCallMapSingleType<Argument, Type> {
+) : MethodCallMapArgumentType<Argument, Type> {
 
-    let result : Partial<MethodCallMapSingleType<Argument, Type>> = {};
+    let result : Partial<MethodCallMapArgumentType<Argument, Type>> = {};
 
     for (const property in argument) {
 
@@ -37,7 +37,7 @@ export function MethodCallMapSingleSingleParameters<
         }
     }
 
-    return <MethodCallMapSingleType<Argument, Type>> result;
+    return <MethodCallMapArgumentType<Argument, Type>> result;
 }
 
 
@@ -50,37 +50,37 @@ export function MethodCallMapSingleSingleParameters<
  */
 
 
-export type MethodCallMapSingleSingleArgument<
+export type MethodCallMapArgumentArgument<
     Argument extends Record<PropertyKey, unknown>,
     Type extends ArgumentMapClass<Argument>,
 > =
     Value<Type> &
     ArgumentContainer<Argument>;
 
-export function MethodCallMapSingleSingleParameter<
+export function MethodCallMapArgumentParameter<
     Argument extends Record<PropertyKey, unknown>,
     Type extends ArgumentMapClass<Argument>,
     >(
     {
         value,
         argument,
-    } : MethodCallMapSingleSingleArgument<Argument, Type>
-) : MethodCallMapSingleType<Argument, Type>  {
+    } : MethodCallMapArgumentArgument<Argument, Type>
+) : MethodCallMapArgumentType<Argument, Type>  {
 
-    return MethodCallMapSingleSingleParameters(value, argument);
+    return MethodCallMapArgumentParameters(value, argument);
 }
 
 
 
-namespace MethodCallMapSingleSingle {
-    export const Parameters = MethodCallMapSingleSingleParameters;
-    export const Parameter = MethodCallMapSingleSingleParameter;
+namespace MethodCallMapArgument {
+    export const Parameters = MethodCallMapArgumentParameters;
+    export const Parameter = MethodCallMapArgumentParameter;
     export type Argument<
         Argument extends Record<PropertyKey, unknown>,
         Type extends ArgumentMapClass<Argument>,
-    > = MethodCallMapSingleSingleArgument<
+    > = MethodCallMapArgumentArgument<
         Argument,
         Type
     >;
 }
-export default MethodCallMapSingleSingle;
+export default MethodCallMapArgument;

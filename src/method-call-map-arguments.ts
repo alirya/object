@@ -2,7 +2,7 @@ import MapReturn from './map-return';
 import {O} from 'ts-toolbelt';
 import ArgumentsMapClass from './arguments-map-class';
 
-export type MethodCallMapType<
+export type MethodCallMapArgumentsType<
     Argument extends Record<PropertyKey, unknown[]>,
     Type extends ArgumentsMapClass<Argument>,
 > = O.Pick<MapReturn<Type>, keyof Argument>;
@@ -14,15 +14,15 @@ export type MethodCallMapType<
  * @param object
  * @param argument
  */
-export function MethodCallMapParameters<
+export function MethodCallMapArgumentsParameters<
     Argument extends Record<PropertyKey, unknown[]>,
     Type extends ArgumentsMapClass<Argument>,
 >(
     object : Type,
     argument : Argument
-) : MethodCallMapType<Argument, Type> {
+) : MethodCallMapArgumentsType<Argument, Type> {
 
-    let result : Partial<MethodCallMapType<Argument, Type>> = {};
+    let result : Partial<MethodCallMapArgumentsType<Argument, Type>> = {};
 
     for (const property in argument) {
 
@@ -32,38 +32,38 @@ export function MethodCallMapParameters<
         }
     }
 
-    return <MethodCallMapType<Argument, Type>> result;
+    return <MethodCallMapArgumentsType<Argument, Type>> result;
 }
 
 
-export type MethodCallMapArgument<
+export type MethodCallMapArgumentsArgument<
     Argument extends Record<PropertyKey, unknown[]>,
     Type extends ArgumentsMapClass<Argument>
     > = { object:Type } & { argument:Argument };
 
-export function MethodCallMapParameter<
+export function MethodCallMapArgumentsParameter<
     Argument extends Record<PropertyKey, unknown[]>,
     Type extends ArgumentsMapClass<Argument>,
 >(
     {
         object,
         argument,
-    } : MethodCallMapArgument<Argument, Type>
-) : MethodCallMapType<Argument, Type>{
+    } : MethodCallMapArgumentsArgument<Argument, Type>
+) : MethodCallMapArgumentsType<Argument, Type>{
 
-    return MethodCallMapParameters(object, argument);
+    return MethodCallMapArgumentsParameters(object, argument);
 }
 
 
-namespace MethodCallMap {
-    export const Parameters = MethodCallMapParameters;
-    export const Parameter = MethodCallMapParameter;
+namespace MethodCallMapArguments {
+    export const Parameters = MethodCallMapArgumentsParameters;
+    export const Parameter = MethodCallMapArgumentsParameter;
     export type Argument<
         Argument extends Record<PropertyKey, unknown[]>,
         Type extends ArgumentsMapClass<Argument>
-    > = MethodCallMapArgument<
+    > = MethodCallMapArgumentsArgument<
         Argument,
         Type
     >;
 }
-export default MethodCallMap;
+export default MethodCallMapArguments;

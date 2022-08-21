@@ -1,4 +1,4 @@
-import {MethodCallMapParameters} from '../../dist/method-call-map';
+import {MethodCallMapArgumentsParameters} from '../../dist/method-call-map-arguments';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -26,7 +26,7 @@ describe('compiler compatibility', () => {
 
     it('partial 1', () => {
 
-        let result = MethodCallMapParameters(new Test(), {
+        let result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data']
         });
 
@@ -41,7 +41,7 @@ describe('compiler compatibility', () => {
 
     it('partial 2', () => {
 
-        let result = MethodCallMapParameters(new Test(), {
+        let result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data'],
             number : [5]
         });
@@ -56,7 +56,7 @@ describe('compiler compatibility', () => {
 
     it('all', () => {
 
-        let result = MethodCallMapParameters(new Test(), {
+        let result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data'],
             number : [5],
             boolean : [false]
@@ -73,7 +73,7 @@ describe('compiler compatibility', () => {
 
         try {
 
-            let result = MethodCallMapParameters(
+            let result = MethodCallMapArgumentsParameters(
                 // @ts-expect-error
                 new Test(),
                 {
@@ -95,7 +95,7 @@ describe('test', () => {
 
     it('partial 1', () => {
 
-        let result = MethodCallMapParameters(new Test(), {
+        let result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data']
         });
 
@@ -110,7 +110,7 @@ describe('test', () => {
 
     it('partial 2', () => {
 
-        let result = MethodCallMapParameters(new Test(), {
+        let result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data'],
             number : [5]
         });
@@ -125,7 +125,7 @@ describe('test', () => {
 
     it('all', () => {
 
-        let result = MethodCallMapParameters(new Test(), {
+        let result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data'],
             number : [5],
             boolean : [false]
@@ -142,7 +142,7 @@ describe('test', () => {
 
         try {
 
-            let result = MethodCallMapParameters(
+            let result = MethodCallMapArgumentsParameters(
             // @ts-expect-error
                 new Test(),
                 {
