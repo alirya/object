@@ -5,7 +5,7 @@ import Callable from '@alirya/function/callable';
  * get record of returns from record of function
  */
 
-type Infer<Values extends object> = {
+type MapReturn<Values extends object> = {
     [Key in keyof Values]:  Values[Key] extends Callable ? ReturnType<Values[Key]> : never
 };
-export default Infer;
+export default MapReturn;
