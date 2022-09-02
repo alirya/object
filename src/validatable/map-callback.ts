@@ -54,7 +54,7 @@ export class MapCallbackParameters<
     @MemoizeAccessor()
     get value () : ValueType {
 
-        return PickParameters(this.#value, ...Object.keys(this.validators)) as ValueType;
+        return this.#value as ValueType;
     }
 
     @MemoizeAccessor()
