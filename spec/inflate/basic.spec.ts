@@ -63,7 +63,7 @@ const environment = {
 
 it('test', ()=>{
 
-    expect<Record<string, unknown>>(Inflate.Parameters(environment, '_', 'DATABASE', (key, keys, value) => {
+    expect<Record<string, unknown>>(Inflate.Parameters(environment, 'DATABASE', '_', (key, keys, value) => {
 
         if(keys.pop() === 'port') {
 

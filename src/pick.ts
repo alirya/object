@@ -25,6 +25,16 @@ export function PickParameters<
         if(ReadableParameters(object, property)) {
 
             result[<PropertyKey>property] = object[property];
+
+        } else {
+
+            const value = object[property];
+
+            if(value !== undefined) {
+
+                result[<PropertyKey>property] = value;
+            }
+
         }
     }
 
@@ -56,9 +66,29 @@ export function PickParameter<
     return PickParameters(object, ...keys);
 }
 
+// function Pick() {
+//
+// }
 
 namespace Pick {
     export const Parameters = PickParameters;
     export const Parameter = PickParameter;
 }
 export default Pick;
+
+// interface A {
+//
+// }
+//
+// function A (a: number);
+// function A (a: number, b?: string) {
+//
+// }
+//
+//
+//
+// const c =    (...v:Parameters<typeof A>) =>  v;
+//
+//
+//
+// c(1);

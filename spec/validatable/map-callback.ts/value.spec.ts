@@ -33,12 +33,19 @@ it('extra', function() {
 
     let validatable = new MapCallbackParameters(value, validator, MapParameters, And, MessageMap);
 
-    expect(value).not.toEqual(validatable.value);
+    // expect(value).not.toEqual(validatable.value);
+    expect(value).toEqual(validatable.value);
 
     expect({
         name : 'name',
-        address : 'address'
+        address : 'address',
+        extra : 'value',
     }).toEqual(validatable.value);
+
+    // expect({
+    //     name : 'name',
+    //     address : 'address'
+    // }).toEqual(validatable.value);
 
 });
 

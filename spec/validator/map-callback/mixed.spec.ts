@@ -139,7 +139,8 @@ describe('recursive', function() {
         let and = property(value);
 
         expect(and.valid).toBe(false);
-        expect(and.value).not.toBe(value);
+        // expect(and.value).not.toBe(value);
+        expect(and.value).toBe(value);
 
         if(and.validatables.name) {
             expect(and.validatables.name.valid).toBe(true);
@@ -187,7 +188,8 @@ describe('recursive', function() {
         );
 
         let or = property(value);
-        expect(or.value).not.toBe(value);
+        // expect(or.value).not.toBe(value);
+        expect(or.value).toBe(value);
         expect(or.valid).toBe(true);
 
         if(or.validatables.name) {

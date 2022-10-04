@@ -192,7 +192,8 @@ describe('recursive', function() {
         let validatable = property(value);
 
         expect(validatable.valid).toBe(true);
-        expect(validatable.value).not.toBe(value);
+        expect(validatable.value).toBe(value);
+        // expect(validatable.value).not.toBe(value);
 
 
         if(validatable.validatables.name) {
@@ -230,7 +231,8 @@ describe('recursive', function() {
         // @ts-expect-error
         expect(validatable.validatables.info.valid).toBe(true);
         // @ts-expect-error
-        expect(validatable.validatables.info.value).not.toBe(value.info);
+        expect(validatable.validatables.info.value).toEqual(value.info);
+        // expect(validatable.validatables.info.value).not.toBe(value.info);
 
         // @ts-expect-error
         expect(validatable.validatables.info.validatables.age.valid).toBe(true);
@@ -271,7 +273,8 @@ describe('extras', function() {
         let validatable = property(value);
 
         expect(validatable.valid).toBe(true);
-        expect<{name : string, address : string}>(validatable.value).toEqual(OmitParameters(value, 'user'));
+        // expect<{name : string, address : string}>(validatable.value).toEqual(OmitParameters(value, 'user'));
+        expect<{name : string, address : string}>(validatable.value).toEqual(value, );
     });
 
 });

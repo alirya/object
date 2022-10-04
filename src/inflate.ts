@@ -52,8 +52,8 @@ export function InflateParameters<
     Value = Flat[keyof Flat]
 >(
     object: Flat,
-    delimiter: string = '_',
     prefix: string = '',
+    delimiter: string = '_',
     value : Callable<[key:string, keys:string[], value:Flat[keyof Flat]], Flat[keyof Flat]|Value> = ( key, keys, value)=>value,
     keys : Callable<[key:string, keys:string[], value:Flat[keyof Flat]], string[]> = ( key, keys, value)=>keys,
 ) : InflateType<Flat, Value> {
@@ -114,8 +114,8 @@ export function InflateParameter<
 
     return InflateParameters(
         object,
-        delimiter,
         prefix,
+        delimiter,
         (key, ks, v)=>value({key, keys:ks, value:v}),
         (key, ks, v)=>keys({key, keys:ks, value:v})
     );

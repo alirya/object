@@ -32,7 +32,8 @@ describe('flat', function() {
         let and = property(value);
 
         expect(and.valid).toBe(false);
-        expect(and.value).not.toBe(value);
+        // expect(and.value).not.toEqual(value);
+        expect(and.value).toEqual(value);
 
         if(and.validatables.name) {
             expect(and.validatables.name.valid).toBe(true);
