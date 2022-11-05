@@ -2,7 +2,9 @@ import Callable from '@alirya/function/callable';
 import {SetPathParameters} from './set-path';
 import Escape from '@alirya/string/pattern/escape';
 import NotEmpty from '@alirya/string/ensure/not-empty';
-
+import CaseInsensitiveObject from "case-insensitive-object";
+import MapCallback from './map-callback';
+import Object_ from './boolean/object';
 
 export type InflateType<
     Flat extends Record<string, unknown>,
@@ -39,6 +41,21 @@ export type InflateType<
  *     prefix_key_b : value2,
  * }
  *
+ * @param flat
+ * include full path with removed delimiter
+ * return also
+ * {
+ *      keya : value1,
+ *      keyb : value2
+ * }
+ *
+ * @param original
+ * include full path with  delimiter
+ * return also
+ * {
+ *      key_a : value1,
+ *      key_b : value2
+ * }
  * @return
  * {
  *     key : {
@@ -56,11 +73,13 @@ export function InflateParameters<
     delimiter: string = '_',
     value : Callable<[key:string, keys:string[], value:Flat[keyof Flat]], Flat[keyof Flat]|Value> = ( key, keys, value)=>value,
     keys : Callable<[key:string, keys:string[], value:Flat[keyof Flat]], string[]> = ( key, keys, value)=>keys,
+    flat: boolean = false,
+    original: boolean = false,
 ) : InflateType<Flat, Value> {
 
     delimiter = NotEmpty(delimiter);
 
-    let config = {};
+    let result = {};
 
     if(prefix.match(/[^A-Za-z0-9_]/)) {
 
@@ -82,11 +101,36 @@ export function InflateParameters<
 
             path = keys(key, Array.from(path), object[key]);
 
-            config = SetPathParameters(config as object, val, ...path);
+            result = SetPathParameters(result as object, val, ...path);
+
+            if(flat) {
+                result[path.join('')] = val;
+            }
+
+            if(original) {
+                result[path.join(delimiter)] = val;
+            }
         }
     }
 
-    return config;
+    return InflateInsensitive(result) as any as InflateType<Flat, Value> ;
+}
+
+export function InflateInsensitive<Type extends unknown>(
+    object: Type
+) : Type {
+
+    if(Array.isArray(object)) {
+
+        return object.map(InflateInsensitive) as Type;
+    }
+
+    if(Object_(object)) {
+
+        return CaseInsensitiveObject(MapCallback(object, InflateInsensitive)) as Type;
+    }
+
+    return object;
 }
 
 export type InflateArgument<
@@ -98,6 +142,8 @@ export type InflateArgument<
     prefix?: string,
     value?: Callable<[{ key: string, keys: string[], value: Type[keyof Type] }], Type[keyof Type]|Value>,
     keys?: Callable<[{ key: string, keys: string[], value: Type[keyof Type] }], string[]>,
+    flat?: boolean,
+    original?: boolean,
 };
 
 export function InflateParameter<
@@ -106,6 +152,8 @@ export function InflateParameter<
 >(  {
         object,
         delimiter,
+        flat,
+        original,
         prefix,
         value = ({value}) => value,
         keys = ({keys}) => keys,
@@ -117,7 +165,9 @@ export function InflateParameter<
         prefix,
         delimiter,
         (key, ks, v)=>value({key, keys:ks, value:v}),
-        (key, ks, v)=>keys({key, keys:ks, value:v})
+        (key, ks, v)=>keys({key, keys:ks, value:v}),
+        flat,
+        original
     );
 }
 

@@ -9,7 +9,7 @@ export type OmitStrict<Object extends object, Key extends keyof Object> = global
 export type OmitType<
     ObjectType extends object,
     Keys extends (keyof ObjectType)[]
-> = Omit<ObjectType, List.UnionOf<Keys>>;
+> = OmitStrict<ObjectType, List.UnionOf<Keys>>;
 
 /**
  * implementation of {@link globalThis.Omit}
