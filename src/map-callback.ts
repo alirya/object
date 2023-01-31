@@ -8,7 +8,7 @@ import Map from './map';
  *
  */
 export default function MapCallback<
-    Object extends object,
+    Object extends Record<PropertyKey, any>,
     Replace = unknown
 >(
     object : Object,
@@ -18,7 +18,7 @@ export default function MapCallback<
  * support for partial type
  */
 export default function MapCallback<
-    Object extends Partial<object>,
+    Object extends Partial<Record<PropertyKey, any>>,
     Replace = unknown
 >(
     object : Object,
