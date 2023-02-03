@@ -4,33 +4,33 @@ import Instance from '@alirya/validator/validatable/validatable';
 import ObjectString from '../assert/string/object';
 import Simple from '@alirya/validator/message/function/simple';
 
-export function ObjectParameters() : Validator<unknown, object, Readonly<Instance<object, string>>>;
+export function ObjectParameters() : Validator<unknown, object, string>;
 
 export function ObjectParameters<MessageType>(
     message : Simple.Parameters<unknown, object, MessageType>
-) : Validator<unknown, object, Readonly<Instance<object, MessageType>>>;
+) : Validator<unknown, object, MessageType>;
 
 export function ObjectParameters<MessageType>(
     message : Simple.Parameters<unknown, object, MessageType|string> = ObjectString.Parameters
-) : Validator<unknown, object, Readonly<Instance<object, MessageType>>> {
+) : Validator<unknown, object, MessageType|string> {
 
     return function (value ) {
 
         return  ObjectValidatable.Parameters(value, message);
 
-    } as Validator<unknown, object, Readonly<Instance<object, MessageType>>>;
+    } as Validator<unknown, object, MessageType|string>;
 }
 
 
-export function ObjectParameter() : Validator<unknown, object, Readonly<Instance<object, string>>>;
+export function ObjectParameter() : Validator<unknown, object, string>;
 
 export function ObjectParameter<MessageType>(
     message : Simple.Parameter<unknown, object, MessageType>
-) : Validator<unknown, object, Readonly<Instance<object, MessageType>>>;
+) : Validator<unknown, object, MessageType>;
 
 export function ObjectParameter<MessageType>(
     message : Simple.Parameter<unknown, object, MessageType|string> = ObjectString.Parameter
-) : Validator<unknown, object, Readonly<Instance<object, MessageType|string>>> {
+) : Validator<unknown, object, MessageType|string> {
 
     if(message) {
 

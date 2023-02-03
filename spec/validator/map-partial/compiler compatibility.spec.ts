@@ -16,8 +16,8 @@ describe('explicit typed', function() {
     };
 
     type TypeValidator = {
-        name : ValidatorInterface<string, string, Instance<string, string>>,
-        address :ValidatorInterface<string, string, Instance<string, string>>,
+        name : ValidatorInterface<string, string, string>,
+        address :ValidatorInterface<string, string, string>,
     };
 
     type Type = {
@@ -46,7 +46,7 @@ describe('explicit typed', function() {
     it('auto', function() {
 
         let property = MapPartialParameters<
-            globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>
+            globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, string>>
             >(validator,
             And,
             (v)=>MessageMap(RemoveUndefined(v))

@@ -1,12 +1,12 @@
 import Validator from '@alirya/validator/validator';
 import Validatable from '@alirya/validatable/validatable';
 import RecordParameter from './subject/record/allow';
-import ValidatableMapCallback from '../validatable/map-callback';
+import ValidatableMapCallback, {MapCallbackContext} from '../validatable/map-callback';
 import Instance from '@alirya/validator/validatable/validatable';
 import ValidatorsContainer from './validators/validators';
 import Message from '@alirya/message/message';
 import ValidatorSimple from '@alirya/validator/simple';
-import ValidatableMap from '../validatable/map';
+// import ValidatableMap from '../validatable/map';
 import RecordBase from './subject/record/allow';
 import RecordType from './subject/record/expectation';
 import {ObjectParameters} from './object';
@@ -26,7 +26,7 @@ export function MapCallbackParameters<
     const objectValidator = ObjectParameters();
 
     // TODO ADD TYPE FOR NON OBJECT RETURN?
-    return function (value ) {
+    return function (value) {
 
         const validatable = objectValidator(value);
 
@@ -77,7 +77,9 @@ export type MapCallbackReturn<
     ValidatorSimple<
         RecordBase<ValidatorsType>,
         RecordType<ValidatorsType>,
-        ValidatableMap<MessageType, ValidatorsType, Result, ValidatableType, RecordBase<ValidatorsType>>
+        MessageType,
+        MapCallbackContext</*MessageType, */ValidatorsType, Result, ValidatableType/*, RecordBase<ValidatorsType>*/>
+        // ValidatableMap<MessageType, ValidatorsType, Result, ValidatableType, RecordBase<ValidatorsType>>
         >/* ,
     Validation<(result:Result)=>ValidatableType> ,
     Validators<ValidatorsType>,

@@ -1,11 +1,27 @@
 import Validator from '@alirya/validator/validator';
 import ValidatorValidatable from '@alirya/validator/validatable/validatable';
 import Validatable from '@alirya/validatable/validatable';
-import Value from './value';
+// import Value from './value';
 import MemoizeAccessor from '../function/memoize-accessor';
 import BaseValue from '@alirya/value/value';
 import Validators from '../validator/validators/validators';
 import Message from '@alirya/message/message';
+import Validatables from './validatables/validatables';
+import Messages from '../message/messages/messages';
+
+export interface ValueCallbackContext <
+    // ValueType,
+    // MessageType,
+    // RecordType extends Record<PropertyKey, Validator<ValueType>>,
+    Result extends Partial<Record<PropertyKey, ValidatorValidatable>>,
+    // ValidatableType extends Validatable
+> extends
+    // Readonly<BaseValue<ValueType>>,
+    // Readonly<Validatable<boolean>>,
+    Readonly<Validatables<Result>>,
+    Readonly<Messages<Result>>
+    // Readonly<Message<MessageType>>
+{}
 
 export class ValueCallbackParameters<
     ValueType = unknown,
@@ -13,7 +29,7 @@ export class ValueCallbackParameters<
     RecordType extends Record<PropertyKey, Validator<ValueType>> = Record<PropertyKey, Validator<ValueType>>,
     Result extends Partial<Record<PropertyKey, ValidatorValidatable>> = Partial<Record<PropertyKey, ValidatorValidatable>>,
     ValidatableType extends Validatable = Validatable
-> implements Value<ValueType, MessageType, RecordType, Result, ValidatableType> {
+> implements ValidatorValidatable<ValueType, MessageType>, ValueCallbackContext</*ValueType,*/ /*MessageType, *//*RecordType,*/ Result/*, ValidatableType*/> {
 
     #message : (result:Result)=>MessageType;
     readonly validatable : ValidatableType;
@@ -98,5 +114,17 @@ export class ValueCallbackParameter<
 namespace ValueCallback {
     export const Parameters = ValueCallbackParameters;
     export const Parameter = ValueCallbackParameter;
+    export type Context<
+        // ValueType,
+        // MessageType,
+        // RecordType extends Record<PropertyKey, Validator<ValueType>>,
+        Result extends Partial<Record<PropertyKey, ValidatorValidatable>>,
+        // ValidatableType extends Validatable
+    > = ValueCallbackContext<
+        // ValueType,
+        // RecordType,
+        Result
+        // ValidatableType
+    >;
 }
 export default ValueCallback;

@@ -11,7 +11,7 @@ import {TypeParameters} from '@alirya/type/validator/type';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
+type TypeValidatorValue = ValidatorInterface<unknown, string, string>;
 
 let validator = TypeParameters('string');
 

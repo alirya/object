@@ -127,7 +127,7 @@ describe('implicit complete', function() {
 
             let validator = {
                 name : TypeParameters('string'),
-                age : TypeParameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+                age : TypeParameters('number') as Simple<unknown, string, string>,
                 address : TypeParameters('string'),
             };
 
@@ -154,7 +154,7 @@ describe('implicit complete', function() {
 
             let validator = {
                 name : TypeParameters('string'),
-                age : TypeParameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+                age : TypeParameters('number') as Simple<unknown, string, string>,
                 address : TypeParameters('string'),
             };
 
@@ -184,7 +184,7 @@ describe('implicit complete', function() {
 
             let validator = {
                 name : TypeParameters('string'),
-                age : TypeParameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+                age : TypeParameters('number') as Simple<unknown, string, string>,
                 address : TypeParameters('string'),
             };
 
@@ -209,7 +209,7 @@ describe('implicit complete', function() {
 
             let validator = {
                 name : TypeParameters('string'),
-                age : TypeParameters('number') as Simple<unknown, string, ValidatorValidatable<unknown, string>>,
+                age : TypeParameters('number') as Simple<unknown, string, string>,
                 address : TypeParameters('string'),
             };
 

@@ -3,12 +3,36 @@ import Validatable from '@alirya/validatable/validatable';
 import RecordParameter from '../validator/subject/record/allow';
 import RecordBase from '../validator/subject/record/allow';
 import Instance from '@alirya/validator/validatable/validatable';
-import Map from './map';
+// import Map from './map';
 import {PickParameters} from '../pick';
 import MemoizeAccessor from '../function/memoize-accessor';
 import Value from '@alirya/value/value';
 import Validators from '../validator/validators/validators';
 import Message from '@alirya/message/message';
+
+// import Validator from '@alirya/validator/validator';
+// import Validatable from '@alirya/validatable/validatable';
+import ValidatableContainer from '@alirya/validatable/validatable/validatable';
+import Validatables from './validatables/validatables';
+// import RecordBase from '../validator/subject/record/allow';
+// import Instance from '@alirya/validator/validatable/validatable';
+import Messages from '../message/messages/messages';
+// import Validators from '../validator/validators/validators';
+
+export interface MapCallbackContext<
+    // MessageType,
+    ValidatorsType extends Record<PropertyKey, Validator>,
+    Result extends Partial<Record<PropertyKey, Instance>>,
+    ValidatableType extends Validatable,
+    // ValueType extends RecordBase<ValidatorsType>
+> extends
+    // Instance<ValueType, MessageType>,
+    // Validatable,
+    Validatables<Result>,
+    ValidatableContainer<ValidatableType>,
+    Messages<Result>,
+    Validators<ValidatorsType>
+{}
 
 export class MapCallbackParameters<
     MessageType = unknown,
@@ -16,7 +40,7 @@ export class MapCallbackParameters<
     Result extends Partial<Record<PropertyKey, Instance>> = Partial<Record<PropertyKey, Instance>>,
     ValidatableType extends Validatable = Validatable,
     ValueType extends RecordBase<ValidatorsType> = RecordBase<ValidatorsType>
-> implements Map<MessageType, ValidatorsType, Result, ValidatableType, ValueType> {
+> implements Instance<ValueType, MessageType>, MapCallbackContext</*MessageType,*/ ValidatorsType, Result, ValidatableType/*, ValueType*/> {
 
     #value : ValueType;
     #message : (result : Result)=>MessageType;
@@ -114,5 +138,14 @@ export class MapCallbackParameter<
 namespace MapCallback {
     export const Parameters = MapCallbackParameters;
     export const Parameter = MapCallbackParameter;
+    export type Context<
+        ValidatorsType extends Record<PropertyKey, Validator>,
+        Result extends Partial<Record<PropertyKey, Instance>>,
+        ValidatableType extends Validatable,
+    > = MapCallbackContext<
+        ValidatorsType,
+        Result,
+        ValidatableType
+    >;
 }
 export default MapCallback;

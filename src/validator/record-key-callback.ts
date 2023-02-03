@@ -1,6 +1,6 @@
 import Validator from '@alirya/validator/validator';
 import Validatable from '@alirya/validatable/validatable';
-import ValidatableRecordCallback from '../validatable/record-value-callback';
+import ValidatableRecordCallback, {RecordValueCallbackContext} from '../validatable/record-value-callback';
 import ValidatorValidatable from '@alirya/validator/validatable/validatable';
 import InferBase from '@alirya/validator/subject/allow';
 import ValidatorContainer from '@alirya/validator/validator/validator';
@@ -10,8 +10,9 @@ import SimpleValidator from '@alirya/validator/simple';
 import Instance from '@alirya/validator/validatable/validatable';
 import InferExpectation from '@alirya/validator/subject/expectation';
 import InferSubject from '@alirya/validator/subject/subject';
-import ValidatableRecord from '../validatable/record-value';
+// import ValidatableRecord from '../validatable/record-value';
 import {ObjectParameters} from './object';
+import {ValueCallbackContext} from '../validatable/value-callback';
 
 export function RecordKeyCallbackParameters<
     ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,
@@ -85,7 +86,10 @@ export type RecordKeyCallbackReturn<
     SimpleValidator<
         Record<InferBase<ValidatorTemplate>, any>,
         Record<InferExpectation<ValidatorTemplate>, any>,
-        ValidatableRecord<MessageTemplate, Record<PropertyKey, InferSubject<ValidatorTemplate>>, ValidatorTemplate, Result, ValidatableTemplate>>;
+        MessageTemplate,
+        RecordValueCallbackContext<Record<PropertyKey, InferSubject<ValidatorTemplate>>, ValidatorTemplate, Result, ValidatableTemplate>
+        // ValidatableRecord<MessageTemplate, Record<PropertyKey, InferSubject<ValidatorTemplate>>, ValidatorTemplate, Result, ValidatableTemplate>
+        >;
 
 
 

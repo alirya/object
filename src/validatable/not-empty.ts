@@ -1,11 +1,12 @@
 import Value from '@alirya/value/value';
 import Validatable from '@alirya/validatable/validatable';
+import ValidatorValidatable from '@alirya/validator/validatable/validatable';
 import Message from '@alirya/message/message';
 import NotEmptyArgument from '../boolean/not-empty';
 import MemoizeAccessor from '../function/memoize-accessor';
 import Dynamic from '@alirya/validator/message/function/validatable';
 
-export type NotEmptyType<ValueType extends object, MessageType> = Readonly<Value<ValueType> & Message<MessageType> & Validatable>;
+export type NotEmptyType<ValueType extends object, MessageType> = ValidatorValidatable<ValueType, MessageType>;
 
 export class NotEmptyParameters<ValueType extends object, MessageType>
     implements

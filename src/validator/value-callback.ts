@@ -1,11 +1,11 @@
 import Validator from '@alirya/validator/validator';
 import Validatable from '@alirya/validatable/validatable';
-import ValidatableValueCallback from '../validatable/value-callback';
+import ValidatableValueCallback, {ValueCallbackContext} from '../validatable/value-callback';
 import Instance from '@alirya/validator/validatable/validatable';
 import BaseValue from '@alirya/value/value';
 import ValidatorsContainer from './validators/validators';
 import Message from '@alirya/message/message';
-import ValidatableValue from '../validatable/value';
+// import ValidatableValue from '../validatable/value';
 import Dynamic from '@alirya/validator/validatable/validatable';
 
 
@@ -150,7 +150,9 @@ export type ValueCallbackReturn<
     Base,
     Value,
     boolean, true,
-    ValidatableValue<Base, MessageType, RecordType, Result, ValidatableType>
+    MessageType,
+    ValueCallbackContext</*Base, RecordType,*/ Result/*, ValidatableType*/>
+    // ValidatableValue<Base, MessageType, RecordType, Result, ValidatableType>
 >;
 
 

@@ -14,8 +14,8 @@ let validator = {
 };
 
 type TypeValidator = {
-    name : ValidatorInterface<any, string, Instance<any, string>>,
-    address :ValidatorInterface<any, string, Instance<any, string>>,
+    name : ValidatorInterface<any, string, string>,
+    address :ValidatorInterface<any, string, string>,
 };
 
 type Type = {

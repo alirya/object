@@ -12,7 +12,7 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', function() {
 
-    type TypeValidatorValue = ValidatorInterface<unknown, string, Instance<unknown, string>>;
+    type TypeValidatorValue = ValidatorInterface<unknown, string, string>;
 
     let validator = TypeParameters('string');
 

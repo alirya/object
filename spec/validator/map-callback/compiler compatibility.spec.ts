@@ -17,8 +17,8 @@ let validator = {
 };
 
 type TypeValidator = {
-    name : ValidatorInterface<any, string, Instance<any, string>>,
-    address :ValidatorInterface<any, string, Instance<any, string>>,
+    name : ValidatorInterface<any, string, string>,
+    address :ValidatorInterface<any, string, string>,
 };
 
 type Type = {
@@ -47,7 +47,7 @@ describe('explicit complete', function() {
 
     it('auto', function() {
 
-        let property = MapCallbackParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(validator,
+        let property = MapCallbackParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, string>>>(validator,
             MapParameters,
             And,
             MessageMap
@@ -96,7 +96,7 @@ describe('explicit complete', function() {
 
     it('auto', function() {
 
-        let property = MapCallbackParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<any, string, Instance<any, string>>>>(
+        let property = MapCallbackParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<any, string, string>>>(
             validator,
             (value, validators) =>
                 <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),

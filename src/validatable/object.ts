@@ -10,9 +10,9 @@ import Message from '@alirya/message/message';
 export function ObjectParameters<Argument, MessageType>(
     value : Argument,
     message : Static.Parameters<Argument, object, false, true, MessageType>
-) : Return<Argument, object, Readonly<Instance<any, MessageType>>> {
+) : Return<Argument, object, MessageType> {
 
-    return <Return<Argument, object, Readonly<Instance<any, MessageType>>>> Callback.Parameters(value, ObjectGuard, message);
+    return <Return<Argument, object, MessageType>> Callback.Parameters(value, ObjectGuard, message);
 }
 
 
@@ -28,7 +28,7 @@ export function ObjectParameter<Argument, MessageType>(
         value,
         message
     } : ObjectArgument<Argument, MessageType>
-) : Return<Argument, object, Readonly<Instance<any, MessageType>>> {
+) : Return<Argument, object, MessageType/*Readonly<Instance<any, MessageType>>*/> {
 
     return ObjectParameters(value, (value, valid) => message({value, valid}));
 }

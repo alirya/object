@@ -1,11 +1,32 @@
 import Validator from '@alirya/validator/validator';
 import Validatable from '@alirya/validatable/validatable';
 import {O} from 'ts-toolbelt';
-import RecordValue from './record-value';
+// import RecordValue from './record-value';
 import MemoizeAccessor from '../function/memoize-accessor';
 import ValidatorContainer from '@alirya/validator/validator/validator';
 import MessageBase from '@alirya/message/message';
 import Value from '@alirya/value/value';
+import Validatables from './validatables/validatables';
+import Message from '@alirya/message/message';
+import ValidatableContainer from '@alirya/validatable/validatable/validatable';
+import ValidatorValidatable from '@alirya/validator/validatable/validatable';
+
+export interface RecordValueCallbackContext<
+    // MessageType = unknown,
+    ValueType extends Record<PropertyKey, unknown> = Record<PropertyKey, unknown>,
+    ValidatorType extends Validator<O.UnionOf<ValueType>> = Validator<O.UnionOf<ValueType>>,
+    Result extends Partial<Record<PropertyKey, Validatable>> = Partial<Record<PropertyKey, Validatable>>,
+    ValidatableType extends Validatable = Validatable
+> extends
+    ValidatorContainer<ValidatorType>,
+    ValidatableContainer<ValidatableType>,
+    // Value<ValueType>,
+    // Validatable,
+    Validatables<Result>
+    // Message<MessageType>
+{
+
+}
 
 export class RecordValueCallbackParameters<
     MessageType = unknown,
@@ -13,7 +34,7 @@ export class RecordValueCallbackParameters<
     ValidatorType extends Validator<O.UnionOf<ValueType>> = Validator<O.UnionOf<ValueType>>,
     Result extends Partial<Record<PropertyKey, Validatable>> = Partial<Record<PropertyKey, Validatable>>,
     ValidatableType extends Validatable = Validatable
-> implements RecordValue<MessageType, ValueType, ValidatorType, Result, ValidatableType>
+> implements ValidatorValidatable<ValueType, MessageType>, RecordValueCallbackContext</*MessageType, */ValueType, ValidatorType, Result/*, ValidatableType*/>
 {
     readonly validatable : ValidatableType;
     #message : (result:Result)=>MessageType;
@@ -113,7 +134,7 @@ export class RecordValueCallbackParameter<
 namespace RecordValueCallback {
     export const Parameters = RecordValueCallbackParameters;
     export const Parameter = RecordValueCallbackParameter;
-    export type kArgument<
+    export type Argument<
         MessageType = unknown,
         ValueType extends Record<PropertyKey, unknown> = Record<PropertyKey, unknown>,
         ValidatorType extends Validator<O.UnionOf<ValueType>> = Validator<O.UnionOf<ValueType>>,
@@ -125,6 +146,20 @@ namespace RecordValueCallback {
         ValidatorType,
         Result,
         ValidatableType
+    >;
+
+    export type Context<
+        MessageType = unknown,
+        ValueType extends Record<PropertyKey, unknown> = Record<PropertyKey, unknown>,
+        ValidatorType extends Validator<O.UnionOf<ValueType>> = Validator<O.UnionOf<ValueType>>,
+        Result extends Partial<Record<PropertyKey, Validatable>> = Partial<Record<PropertyKey, Validatable>>,
+        ValidatableType extends Validatable = Validatable
+    > = RecordValueCallbackContext<
+        // MessageType,
+        ValueType,
+        ValidatorType,
+        Result
+        // ValidatableType
     >;
 }
 export default RecordValueCallback;

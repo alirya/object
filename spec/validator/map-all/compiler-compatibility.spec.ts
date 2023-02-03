@@ -16,8 +16,8 @@ let validator = {
 };
 
 type TypeValidator = {
-    name : ValidatorInterface<string, string, Instance<string, string>>,
-    address :ValidatorInterface<string, string, Instance<string, string>>,
+    name : ValidatorInterface<string, string, string>,
+    address :ValidatorInterface<string, string, string>,
 };
 
 type Type = {
@@ -45,7 +45,7 @@ describe('explicit complete', function() {
 
     it('auto', function() {
 
-        let property = MapAllParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, Instance<string, string>>>>(
+        let property = MapAllParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, string>>>(
             validator,
             And,
             MessageMap
