@@ -39,6 +39,8 @@ describe('implicit complete', function() {
     const unknown : unknown = validatable.value;
 
     const string : Type = validatable.value;
+
+    it('', ()=>expect(true).toBeTrue());
 });
 
 describe('explicit complete', function() {

@@ -42,7 +42,7 @@ describe('compiler compatibility', function() {
             const unknown : unknown = validatable.value;
             const string : string = validatable.value;
         }
-
+        it('', ()=>expect(true).toBeTrue());
     });
 
     describe('explicit complete', function() {
@@ -56,7 +56,7 @@ describe('compiler compatibility', function() {
 
         const unknown : unknown = validatable.value;
         const string : string = validatable.value;
-
+        it('', ()=>expect(true).toBeTrue());
     });
 });
 
