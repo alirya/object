@@ -1,4 +1,4 @@
-import Extract, {ExtractParameters} from '../dist/extract';
+import Extract, {ExtractParameters} from '../dist/extract.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -14,15 +14,15 @@ describe('compiler compatibility', () => {
 
     describe('explicit', () => {
 
-        let data : Test = {
+        const data : Test = {
             required : 'required',
             nullable : 'nullable',
             optionalUnion : undefined,
         };
 
-        let extract = ExtractParameters(data, ['required', 'nullable']);
-        let result = extract.result;
-        let value = extract.object;
+        const extract = ExtractParameters(data, ['required', 'nullable']);
+        const result = extract.result;
+        const value = extract.object;
 
         it('result', () => {
 
@@ -60,16 +60,16 @@ describe('explicit', () => {
         optionalUnion : undefined|string;
     }
 
-    let data  = {
+    const data  = {
         required : 'required',
         nullable : 'nullable',
         optionalUnion : undefined,
         optional : 'optional',
     };
 
-    let extract = ExtractParameters(data, ['required', 'nullable']);
-    let result = extract.result;
-    let value = extract.object;
+    const extract = ExtractParameters(data, ['required', 'nullable']);
+    const result = extract.result;
+    const value = extract.object;
 
     it('result', () => {
 

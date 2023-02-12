@@ -1,4 +1,4 @@
-import ReplacePath from '../../dist/replace-path';
+import ReplacePath from '../../dist/replace-path.js';
 
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());

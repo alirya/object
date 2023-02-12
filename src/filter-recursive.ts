@@ -1,8 +1,8 @@
 import {O} from 'ts-toolbelt';
-import IsObject from './boolean/object';
+import IsObject from './boolean/object.js';
 import {DeepPartial} from 'utility-types';
-import RecursiveUnion from './recursive-union';
-import {Array} from 'ts-toolbelt/out/Misc/JSON/_api';
+import RecursiveUnion from './recursive-union.js';
+import {Array} from 'ts-toolbelt/out/Misc/JSON/_api.js';
 
 export default function FilterRecursive<
     ObjectType extends Record<PropertyKey, any>
@@ -11,7 +11,7 @@ export default function FilterRecursive<
     filter : (value: RecursiveUnion<ObjectType>|O.UnionOf<ObjectType>, key:keyof ObjectType)=>boolean,
 ) : DeepPartial<ObjectType> {
 
-    let result = {};
+    const result = {};
 
     for(const property in record) {
 

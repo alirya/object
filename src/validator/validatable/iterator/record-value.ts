@@ -1,8 +1,8 @@
-import Validator from '@alirya/validator/validator';
+import Validator from '@alirya/validator/validator.js';
 import {O} from 'ts-toolbelt';
-import Return from '@alirya/validator/validatable/infer-static';
-import Value from '@alirya/value/value';
-import ValidatorContainer from '@alirya/validator/validator/validator';
+import Return from '@alirya/validator/validatable/infer-static.js';
+import Value from '@alirya/value/value.js';
+import ValidatorContainer from '@alirya/validator/validator/validator.js';
 
 export function * RecordValueParameters<
     RecordType extends Record<PropertyKey, any>,

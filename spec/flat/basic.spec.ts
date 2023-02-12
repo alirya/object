@@ -1,8 +1,8 @@
-import Flat from '../../dist/flat';
+import Flat from '../../dist/flat.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-let expectation = {
+const expectation = {
     type: 'postgres',
     replication: {
         master: {

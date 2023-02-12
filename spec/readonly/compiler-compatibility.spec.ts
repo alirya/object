@@ -1,4 +1,4 @@
-import {ReadonlyPropertiesReturn} from '../../dist/readonly';
+import {ReadonlyPropertiesReturn} from '../../dist/readonly.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -6,14 +6,14 @@ describe('partial', () => {
 
     it('test', () => {
 
-        let source = {
+        const source = {
             number : 1,
             string : 'a',
             boolean : true,
             object : {},
         };
 
-        let readonly : ReadonlyPropertiesReturn<['number', 'boolean'], typeof source> = source;
+        const readonly : ReadonlyPropertiesReturn<['number', 'boolean'], typeof source> = source;
 
 
         // @ts-expect-error

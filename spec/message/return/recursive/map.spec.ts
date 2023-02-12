@@ -1,4 +1,4 @@
-import Standard from '../../../../dist/message/message/record/map';
+import Standard from '../../../../dist/message/message/record/map.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -6,7 +6,7 @@ it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 describe('flat', ()=>{
 
 
-    let data = {
+    const data = {
         data1 : {message:1},
         data2 : {message:2},
         data3 : {message:3},
@@ -14,7 +14,7 @@ describe('flat', ()=>{
         data5 : {message:5},
     };
 
-    let result = Standard(data);
+    const result = Standard(data);
 
     it('compiler compatibility', () => {
 
@@ -31,7 +31,7 @@ describe('flat', ()=>{
         number = result.data6;
 
         // @ts-expect-error
-        let string : string = result.data6;
+        const string : string = result.data6;
     });
 
 
@@ -51,7 +51,7 @@ describe('flat', ()=>{
 describe('deep', ()=>{
 
 
-    let data = {
+    const data = {
         data1 : {message:1},
         data2 : {message:2},
         data3 : {
@@ -62,7 +62,7 @@ describe('deep', ()=>{
         }
     };
 
-    let result = Standard(data);
+    const result = Standard(data);
 
     it('compiler compatibility', () => {
 
@@ -78,7 +78,7 @@ describe('deep', ()=>{
         number = result.data6;
 
         // @ts-expect-error
-        let string : string = result.data6;
+        const string : string = result.data6;
     });
 
 

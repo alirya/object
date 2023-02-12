@@ -1,4 +1,4 @@
-import StrictAssign from '../dist/strict-assign';
+import StrictAssign from '../dist/strict-assign.js';
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 interface Data {
@@ -11,54 +11,54 @@ describe('compiler compatible', function () {
 
     it('partial', function () {
 
-        let target : Data = {
+        const target : Data = {
             string : 'string'
         };
 
-        let source  = {
+        const source  = {
             number : 1,
             boolean : false,
         };
 
-        let result = StrictAssign(target, source);
+        const result = StrictAssign(target, source);
 
         // @ts-expect-error
-        let string : string = result.string;
-        let number : number = result.number;
-        let boolean : boolean = result.boolean;
+        const string : string = result.string;
+        const number : number = result.number;
+        const boolean : boolean = result.boolean;
 
     });
 
     it('extra source', function () {
 
-        let target : Data = {
+        const target : Data = {
             string : 'string'
         };
 
-        let source = {
+        const source = {
             number : 1,
             boolean : false,
             object : {}
         };
 
-        let result = StrictAssign(target, source);
+        const result = StrictAssign(target, source);
 
         // @ts-expect-error
-        let string : string = result.string;
-        let number : number = result.number;
-        let boolean : boolean = result.boolean;
-        let object : object = result.object;
+        const string : string = result.string;
+        const number : number = result.number;
+        const boolean : boolean = result.boolean;
+        const object : object = result.object;
 
     });
 });
 
 describe('test', function () {
 
-    let target : Data = {
+    const target : Data = {
         string : 'string'
     };
 
-    let source : Data = {
+    const source : Data = {
         number : 1,
         boolean : false,
     };
@@ -66,7 +66,7 @@ describe('test', function () {
 
     it('check result', () => {
 
-        let result = StrictAssign(target, source);
+        const result = StrictAssign(target, source);
         expect(result.string).toBe('string');
         expect(result.number).toBe(1);
         expect(result.boolean).toBe(false);

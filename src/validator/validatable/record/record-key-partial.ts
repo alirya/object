@@ -1,9 +1,9 @@
-import Validator from '@alirya/validator/validator';
-import MapInterface from '../../../map';
-import Return from '@alirya/validator/validatable/infer-static';
-import IteratorRecordKey from '../iterator/record-key';
-import Value from '@alirya/value/value';
-import ValidatorContainer from '@alirya/validator/validator/validator';
+import Validator from '@alirya/validator/validator.js';
+import MapInterface from '../../../map.js';
+import Return from '@alirya/validator/validatable/infer-static.js';
+import IteratorRecordKey from '../iterator/record-key.js';
+import Value from '@alirya/value/value.js';
+import ValidatorContainer from '@alirya/validator/validator/validator.js';
 
 export function RecordKeyPartialParameters<
     RecordType extends Record<PropertyKey, any>,
@@ -14,7 +14,7 @@ export function RecordKeyPartialParameters<
     stop = false,
 ) : Partial<MapInterface<RecordType, Return<ValidatorType>>> {
 
-    let result = {};
+    const result = {};
 
     for(const [key, validatable] of IteratorRecordKey.Parameters(value, validator)) {
 

@@ -1,6 +1,6 @@
-import {SetPropertyParameters} from '../../../../dist/value/value/set-property';
-import {ReadableParameters} from '../../../../dist/property/boolean/readable';
-import {WritableParameters} from '../../../../dist/property/boolean/writable';
+import {SetPropertyParameters} from '../../../../dist/value/value/set-property.js';
+import {ReadableParameters} from '../../../../dist/property/boolean/readable.js';
+import {WritableParameters} from '../../../../dist/property/boolean/writable.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -8,7 +8,7 @@ describe('plain', () => {
 
     let called = 0;
     let result : string;
-    let object = {
+    const object = {
 
         get data ()  {
 
@@ -67,7 +67,7 @@ describe('class', () => {
         }
     }
 
-    let object = new Test();
+    const object = new Test();
 
     it('check initial', ()=>{
 

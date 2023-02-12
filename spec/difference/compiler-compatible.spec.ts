@@ -1,5 +1,5 @@
-import {DifferenceParameters} from '../../dist/difference';
-import {TypeEqualParameters} from '@alirya/type/boolean/type-equal';
+import {DifferenceParameters} from '../../dist/difference.js';
+import {TypeEqualParameters} from '@alirya/type/boolean/type-equal.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -19,24 +19,24 @@ it('basic', () => {
     const result = DifferenceParameters(target, compare, TypeEqualParameters);
 
     {
-        let number : undefined|number = result.number;
-        let string : undefined|string = result.string;
-        let boolean : undefined|boolean = result.boolean;
+        const number : undefined|number = result.number;
+        const string : undefined|string = result.string;
+        const boolean : undefined|boolean = result.boolean;
     }
 
     {
         // @ts-ignore
-        let number : number = result.number;
+        const number : number = result.number;
         // @ts-ignore
-        let string : string = result.string;
+        const string : string = result.string;
         // @ts-ignore
-        let boolean : boolean = result.boolean;
+        const boolean : boolean = result.boolean;
     }
 
     // @ts-ignore
-    let object : object = result.object;
+    const object : object = result.object;
 
     // @ts-ignore
-    let undef : object = result.f;
+    const undef : object = result.f;
 
 });

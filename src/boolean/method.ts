@@ -1,5 +1,5 @@
 /**
- * check if method or function exists
+ * check if method or function.js exists
  */
 export default function Method(object : object, property : PropertyKey) : boolean {
 

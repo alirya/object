@@ -1,9 +1,9 @@
-import ValidatableInvalid from '../../../validatable/record/invalid';
-import Validatable from '@alirya/validatable/validatable';
-import Value from '@alirya/value/value';
-import RecordInfer from './infer';
-import Map from './map';
-import RemoveUndefined from '../../../omit-undefined';
+import ValidatableInvalid from '../../../validatable/record/invalid.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import Value from '@alirya/value/value.js';
+import RecordInfer from './infer.js';
+import Map from './map.js';
+import RemoveUndefined from '../../../omit-undefined.js';
 
 
 export default function Invalid<

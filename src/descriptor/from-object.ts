@@ -1,11 +1,11 @@
-import Value from '@alirya/value/value';
-import Property from '../property/property/property';
+import Value from '@alirya/value/value.js';
+import Property from '../property/property/property.js';
 
 export function FromObjectParameters(value : object, property : PropertyKey) : undefined|PropertyDescriptor {
 
     // direct
     {
-        let descriptor = Object.getOwnPropertyDescriptor(value, property);
+        const descriptor = Object.getOwnPropertyDescriptor(value, property);
 
         if(descriptor) {
 
@@ -17,7 +17,7 @@ export function FromObjectParameters(value : object, property : PropertyKey) : u
     {
         for(value = Object.getPrototypeOf(value); value; value = Object.getPrototypeOf(value)) {
 
-            let descriptor = Object.getOwnPropertyDescriptor(value, property);
+            const descriptor = Object.getOwnPropertyDescriptor(value, property);
 
             if(descriptor) {
 

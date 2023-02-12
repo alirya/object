@@ -1,4 +1,4 @@
-import {PropertyLazyStaticParameters} from '../../dist/property-lazy-static';
+import {PropertyLazyStaticParameters} from '../../dist/property-lazy-static.js';
 
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
@@ -7,9 +7,9 @@ describe('plain', () => {
 
     it('empty', () => {
 
-        let source = {};
+        const source = {};
 
-        let object = PropertyLazyStaticParameters(
+        const object = PropertyLazyStaticParameters(
             source,
             // @ts-expect-errors
             'data',
@@ -19,23 +19,23 @@ describe('plain', () => {
         );
 
         // @ts-expect-errors
-        let string : string = object.data;
+        const string : string = object.data;
 
         // @ts-expect-error
-        let nonExist  = object.c;
+        const nonExist  = object.c;
 
     });
 
     it('optional', () => {
 
-        let source : {data ?: string} = {};
+        const source : {data ?: string} = {};
 
-        let object = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
+        const object = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
 
-        let string : string = object.data;
+        const string : string = object.data;
 
         // @ts-expect-error
-        let nonExist  = object.c;
+        const nonExist  = object.c;
 
     });
 });
@@ -43,12 +43,12 @@ describe('plain', () => {
 describe('different type', () => {
     it('strict', () => {
 
-        let source = {
+        const source = {
 
             get data () : number { return  1;}
         };
 
-        let object = PropertyLazyStaticParameters(
+        const object = PropertyLazyStaticParameters(
             source,
             'data',
             // @ts-expect-errors
@@ -57,29 +57,29 @@ describe('different type', () => {
             true
         );
 
-        let number : number = object.data;
+        const number : number = object.data;
 
         // @ts-expect-error
-        let string : string = object.data;
+        const string : string = object.data;
 
     });
 
     it('union', () => {
 
-        let source = {
+        const source = {
 
             get data () : number|string { return  1;}
         };
 
-        let object = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
+        const object = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
 
-        let numberString : number|string = object.data;
-
-        // @ts-expect-error
-        let number : number = object.data;
+        const numberString : number|string = object.data;
 
         // @ts-expect-error
-        let string : string = object.data;
+        const number : number = object.data;
+
+        // @ts-expect-error
+        const string : string = object.data;
 
     });
 });
@@ -101,9 +101,9 @@ describe('class', () => {
             }
         }
 
-        let source : Interface = new Implementer();
-        let type : Interface = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
-        let string : string = type.data;
+        const source : Interface = new Implementer();
+        const type : Interface = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
+        const string : string = type.data;
 
     });
 
@@ -117,9 +117,9 @@ describe('class', () => {
             }
         }
 
-        let source : Interface = new Test();
-        let type : Interface = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
-        let string : string = type.data;
+        const source : Interface = new Test();
+        const type : Interface = PropertyLazyStaticParameters(source, 'data', () =>'string', true, true);
+        const string : string = type.data;
 
     });
 });
@@ -128,10 +128,10 @@ describe('not exists', () => {
 
     it('var', () => {
 
-        let source = {};
+        const source = {};
 
 
-        let object = PropertyLazyStaticParameters(
+        const object = PropertyLazyStaticParameters(
             source,
             // @ts-expect-error
             'data',
@@ -141,13 +141,13 @@ describe('not exists', () => {
         );
 
         // @ts-expect-error
-        let string : string = object.c;
+        const string : string = object.c;
 
     });
 
     it('multi', () => {
 
-        let source = {
+        const source = {
 
             get data ()  {
                 return '';
@@ -155,7 +155,7 @@ describe('not exists', () => {
         };
 
 
-        let object = PropertyLazyStaticParameters(
+        const object = PropertyLazyStaticParameters(
             source,
             // @ts-expect-error
             'value',
@@ -165,7 +165,7 @@ describe('not exists', () => {
         );
 
         // @ts-expect-error
-        let string : string = object.c;
+        const string : string = object.c;
 
     });
 });

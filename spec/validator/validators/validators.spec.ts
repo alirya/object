@@ -1,11 +1,11 @@
-import Validators from '../../../dist/validator/validators/validators';
-import Validator from '@alirya/validator/validator';
+import Validators from '../../../dist/validator/validators/validators.js';
+import Validator from '@alirya/validator/validator.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 it('compiler compatibility', ()=>{
 
-    let strict : Validators<Record<PropertyKey, Validator>> = {
+    const strict : Validators<Record<PropertyKey, Validator>> = {
         validators : {}
     };
 

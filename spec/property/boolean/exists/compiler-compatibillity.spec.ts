@@ -1,4 +1,4 @@
-import Property from '../../../../dist/property/boolean/exists';
+import Property from '../../../../dist/property/boolean/exists.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -6,16 +6,16 @@ it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 it('object', ()=> {
 
 
-    let object: object = {};
+    const object: object = {};
 
     if(Property.Parameters(object, 'property')) {
 
-        let property = object.property;
+        const property = object.property;
 
     } else {
 
         // @ts-expect-error
-        let property = object.property;
+        const property = object.property;
     }
 
 });
@@ -26,17 +26,17 @@ it('optional', ()=> {
         property ?: number;
     }
 
-    let object = new Class();
+    const object = new Class();
 
     if(Property.Parameters(object, 'property')) {
 
-        let property : number = object.property;
+        const property : number = object.property;
 
     } else {
 
         // @ts-expect-error
-        let property : number = object.property;
-        let optional : number|undefined = object.property;
+        const property : number = object.property;
+        const optional : number|undefined = object.property;
     }
 
 });

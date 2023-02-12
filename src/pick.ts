@@ -1,6 +1,6 @@
 import {List} from 'ts-toolbelt';
-import {ReadableParameters} from './property/boolean/readable';
-import Object_ from './object/object';
+import {ReadableParameters} from './property/boolean/readable.js';
+import Object_ from './object/object.js';
 
 /**
  * implementation of {@link globalThis.Pick}

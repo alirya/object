@@ -1,4 +1,4 @@
-import {ExistsParameters} from '../../../../dist/property/boolean/exists';
+import {ExistsParameters} from '../../../../dist/property/boolean/exists.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -16,13 +16,13 @@ it(`method`, () => {
         }
     }
 
-    let object =  new Class(1);
+    const object =  new Class(1);
     expect(ExistsParameters(object, 'test')).toBe(true);
 });
 
 it(`property`, () => {
 
-    let object =  {
+    const object =  {
         test : 1
     };
     expect(ExistsParameters(object, 'test')).toBe(true);
@@ -46,7 +46,7 @@ it(`setter`, () => {
 
 it(`implicit undefined`, () => {
 
-    let test =  {
+    const test =  {
         test : undefined
     };
     expect(ExistsParameters(test, 'test')).toBe(true);
@@ -54,7 +54,7 @@ it(`implicit undefined`, () => {
 
 it(`not exist`, () => {
 
-    let test =  {
+    const test =  {
     };
     expect(ExistsParameters(test, 'test')).toBe(false);
 });

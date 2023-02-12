@@ -1,9 +1,9 @@
-import {ExistsDeepParameters} from '../../../../dist/property/boolean/exists-deep';
-import {ExistsDeepParameter} from '../../../../dist/property/boolean/exists-deep';
+import {ExistsDeepParameters} from '../../../../dist/property/boolean/exists-deep.js';
+import {ExistsDeepParameter} from '../../../../dist/property/boolean/exists-deep.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
-let object =  {
+const object =  {
     a : 1,
     b : {
         a : 1,

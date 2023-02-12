@@ -1,6 +1,6 @@
-import Validatable from '@alirya/validatable/validatable';
-import TypeRecord from '../../../boolean/record';
-import ValidatableType from '@alirya/validatable/boolean/validatable';
+import Validatable from '@alirya/validatable/validatable.js';
+import TypeRecord from '../../../boolean/record.js';
+import ValidatableType from '@alirya/validatable/boolean/validatable.js';
 
 /**
  * Check if {@param record} is record of {@link Validatable}

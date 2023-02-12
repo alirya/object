@@ -1,21 +1,21 @@
-import Default from '../dist/default';
+import Default from '../dist/default.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('destination undefined', () => {
 
-    let target = {
+    const target = {
 
     };
 
-    let source = {
+    const source = {
         data1 : 1,
         data2 : 2,
         data3 : 'a',
         data4 : 'b',
     };
 
-    let result = Default(target, source);
+    const result = Default(target, source);
 
     it(`check object`, () => {
 
@@ -43,18 +43,18 @@ describe('destination undefined', () => {
 
 describe('source undefined', () => {
 
-    let target  = {
+    const target  = {
         data1 : 1,
         data2 : 2,
         data3 : 'a',
         data4 : 'b',
     };
 
-    let source  = {
+    const source  = {
 
     };
 
-    let result = Default(target, source);
+    const result = Default(target, source);
 
     it(`check object`, () => {
 
@@ -82,21 +82,21 @@ describe('source undefined', () => {
 
 describe('both set', () => {
 
-    let target = {
+    const target = {
         data1 : 1,
         data2 : 2,
         data3 : 3,
         data4 : 4,
     };
 
-    let source = {
+    const source = {
         data1 : 'a',
         data2 : 'b',
         data3 : 'c',
         data4 : 'd',
     };
 
-    let result = Default(target, source);
+    const result = Default(target, source);
 
     it(`check object`, () => {
 
@@ -125,21 +125,21 @@ describe('both set', () => {
 
 describe('target mixed', () => {
 
-    let target  = {
+    const target  = {
         data1 : undefined,
         data2 : 20,
         data3 : 'aa',
         data4 : undefined,
     };
 
-    let source = {
+    const source = {
         data1 : 1,
         data2 : 2,
         data3 : 'a',
         data4 : 'b',
     };
 
-    let result = Default(target, source);
+    const result = Default(target, source);
 
     it(`check object`, () => {
 
@@ -168,7 +168,7 @@ describe('target mixed', () => {
 
 describe('target & source mixed', () => {
 
-    let target = {
+    const target = {
         data1 : undefined,
         data2 : 2,
         data3 : 'a',
@@ -176,7 +176,7 @@ describe('target & source mixed', () => {
         data5 : undefined,
     };
 
-    let source  = {
+    const source  = {
         data1 : 1,
         data2 : 3,
         data3 : undefined,
@@ -184,7 +184,7 @@ describe('target & source mixed', () => {
         data5 : 'c',
     };
 
-    let result = Default(target, source);
+    const result = Default(target, source);
 
     it(`check object`, () => {
 
@@ -204,7 +204,7 @@ describe('target & source mixed', () => {
 
         result.data1 = 11; // Compiler Pass
         result.data2 = 22; // Compiler Pass
-        result.data3 = 'aa'; // Compiler Pass
+        result.data3 = 'aa.js'; // Compiler Pass
         result.data4 = undefined; // Compiler Pass
     });
 
@@ -213,18 +213,18 @@ describe('target & source mixed', () => {
 
 describe('both undefined', () => {
 
-    let target  = {
+    const target  = {
 
     };
 
-    let source  = {
+    const source  = {
         data1 : undefined,
         data2 : undefined,
         data3 : undefined,
         data4 : undefined,
     };
 
-    let result = Default(target, source);
+    const result = Default(target, source);
 
     it(`check object`, () => {
 

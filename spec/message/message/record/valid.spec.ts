@@ -1,21 +1,21 @@
-import {TypeParameters} from '@alirya/type/validator/type';
-import {ValueAllParameters} from '../../../../dist/validator/value-all';
-import {ValueCallbackParameters} from '../../../../dist/validator/value-callback';
-import {MapAllParameters} from '../../../../dist/validator/map-all';
-import {MapCallbackParameters} from '../../../../dist/validator/map-callback';
-import And from '../../../../dist/validatable/and';
-import Valid from '../../../../dist/message/message/record/valid';
-import MessageMap from '../../../../dist/message/message/record/map';
-import ValidatorValidatable from '../../../../dist/validator/validatable/record/infer';
-import {ValuePartialParameters} from '../../../../dist/validator/validatable/record/value-partial';
-import Instance from '@alirya/validator/validatable/validatable';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import {ValueAllParameters} from '../../../../dist/validator/value-all.js';
+import {ValueCallbackParameters} from '../../../../dist/validator/value-callback.js';
+import {MapAllParameters} from '../../../../dist/validator/map-all.js';
+import {MapCallbackParameters} from '../../../../dist/validator/map-callback.js';
+import And from '../../../../dist/validatable/and.js';
+import Valid from '../../../../dist/message/message/record/valid.js';
+import MessageMap from '../../../../dist/message/message/record/map.js';
+import ValidatorValidatable from '../../../../dist/validator/validatable/record/infer.js';
+import {ValuePartialParameters} from '../../../../dist/validator/validatable/record/value-partial.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
 
 it('force console log', () => {spyOn(console, 'log').and.callThrough();});
 
 
 it('value all', function() {
 
-    let validator = {
+    const validator = {
         name: TypeParameters('string'),
         address: TypeParameters('string'),
         user: TypeParameters('string'),
@@ -25,13 +25,13 @@ it('value all', function() {
             no: TypeParameters('string'),
         }, (v) => And(v), Valid)
     };
-    let property = ValueAllParameters(validator, (v)=>And(v), Valid);
+    const property = ValueAllParameters(validator, (v)=>And(v), Valid);
 });
 
 
 it('value partial', function() {
 
-    let validator = {
+    const validator = {
         name: TypeParameters('string'),
         address: TypeParameters('string'),
         user: TypeParameters('string'),
@@ -41,13 +41,13 @@ it('value partial', function() {
             no: TypeParameters('string'),
         }, (v) => And(v), Valid)
     };
-    let property = ValueAllParameters(validator, (v)=>And(v), Valid);
+    const property = ValueAllParameters(validator, (v)=>And(v), Valid);
 });
 
 
 it('value callback', function() {
 
-    let validator = {
+    const validator = {
         name : TypeParameters('string'),
         address : TypeParameters('string'),
         user : TypeParameters('string'),
@@ -61,7 +61,7 @@ it('value callback', function() {
         )
     };
 
-    let property = ValueCallbackParameters(validator,
+    const property = ValueCallbackParameters(validator,
         (value, validators) => <ValidatorValidatable<typeof validator>>ValuePartialParameters(value, validators),
         And,
         Valid
@@ -71,7 +71,7 @@ it('value callback', function() {
 
 it('value all', function() {
 
-    let validator = {
+    const validator = {
         name: TypeParameters('string'),
         address: TypeParameters('string'),
         user: TypeParameters('string'),
@@ -81,13 +81,13 @@ it('value all', function() {
             no: TypeParameters('string'),
         }, (v) => And(v), Valid)
     };
-    let property = MapAllParameters(validator, (v)=>And(v), Valid);
+    const property = MapAllParameters(validator, (v)=>And(v), Valid);
 });
 
 
 it('value partial', function() {
 
-    let validator = {
+    const validator = {
         name: TypeParameters('string'),
         address: TypeParameters('string'),
         user: TypeParameters('string'),
@@ -97,13 +97,13 @@ it('value partial', function() {
             no: TypeParameters('string'),
         }, (v) => And(v), Valid)
     };
-    let property = MapAllParameters(validator, (v)=>And(v), Valid);
+    const property = MapAllParameters(validator, (v)=>And(v), Valid);
 });
 
 
 it('value callback', function() {
 
-    let validator = {
+    const validator = {
         name : TypeParameters('string'),
         age : TypeParameters('number'),
         address : TypeParameters('string'),
@@ -116,7 +116,7 @@ it('value callback', function() {
             And, MessageMap)
     };
 
-    let value = {
+    const value = {
         name : 'name',
         age : '15',
         address : 'address',
@@ -127,7 +127,7 @@ it('value callback', function() {
         }
     };
 
-    let property = MapCallbackParameters(validator,
+    const property = MapCallbackParameters(validator,
         (value, validators) => <Record<PropertyKey, Instance<any, string>>>ValuePartialParameters(value, validators),
         And,
         MessageMap

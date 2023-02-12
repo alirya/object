@@ -1,7 +1,7 @@
-import Empty from '../../../boolean/empty';
-import Invalid from '../invalid';
-import Validatable from '@alirya/validatable/validatable';
-import OmitUndefined from '../../../omit-undefined';
+import Empty from '../../../boolean/empty.js';
+import Invalid from '../invalid.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import OmitUndefined from '../../../omit-undefined.js';
 
 export default function And<
     Object extends Partial<Record<PropertyKey, Validatable>>

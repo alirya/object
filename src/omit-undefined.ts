@@ -11,7 +11,7 @@ export default function OmitUndefined<O extends object>(
     object : O,
 )  : OmitUndefinedType<O> {
 
-    for(let property in object) {
+    for(const property in object) {
 
         if(object[property] === undefined) {
 

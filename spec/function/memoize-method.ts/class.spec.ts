@@ -1,4 +1,4 @@
-import MemoizeMethod from '../../../dist/function/memoize-method';
+import MemoizeMethod from '../../../dist/function/memoize-method.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -22,7 +22,7 @@ describe('no argument', ()=>{
         }
     }
 
-    let object = new Test();
+    const object = new Test();
 
     it('check initial', ()=>{
 
@@ -67,7 +67,7 @@ describe('argument', ()=>{
         }
     }
 
-    let object = new Test();
+    const object = new Test();
 
     it('check initial', ()=>{
 

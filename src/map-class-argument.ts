@@ -1,4 +1,4 @@
-import Callable from '@alirya/function/callable';
+import Callable from '@alirya/function/callable.js';
 
 /**
  * get record of first parameters from record of function

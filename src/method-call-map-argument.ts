@@ -1,9 +1,9 @@
-import MapReturn from './map-return';
+import MapReturn from './map-return.js';
 import {O} from 'ts-toolbelt';
-import ArgumentMapClass from './argument-map-class';
-import Value from '@alirya/value/value';
-import ArgumentContainer from '@alirya/function/argument/argument';
-import ArgumentsMapClass from './arguments-map-class';
+import ArgumentMapClass from './argument-map-class.js';
+import Value from '@alirya/value/value.js';
+import ArgumentContainer from '@alirya/function/argument/argument.js';
+import ArgumentsMapClass from './arguments-map-class.js';
 
 
 export type MethodCallMapArgumentType<
@@ -27,7 +27,7 @@ export function MethodCallMapArgumentParameters<
     argument : Argument
 ) : MethodCallMapArgumentType<Argument, Type> {
 
-    let result : Partial<MethodCallMapArgumentType<Argument, Type>> = {};
+    const result : Partial<MethodCallMapArgumentType<Argument, Type>> = {};
 
     for (const property in argument) {
 

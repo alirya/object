@@ -1,7 +1,7 @@
 import {O} from 'ts-toolbelt';
 import {Required} from 'utility-types';
-import {PropertyLazyDynamicParameters} from './property-lazy-dynamic';
-import Callable from '@alirya/function/callable';
+import {PropertyLazyDynamicParameters} from './property-lazy-dynamic.js';
+import Callable from '@alirya/function/callable.js';
 
 export type PropertyLazyStaticReadonlyReturn<
     This extends object,
@@ -57,8 +57,8 @@ export function PropertyLazyStaticParameters<
     object : This,
     property : Key,
     factory : Callable<[This], This[Key]>,
-    writable : boolean = true,
-    configurable : boolean = true
+    writable  = true,
+    configurable  = true
 ) : PropertyLazyStaticWritableReturn<This, Key> {
 
     return PropertyLazyDynamicParameters(object, property, factory, writable as true, configurable) as PropertyLazyStaticWritableReturn<This, Key>;

@@ -1,7 +1,7 @@
-import ValueValidationArgumentValidation from '../../../assert/string/value-validation';
-import Name from '../../../string/name';
-import PropertyInterface from '../property';
-import Validation from '@alirya/boolean/validation/validation';
+import ValueValidationArgumentValidation from '../../../assert/string/value-validation.js';
+import Name from '../../../string/name.js';
+import PropertyInterface from '../property.js';
+import Validation from '@alirya/boolean/validation/validation.js';
 
 export function ValueValidationParameters(
     property : PropertyKey,
@@ -9,7 +9,7 @@ export function ValueValidationParameters(
     validation : (...arg: any[]) => boolean
 ) : Error {
 
-    let message = ValueValidationArgumentValidation.Parameters(
+    const message = ValueValidationArgumentValidation.Parameters(
         property,
         false,
         type,

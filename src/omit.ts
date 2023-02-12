@@ -1,4 +1,4 @@
-import Object_ from './object/object';
+import Object_ from './object/object.js';
 import {List} from 'ts-toolbelt';
 
 /**
@@ -30,9 +30,9 @@ export function OmitParameters<
     ... keys : Keys
 ) : OmitType<ObjectType, Keys> {
 
-    let result = {};
+    const result = {};
 
-    for(let [property, value] of Object.entries(object)) {
+    for(const [property, value] of Object.entries(object)) {
 
         if(keys.includes(<keyof ObjectType>property)) {
 

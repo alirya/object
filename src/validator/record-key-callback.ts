@@ -1,18 +1,18 @@
-import Validator from '@alirya/validator/validator';
-import Validatable from '@alirya/validatable/validatable';
-import ValidatableRecordCallback, {RecordValueCallbackContext} from '../validatable/record-value-callback';
-import ValidatorValidatable from '@alirya/validator/validatable/validatable';
-import InferBase from '@alirya/validator/subject/allow';
-import ValidatorContainer from '@alirya/validator/validator/validator';
-import Message from '@alirya/message/message';
-import Value from '@alirya/value/value';
-import SimpleValidator from '@alirya/validator/simple';
-import Instance from '@alirya/validator/validatable/validatable';
-import InferExpectation from '@alirya/validator/subject/expectation';
-import InferSubject from '@alirya/validator/subject/subject';
-// import ValidatableRecord from '../validatable/record-value';
-import {ObjectParameters} from './object';
-import {ValueCallbackContext} from '../validatable/value-callback';
+import Validator from '@alirya/validator/validator.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import ValidatableRecordCallback, {RecordValueCallbackContext} from '../validatable/record-value-callback.js';
+import ValidatorValidatable from '@alirya/validator/validatable/validatable.js';
+import InferBase from '@alirya/validator/subject/allow.js';
+import ValidatorContainer from '@alirya/validator/validator/validator.js';
+import Message from '@alirya/message/message.js';
+import Value from '@alirya/value/value.js';
+import SimpleValidator from '@alirya/validator/simple.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
+import InferExpectation from '@alirya/validator/subject/expectation.js';
+import InferSubject from '@alirya/validator/subject/subject.js';
+// import ValidatableRecord from '../validatable/record-value.js';
+import {ObjectParameters} from './object.js';
+import {ValueCallbackContext} from '../validatable/value-callback.js';
 
 export function RecordKeyCallbackParameters<
     ValidatorType extends Validator<PropertyKey> = Validator<PropertyKey>,

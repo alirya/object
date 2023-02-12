@@ -1,5 +1,5 @@
-import MemoizeAccessor from '../../../dist/function/memoize-accessor';
-import {UniqueParameters} from '@alirya/array/unique';
+import MemoizeAccessor from '../../../dist/function/memoize-accessor.js';
+import {UniqueParameters} from '@alirya/array/unique.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -15,7 +15,7 @@ class Test {
     }
 }
 
-let tests : Test[] = [
+const tests : Test[] = [
     new Test(),
     new Test(),
     new Test(),
@@ -27,7 +27,7 @@ for(let i = 0; i<=5; i++) {
 
     it(`check value for difference new instance (${i})`, ()=>{
 
-        let filtered = UniqueParameters(tests, ((value1, value2) => value1.data === value2.data));
+        const filtered = UniqueParameters(tests, ((value1, value2) => value1.data === value2.data));
         expect(filtered.length).toBe(tests.length);
 
     });

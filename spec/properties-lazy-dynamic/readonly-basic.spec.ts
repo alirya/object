@@ -1,4 +1,4 @@
-import {PropertiesLazyDynamicParameters} from '../../dist/properties-lazy-dynamic';
+import {PropertiesLazyDynamicParameters} from '../../dist/properties-lazy-dynamic.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -6,9 +6,9 @@ describe('plain', () => {
 
     let called = 0;
     let result : string;
-    let soruce = {};
+    const soruce = {};
 
-    let object = PropertiesLazyDynamicParameters(soruce, {
+    const object = PropertiesLazyDynamicParameters(soruce, {
         get data () {
             called++;
             return Math.random().toString();
@@ -58,10 +58,10 @@ describe('class', () => {
         }
     }
 
-    let source = new Test();
+    const source = new Test();
 
 
-    let object = PropertiesLazyDynamicParameters(source, { get data () {
+    const object = PropertiesLazyDynamicParameters(source, { get data () {
         calledCallback++;
         return Math.random().toString();
     }}, false);

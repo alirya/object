@@ -1,4 +1,4 @@
-import Structure, {Validation} from '../../dist/boolean/map';
+import Structure, {Validation} from '../../dist/boolean/map.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -10,13 +10,13 @@ describe('same', () => {
         object : object;
     }
 
-    let validator : Validation<Test> = {
+    const validator : Validation<Test> = {
         number : (n) => typeof n === 'number',
         string : (n) => typeof n === 'string',
         object : (n) => typeof n === 'object',
     };
 
-    let object : Test = {
+    const object : Test = {
         number : 1,
         string : 'string',
         object : {},
@@ -38,13 +38,13 @@ describe('missing validation', () => {
         boolean : boolean;
     }
 
-    let validator : Validation<Partial<Test>> = {
+    const validator : Validation<Partial<Test>> = {
         number : (n) => typeof n === 'number',
         string : (n) => typeof n === 'string',
         object : (n) => typeof n === 'object',
     };
 
-    let object : Test = {
+    const object : Test = {
         number : 1,
         string : 'string',
         object : {},
@@ -66,13 +66,13 @@ describe('missing property', () => {
         object : object;
     }
 
-    let validator : Validation<Partial<Test>> = {
+    const validator : Validation<Partial<Test>> = {
         number : (n) => typeof n === 'number',
         string : (n) => typeof n === 'string',
         object : (n) => typeof n === 'object',
     };
 
-    let object : Partial<Test> = {
+    const object : Partial<Test> = {
         number : 1,
         string : 'string',
     };

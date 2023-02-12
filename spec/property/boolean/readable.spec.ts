@@ -1,4 +1,4 @@
-import {ReadableParameters} from '../../../dist/property/boolean/readable';
+import {ReadableParameters} from '../../../dist/property/boolean/readable.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -6,7 +6,7 @@ describe('plain', () => {
 
     it('property', () => {
 
-        let object = {property:true};
+        const object = {property:true};
 
         expect(ReadableParameters(object, 'property')).toBe(true);
         expect(ReadableParameters(object, 'notExists')).toBe(false);
@@ -15,7 +15,7 @@ describe('plain', () => {
 
     it('setter', () => {
 
-        let object = {
+        const object = {
             set setter (value) {},
         };
 
@@ -26,7 +26,7 @@ describe('plain', () => {
 
     it('getter', () => {
 
-        let object = {
+        const object = {
             get getter () { return 1; },
         };
 
@@ -44,7 +44,7 @@ describe('class', () => {
         class Test {
             property = true;
         }
-        let object = new Test;
+        const object = new Test;
 
         expect(ReadableParameters(object, 'property')).toBe(true);
         expect(ReadableParameters(object, 'notExists')).toBe(false);
@@ -57,7 +57,7 @@ describe('class', () => {
             set setter (value) {}
         }
 
-        let object = new Test;
+        const object = new Test;
 
         expect(ReadableParameters(object, 'setter')).toBe(false);
         expect(ReadableParameters(object, 'notExists')).toBe(false);
@@ -69,7 +69,7 @@ describe('class', () => {
         class Test {
             get getter () { return 1; }
         }
-        let object = new Test;
+        const object = new Test;
 
         expect(ReadableParameters(object, 'getter')).toBe(true);
         expect(ReadableParameters(object, 'notExists')).toBe(false);
@@ -90,7 +90,7 @@ describe('class inheritance', () => {
         class Child extends Parent {
             child = true;
         }
-        let object = new Child;
+        const object = new Child;
 
         expect(ReadableParameters(object, 'child')).toBe(true);
         expect(ReadableParameters(object, 'parent')).toBe(true);
@@ -108,7 +108,7 @@ describe('class inheritance', () => {
             set child (value) {}
         }
 
-        let object = new Child;
+        const object = new Child;
 
         expect(ReadableParameters(object, 'child')).toBe(false);
         expect(ReadableParameters(object, 'parent')).toBe(false);
@@ -126,7 +126,7 @@ describe('class inheritance', () => {
             get child () { return 1; }
         }
 
-        let object = new Child;
+        const object = new Child;
 
         expect(ReadableParameters(object, 'parent')).toBe(true);
         expect(ReadableParameters(object, 'child')).toBe(true);

@@ -1,17 +1,17 @@
-import {MapCallbackParameters} from '../../../dist/validator/map-callback';
-import {MapPartialParameters} from '../../../dist/validator/validatable/record/map-partial';
-import {MapParameters} from '../../../dist/validator/validatable/record/map';
-import And from '../../../dist/validatable/and';
-import Validatable from '@alirya/validatable/validatable';
-import ValidatorInterface from '@alirya/validator/simple';
-import Message from '@alirya/message/message';
-import MessageMap from '../../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
-import Instance from '@alirya/validator/validatable/validatable';
+import {MapCallbackParameters} from '../../../dist/validator/map-callback.js';
+import {MapPartialParameters} from '../../../dist/validator/validatable/record/map-partial.js';
+import {MapParameters} from '../../../dist/validator/validatable/record/map.js';
+import And from '../../../dist/validatable/and.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import ValidatorInterface from '@alirya/validator/simple.js';
+import Message from '@alirya/message/message.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
-let validator = {
+const validator = {
     name : TypeParameters('string'),
     address : TypeParameters('string'),
 };
@@ -26,20 +26,20 @@ type Type = {
     address : string,
 };
 
-let value = {
+const value = {
     name : 'name',
     address : 'address',
 };
 
 it('implicit complete', function() {
 
-    let property = MapCallbackParameters(validator, MapParameters, And, MessageMap);
+    const property = MapCallbackParameters(validator, MapParameters, And, MessageMap);
 
-    let validatable = property(value);
+    const validatable = property(value);
 
-    let unknown : unknown = validatable.value;
+    const unknown : unknown = validatable.value;
 
-    let string : Type = validatable.value;
+    const string : Type = validatable.value;
 
 });
 
@@ -47,48 +47,48 @@ describe('explicit complete', function() {
 
     it('auto', function() {
 
-        let property = MapCallbackParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, string>>>(validator,
+        const property = MapCallbackParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<string, string, string>>>(validator,
             MapParameters,
             And,
             MessageMap
         );
 
-        let validatable = property(value);
+        const validatable = property(value);
 
-        let unknown : unknown = validatable.value;
-        let record : Type = validatable.value;
+        const unknown : unknown = validatable.value;
+        const record : Type = validatable.value;
 
     });
 
     it('direct', function() {
 
-        let property = MapCallbackParameters<TypeValidator>(validator,
+        const property = MapCallbackParameters<TypeValidator>(validator,
             MapParameters,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let validatable = property(value);
+        const validatable = property(value);
 
-        let unknown : unknown = validatable.value;
-        let record : Type = validatable.value;
+        const unknown : unknown = validatable.value;
+        const record : Type = validatable.value;
 
     });
 });
 
 it('implicit partial', function() {
 
-    let property = MapCallbackParameters(validator,
+    const property = MapCallbackParameters(validator,
         (value, validators) =>
             <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),
         (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
         MessageMap
     );
 
-    let validatable = property(value);
+    const validatable = property(value);
 
-    let unknown : unknown = validatable.value;
-    let val : Type = validatable.value;
+    const unknown : unknown = validatable.value;
+    const val : Type = validatable.value;
 
 });
 
@@ -96,7 +96,7 @@ describe('explicit complete', function() {
 
     it('auto', function() {
 
-        let property = MapCallbackParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<any, string, string>>>(
+        const property = MapCallbackParameters<globalThis.Record<keyof typeof validator, ValidatorInterface<any, string, string>>>(
             validator,
             (value, validators) =>
                 <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),
@@ -104,16 +104,16 @@ describe('explicit complete', function() {
             MessageMap
         );
 
-        let validatable = property(value);
+        const validatable = property(value);
 
-        let unknown : unknown = validatable.value;
-        let string : Type = validatable.value;
+        const unknown : unknown = validatable.value;
+        const string : Type = validatable.value;
 
     });
 
     it('direct', function() {
 
-        let property = MapCallbackParameters<TypeValidator>(
+        const property = MapCallbackParameters<TypeValidator>(
             validator,
             (value, validators) =>
                 <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),
@@ -121,10 +121,10 @@ describe('explicit complete', function() {
             (v)=>MessageMap(<globalThis.Record<any, Message>>v)
         );
 
-        let validatable = property(value);
+        const validatable = property(value);
 
-        let unknown : unknown = validatable.value;
-        let string : Type = validatable.value;
+        const unknown : unknown = validatable.value;
+        const string : Type = validatable.value;
 
     });
 });

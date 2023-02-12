@@ -1,4 +1,4 @@
-import {PickPathParameters} from '../../../../dist/value/value/pick-path';
+import {PickPathParameters} from '../../../../dist/value/value/pick-path.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

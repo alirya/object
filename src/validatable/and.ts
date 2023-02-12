@@ -1,6 +1,6 @@
-import Validatable from '@alirya/validatable/validatable';
-import AndBoolean from './record/boolean/and';
-import Validatables, {ValidatablesType as AndReturn} from './validatables';
+import Validatable from '@alirya/validatable/validatable.js';
+import AndBoolean from './record/boolean/and.js';
+import Validatables, {ValidatablesType as AndReturn} from './validatables.js';
 
 export {AndReturn};
 

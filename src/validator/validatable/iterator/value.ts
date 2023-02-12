@@ -1,7 +1,7 @@
-import Validator from '@alirya/validator/validator';
-import InferReturn from '@alirya/validator/validatable/infer-static';
-import ValidatorsContainer from '../../validators/validators';
-import Value from '@alirya/value/value';
+import Validator from '@alirya/validator/validator.js';
+import InferReturn from '@alirya/validator/validatable/infer-static.js';
+import ValidatorsContainer from '../../validators/validators.js';
+import Value from '@alirya/value/value.js';
 
 export function * ValueParameters<
     ValueType,
@@ -11,7 +11,7 @@ export function * ValueParameters<
     validators : Validators,
 ) : Iterable<[keyof Validators, InferReturn<Validators[keyof Validators]>]> {
 
-    for(let property in validators) {
+    for(const property in validators) {
 
         const validator = validators[property];
 
@@ -34,9 +34,9 @@ export function * ValueParameter<
     } : ValidatorsContainer<Validators> & Value<ValueType>
 ) : Iterable<[keyof Validators, InferReturn<Validators[keyof Validators]>]> {
 
-    let object  = {};
+    const object  = {};
 
-    for(let property in validators) {
+    for(const property in validators) {
 
         const validator = validators[property];
 

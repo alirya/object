@@ -1,4 +1,4 @@
-import {CompatibleParameters} from '../../../dist/assert/string/compatible';
+import {CompatibleParameters} from '../../../dist/assert/string/compatible.js';
 
 it('enable console log', () => {spyOn(console, 'log').and.callThrough();});
 

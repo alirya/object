@@ -1,17 +1,17 @@
-import {SelectParameters} from '../../dist/select';
+import {SelectParameters} from '../../dist/select.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe('plain object', () => {
 
-    let object = {
+    const object = {
         data1 : 'data1',
         data2 : function () { return 1; },
         data3 : true,
     };
 
-    let result = SelectParameters(object, 'data1','data2');
+    const result = SelectParameters(object, 'data1','data2');
 
     it('test value', () => {
 
@@ -26,13 +26,13 @@ describe('plain object', () => {
 
 describe('plain object, getter', () => {
 
-    let object = {
+    const object = {
         get data1 () { return 'data1';},
         get data2 () { return function () { return 1; }; },
         get data3 () { return true;},
     };
 
-    let result = SelectParameters(object, 'data1','data2');
+    const result = SelectParameters(object, 'data1','data2');
 
     it('test value', () => {
 
@@ -46,13 +46,13 @@ describe('plain object, getter', () => {
 
 describe('plain object, setter', () => {
 
-    let object = {
+    const object = {
         set data1 (value: string) {},
         set data2 (value: () => {}) {},
         set data3 (value: string) {},
     };
 
-    let result = SelectParameters(object, 'data1','data2');
+    const result = SelectParameters(object, 'data1','data2');
 
     it('test value', () => {
 
@@ -75,9 +75,9 @@ describe('plain object', () => {
         ) {}
     }
 
-    let object = new Class('data1', function () { return 1; }, true);
+    const object = new Class('data1', function () { return 1; }, true);
 
-    let result = SelectParameters(object, 'data1','data2');
+    const result = SelectParameters(object, 'data1','data2');
 
     it('test value', () => {
 
@@ -100,9 +100,9 @@ describe('plain object, getter', () => {
         get data3 () : boolean { return true;}
     }
 
-    let object = new Class();
+    const object = new Class();
 
-    let result = SelectParameters(object, 'data1','data2');
+    const result = SelectParameters(object, 'data1','data2');
 
     it('test value', () => {
 
@@ -123,11 +123,11 @@ describe('plain object, setter', () => {
         set data3 (value: string) {}
     }
 
-    let object = new Class();
+    const object = new Class();
 
-    let string : string = object.data1;
+    const string : string = object.data1;
 
-    let result = SelectParameters(object, 'data1','data2');
+    const result = SelectParameters(object, 'data1','data2');
 
     it('test value', () => {
 

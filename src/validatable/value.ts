@@ -1,10 +1,10 @@
-import Validator from '@alirya/validator/validator';
-import ValidatorValidatable from '@alirya/validator/validatable/validatable';
-import Validatable from '@alirya/validatable/validatable';
-import BaseValue from '@alirya/value/value';
-import Validatables from './validatables/validatables';
-import Message from '@alirya/message/message';
-import Messages from '../message/messages/messages';
+import Validator from '@alirya/validator/validator.js';
+import ValidatorValidatable from '@alirya/validator/validatable/validatable.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import BaseValue from '@alirya/value/value.js';
+import Validatables from './validatables/validatables.js';
+import Message from '@alirya/message/message.js';
+import Messages from '../message/messages/messages.js';
 
 // export default interface Value <
 //     ValueType,

@@ -1,17 +1,17 @@
-import {MapCallbackParameters} from '../../../dist/validator/map-callback';
-import {MapPartialParameters} from '../../../dist/validator/validatable/record/map-partial';
-import And from '../../../dist/validatable/and';
-import Or from '../../../dist/validatable/or';
-import Validatable from '@alirya/validatable/validatable';
-import MessageMap from '../../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
-import Instance from '@alirya/validator/validatable/validatable';
+import {MapCallbackParameters} from '../../../dist/validator/map-callback.js';
+import {MapPartialParameters} from '../../../dist/validator/validatable/record/map-partial.js';
+import And from '../../../dist/validatable/and.js';
+import Or from '../../../dist/validatable/or.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('flat', function() {
 
-    let value = {
+    const value = {
         name : 'name',
         age : '15',
         address : 'address',
@@ -20,19 +20,19 @@ describe('flat', function() {
 
     it(`and validation`, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             age : TypeParameters('number'),
             address : TypeParameters('string'),
         };
 
-        let property = MapCallbackParameters(validator,
+        const property = MapCallbackParameters(validator,
             (value, validators) => <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let and = property(value);
+        const and = property(value);
 
         expect(and.valid).toBe(false);
 
@@ -62,19 +62,19 @@ describe('flat', function() {
 
     it(`or validation `, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             age : TypeParameters('number'),
             address : TypeParameters('string'),
         };
 
-        let property = MapCallbackParameters(validator,
+        const property = MapCallbackParameters(validator,
             (value, validators) => <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),
             (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let or = property(value);
+        const or = property(value);
         expect(or.value).toEqual(value);
 
         expect(or.valid).toBe(true);
@@ -104,7 +104,7 @@ describe('flat', function() {
 
 describe('recursive', function() {
 
-    let value = {
+    const value = {
         name : 'name',
         age : '15',
         address : 'address',
@@ -117,7 +117,7 @@ describe('recursive', function() {
 
     it(`and validation`, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             age : TypeParameters('number'),
             address : TypeParameters('string'),
@@ -130,13 +130,13 @@ describe('recursive', function() {
                 (v)=>And(v), MessageMap)
         };
 
-        let property = MapCallbackParameters(validator,
+        const property = MapCallbackParameters(validator,
             (value, validators) => <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let and = property(value);
+        const and = property(value);
 
         expect(and.valid).toBe(false);
         // expect(and.value).not.toBe(value);
@@ -168,7 +168,7 @@ describe('recursive', function() {
 
     it(`or validation `, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             age : TypeParameters('number'),
             address : TypeParameters('string'),
@@ -181,13 +181,13 @@ describe('recursive', function() {
                 (v)=>Or(v), MessageMap)
         };
 
-        let property = MapCallbackParameters(validator,
+        const property = MapCallbackParameters(validator,
             (value, validators) => <Record<PropertyKey, Instance<any, string>>>MapPartialParameters(value, validators),
             (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let or = property(value);
+        const or = property(value);
         // expect(or.value).not.toBe(value);
         expect(or.value).toBe(value);
         expect(or.valid).toBe(true);

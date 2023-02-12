@@ -1,14 +1,14 @@
-import ValidatorInterface from '@alirya/validator/simple';
-import Instance from '@alirya/validator/validatable/validatable';
-import {MapCallbackParameters} from '../../../dist/validatable/map-callback';
-import {MapParameters} from '../../../dist/validator/validatable/record/map';
-import ValidatableInfer from '../../../dist/validator/validatable/record/infer';
-import And from '../../../dist/validatable/and';
-import MessageMap from '../../../dist/message/message/record/map';
-import Validatable from '@alirya/validatable/validatable';
-import {TypeParameters} from '@alirya/type/validator/type';
+import ValidatorInterface from '@alirya/validator/simple.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
+import {MapCallbackParameters} from '../../../dist/validatable/map-callback.js';
+import {MapParameters} from '../../../dist/validator/validatable/record/map.js';
+import ValidatableInfer from '../../../dist/validator/validatable/record/infer.js';
+import And from '../../../dist/validatable/and.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
 
-let validator = {
+const validator = {
     name : TypeParameters('string'),
     address : TypeParameters('string'),
 };
@@ -23,18 +23,18 @@ type Type = {
     address : string,
 };
 
-let value = {
+const value = {
     name : 'name',
     address : 'address',
 };
 
 it('implicit', function() {
 
-    let validatable = new MapCallbackParameters(value, validator, MapParameters, And, MessageMap);
+    const validatable = new MapCallbackParameters(value, validator, MapParameters, And, MessageMap);
 
-    let unknown : unknown = validatable.value;
+    const unknown : unknown = validatable.value;
 
-    let string : Type = validatable.value;
+    const string : Type = validatable.value;
 
 });
 
@@ -42,7 +42,7 @@ describe('explicit', function() {
 
     it('auto', function() {
 
-        let validatable = new MapCallbackParameters<
+        const validatable = new MapCallbackParameters<
             Type,
             TypeValidator,
             ValidatableInfer<TypeValidator>,
@@ -56,8 +56,8 @@ describe('explicit', function() {
             result => MessageMap(result)
         );
 
-        let unknown : unknown = validatable.value;
-        let record : Type = validatable.value;
+        const unknown : unknown = validatable.value;
+        const record : Type = validatable.value;
 
     });
 

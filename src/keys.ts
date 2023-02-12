@@ -3,8 +3,8 @@ export function KeysParameters<Type extends Record<PropertyKey, any>>(
     object : Type,
     enumerable : boolean,
     symbol : boolean,
-    privates: boolean = false,
-    constructor: boolean = false,
+    privates = false,
+    constructor = false,
 ) : (keyof Type)[] {
 
     const keys = new Set<keyof Type>(Object.keys(object) as (keyof Type)[]);

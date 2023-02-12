@@ -1,5 +1,5 @@
-import {SortKeyParameters} from '../../dist/sort-key';
-import {SortKeyParameter} from '../../dist/sort-key';
+import {SortKeyParameters} from '../../dist/sort-key.js';
+import {SortKeyParameter} from '../../dist/sort-key.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

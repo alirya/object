@@ -1,6 +1,6 @@
 import {O} from 'ts-toolbelt';
-import Exists from './exists';
-import Object_ from '../../boolean/object';
+import Exists from './exists.js';
+import Object_ from '../../boolean/object.js';
 
 /**
  * check if property exists

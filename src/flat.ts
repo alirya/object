@@ -1,7 +1,7 @@
-import Callable from '@alirya/function/callable';
-import Object_ from './boolean/object';
-import IsArray from '@alirya/array/boolean/array';
-import {TrimParameters} from '@alirya/string/trim';
+import Callable from '@alirya/function/callable.js';
+import Object_ from './boolean/object.js';
+import IsArray from '@alirya/array/boolean/array.js';
+import {TrimParameters} from '@alirya/string/trim.js';
 
 
 /**
@@ -43,8 +43,8 @@ export function FlatParameters<
     Type extends Record<string, unknown> = Record<string, unknown>
 >(
     object: Type,
-    delimiter: string = '_',
-    prefix: string = '',
+    delimiter = '_',
+    prefix = '',
     value : Callable<[keys:(string|number)[], value:unknown], unknown> = (keys, value)=>value,
     keys : Callable<[keys:(string|number)[], value:unknown], (string|number)[]> = (keys, value)=>keys,
 ) : Record<string, unknown> {

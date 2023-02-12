@@ -15,9 +15,9 @@ export default function Map<
     validation : ValidationType
 ) : value is Type {
 
-    for (let property in validation) {
+    for (const property in validation) {
 
-        let validator = validation[property];
+        const validator = validation[property];
 
         if(!validator(value[<PropertyKey>property])) {
 

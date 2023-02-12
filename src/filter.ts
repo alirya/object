@@ -29,7 +29,7 @@ export default function Filter<
     filter : (value:Type, key:keyof Object)=>boolean,
 ) : Partial<Object> | O.Select<Object, Type>{
 
-    let result = {};
+    const result = {};
 
     for(const property in record) {
 

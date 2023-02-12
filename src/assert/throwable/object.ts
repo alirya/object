@@ -1,9 +1,9 @@
-import StringType from '../string/object';
-import Value from '@alirya/value/value';
+import StringType from '../string/object.js';
+import Value from '@alirya/value/value.js';
 
 export function ObjectParameters(
     value : unknown,
-    subject : string = 'type',
+    subject  = 'type',
     conversion : (value:unknown)=>string = value=>typeof value,
 ) : Error {
 

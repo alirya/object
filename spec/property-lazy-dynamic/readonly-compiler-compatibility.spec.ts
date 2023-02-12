@@ -1,34 +1,34 @@
-import {PropertyLazyDynamicParameters} from '../../dist/property-lazy-dynamic';
+import {PropertyLazyDynamicParameters} from '../../dist/property-lazy-dynamic.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
 it('plain', () => {
 
-    let source = {};
+    const source = {};
 
-    let object = PropertyLazyDynamicParameters(source, 'data', () =>'string', false);
+    const object = PropertyLazyDynamicParameters(source, 'data', () =>'string', false);
 
-    let string : string = object.data;
+    const string : string = object.data;
 
     // @ts-expect-error
-    let nonExist  = object.c;
+    const nonExist  = object.c;
 
 });
 
 
 it('different type', () => {
 
-    let source = {
+    const source = {
 
         get data () : number { return  1;}
     };
 
-    let object = PropertyLazyDynamicParameters(source, 'data', () =>'string', false);
+    const object = PropertyLazyDynamicParameters(source, 'data', () =>'string', false);
 
     // @ts-expect-error
-    let number : number = object.data;
+    const number : number = object.data;
 
-    let string : string = object.data;
+    const string : string = object.data;
 
 });
 
@@ -49,9 +49,9 @@ describe('class', () => {
             }
         }
 
-        let source : Interface = new Implementer();
-        let type : Interface = PropertyLazyDynamicParameters(source, 'data', () =>'string', false);
-        let string : string = type.data;
+        const source : Interface = new Implementer();
+        const type : Interface = PropertyLazyDynamicParameters(source, 'data', () =>'string', false);
+        const string : string = type.data;
 
     });
 
@@ -65,9 +65,9 @@ describe('class', () => {
             }
         }
 
-        let source : Interface = new Test();
-        let type : Interface = PropertyLazyDynamicParameters(source, 'data', () =>'string', false);
-        let string : string = type.data;
+        const source : Interface = new Test();
+        const type : Interface = PropertyLazyDynamicParameters(source, 'data', () =>'string', false);
+        const string : string = type.data;
 
     });
 });
@@ -76,19 +76,19 @@ describe('not exists', () => {
 
     it('var', () => {
 
-        let source = {};
+        const source = {};
 
 
-        let object = PropertyLazyDynamicParameters(source, 'data', () =>'string', false);
+        const object = PropertyLazyDynamicParameters(source, 'data', () =>'string', false);
 
         // @ts-expect-error
-        let string : string = object.c;
+        const string : string = object.c;
 
     });
 
     it('multi', () => {
 
-        let source = {
+        const source = {
 
             get data ()  {
                 return '';
@@ -96,10 +96,10 @@ describe('not exists', () => {
         };
 
 
-        let object = PropertyLazyDynamicParameters(source, 'value', () =>'string', false);
+        const object = PropertyLazyDynamicParameters(source, 'value', () =>'string', false);
 
         // @ts-expect-error
-        let string : string = object.c;
+        const string : string = object.c;
 
     });
 });

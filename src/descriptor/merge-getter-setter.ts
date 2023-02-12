@@ -1,5 +1,5 @@
-import Setter from './setter';
-import Getter from './getter';
+import Setter from './setter.js';
+import Getter from './getter.js';
 
 export type MergeGetterSetterTypeSetter<SetterType extends Setter, GetterType extends Getter> =
     Omit<SetterType, 'set'> & Pick<GetterType, 'set'>;

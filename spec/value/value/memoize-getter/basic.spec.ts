@@ -1,4 +1,4 @@
-import {SetGetterParameters} from '../../../../dist/value/value/set-getter';
+import {SetGetterParameters} from '../../../../dist/value/value/set-getter.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -6,7 +6,7 @@ describe('plain', () => {
 
     let called = 0;
     let result : string;
-    let object = {
+    const object = {
 
         get data ()  {
 
@@ -57,7 +57,7 @@ describe('class', () => {
         }
     }
 
-    let object = new Test();
+    const object = new Test();
 
     it('check initial', ()=>{
 

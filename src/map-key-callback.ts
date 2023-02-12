@@ -31,7 +31,7 @@ export default function MapKeyCallback<
     replace : (key : keyof Object, value : Object[keyof Object])=> Replace,
 ) : Record<Replace, Object[keyof Object]> | Partial<Record<Replace, Object[keyof Object]>> {
 
-    let result = {};
+    const result = {};
 
     for(const property in object) {
 

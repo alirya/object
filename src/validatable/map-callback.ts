@@ -1,23 +1,23 @@
-import Validator from '@alirya/validator/validator';
-import Validatable from '@alirya/validatable/validatable';
-import RecordParameter from '../validator/subject/record/allow';
-import RecordBase from '../validator/subject/record/allow';
-import Instance from '@alirya/validator/validatable/validatable';
-// import Map from './map';
-import {PickParameters} from '../pick';
-import MemoizeAccessor from '../function/memoize-accessor';
-import Value from '@alirya/value/value';
-import Validators from '../validator/validators/validators';
-import Message from '@alirya/message/message';
+import Validator from '@alirya/validator/validator.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import RecordParameter from '../validator/subject/record/allow.js';
+import RecordBase from '../validator/subject/record/allow.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
+// import Map from './map.js';
+import {PickParameters} from '../pick.js';
+import MemoizeAccessor from '../function/memoize-accessor.js';
+import Value from '@alirya/value/value.js';
+import Validators from '../validator/validators/validators.js';
+import Message from '@alirya/message/message.js';
 
-// import Validator from '@alirya/validator/validator';
-// import Validatable from '@alirya/validatable/validatable';
-import ValidatableContainer from '@alirya/validatable/validatable/validatable';
-import Validatables from './validatables/validatables';
-// import RecordBase from '../validator/subject/record/allow';
-// import Instance from '@alirya/validator/validatable/validatable';
-import Messages from '../message/messages/messages';
-// import Validators from '../validator/validators/validators';
+// import Validator from '@alirya/validator/validator.js';
+// import Validatable from '@alirya/validatable/validatable.js';
+import ValidatableContainer from '@alirya/validatable/validatable/validatable.js';
+import Validatables from './validatables/validatables.js';
+// import RecordBase from '../validator/subject/record/allow.js';
+// import Instance from '@alirya/validator/validatable/validatable.js';
+import Messages from '../message/messages/messages.js';
+// import Validators from '../validator/validators/validators.js';
 
 export interface MapCallbackContext<
     // MessageType,

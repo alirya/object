@@ -11,7 +11,7 @@ export default function Default<
     source : Source
 ) : Assign<Source, OmitByValue<Destination, undefined>> {
 
-    for (let property in source) {
+    for (const property in source) {
 
         // @ts-ignore
         if(target[property] === undefined) {

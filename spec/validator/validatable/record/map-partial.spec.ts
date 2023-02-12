@@ -1,5 +1,5 @@
-import {MapPartialParameters} from '../../../../dist/validator/validatable/record/map-partial';
-import {TypeParameters} from '@alirya/type/validator/type';
+import {MapPartialParameters} from '../../../../dist/validator/validatable/record/map-partial.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
 
 it('force console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -8,17 +8,17 @@ describe('stop on invalid', function() {
 
     describe('all valid', function() {
 
-        let validator = {
+        const validator = {
             validator1 : TypeParameters('number'),
             validator2 : TypeParameters('number'),
         };
 
-        let value = {
+        const value = {
             validator1 : 10,
             validator2 : 10,
         };
 
-        let result = MapPartialParameters(value, validator);
+        const result = MapPartialParameters(value, validator);
 
 
             it('match validator1', ()=> {
@@ -49,17 +49,17 @@ describe('stop on invalid', function() {
 
     describe('all invalid', function() {
 
-        let validator = {
+        const validator = {
             validator1 : TypeParameters('number'),
             validator2 : TypeParameters('number'),
         };
 
-        let value = {
+        const value = {
             validator1 : '10',
             validator2 : 'str',
         };
 
-        let result = MapPartialParameters(value, validator);
+        const result = MapPartialParameters(value, validator);
 
         it('match validator1', ()=> {
 
@@ -81,19 +81,19 @@ describe('stop on invalid', function() {
 
     describe('mixed', function() {
 
-        let validator = {
+        const validator = {
             validator1 : TypeParameters('number'),
             validator2 : TypeParameters('number'),
             validator3 : TypeParameters('number'),
         };
 
-        let value = {
+        const value = {
             validator1 : 10,
             validator2 : 'str',
             validator3 : 'str 2',
         };
 
-        let result = MapPartialParameters(value, validator);
+        const result = MapPartialParameters(value, validator);
 
         it('match validator1', ()=> {
 

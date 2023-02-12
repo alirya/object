@@ -57,7 +57,7 @@
 //
 //         try {
 //             // @ts-expect-error
-//             validatable.message = 'message';
+//             validatable.message.js = 'message.js';
 //             fail('exception should thrown');
 //         } catch (e) {
 //             expect(e).toBeInstanceOf(Error);

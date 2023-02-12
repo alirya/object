@@ -1,4 +1,4 @@
-import Inflate from '../../dist/inflate';
+import Inflate from '../../dist/inflate.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -28,7 +28,7 @@ const environment = {
     DATABASE_replication_slaves_1_url : '',
 };
 
-let expectation = {
+const expectation = {
     type: 'postgres',
     replication: {
         master: {
@@ -60,7 +60,7 @@ let expectation = {
     }
 };
 
-let flat = {
+const flat = {
 
     type: 'postgres',
 
@@ -84,7 +84,7 @@ let flat = {
     replicationslaves1url : '',
 };
 
-let original = {
+const original = {
 
     type: 'postgres',
 

@@ -1,6 +1,6 @@
-import MapReturn from './map-return';
+import MapReturn from './map-return.js';
 import {O} from 'ts-toolbelt';
-import ArgumentsMapClass from './arguments-map-class';
+import ArgumentsMapClass from './arguments-map-class.js';
 
 export type MethodCallMapArgumentsType<
     Argument extends Record<PropertyKey, unknown[]>,
@@ -22,7 +22,7 @@ export function MethodCallMapArgumentsParameters<
     argument : Argument
 ) : MethodCallMapArgumentsType<Argument, Type> {
 
-    let result : Partial<MethodCallMapArgumentsType<Argument, Type>> = {};
+    const result : Partial<MethodCallMapArgumentsType<Argument, Type>> = {};
 
     for (const property in argument) {
 

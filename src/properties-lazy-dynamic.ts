@@ -1,5 +1,5 @@
 import {O} from 'ts-toolbelt';
-import {PropertyLazyDynamicParameters} from './property-lazy-dynamic';
+import {PropertyLazyDynamicParameters} from './property-lazy-dynamic.js';
 
 export type PropertiesLazyDynamicReturnWritable<
     This extends Record<PropertyKey, any>,
@@ -63,8 +63,8 @@ export function PropertiesLazyDynamicParameters<
 >(
     object : This,
     factory : Factory,
-    writable : boolean = true,
-    configurable : boolean = true
+    writable  = true,
+    configurable  = true
 ) : PropertiesLazyDynamicReturnWritable<This, Factory> {
 
     for (const key of Object.keys(factory)) {

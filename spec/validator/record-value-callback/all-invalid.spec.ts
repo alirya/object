@@ -1,19 +1,19 @@
-import {TypeParameters} from '@alirya/type/validator/type';
-import {RecordValueCallbackParameters} from '../../../dist/validator/record-value-callback';
-import {RecordValueParameters} from '../../../dist/validator/validatable/record/record-value';
-import And from '../../../dist/validatable/and';
-import MessageMap from '../../../dist/message/message/record/map';
-import Or from '../../../dist/validatable/or';
-import Infer from '@alirya/validator/validatable/infer-static';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import {RecordValueCallbackParameters} from '../../../dist/validator/record-value-callback.js';
+import {RecordValueParameters} from '../../../dist/validator/validatable/record/record-value.js';
+import And from '../../../dist/validatable/and.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import Or from '../../../dist/validatable/or.js';
+import Infer from '@alirya/validator/validatable/infer-static.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe('all invalid', function() {
 
-    let validator = TypeParameters('string');
+    const validator = TypeParameters('string');
 
-    let value = {
+    const value = {
         name : true,
         age : true,
         address : true,
@@ -21,10 +21,10 @@ describe('all invalid', function() {
 
     it(`and validation`, () => {
 
-        let property = RecordValueCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>
+        const property = RecordValueCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>
         (validator, RecordValueParameters, And, MessageMap);
 
-        let and = property(value);
+        const and = property(value);
 
         expect<boolean>(and.valid).toBe(false);
         expect(and.value).toEqual(value);
@@ -41,10 +41,10 @@ describe('all invalid', function() {
 
     it(`or validation `, () => {
 
-        let property = RecordValueCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>
+        const property = RecordValueCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>
         (validator, RecordValueParameters, Or, MessageMap);
 
-        let or = property(value);
+        const or = property(value);
         expect<boolean>(or.valid).toBe(false);
         expect(or.value).toEqual(value);
 
@@ -60,10 +60,10 @@ describe('all invalid', function() {
 
     it(`invalid type`, () => {
 
-        let property = RecordValueCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>
+        const property = RecordValueCallbackParameters<typeof validator, Record<PropertyKey, Infer<typeof validator>>>
         (validator, RecordValueParameters, And, MessageMap);
 
-        let and = property(null as any);
+        const and = property(null as any);
 
         expect<boolean>(and.valid).toBe(false);
         expect(and.value).toEqual(null);

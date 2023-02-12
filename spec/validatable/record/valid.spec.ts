@@ -1,6 +1,6 @@
-import Valid from '../../../dist/validatable/record/valid';
-import And from '../../../dist/validatable/and';
-import Or from '../../../dist/validatable/or';
+import Valid from '../../../dist/validatable/record/valid.js';
+import And from '../../../dist/validatable/and.js';
+import Or from '../../../dist/validatable/or.js';
 
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -9,14 +9,14 @@ it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('flat', function() {
 
-    let record = {
+    const record = {
 
         valid : {valid:true},
         invalid : {valid:false},
     };
 
 
-    let result = Valid(record);
+    const result = Valid(record);
 
     it('valid', () => {
 
@@ -40,7 +40,7 @@ describe('flat', function() {
 
 describe('recursive', function() {
 
-    let record = {
+    const record = {
 
         valid : {valid:true},
         invalid : {valid:false},
@@ -59,7 +59,7 @@ describe('recursive', function() {
     };
 
 
-    let result = Valid(record);
+    const result = Valid(record);
 
     it('valid', () => {
 

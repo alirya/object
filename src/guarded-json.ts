@@ -1,6 +1,6 @@
-import Value from '@alirya/value/value';
-import ToString from '@alirya/string/to-string';
-import Guard from '@alirya/boolean/validation/guard';
+import Value from '@alirya/value/value.js';
+import ToString from '@alirya/string/to-string.js';
+import Guard from '@alirya/boolean/validation/guard.js';
 
 /**
  * Parse json string to object and check for certain type according to {@param validation}
@@ -18,8 +18,8 @@ export function GuardedJsonParameters<Type>(
     preprocess ?: (result:{[Key in keyof Type] : Type[Key]})=>void,
 ) : Type {
 
-    let string = value.toString();
-    let object = JSON.parse(string);
+    const string = value.toString();
+    const object = JSON.parse(string);
 
     if(preprocess) {
 

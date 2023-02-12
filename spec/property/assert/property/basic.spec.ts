@@ -1,5 +1,5 @@
-import {PropertyParameters} from '../../../../dist/property/assert/property';
-import String from '@alirya/string/assert/string';
+import {PropertyParameters} from '../../../../dist/property/assert/property.js';
+import String from '@alirya/string/assert/string.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -7,14 +7,14 @@ it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 it('object', ()=> {
 
 
-    let object: {} = {};
+    const object: {} = {};
 
     try {
         PropertyParameters(object, 'property', String);
 
-        let string : string = object.property;
+        const string : string = object.property;
         // @ts-expect-error
-        let number : number = object.property;
+        const number : number = object.property;
 
         fail('error should thrown');
 
@@ -28,16 +28,16 @@ it('object', ()=> {
 it('object', ()=> {
 
 
-    let object: {
+    const object: {
         property ?: string
     } = {};
 
     try {
         PropertyParameters(object, 'property', String);
 
-        let string : string = object.property;
+        const string : string = object.property;
         // @ts-expect-error
-        let number : number = object.property;
+        const number : number = object.property;
 
         fail('error should thrown');
 
@@ -51,7 +51,7 @@ it('object', ()=> {
 it('object', ()=> {
 
 
-    let object: {
+    const object: {
         property ?: string
     } = {
         property : ''
@@ -60,9 +60,9 @@ it('object', ()=> {
     try {
         PropertyParameters(object, 'property', String);
 
-        let string : string = object.property;
+        const string : string = object.property;
         // @ts-expect-error
-        let number : number = object.property;
+        const number : number = object.property;
 
         expect(object.property).toBe('');
 

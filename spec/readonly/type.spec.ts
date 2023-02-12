@@ -1,5 +1,5 @@
-import {ReadonlyParameters} from '../../dist/readonly';
-import CatchError from './catch-error';
+import {ReadonlyParameters} from '../../dist/readonly.js';
+import CatchError from './catch-error.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -8,11 +8,11 @@ describe('property', () => {
 
     it('set', () => {
 
-        let source = {
+        const source = {
             number : 1,
         };
 
-        let readonly = ReadonlyParameters(source, 'number');
+        const readonly = ReadonlyParameters(source, 'number');
 
         expect(
             // @ts-expect-error
@@ -22,11 +22,11 @@ describe('property', () => {
 
     it('optional', () => {
 
-        let source : {
+        const source : {
             number ?: number,
         } = {};
 
-        let readonly = ReadonlyParameters(source, 'number');
+        const readonly = ReadonlyParameters(source, 'number');
 
         // @ts-expect-error
         readonly.number = 1;
@@ -37,11 +37,11 @@ describe('getter', () => {
 
     it('object', () => {
 
-        let source = {
+        const source = {
             number : 1,
         };
 
-        let readonly = ReadonlyParameters(source, 'number');
+        const readonly = ReadonlyParameters(source, 'number');
 
         expect(
             // @ts-expect-error
@@ -58,9 +58,9 @@ describe('getter', () => {
 
     it('class', () => {
 
-        let source = new Class();
+        const source = new Class();
 
-        let readonly = ReadonlyParameters(source, 'number');
+        const readonly = ReadonlyParameters(source, 'number');
 
         expect(
             // @ts-expect-error
@@ -73,7 +73,7 @@ describe('setter', () => {
 
     it('object', () => {
 
-        let source = {
+        const source = {
             data : 1,
 
             set number (number : number)  {
@@ -81,7 +81,7 @@ describe('setter', () => {
             },
         };
 
-        let readonly = ReadonlyParameters(source, 'number');
+        const readonly = ReadonlyParameters(source, 'number');
 
         expect(
             // @ts-expect-error
@@ -91,7 +91,7 @@ describe('setter', () => {
 
     class Class {
 
-        data : number = 0;
+        data  = 0;
 
         set number (number : number)  {
 
@@ -101,9 +101,9 @@ describe('setter', () => {
 
     it('class', () => {
 
-        let source = new Class();
+        const source = new Class();
 
-        let readonly = ReadonlyParameters(source, 'number');
+        const readonly = ReadonlyParameters(source, 'number');
 
         expect(
             // @ts-expect-error

@@ -1,4 +1,4 @@
-import NonNullable from '../../dist/non-nullable';
+import NonNullable from '../../dist/non-nullable.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -12,7 +12,7 @@ interface Type {
 
 it('nullable', ()=>{
 
-    let strict : NonNullable<Type> = {
+    const strict : NonNullable<Type> = {
         string : '',
         number : 0,
         boolean : true,
@@ -20,7 +20,7 @@ it('nullable', ()=>{
     };
 
 
-    let nullable : NonNullable<Type> = {
+    const nullable : NonNullable<Type> = {
         // @ts-expect-error
         string : null,
         // @ts-expect-error

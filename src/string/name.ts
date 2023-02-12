@@ -1,5 +1,5 @@
-import Class from '@alirya/class/boolean/class';
-import NameNotFound from './name-not-found';
+import Class from '@alirya/class/boolean/class.js';
+import NameNotFound from './name-not-found.js';
 
 export default function Name(value : any) : string {
 
@@ -25,7 +25,7 @@ export default function Name(value : any) : string {
 
     if(typeof value === 'object') {
 
-        return 'Object';
+        return 'Object.js';
     }
 
     throw new Error(NameNotFound.Parameters(false, value));

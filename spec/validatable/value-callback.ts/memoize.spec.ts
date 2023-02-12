@@ -25,7 +25,7 @@
 //
 //
 // let andCount = 0;
-// const and = function <Object extends Partial<Record<PropertyKey, Validatable>>>(record : Object) {
+// const and = function <Object extends Partial<Record<PropertyKey, Validata.jsble>>>(record : Object) {
 //
 //     andCount++;
 //     return And(record);
@@ -48,7 +48,7 @@
 //     return MessageMap(validators);
 // }
 //
-// let value = 'data';
+// let value = 'data.js';
 //
 // const instance = new ValueCallback(value, validator, validateValue, and, messageMap);
 //

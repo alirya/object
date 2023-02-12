@@ -1,4 +1,4 @@
-import {MethodCallMapArgumentsParameters} from '../../dist/method-call-map-arguments';
+import {MethodCallMapArgumentsParameters} from '../../dist/method-call-map-arguments.js';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -26,54 +26,54 @@ describe('compiler compatibility', () => {
 
     it('partial 1', () => {
 
-        let result = MethodCallMapArgumentsParameters(new Test(), {
+        const result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data']
         });
 
-        let string : string = result.string;
+        const string : string = result.string;
 
         // @ts-expect-error
-        let boolean : boolean = result.boolean;
+        const boolean : boolean = result.boolean;
 
         // @ts-expect-error
-        let number : number = result.number;
+        const number : number = result.number;
     });
 
     it('partial 2', () => {
 
-        let result = MethodCallMapArgumentsParameters(new Test(), {
+        const result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data'],
             number : [5]
         });
 
-        let string : string = result.string;
+        const string : string = result.string;
 
         // @ts-expect-error
-        let boolean : boolean = result.boolean;
+        const boolean : boolean = result.boolean;
 
-        let number : number = result.number;
+        const number : number = result.number;
     });
 
     it('all', () => {
 
-        let result = MethodCallMapArgumentsParameters(new Test(), {
+        const result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data'],
             number : [5],
             boolean : [false]
         });
 
-        let string : string = result.string;
+        const string : string = result.string;
 
-        let boolean : boolean = result.boolean;
+        const boolean : boolean = result.boolean;
 
-        let number : number = result.number;
+        const number : number = result.number;
     });
 
     it('noexist', () => {
 
         try {
 
-            let result = MethodCallMapArgumentsParameters(
+            const result = MethodCallMapArgumentsParameters(
                 // @ts-expect-error
                 new Test(),
                 {
@@ -95,7 +95,7 @@ describe('test', () => {
 
     it('partial 1', () => {
 
-        let result = MethodCallMapArgumentsParameters(new Test(), {
+        const result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data']
         });
 
@@ -110,7 +110,7 @@ describe('test', () => {
 
     it('partial 2', () => {
 
-        let result = MethodCallMapArgumentsParameters(new Test(), {
+        const result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data'],
             number : [5]
         });
@@ -125,7 +125,7 @@ describe('test', () => {
 
     it('all', () => {
 
-        let result = MethodCallMapArgumentsParameters(new Test(), {
+        const result = MethodCallMapArgumentsParameters(new Test(), {
             string : ['data'],
             number : [5],
             boolean : [false]
@@ -142,7 +142,7 @@ describe('test', () => {
 
         try {
 
-            let result = MethodCallMapArgumentsParameters(
+            const result = MethodCallMapArgumentsParameters(
             // @ts-expect-error
                 new Test(),
                 {

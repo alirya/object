@@ -1,4 +1,4 @@
-import {PropertyLazyStaticParameters} from '../../dist/property-lazy-static';
+import {PropertyLazyStaticParameters} from '../../dist/property-lazy-static.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -6,9 +6,9 @@ describe('plain', () => {
 
     let called = 0;
     let result : string;
-    let soruce = {};
+    const soruce = {};
 
-    let object = PropertyLazyStaticParameters(
+    const object = PropertyLazyStaticParameters(
         soruce,
         // @ts-expect-errors
         'data', () =>{
@@ -69,10 +69,10 @@ describe('class', () => {
         }
     }
 
-    let source = new Test();
+    const source = new Test();
 
 
-    let object = PropertyLazyStaticParameters(source, 'data',
+    const object = PropertyLazyStaticParameters(source, 'data',
         // @ts-expect-errors
         () =>{
             calledCallback++;

@@ -1,47 +1,47 @@
-import {RecordValuePartialParameters} from '../../dist/validator/record-value-partial';
-import And from '../../dist/validatable/and';
-import Or from '../../dist/validatable/or';
-import Validatable from '@alirya/validatable/validatable';
-import MessageMap from '../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
-import ValidatorInterface from '@alirya/validator/simple';
-import Instance from '@alirya/validator/validatable/validatable';
+import {RecordValuePartialParameters} from '../../dist/validator/record-value-partial.js';
+import And from '../../dist/validatable/and.js';
+import Or from '../../dist/validatable/or.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import MessageMap from '../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import ValidatorInterface from '@alirya/validator/simple.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
 
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', function() {
 
-    let validator = TypeParameters('string');
+    const validator = TypeParameters('string');
     type TypeValidatorValue = ValidatorInterface<unknown, string, string>;
 
-    let value = {
+    const value = {
         name : 'string',
         address : 'string',
     };
 
     it('implicit partial', function() {
 
-        let property = RecordValuePartialParameters(validator, And, MessageMap);
+        const property = RecordValuePartialParameters(validator, And, MessageMap);
 
-        let validatable = property(value);
+        const validatable = property(value);
 
-        let unknown : unknown = validatable.value;
-        let trues : true = validatable.valid;
+        const unknown : unknown = validatable.value;
+        const trues : true = validatable.valid;
 
-        let string : typeof value = validatable.value;
+        const string : typeof value = validatable.value;
 
     });
 
     it('explicit complete', function() {
 
-        let property = RecordValuePartialParameters<TypeValidatorValue>(validator, And, MessageMap);
+        const property = RecordValuePartialParameters<TypeValidatorValue>(validator, And, MessageMap);
 
-        let validatable = property(value);
+        const validatable = property(value);
 
 
-        let unknown : unknown = validatable.value;
-        let string : typeof value = validatable.value;
+        const unknown : unknown = validatable.value;
+        const string : typeof value = validatable.value;
     });
 });
 
@@ -49,7 +49,7 @@ describe('implicit incomplete', function() {
 
     describe('all valid', function() {
 
-        let value = {
+        const value = {
             name : 'string',
             address : 'string',
             user : 'string',
@@ -57,15 +57,15 @@ describe('implicit incomplete', function() {
 
         it(`and validation`, () => {
 
-            let validator = TypeParameters('string');
+            const validator = TypeParameters('string');
 
-            let property = RecordValuePartialParameters(
+            const property = RecordValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -108,15 +108,15 @@ describe('implicit incomplete', function() {
         it(`or validation`, () => {
 
 
-            let validator = TypeParameters('string');
+            const validator = TypeParameters('string');
 
-            let property = RecordValuePartialParameters(
+            const property = RecordValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -159,7 +159,7 @@ describe('implicit incomplete', function() {
 
     describe('mixed', function() {
 
-        let value = {
+        const value = {
             name : 'string',
             age : 1,
             address : 'string',
@@ -167,15 +167,15 @@ describe('implicit incomplete', function() {
 
         it(`and validation`, () => {
 
-            let validator = TypeParameters('string');
+            const validator = TypeParameters('string');
 
-            let property = RecordValuePartialParameters(
+            const property = RecordValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let and = property(value);
+            const and = property(value);
 
             expect<boolean>(and.valid).toBe(false);
             expect(and.value).toBe(value);
@@ -205,15 +205,15 @@ describe('implicit incomplete', function() {
         it(`or validation `, () => {
 
 
-            let validator = TypeParameters('string');
+            const validator = TypeParameters('string');
 
-            let property = RecordValuePartialParameters(
+            const property = RecordValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let or = property(value);
+            const or = property(value);
 
             expect(or.value).toBe(value);
             expect(or.valid).toBe(true);
@@ -242,7 +242,7 @@ describe('implicit incomplete', function() {
 
     describe('all invalid', function() {
 
-        let value = {
+        const value = {
             name : 1,
             age : 1,
             address : 1,
@@ -250,15 +250,15 @@ describe('implicit incomplete', function() {
 
         it(`and validation`, () => {
 
-            let validator = TypeParameters('string');
+            const validator = TypeParameters('string');
 
-            let property = RecordValuePartialParameters(
+            const property = RecordValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let and = property(value);
+            const and = property(value);
 
             expect<boolean>(and.valid).toBe(false);
             expect(and.value).toEqual(value);
@@ -283,15 +283,15 @@ describe('implicit incomplete', function() {
         it(`or validation `, () => {
 
 
-            let validator = TypeParameters('string');
+            const validator = TypeParameters('string');
 
-            let property = RecordValuePartialParameters(
+            const property = RecordValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let or = property(value);
+            const or = property(value);
 
             expect(or.value).toEqual(value);
             expect<boolean>(or.valid).toBe(false);

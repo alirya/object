@@ -1,5 +1,5 @@
-import Property from '../../../dist/descriptor/boolean/property';
-import {FromObjectParameters} from '../../../dist/descriptor/from-object';
+import Property from '../../../dist/descriptor/boolean/property.js';
+import {FromObjectParameters} from '../../../dist/descriptor/from-object.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -8,8 +8,8 @@ describe(`plain`, () => {
 
     it(`property`, () => {
 
-        let object = {property:1};
-        let descriptor = FromObjectParameters(object, 'property');
+        const object = {property:1};
+        const descriptor = FromObjectParameters(object, 'property');
 
         if(descriptor) {
 
@@ -23,11 +23,11 @@ describe(`plain`, () => {
 
     it(`getter`, () => {
 
-        let object = {
+        const object = {
             get property  () {return 1;}
         };
 
-        let descriptor = FromObjectParameters(object, 'property');
+        const descriptor = FromObjectParameters(object, 'property');
 
         if(descriptor) {
 
@@ -41,11 +41,11 @@ describe(`plain`, () => {
 
     it(`setter`, () => {
 
-        let object = {
+        const object = {
             set property  (data) {}
         };
 
-        let descriptor = FromObjectParameters(object, 'property');
+        const descriptor = FromObjectParameters(object, 'property');
 
         if(descriptor) {
 
@@ -67,9 +67,9 @@ describe(`class`, () => {
             property = 1;
         }
 
-        let object = new Test;
+        const object = new Test;
 
-        let descriptor = FromObjectParameters(object, 'property');
+        const descriptor = FromObjectParameters(object, 'property');
 
         if(descriptor) {
 
@@ -87,9 +87,9 @@ describe(`class`, () => {
             get property  () {return 1;}
         }
 
-        let object = new Test;
+        const object = new Test;
 
-        let descriptor = FromObjectParameters(object, 'property');
+        const descriptor = FromObjectParameters(object, 'property');
 
         if(descriptor) {
 
@@ -107,9 +107,9 @@ describe(`class`, () => {
             set property  (data) {}
         }
 
-        let object = new Test;
+        const object = new Test;
 
-        let descriptor = FromObjectParameters(object, 'property');
+        const descriptor = FromObjectParameters(object, 'property');
 
         if(descriptor) {
 
@@ -126,7 +126,7 @@ describe(`array`, () => {
 
     it(`property`, () => {
 
-        let descriptor = FromObjectParameters([], 'length');
+        const descriptor = FromObjectParameters([], 'length');
 
         if(descriptor) {
 

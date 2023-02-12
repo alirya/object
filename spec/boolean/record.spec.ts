@@ -1,4 +1,4 @@
-import {RecordParameters} from '../../dist/boolean/record';
+import {RecordParameters} from '../../dist/boolean/record.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -7,14 +7,14 @@ it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 describe('valid', function () {
 
 
-    let data = {
+    const data = {
         property1 : 'a',
         property2 : 'b',
         property3 : 'c',
         property4 : 'd',
     };
 
-    let convert : object = data;
+    const convert : object = data;
 
 
     it(`check value`, () => {

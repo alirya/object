@@ -1,15 +1,15 @@
-import Message from '@alirya/message/message';
-import Property from '../property/property/property';
-import Delimiter from '@alirya/string/separator/separator';
+import Message from '@alirya/message/message.js';
+import Property from '../property/property/property.js';
+import Delimiter from '@alirya/string/separator/separator.js';
 
 export function PropertyParameters<MessageValue>(
     message : Message<MessageValue>,
     property : PropertyKey,
-    separator : string = ' : ',
+    separator  = ' : ',
     conversion : (message:MessageValue)=>string = (value: MessageValue) => value + ''
 ) : Message<string> {
 
-    let string = property.toString() + separator + conversion(message.message);
+    const string = property.toString() + separator + conversion(message.message);
 
     return {message:string};
 }

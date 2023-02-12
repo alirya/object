@@ -1,9 +1,9 @@
-import {MapPartialParameters} from '../../../dist/validator/map-partial';
-import And from '../../../dist/validatable/and';
-import Or from '../../../dist/validatable/or';
-import Validatable from '@alirya/validatable/validatable';
-import MessageMap from '../../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
+import {MapPartialParameters} from '../../../dist/validator/map-partial.js';
+import And from '../../../dist/validatable/and.js';
+import Or from '../../../dist/validatable/or.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -11,13 +11,13 @@ describe('implicit incomplete', function() {
 
 
 
-    let value = {
+    const value = {
         name : {},
         age : {},
         address : {},
     };
 
-    let validator = {
+    const validator = {
         name : TypeParameters('string'),
         age : TypeParameters('number'),
         address : TypeParameters('string'),
@@ -25,12 +25,12 @@ describe('implicit incomplete', function() {
 
     it(`and validation`, () => {
 
-        let property = MapPartialParameters(validator,
+        const property = MapPartialParameters(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let and = property(value);
+        const and = property(value);
 
         expect(and.valid).toBe(false);
         expect(and.value).toEqual(value);
@@ -53,12 +53,12 @@ describe('implicit incomplete', function() {
 
     it(`or validation `, () => {
 
-        let property = MapPartialParameters(validator,
+        const property = MapPartialParameters(validator,
             (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let or = property(value);
+        const or = property(value);
 
         expect(or.value).toEqual(value);
         expect(or.valid).toBe(false);
@@ -85,7 +85,7 @@ describe('implicit incomplete', function() {
 
 describe('recursive', function() {
 
-    let value = {
+    const value = {
         name : {},
         age : {},
         address : {},
@@ -99,7 +99,7 @@ describe('recursive', function() {
 
     it(`and validation`, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             age : TypeParameters('number'),
             address : TypeParameters('string'),
@@ -110,12 +110,12 @@ describe('recursive', function() {
             },(v)=>And(v), MessageMap)
         };
 
-        let property = MapPartialParameters(validator,
+        const property = MapPartialParameters(validator,
             (v)=>And(v),
             MessageMap
         );
 
-        let and = property(value);
+        const and = property(value);
 
         expect(and.valid).toBe(false);
         expect(and.value).toEqual(value);
@@ -139,7 +139,7 @@ describe('recursive', function() {
     it(`or validation `, () => {
 
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             age : TypeParameters('number'),
             address : TypeParameters('string'),
@@ -150,12 +150,12 @@ describe('recursive', function() {
             },(v)=>Or(v), MessageMap)
         };
 
-        let property = MapPartialParameters(validator,
+        const property = MapPartialParameters(validator,
             (v)=>Or(v),
             MessageMap
         );
 
-        let or = property(value);
+        const or = property(value);
 
         expect(or.value).toEqual(value);
         expect(or.valid).toBe(false);

@@ -1,4 +1,4 @@
-import Map from './map';
+import Map from './map.js';
 
 // TODO MERGE WITH MAP?
 /**
@@ -33,7 +33,7 @@ export default function MapCallback<
     replace : (value : Object[keyof Object], key : keyof Object) => Replace,
 ) : Map<Object, Replace> | Partial<Map<Object, Replace>> {
 
-    let result = {};
+    const result = {};
 
     for(const property in object) {
 

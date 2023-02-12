@@ -1,45 +1,45 @@
-import {ValuePartialParameters} from '../../dist/validator/value-partial';
-import And from '../../dist/validatable/and';
-import Or from '../../dist/validatable/or';
-import Validatable from '@alirya/validatable/validatable';
-import MessageMap from '../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
-import Message from '@alirya/message/message';
+import {ValuePartialParameters} from '../../dist/validator/value-partial.js';
+import And from '../../dist/validatable/and.js';
+import Or from '../../dist/validatable/or.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import MessageMap from '../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import Message from '@alirya/message/message.js';
 
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatibility', function() {
 
-    let validator = {
+    const validator = {
         name : TypeParameters('string'),
         address : TypeParameters('string'),
     };
 
     it('implicit partial', function() {
 
-        let property = ValuePartialParameters(validator, And, MessageMap);
+        const property = ValuePartialParameters(validator, And, MessageMap);
 
-        let validatable = property('data');
+        const validatable = property('data');
 
-        let unknown : unknown = validatable.value;
+        const unknown : unknown = validatable.value;
 
-        let string : string = validatable.value;
+        const string : string = validatable.value;
 
     });
 
     it('explicit complete', function() {
 
-        let property = ValuePartialParameters<string, string, {name : string, address : string}, typeof validator>(validator,
+        const property = ValuePartialParameters<string, string, {name : string, address : string}, typeof validator>(validator,
             And,
             (v)=><{name : string, address : string}>MessageMap(<{name : Message<string>, address : Message<string>}>v)
         );
 
-        let validatable = property('data');
+        const validatable = property('data');
 
 
-        let unknown : unknown = validatable.value;
-        let string : string = validatable.value;
+        const unknown : unknown = validatable.value;
+        const string : string = validatable.value;
 
     });
 });
@@ -48,23 +48,23 @@ describe('implicit incomplete', function() {
 
     describe('all valid', function() {
 
-        let value = 'data';
+        const value = 'data';
 
         it(`and validation`, () => {
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 address : TypeParameters('string'),
                 user : TypeParameters('string'),
             };
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -106,19 +106,19 @@ describe('implicit incomplete', function() {
 
         it(`or validation`, () => {
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 address : TypeParameters('string'),
                 user : TypeParameters('string'),
             };
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -163,19 +163,19 @@ describe('implicit incomplete', function() {
 
         it(`and validation`, () => {
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 age : TypeParameters('number'),
                 address : TypeParameters('string'),
             };
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let and = property('data');
+            const and = property('data');
 
             expect<boolean>(and.valid).toBe(false);
             expect(and.value).toBe('data');
@@ -205,19 +205,19 @@ describe('implicit incomplete', function() {
         it(`or validation `, () => {
 
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 age : TypeParameters('number'),
                 address : TypeParameters('string'),
             };
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let or = property('data');
+            const or = property('data');
             expect(or.value).toBe('data');
             expect(or.valid).toBe(true);
 
@@ -248,20 +248,20 @@ describe('implicit incomplete', function() {
 
         it(`and validation`, () => {
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 age : TypeParameters('number'),
                 address : TypeParameters('string'),
             };
 
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let and = property({});
+            const and = property({});
 
             expect<boolean>(and.valid).toBe(false);
             expect(and.value).toEqual({});
@@ -285,20 +285,20 @@ describe('implicit incomplete', function() {
 
         it(`or validation `, () => {
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 age : TypeParameters('number'),
                 address : TypeParameters('string'),
             };
 
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let or = property({});
+            const or = property({});
 
             expect(or.value).toEqual({});
             expect<boolean>(or.valid).toBe(false);
@@ -329,11 +329,11 @@ describe('recursive', function() {
 
     describe('all valid', function() {
 
-        let value = 'data';
+        const value = 'data';
 
         it(`and validation`, () => {
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 address : TypeParameters('string'),
                 user : TypeParameters('string'),
@@ -344,13 +344,13 @@ describe('recursive', function() {
                 }, (v)=>And(v), MessageMap)
             };
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>And(v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -418,7 +418,7 @@ describe('recursive', function() {
 
         it(`or validation`, () => {
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 address : TypeParameters('string'),
                 user : TypeParameters('string'),
@@ -429,13 +429,13 @@ describe('recursive', function() {
                 }, (v)=>Or(v), MessageMap)
             };
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>Or(v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -510,7 +510,7 @@ describe('recursive', function() {
 
         it(`and validation`, () => {
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 age : TypeParameters('number'),
                 address : TypeParameters('string'),
@@ -521,12 +521,12 @@ describe('recursive', function() {
                 }, (v)=>And(v), MessageMap)
             };
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v), MessageMap
             );
 
-            let and = property('data');
+            const and = property('data');
 
             expect<boolean>(and.valid).toBe(false);
             expect(and.value).toBe('data');
@@ -559,7 +559,7 @@ describe('recursive', function() {
 
         it(`or validation `, () => {
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 age : TypeParameters('number'),
                 address : TypeParameters('string'),
@@ -570,7 +570,7 @@ describe('recursive', function() {
                 }, (v)=>Or(v), MessageMap)
             };
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v), MessageMap
             );
@@ -578,7 +578,7 @@ describe('recursive', function() {
             // property.validation = (v)=>Or(<Record<PropertyKey, Validatable>>v);
             // property.validators.info.validation = (v)=>Or(v);
 
-            let or = property('data');
+            const or = property('data');
             expect(or.value).toBe('data');
             expect(or.valid).toBe(true);
 
@@ -614,7 +614,7 @@ describe('recursive', function() {
 
         it(`and validation`, () => {
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 age : TypeParameters('number'),
                 address : TypeParameters('string'),
@@ -626,13 +626,13 @@ describe('recursive', function() {
             };
 
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>And(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
-            let and = property({});
+            const and = property({});
 
             expect<boolean>(and.valid).toBe(false);
             expect(and.value).toEqual({});
@@ -661,7 +661,7 @@ describe('recursive', function() {
         it(`or validation `, () => {
 
 
-            let validator = {
+            const validator = {
                 name : TypeParameters('string'),
                 age : TypeParameters('number'),
                 address : TypeParameters('string'),
@@ -673,14 +673,14 @@ describe('recursive', function() {
             };
 
 
-            let property = ValuePartialParameters(
+            const property = ValuePartialParameters(
                 validator,
                 (v)=>Or(<Record<PropertyKey, Validatable>>v),
                 MessageMap
             );
 
 
-            let or = property({});
+            const or = property({});
 
             expect(or.value).toEqual({});
             expect<boolean>(or.valid).toBe(false);

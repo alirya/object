@@ -1,4 +1,4 @@
-import MemoizeAccessor from '../../../dist/function/memoize-accessor';
+import MemoizeAccessor from '../../../dist/function/memoize-accessor.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -19,7 +19,7 @@ class Test {
     }
 }
 
-let object = new Test();
+const object = new Test();
 
 it('check initial', ()=>{
 

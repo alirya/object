@@ -1,5 +1,5 @@
-import Map from '../../../../dist/message/message/record/map';
-import Message from '@alirya/message/message';
+import Map from '../../../../dist/message/message/record/map.js';
+import Message from '@alirya/message/message.js';
 
 it('force console log', () => {spyOn(console, 'log').and.callThrough();});
 
@@ -7,13 +7,13 @@ describe('compiler compatible', function() {
 
     describe('type equal', function() {
 
-        let message =  {
+        const message =  {
             data1 : {message : '1'},
             data2 : {message : '2'},
             data3 : {message : '3'}
         };
 
-        let result = Map(message);
+        const result = Map(message);
 
         it('validate type', function() {
 
@@ -57,7 +57,7 @@ describe('compiler compatible', function() {
 
         describe('type explicit', function() {
 
-            let message : {
+            const message : {
                 data1 : Message<number>,
                 data2 : Message<number>,
                 data3 : Message<number>
@@ -67,7 +67,7 @@ describe('compiler compatible', function() {
                 data3 : {message : 1}
             };
 
-            let result = Map(message);
+            const result = Map(message);
 
             it('validate type', function() {
 
@@ -108,13 +108,13 @@ describe('compiler compatible', function() {
 
         describe('type implicit', function() {
 
-            let message = {
+            const message = {
                 data1 : {message : 1},
                 data2 : {message : 1},
                 data3 : {message : 1}
             };
 
-            let result = Map(message);
+            const result = Map(message);
 
             it('valid type', function() {
 
@@ -156,13 +156,13 @@ describe('compiler compatible', function() {
 
 describe('type equal', function() {
 
-    let message =  {
+    const message =  {
         data1 : {message : '1'},
         data2 : {message : '2'},
         data3 : {message : '3'}
     };
 
-    let result = Map(message);
+    const result = Map(message);
 
     it('validate type', function() {
 
@@ -183,13 +183,13 @@ describe('type equal', function() {
 
 describe('type different', function() {
 
-    let message = {
+    const message = {
         data1 : {message : 10},
         data2 : {message : 20},
         data3 : {message : 30}
     };
 
-    let result = Map(message);
+    const result = Map(message);
 
     it('validate type', function() {
 
@@ -209,7 +209,7 @@ describe('type different', function() {
 
 describe('type different', function() {
 
-    let message = {
+    const message = {
         data1 : {message : 10},
         data2 : {message : 20},
         data3 : {
@@ -220,7 +220,7 @@ describe('type different', function() {
         }
     };
 
-    let result = Map(message);
+    const result = Map(message);
 
     it('validate type', function() {
 

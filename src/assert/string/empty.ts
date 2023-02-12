@@ -1,6 +1,6 @@
-import Name from '../../string/name';
-import Validatable from '@alirya/validatable/validatable';
-import Value from '@alirya/value/value';
+import Name from '../../string/name.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import Value from '@alirya/value/value.js';
 
 /**
  * string intended for empty object
@@ -13,7 +13,7 @@ import Value from '@alirya/value/value';
 export function EmptyParameters(
    value : object,
    valid : boolean,
-   subject : string = '',
+   subject  = '',
 ) : string {
 
     const strings : string[] = [];

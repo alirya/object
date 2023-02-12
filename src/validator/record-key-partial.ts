@@ -1,13 +1,13 @@
-import Validator from '@alirya/validator/validator';
-import Validatable from '@alirya/validatable/validatable';
-import ReturnInfer from '@alirya/validator/validatable/infer-static';
-import ValidateRecordKeyPartial from './validatable/record/record-key-partial';
+import Validator from '@alirya/validator/validator.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import ReturnInfer from '@alirya/validator/validatable/infer-static.js';
+import ValidateRecordKeyPartial from './validatable/record/record-key-partial.js';
 import RecordKeyCallback, {
     RecordKeyCallbackReturn as RecordKeyPartialReturn
-} from './record-key-callback';
-import ValidatorContainer from '@alirya/validator/validator/validator';
-import Message from '@alirya/message/message';
-import Instance from '@alirya/validator/validatable/validatable';
+} from './record-key-callback.js';
+import ValidatorContainer from '@alirya/validator/validator/validator.js';
+import Message from '@alirya/message/message.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
 
 export function RecordKeyPartialParameters<
     ValidatorType extends Validator = Validator,

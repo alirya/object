@@ -1,5 +1,5 @@
-import NotEmptyType from '../string/not-empty';
-import Value from '@alirya/value/value';
+import NotEmptyType from '../string/not-empty.js';
+import Value from '@alirya/value/value.js';
 
 export function NotEmptyParameters(
     value,

@@ -1,17 +1,17 @@
-import MapCallback from '../../dist/map-callback';
+import MapCallback from '../../dist/map-callback.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 it('basic', () => {
 
-    let source = {
+    const source = {
         number : 1,
         string : 'string',
         boolean : true,
         object : {},
     };
 
-    let map = MapCallback(source, (value)=>'replaced');
+    const map = MapCallback(source, (value)=>'replaced.js');
 
     let string : string;
     string = map.number;
@@ -27,22 +27,22 @@ it('basic', () => {
 
 it('callback parameter', () => {
 
-    let source = {
+    const source = {
         number : 1,
         string : 'string',
         boolean : true,
         object : {},
     };
 
-    let map = MapCallback(source, (value, key)=>{
+    const map = MapCallback(source, (value, key)=>{
 
         if(key === 'object') {
 
             // @ts-ignore
-            let object : object = value;
+            const object : object = value;
         }
 
-        return 'replaced';
+        return 'replaced.js';
     });
 
 

@@ -1,6 +1,6 @@
 import {O} from 'ts-toolbelt';
 import {Required} from 'utility-types';
-import {PropertiesLazyDynamicParameters} from './properties-lazy-dynamic';
+import {PropertiesLazyDynamicParameters} from './properties-lazy-dynamic.js';
 
 export type PropertiesLazyStaticReturnReadonly<
     This extends Record<PropertyKey, unknown>,
@@ -55,8 +55,8 @@ export function PropertiesLazyStrictParameters<
 >(
     object : This,
     factory : Partial<This>,
-    writable : boolean = true,
-    configurable : boolean = true
+    writable  = true,
+    configurable  = true
 ) : PropertiesLazyStaticReturnWritable<This, Implement> {
 
     return PropertiesLazyDynamicParameters(object, factory, writable as true, configurable) as PropertiesLazyStaticReturnWritable<This, Implement>;

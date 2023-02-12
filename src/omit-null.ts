@@ -10,7 +10,7 @@ export default function OmitNull<O extends object>(
     object : O,
 )  : OmitNullType<O> {
 
-    for(let property in object) {
+    for(const property in object) {
 
         if(object[property] === null) {
 

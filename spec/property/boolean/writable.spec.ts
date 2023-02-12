@@ -1,4 +1,4 @@
-import {WritableParameters} from '../../../dist/property/boolean/writable';
+import {WritableParameters} from '../../../dist/property/boolean/writable.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -6,7 +6,7 @@ describe('plain', () => {
 
     it('property', () => {
 
-        let object = {property:true};
+        const object = {property:true};
 
         expect(WritableParameters(object, 'property')).toBe(true);
         expect(WritableParameters(object, 'notExists')).toBe(false);
@@ -15,7 +15,7 @@ describe('plain', () => {
 
     it('setter', () => {
 
-        let object = {
+        const object = {
             set setter (value) {},
         };
 
@@ -26,7 +26,7 @@ describe('plain', () => {
 
     it('getter', () => {
 
-        let object = {
+        const object = {
             get getter () { return 1; },
         };
 
@@ -44,7 +44,7 @@ describe('class', () => {
         class Test {
             property = true;
         }
-        let object = new Test;
+        const object = new Test;
 
         expect(WritableParameters(object, 'property')).toBe(true);
         expect(WritableParameters(object, 'notExists')).toBe(false);
@@ -57,7 +57,7 @@ describe('class', () => {
             set setter (value) {}
         }
 
-        let object = new Test;
+        const object = new Test;
 
         expect(WritableParameters(object, 'setter')).toBe(true);
         expect(WritableParameters(object, 'notExists')).toBe(false);
@@ -69,7 +69,7 @@ describe('class', () => {
         class Test {
             get getter () { return 1; }
         }
-        let object = new Test;
+        const object = new Test;
 
         expect(WritableParameters(object, 'getter')).toBe(false);
         expect(WritableParameters(object, 'notExists')).toBe(false);

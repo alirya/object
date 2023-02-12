@@ -1,15 +1,15 @@
-import {MapPartialParameters} from '../../../dist/validator/map-partial';
-import And from '../../../dist/validatable/and';
-import Or from '../../../dist/validatable/or';
-import Validatable from '@alirya/validatable/validatable';
-import MessageMap from '../../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
+import {MapPartialParameters} from '../../../dist/validator/map-partial.js';
+import And from '../../../dist/validatable/and.js';
+import Or from '../../../dist/validatable/or.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('flat', function() {
 
-    let value = {
+    const value = {
         name : 'name',
         address : 'age',
         user : 'address',
@@ -17,18 +17,18 @@ describe('flat', function() {
 
     it(`and validation`, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             address : TypeParameters('string'),
             user : TypeParameters('string'),
         };
 
-        let property = MapPartialParameters(validator,
+        const property = MapPartialParameters(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let validatable = property(value);
+        const validatable = property(value);
 
         expect(validatable.valid).toBe(true);
         expect(validatable.value).toEqual(value);
@@ -70,18 +70,18 @@ describe('flat', function() {
 
     it(`or validation`, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             address : TypeParameters('string'),
             user : TypeParameters('string'),
         };
 
-        let property = MapPartialParameters(validator,
+        const property = MapPartialParameters(validator,
             (v)=>Or(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let validatable = property(value);
+        const validatable = property(value);
 
         expect(validatable.valid).toBe(true);
         expect(validatable.value).toEqual(value);
@@ -127,7 +127,7 @@ describe('flat', function() {
 describe('recursive', function() {
 
 
-    let value = {
+    const value = {
         name : 'name',
         address : 'age',
         user : 'address',
@@ -140,7 +140,7 @@ describe('recursive', function() {
 
     it(`and validation`, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             address : TypeParameters('string'),
             user : TypeParameters('string'),
@@ -151,12 +151,12 @@ describe('recursive', function() {
             },(v)=>And(v), MessageMap)
         };
 
-        let property = MapPartialParameters(validator,
+        const property = MapPartialParameters(validator,
             (v)=>And(v),
             MessageMap
         );
 
-        let validatable = property(value);
+        const validatable = property(value);
 
         expect(validatable.valid).toBe(true);
         expect(validatable.value).toEqual(value);
@@ -222,7 +222,7 @@ describe('recursive', function() {
 
     it(`or validation`, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             address : TypeParameters('string'),
             user : TypeParameters('string'),
@@ -233,12 +233,12 @@ describe('recursive', function() {
             },(v)=>Or(v), MessageMap)
         };
 
-        let property = MapPartialParameters(validator,
+        const property = MapPartialParameters(validator,
             (v)=>Or(v),
             MessageMap
         );
 
-        let validatable = property(value);
+        const validatable = property(value);
 
         expect(validatable.valid).toBe(true);
         expect(validatable.value).toEqual(value);

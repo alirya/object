@@ -1,4 +1,4 @@
-import {PickParameters as SelectParameters, PickParameter as SelectParameter} from './pick';
+import {PickParameters as SelectParameters, PickParameter as SelectParameter} from './pick.js';
 
 
 export {SelectParameters};

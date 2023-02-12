@@ -1,5 +1,5 @@
-import GuardValidation from '@alirya/boolean/validation/guard';
-import RecordParameters from './record-parameters';
+import GuardValidation from '@alirya/boolean/validation/guard.js';
+import RecordParameters from './record-parameters.js';
 
 /**
  * assert if {@param list} is list of {@template Value}

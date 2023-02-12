@@ -1,10 +1,10 @@
-import {SetPropertyParameters} from '../../../../dist/value/value/set-property';
+import {SetPropertyParameters} from '../../../../dist/value/value/set-property.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
 it('plain', () => {
 
-    let object = {
+    const object = {
 
         get data ()  {
 
@@ -12,13 +12,13 @@ it('plain', () => {
         }
     };
 
-    let string : string = object.data;
+    const string : string = object.data;
 
 });
 
 it('different type', () => {
 
-    let object = {
+    const object = {
 
         get data () : number {
 
@@ -27,7 +27,7 @@ it('different type', () => {
         }
     };
     // @ts-expect-error
-    let string : string = object.data;
+    const string : string = object.data;
 
 });
 
@@ -47,8 +47,8 @@ describe('class', () => {
             }
         }
 
-        let type : Interface = new Implementer();
-        let string : string = type.data;
+        const type : Interface = new Implementer();
+        const string : string = type.data;
 
     });
 
@@ -62,8 +62,8 @@ describe('class', () => {
             }
         }
 
-        let type : Interface = new Test();
-        let string : string = type.data;
+        const type : Interface = new Test();
+        const string : string = type.data;
 
     });
 });
@@ -72,7 +72,7 @@ describe('not exists', () => {
 
     it('var', () => {
 
-        let object = {
+        const object = {
 
             get data ()  {
 
@@ -81,13 +81,13 @@ describe('not exists', () => {
             }
         };
 
-        let string : string = object.data;
+        const string : string = object.data;
 
     });
 
     it('this', () => {
 
-        let object = {
+        const object = {
 
             get data ()  {
 
@@ -95,7 +95,7 @@ describe('not exists', () => {
             }
         };
 
-        let string : string = object.data;
+        const string : string = object.data;
 
     });
 });

@@ -1,6 +1,6 @@
-import Guard from '../boolean/object';
-import Callback from '@alirya/function/assert/callback';
-import StringError from './throwable/object';
+import Guard from '../boolean/object.js';
+import Callback from '@alirya/function/assert/callback.js';
+import StringError from './throwable/object.js';
 
 export default function Object_(
     value : unknown,

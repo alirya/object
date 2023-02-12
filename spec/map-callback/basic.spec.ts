@@ -1,17 +1,17 @@
-import MapCallback from '../../dist/map-callback';
+import MapCallback from '../../dist/map-callback.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 it('basic', () => {
 
-    let source = {
+    const source = {
         number : 1,
         string : 'string',
         boolean : true,
         object : {},
     };
 
-    let map = MapCallback(source, (value)=>'replaced');
+    const map = MapCallback(source, (value)=>'replaced');
 
     expect(map.number).toBe('replaced');
     expect(map.string).toBe('replaced');

@@ -1,13 +1,13 @@
-import {RecordKeyAllParameters} from '../../dist/validator/record-key-all';
-import And from '../../dist/validatable/and';
-import Or from '../../dist/validatable/or';
-import Validatable from '@alirya/validatable/validatable';
-import ValidatorInterface from '@alirya/validator/simple';
-import Message from '@alirya/message/message';
-import MessageMap from '../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
-import Instance from '@alirya/validator/validatable/validatable';
-import {CallbackParameters} from '@alirya/validator/callback';
+import {RecordKeyAllParameters} from '../../dist/validator/record-key-all.js';
+import And from '../../dist/validatable/and.js';
+import Or from '../../dist/validatable/or.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import ValidatorInterface from '@alirya/validator/simple.js';
+import Message from '@alirya/message/message.js';
+import MessageMap from '../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
+import {CallbackParameters} from '@alirya/validator/callback.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -15,31 +15,31 @@ describe('compiler compatibility', function() {
 
     type TypeValidatorValue = ValidatorInterface<PropertyKey, string, string>;
 
-    let validator = TypeParameters('string');
+    const validator = TypeParameters('string');
 
     type Type = {
         name : string,
         address : string,
     };
 
-    let value = {
+    const value = {
         name : 'name',
         address : 'address',
     };
 
     it('implicit', function() {
 
-        let property = RecordKeyAllParameters(validator, And, MessageMap);
+        const property = RecordKeyAllParameters(validator, And, MessageMap);
 
-        let validatable = property(value);
+        const validatable = property(value);
 
         if(validatable.valid) {
 
-            let string : Type = validatable.value;
+            const string : Type = validatable.value;
 
         } else {
 
-            let unknown : unknown = validatable.value;
+            const unknown : unknown = validatable.value;
         }
 
     });
@@ -48,44 +48,44 @@ describe('compiler compatibility', function() {
 
         it('auto', function() {
 
-            let property = RecordKeyAllParameters<TypeValidatorValue>(validator,
+            const property = RecordKeyAllParameters<TypeValidatorValue>(validator,
                 (v)=>And(v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
-            let unknown : unknown = validatable.value;
-            let record : Type = validatable.value;
+            const unknown : unknown = validatable.value;
+            const record : Type = validatable.value;
 
         });
 
         it('direct', function() {
 
-            let property = RecordKeyAllParameters<TypeValidatorValue>(validator,
+            const property = RecordKeyAllParameters<TypeValidatorValue>(validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
-            let unknown : unknown = validatable.value;
-            let record : Type = validatable.value;
+            const unknown : unknown = validatable.value;
+            const record : Type = validatable.value;
 
         });
     });
 
     it('implicit partial', function() {
 
-        let property = RecordKeyAllParameters(validator,
+        const property = RecordKeyAllParameters(validator,
             (v)=>And(<globalThis.Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let validatable = property(value);
+        const validatable = property(value);
 
-        let unknown : unknown = validatable.value;
-        let val : Type = validatable.value;
+        const unknown : unknown = validatable.value;
+        const val : Type = validatable.value;
 
     });
 
@@ -93,31 +93,31 @@ describe('compiler compatibility', function() {
 
         it('auto', function() {
 
-            let property = RecordKeyAllParameters<TypeValidatorValue>(
+            const property = RecordKeyAllParameters<TypeValidatorValue>(
                 validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
-            let unknown : unknown = validatable.value;
-            let string : Type = validatable.value;
+            const unknown : unknown = validatable.value;
+            const string : Type = validatable.value;
 
         });
 
         it('direct', function() {
 
-            let property = RecordKeyAllParameters<TypeValidatorValue>(
+            const property = RecordKeyAllParameters<TypeValidatorValue>(
                 validator,
                 (v)=>And(<globalThis.Record<any, Validatable>>v),
                 (v)=>MessageMap(<globalThis.Record<any, Message>>v)
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
-            let unknown : unknown = validatable.value;
-            let string : Type = validatable.value;
+            const unknown : unknown = validatable.value;
+            const string : Type = validatable.value;
 
         });
     });
@@ -131,9 +131,9 @@ describe('implicit complete', function() {
 
     describe('all valid', function() {
 
-        let validator = TypeParameters('string');
+        const validator = TypeParameters('string');
 
-        let value = {
+        const value = {
             name : 'string',
             address : 'string',
             user : 'string',
@@ -141,12 +141,12 @@ describe('implicit complete', function() {
 
         it(`and validation`, () => {
 
-            let property =  RecordKeyAllParameters(validator,
+            const property =  RecordKeyAllParameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -164,12 +164,12 @@ describe('implicit complete', function() {
 
         it(`or validation`, () => {
 
-            let property =  RecordKeyAllParameters(validator,
+            const property =  RecordKeyAllParameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );
 
-            let validatable = property(value);
+            const validatable = property(value);
 
             expect(validatable.valid).toBe(true);
             expect(validatable.value).toBe(value);
@@ -188,13 +188,13 @@ describe('implicit complete', function() {
 
     describe('mixed', function() {
 
-        let validator = CallbackParameters<string, string>(function (value) {
+        const validator = CallbackParameters<string, string>(function (value) {
             return  ['name', 'address'].includes(value);
         }, function (value, valid){
             return value + ' ' + (valid ? 'valid' : 'true');
         }, );
 
-        let value = {
+        const value = {
             name : 'string',
             age : 'string',
             address : 'string',
@@ -202,12 +202,12 @@ describe('implicit complete', function() {
 
         it(`and validation`, () => {
 
-            let property = RecordKeyAllParameters(validator,
+            const property = RecordKeyAllParameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
 
-            let and = property(value);
+            const and = property(value);
 
             expect<boolean>(and.valid).toBe(false);
 
@@ -226,12 +226,12 @@ describe('implicit complete', function() {
 
         it(`or validation `, () => {
 
-            let property = RecordKeyAllParameters(validator,
+            const property = RecordKeyAllParameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );
 
-            let or = property(value);
+            const or = property(value);
 
             expect(or.valid).toBe(true);
             expect(or.value).toBe(value);
@@ -251,14 +251,14 @@ describe('implicit complete', function() {
 
     describe('all invalid', function() {
 
-        let validator = CallbackParameters<string, string>(function (value) {
+        const validator = CallbackParameters<string, string>(function (value) {
             return ! ['name', 'age', 'address'].includes(value);
         },function (value, valid){
             return value + ' ' + (valid ? 'valid' : 'true');
         }, );
 
 
-        let value = {
+        const value = {
             name : 'string',
             age : 'string',
             address : 'string',
@@ -266,12 +266,12 @@ describe('implicit complete', function() {
 
         it(`and validation`, () => {
 
-            let property = RecordKeyAllParameters(validator,
+            const property = RecordKeyAllParameters(validator,
                 (v)=>And(v),
                 MessageMap
             );
 
-            let and = property(value);
+            const and = property(value);
 
             expect<boolean>(and.valid).toBe(false);
             expect(and.value).toEqual(value);
@@ -288,12 +288,12 @@ describe('implicit complete', function() {
 
         it(`or validation `, () => {
 
-            let property = RecordKeyAllParameters(validator,
+            const property = RecordKeyAllParameters(validator,
                 (v)=>Or(v),
                 MessageMap
             );
 
-            let or = property(value);
+            const or = property(value);
 
             expect<boolean>(or.valid).toBe(false);
             expect(or.value).toEqual(value);

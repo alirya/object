@@ -1,4 +1,4 @@
-import OmitUndefined from '../dist/omit-undefined';
+import OmitUndefined from '../dist/omit-undefined.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -14,13 +14,13 @@ describe('compiler compatibility', () => {
 
     it('explicit', () => {
 
-        let data : Test = {
+        const data : Test = {
             required : 'required',
             nullable : 'nullable',
             optionalUnion : undefined,
         };
 
-        let result = OmitUndefined(data);
+        const result = OmitUndefined(data);
 
 
         data.required = result.required;
@@ -36,13 +36,13 @@ describe('compiler compatibility', () => {
 
     it('implicit', () => {
 
-        let data = {
+        const data = {
             required : 'required',
             nullable : 'nullable',
             optionalUnion : undefined,
         };
 
-        let result = OmitUndefined(data);
+        const result = OmitUndefined(data);
 
 
         data.required = result.required;
@@ -62,14 +62,14 @@ describe('data', () => {
 
     it('explicit', () => {
 
-        let data = {
+        const data = {
             required : 'required',
             nullable : 'nullable',
             undefined : undefined,
             null : null,
         };
 
-        let result = OmitUndefined(data);
+        const result = OmitUndefined(data);
 
         expect(result.required).toBe('required');
         expect(result.nullable).toBe('nullable');

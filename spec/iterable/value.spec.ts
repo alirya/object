@@ -1,10 +1,10 @@
-import Property from '../../dist/iterable/property';
+import Property from '../../dist/iterable/property.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('property', () => {
 
-    let object = {
+    const object = {
         data1 : 1,
         data2 : 2,
         data3 : 3,
@@ -26,7 +26,7 @@ describe('property', () => {
 
 describe('function', () => {
 
-    let object = {
+    const object = {
         function1 : function() {},
         function2 : function() {},
         function3 : function() {},

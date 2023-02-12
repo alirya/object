@@ -1,4 +1,4 @@
-import Plain from '../../dist/boolean/plain';
+import Plain from '../../dist/boolean/plain.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -13,7 +13,7 @@ describe('test', () => {
     });
 
     it(`array`, () => {
-        expect(Plain(new Array())).toBe(false);
+        expect(Plain([])).toBe(false);
     });
 
 });

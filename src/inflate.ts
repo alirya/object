@@ -1,10 +1,10 @@
-import Callable from '@alirya/function/callable';
-import {SetPathParameters} from './set-path';
-import Escape from '@alirya/string/pattern/escape';
-import NotEmpty from '@alirya/string/ensure/not-empty';
+import Callable from '@alirya/function/callable.js';
+import {SetPathParameters} from './set-path.js';
+import Escape from '@alirya/string/pattern/escape.js';
+import NotEmpty from '@alirya/string/ensure/not-empty.js';
 import CaseInsensitiveObject from "case-insensitive-object";
-import MapCallback from './map-callback';
-import Object_ from './boolean/object';
+import MapCallback from './map-callback.js';
+import Object_ from './boolean/object.js';
 
 export type InflateType<
     Flat extends Record<string, unknown>,
@@ -69,12 +69,12 @@ export function InflateParameters<
     Value = Flat[keyof Flat]
 >(
     object: Flat,
-    prefix: string = '',
-    delimiter: string = '_',
+    prefix = '',
+    delimiter = '_',
     value : Callable<[key:string, keys:string[], value:Flat[keyof Flat]], Flat[keyof Flat]|Value> = ( key, keys, value)=>value,
     keys : Callable<[key:string, keys:string[], value:Flat[keyof Flat]], string[]> = ( key, keys, value)=>keys,
-    flat: boolean = false,
-    original: boolean = false,
+    flat = false,
+    original = false,
 ) : InflateType<Flat, Value> {
 
     delimiter = NotEmpty(delimiter);
@@ -91,7 +91,7 @@ export function InflateParameters<
     const prefixMatch = new RegExp(`^${prefix}${escaped}?`, 'i');
     const delimiterMatch = new RegExp(escaped, 'gi');
 
-    for (let key in object) {
+    for (const key in object) {
 
         if(key.match(prefixMatch)) {
 

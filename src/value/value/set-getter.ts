@@ -1,5 +1,5 @@
-import Value from '@alirya/value/value';
-import Property from '../../property/property/property';
+import Value from '@alirya/value/value.js';
+import Property from '../../property/property/property.js';
 
 /**
  * set {@param value} for getter value for {@param object}
@@ -23,7 +23,7 @@ export function SetGetterParameters<
      object : This,
      property : keyof This,
      value : Type,
-     configurable : boolean = true,
+     configurable  = true,
 ) : Type {
 
     return (Object.defineProperty(object, property, {

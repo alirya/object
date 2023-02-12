@@ -1,10 +1,10 @@
-import Validator from '@alirya/validator/validator';
-import MapInterface from '../../../map';
+import Validator from '@alirya/validator/validator.js';
+import MapInterface from '../../../map.js';
 import {O} from 'ts-toolbelt';
-import InferStatic from '@alirya/validator/validatable/infer-static';
-import IteratorRecordValue from '../iterator/record-value';
-import Value from '@alirya/value/value';
-import ValidatorContainer from '@alirya/validator/validator/validator';
+import InferStatic from '@alirya/validator/validatable/infer-static.js';
+import IteratorRecordValue from '../iterator/record-value.js';
+import Value from '@alirya/value/value.js';
+import ValidatorContainer from '@alirya/validator/validator/validator.js';
 
 
 export function RecordValuePartialParameters<
@@ -16,7 +16,7 @@ export function RecordValuePartialParameters<
      stop = false,
 ) : Partial<MapInterface<RecordType, InferStatic<ValidatorType>>> {
 
-    let result = {};
+    const result = {};
 
     for(const [key, validatable] of IteratorRecordValue.Parameters(value, validator)) {
 

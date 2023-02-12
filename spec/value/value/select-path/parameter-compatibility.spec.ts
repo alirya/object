@@ -1,5 +1,5 @@
-import {SelectPathParameters} from '../../../../dist/value/value/select-path';
-import {SelectPathParameter} from '../../../../dist/value/value/select-path';
+import {SelectPathParameters} from '../../../../dist/value/value/select-path.js';
+import {SelectPathParameter} from '../../../../dist/value/value/select-path.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 

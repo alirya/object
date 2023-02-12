@@ -1,8 +1,8 @@
-import Validator from '@alirya/validator/simple';
-import ObjectValidatable from '../validatable/object';
-import Instance from '@alirya/validator/validatable/validatable';
-import ObjectString from '../assert/string/object';
-import Simple from '@alirya/validator/message/function/simple';
+import Validator from '@alirya/validator/simple.js';
+import ObjectValidatable from '../validatable/object.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
+import ObjectString from '../assert/string/object.js';
+import Simple from '@alirya/validator/message/function/simple.js';
 
 export function ObjectParameters() : Validator<unknown, object, string>;
 

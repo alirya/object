@@ -1,4 +1,4 @@
-import Type from '../../../dist/descriptor/boolean/setter';
+import Type from '../../../dist/descriptor/boolean/setter.js';
 
 
 
@@ -12,12 +12,12 @@ describe('getter/setter', function() {
             get getter () { return 1;}
         }
 
-        let object = new Class();
+        const object = new Class();
 
         it(`check setter`, () => {
 
-            let prototype = Object.getPrototypeOf(object);
-            let descriptor = Object.getOwnPropertyDescriptor(prototype, 'setter');
+            const prototype = Object.getPrototypeOf(object);
+            const descriptor = Object.getOwnPropertyDescriptor(prototype, 'setter');
 
             if(descriptor) {
 
@@ -31,8 +31,8 @@ describe('getter/setter', function() {
 
         it(`check getter`, () => {
 
-            let prototype = Object.getPrototypeOf(object);
-            let descriptor = Object.getOwnPropertyDescriptor(prototype, 'getter');
+            const prototype = Object.getPrototypeOf(object);
+            const descriptor = Object.getOwnPropertyDescriptor(prototype, 'getter');
 
             if(descriptor) {
 
@@ -49,7 +49,7 @@ describe('getter/setter', function() {
     describe('object', function() {
 
 
-        let object = {
+        const object = {
             set setter (value) {},
             get getter () { return 1;}
         };
@@ -57,7 +57,7 @@ describe('getter/setter', function() {
         it(`check setter`, () => {
 
 
-            let descriptor = Object.getOwnPropertyDescriptor(object, 'setter');
+            const descriptor = Object.getOwnPropertyDescriptor(object, 'setter');
 
             if(descriptor) {
 
@@ -72,7 +72,7 @@ describe('getter/setter', function() {
         it(`check getter`, () => {
 
 
-            let descriptor = Object.getOwnPropertyDescriptor(object, 'getter');
+            const descriptor = Object.getOwnPropertyDescriptor(object, 'getter');
 
             if(descriptor) {
 
@@ -88,11 +88,11 @@ describe('getter/setter', function() {
 
     describe('native', function() {
 
-        let string = new String('a');
+        const string = new String('a');
 
         it(`check setter`, () => {
 
-            let descriptor = Object.getOwnPropertyDescriptor(string, 'length');
+            const descriptor = Object.getOwnPropertyDescriptor(string, 'length');
 
             if(descriptor) {
 
@@ -107,7 +107,7 @@ describe('getter/setter', function() {
         it(`check getter`, () => {
 
 
-            let descriptor = Object.getOwnPropertyDescriptor(string, 'length');
+            const descriptor = Object.getOwnPropertyDescriptor(string, 'length');
 
             if(descriptor) {
 
@@ -131,11 +131,11 @@ describe('property', function() {
             data = 1;
         }
 
-        let object = new Class();
+        const object = new Class();
 
         it(`check setter`, () => {
 
-            let descriptor = Object.getOwnPropertyDescriptor(object, 'data');
+            const descriptor = Object.getOwnPropertyDescriptor(object, 'data');
 
             if(descriptor) {
 
@@ -150,7 +150,7 @@ describe('property', function() {
         it(`check getter`, () => {
 
 
-            let descriptor = Object.getOwnPropertyDescriptor(object, 'data');
+            const descriptor = Object.getOwnPropertyDescriptor(object, 'data');
 
             if(descriptor) {
 
@@ -166,11 +166,11 @@ describe('property', function() {
 
     describe('native', function() {
 
-        let string = new Array('a');
+        const string = new Array('a');
 
         it(`check setter`, () => {
 
-            let descriptor = Object.getOwnPropertyDescriptor(string, 'length');
+            const descriptor = Object.getOwnPropertyDescriptor(string, 'length');
 
             if(descriptor) {
 
@@ -185,7 +185,7 @@ describe('property', function() {
         it(`check getter`, () => {
 
 
-            let descriptor = Object.getOwnPropertyDescriptor(string, 'length');
+            const descriptor = Object.getOwnPropertyDescriptor(string, 'length');
 
             if(descriptor) {
 

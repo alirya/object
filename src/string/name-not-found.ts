@@ -1,10 +1,10 @@
-import Validatable from '@alirya/validatable/validatable';
-import Value from '@alirya/value/value';
+import Validatable from '@alirya/validatable/validatable.js';
+import Value from '@alirya/value/value.js';
 
 export function NameNotFoundParameters(
     valid : boolean,
     value : unknown,
-    subject : string = 'type',
+    subject  = 'type',
     conversion : (value:unknown)=>string = value=>typeof value,
 ) : string {
 

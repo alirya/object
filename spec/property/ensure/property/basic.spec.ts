@@ -1,19 +1,19 @@
-import {PropertyParameters} from '../../../../dist/property/ensure/property';
-import String from '@alirya/string/ensure/string';
+import {PropertyParameters} from '../../../../dist/property/ensure/property.js';
+import String from '@alirya/string/ensure/string.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 it('object', ()=> {
 
 
-    let object: {} = {};
+    const object: {} = {};
 
     try {
         const ensured = PropertyParameters(object, 'property', String);
 
-        let string : string = ensured.property;
+        const string : string = ensured.property;
         // @ts-expect-error
-        let number : number = ensured.property;
+        const number : number = ensured.property;
 
         fail('error should thrown');
 
@@ -27,16 +27,16 @@ it('object', ()=> {
 it('object', ()=> {
 
 
-    let object: {
+    const object: {
         property ?: string
     } = {};
 
     try {
         const ensured = PropertyParameters(object, 'property', String);
 
-        let string : string = ensured.property;
+        const string : string = ensured.property;
         // @ts-expect-error
-        let number : number = ensured.property;
+        const number : number = ensured.property;
 
         fail('error should thrown');
 
@@ -50,7 +50,7 @@ it('object', ()=> {
 it('object', ()=> {
 
 
-    let object: {
+    const object: {
         property ?: string
     } = {
         property : ''
@@ -59,9 +59,9 @@ it('object', ()=> {
     try {
         const ensured = PropertyParameters(object, 'property', String);
 
-        let string : string = ensured.property;
+        const string : string = ensured.property;
         // @ts-expect-error
-        let number : number = ensured.property;
+        const number : number = ensured.property;
 
         expect(ensured.property).toBe('');
 

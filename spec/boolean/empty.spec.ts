@@ -1,4 +1,4 @@
-import Empty from '../../dist/boolean/empty';
+import Empty from '../../dist/boolean/empty.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -28,7 +28,7 @@ describe('invalid', () => {
     });
 
     it(`native instance`, () => {
-        expect(Empty(new Array())).toBe(false);
+        expect(Empty([])).toBe(false);
     });
 
 

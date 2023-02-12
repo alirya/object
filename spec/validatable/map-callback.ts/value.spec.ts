@@ -1,10 +1,10 @@
-import {MapCallbackParameters} from '../../../dist/validatable/map-callback';
-import {MapParameters} from '../../../dist/validator/validatable/record/map';
-import And from '../../../dist/validatable/and';
-import MessageMap from '../../../dist/message/message/record/map';
-import {TypeParameters} from '@alirya/type/validator/type';
+import {MapCallbackParameters} from '../../../dist/validatable/map-callback.js';
+import {MapParameters} from '../../../dist/validator/validatable/record/map.js';
+import And from '../../../dist/validatable/and.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import {TypeParameters} from '@alirya/type/validator/type.js';
 
-let validator = {
+const validator = {
     name : TypeParameters('string'),
     address : TypeParameters('string'),
 };
@@ -12,12 +12,12 @@ let validator = {
 
 it('same value', function() {
 
-    let value = {
+    const value = {
         name : 'name',
         address : 'address',
     };
 
-    let validatable = new MapCallbackParameters(value, validator, MapParameters, And, MessageMap);
+    const validatable = new MapCallbackParameters(value, validator, MapParameters, And, MessageMap);
 
     expect(value).toEqual(validatable.value);
 
@@ -25,13 +25,13 @@ it('same value', function() {
 
 it('extra', function() {
 
-    let value = {
+    const value = {
         name : 'name',
         address : 'address',
         extra : 'value',
     };
 
-    let validatable = new MapCallbackParameters(value, validator, MapParameters, And, MessageMap);
+    const validatable = new MapCallbackParameters(value, validator, MapParameters, And, MessageMap);
 
     // expect(value).not.toEqual(validatable.value);
     expect(value).toEqual(validatable.value);
@@ -51,12 +51,12 @@ it('extra', function() {
 
 it('missing', function() {
 
-    let value = {
+    const value = {
         name : 'name',
     };
 
 
-    let validatable = new MapCallbackParameters(
+    const validatable = new MapCallbackParameters(
         // @ts-expect-error
         value,
         validator, MapParameters, And, MessageMap);

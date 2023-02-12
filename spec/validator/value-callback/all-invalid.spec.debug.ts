@@ -1,20 +1,20 @@
-import {TypeParameters} from '@alirya/type/validator/type';
-import {ValueCallbackParameters} from '../../../dist/validator/value-callback';
-import {ValueParameters} from '../../../dist/validator/validatable/record/value';
-import And from '../../../dist/validatable/and';
-import MessageMap from '../../../dist/message/message/record/map';
-import Or from '../../../dist/validatable/or';
-import ValidatorValidatable from '../../../dist/validator/validatable/record/infer';
-import {ValuePartialParameters} from '../../../dist/validator/validatable/record/value-partial';
-import Validatable from '@alirya/validatable/validatable';
-import Infer from '../../../dist/validator/validatable/record/infer';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import {ValueCallbackParameters} from '../../../dist/validator/value-callback.js';
+import {ValueParameters} from '../../../dist/validator/validatable/record/value.js';
+import And from '../../../dist/validatable/and.js';
+import MessageMap from '../../../dist/message/message/record/map.js';
+import Or from '../../../dist/validatable/or.js';
+import ValidatorValidatable from '../../../dist/validator/validatable/record/infer.js';
+import {ValuePartialParameters} from '../../../dist/validator/validatable/record/value-partial.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import Infer from '../../../dist/validator/validatable/record/infer.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 describe('flat', function() {
 
-    let validator = {
+    const validator = {
         name : TypeParameters('string'),
         age : TypeParameters('number'),
         address : TypeParameters('string'),
@@ -29,9 +29,9 @@ describe('flat', function() {
 
     it(`and validation`, () => {
 
-        let property = ValueCallbackParameters<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValueParameters, And, result => MessageMap(result));
+        const property = ValueCallbackParameters<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValueParameters, And, result => MessageMap(result));
 
-        let and = property({});
+        const and = property({});
 
         expect<boolean>(and.valid).toBe(false);
         expect(and.value).toEqual({});
@@ -48,9 +48,9 @@ describe('flat', function() {
 
     it(`or validation `, () => {
 
-        let property = ValueCallbackParameters<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValueParameters, Or, result => MessageMap(result));
+        const property = ValueCallbackParameters<any, string, Messages, typeof validator, Infer<typeof validator>>(validator, ValueParameters, Or, result => MessageMap(result));
 
-        let or = property({});
+        const or = property({});
 
         expect<boolean>(or.valid).toBe(false);
         expect(or.value).toEqual({});
@@ -77,7 +77,7 @@ describe('recursive', function() {
 
     it(`and validation`, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             age : TypeParameters('number'),
             address : TypeParameters('string'),
@@ -90,13 +90,13 @@ describe('recursive', function() {
                 MessageMap)
         };
 
-        let property = ValueCallbackParameters(validator,
+        const property = ValueCallbackParameters(validator,
             (value, validators) => <ValidatorValidatable<typeof validator>>ValuePartialParameters(value, validators),
             (v)=>And(<Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
-        let and = property({});
+        const and = property({});
 
         expect<boolean>(and.valid).toBe(false);
         expect(and.value).toEqual({});
@@ -126,7 +126,7 @@ describe('recursive', function() {
 
     it(`or validation `, () => {
 
-        let validator = {
+        const validator = {
             name : TypeParameters('string'),
             age : TypeParameters('number'),
             address : TypeParameters('string'),
@@ -139,14 +139,14 @@ describe('recursive', function() {
                 MessageMap)
         };
 
-        let property = ValueCallbackParameters(validator,
+        const property = ValueCallbackParameters(validator,
             (value, validators) => <ValidatorValidatable<typeof validator>>ValuePartialParameters(value, validators),
             (v)=>Or(<Record<PropertyKey, Validatable>>v),
             MessageMap
         );
 
 
-        let or = property({});
+        const or = property({});
 
         expect(or.value).toEqual({});
         expect<boolean>(or.valid).toBe(false);

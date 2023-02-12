@@ -1,6 +1,6 @@
-import Value from './value';
-import Validatable from '@alirya/validatable/validatable';
-import Property from '../../property/property/property';
+import Value from './value.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import Property from '../../property/property/property.js';
 
 export function ValueValidationParameters(
     property : PropertyKey,
@@ -9,7 +9,7 @@ export function ValueValidationParameters(
     validation : string,
 ) : string {
 
-    let message = Value.Parameters(property, valid, type);
+    const message = Value.Parameters(property, valid, type);
 
     return `${message}, against "${validation}"`;
 }

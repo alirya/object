@@ -1,12 +1,12 @@
-import Omit from '../dist/omit';
-import StrictOmit from '../dist/strict-omit';
+import Omit from '../dist/omit.js';
+import StrictOmit from '../dist/strict-omit.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 
 it(' compatibility', function () {
 
-    let source = {
+    const source = {
         string : 'string',
         number : 5,
         boolean : true,
@@ -14,26 +14,26 @@ it(' compatibility', function () {
         object : {},
     };
 
-    let result = Omit.Parameters(source, 'string', 'number');
+    const result = Omit.Parameters(source, 'string', 'number');
 
-    let omit : globalThis.Omit<typeof source, 'string'|'number'> = result;
-    let strictOmit : StrictOmit<typeof source, 'string'|'number'> = result;
-
-    // @ts-expect-error
-    let string : string = result.string;
+    const omit : globalThis.Omit<typeof source, 'string'|'number'> = result;
+    const strictOmit : StrictOmit<typeof source, 'string'|'number'> = result;
 
     // @ts-expect-error
-    let number : number = result.number;
-    let boolean : boolean = result.boolean;
-    let array : any[] = result.array;
-    let object : object = result.object;
+    const string : string = result.string;
+
+    // @ts-expect-error
+    const number : number = result.number;
+    const boolean : boolean = result.boolean;
+    const array : any[] = result.array;
+    const object : object = result.object;
 
 });
 
 
 it(' test', function () {
 
-    let source = {
+    const source = {
         string : 'string',
         number : 5,
         boolean : true,
@@ -41,10 +41,10 @@ it(' test', function () {
         object : {},
     };
 
-    let result = Omit.Parameters(source, 'string', 'number');
+    const result = Omit.Parameters(source, 'string', 'number');
 
-    let omit : globalThis.Omit<typeof source, 'string'|'number'> = result;
-    let strictOmit : StrictOmit<typeof source, 'string'|'number'> = result;
+    const omit : globalThis.Omit<typeof source, 'string'|'number'> = result;
+    const strictOmit : StrictOmit<typeof source, 'string'|'number'> = result;
 
     // @ts-expect-error
     expect(result.string).toBe(undefined);

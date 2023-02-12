@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 import {Required} from 'utility-types';
-import {ExistsDeepParameter, ExistsDeepParameters} from '../boolean/exists-deep';
+import {ExistsDeepParameter, ExistsDeepParameters} from '../boolean/exists-deep.js';
 
 
 export function PropertyParameters<

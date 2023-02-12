@@ -1,5 +1,5 @@
-import {ReadonlyParameters} from '../../dist/readonly';
-import CatchError from './catch-error';
+import {ReadonlyParameters} from '../../dist/readonly.js';
+import CatchError from './catch-error.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -7,14 +7,14 @@ describe('partial', () => {
 
     it('test', () => {
 
-        let source = {
+        const source = {
             number : 1,
             string : 'a',
             boolean : true,
             object : {},
         };
 
-        let readonly = ReadonlyParameters(source, 'number', 'boolean');
+        const readonly = ReadonlyParameters(source, 'number', 'boolean');
 
         expect(
             // @ts-expect-error
@@ -26,7 +26,7 @@ describe('partial', () => {
             CatchError(()=>readonly.boolean = true)
         ).toBeInstanceOf(Error);
 
-        readonly.string = 'a';
+        readonly.string = 'a.js';
         readonly.object = {};
     });
 });
@@ -35,14 +35,14 @@ describe('all', () => {
 
     it('test', () => {
 
-        let source = {
+        const source = {
             number : 1,
             string : 'a',
             boolean : true,
             object : {},
         };
 
-        let readonly = ReadonlyParameters(source);
+        const readonly = ReadonlyParameters(source);
 
         expect(
             // @ts-expect-error

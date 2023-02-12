@@ -1,5 +1,5 @@
-import MapCallback from '../../dist/map-callback';
-import {KeysParameters} from '../../dist/keys';
+import MapCallback from '../../dist/map-callback.js';
+import {KeysParameters} from '../../dist/keys.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -8,7 +8,7 @@ it('all false', () => {
 
     const symbol = Symbol('symbol');
 
-    let source = {
+    const source = {
         number : 1,
         string : 'string',
         get boolean () {
@@ -18,7 +18,7 @@ it('all false', () => {
         [symbol] : 'sym'
     };
 
-    let map = KeysParameters(source, false, false);
+    const map = KeysParameters(source, false, false);
 
     expect(map).toEqual([ 'number', 'string', 'boolean', 'object' ]);
 
@@ -28,7 +28,7 @@ it('all false', () => {
 
     const symbol = Symbol('_symbol_');
 
-    let source = {
+    const source = {
         number : 1,
         string : 'string',
         get boolean () {
@@ -38,7 +38,7 @@ it('all false', () => {
         [symbol] : 'sym'
     };
 
-    let map = KeysParameters(source, true, false);
+    const map = KeysParameters(source, true, false);
 
     expect(map).toEqual([
         'number',

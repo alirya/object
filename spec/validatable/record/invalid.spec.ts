@@ -1,16 +1,16 @@
-import Invalid from '../../../dist/validatable/record/invalid';
-import And from '../../../dist/validatable/and';
+import Invalid from '../../../dist/validatable/record/invalid.js';
+import And from '../../../dist/validatable/and.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('flat', function() {
 
-    let record = {
+    const record = {
         valid : {valid:true},
         invalid : {valid:false}
     };
 
-    let result = Invalid(record);
+    const result = Invalid(record);
 
     it('invalid', () => {
 
@@ -35,7 +35,7 @@ describe('flat', function() {
 
 describe('check property', function() {
 
-    let record = {
+    const record = {
 
         valid : {valid:true},
         invalid : {valid:false},
@@ -55,7 +55,7 @@ describe('check property', function() {
 
 
 
-    let result = Invalid(record);
+    const result = Invalid(record);
 
     it('invalid', () => {
 

@@ -1,10 +1,10 @@
-import Callback from '@alirya/validator/validatable/callback';
-import ObjectGuard from '../boolean/object';
-import Return from '@alirya/validator/validatable/simple';
-import Instance from '@alirya/validator/validatable/validatable';
-import Static from '@alirya/validator/message/function/static';
-import Value from '@alirya/value/value';
-import Message from '@alirya/message/message';
+import Callback from '@alirya/validator/validatable/callback.js';
+import ObjectGuard from '../boolean/object.js';
+import Return from '@alirya/validator/validatable/simple.js';
+import Instance from '@alirya/validator/validatable/validatable.js';
+import Static from '@alirya/validator/message/function/static.js';
+import Value from '@alirya/value/value.js';
+import Message from '@alirya/message/message.js';
 
 
 export function ObjectParameters<Argument, MessageType>(

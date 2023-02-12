@@ -1,7 +1,7 @@
-import Equal from '@alirya/boolean/equal';
-import Callable from '@alirya/function/callable';
+import Equal from '@alirya/boolean/equal.js';
+import Callable from '@alirya/function/callable.js';
 import {A} from 'ts-toolbelt';
-import Compare from '@alirya/boolean/compare/compare';
+import Compare from '@alirya/boolean/compare/compare.js';
 
 export type DifferenceParametersArgumentValidation<Type extends object, Compare extends object = Type>
     = Callable<[Type[keyof Type], A.At<Compare, keyof Type>, keyof Type], boolean>;

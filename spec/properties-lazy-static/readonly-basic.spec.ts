@@ -1,4 +1,4 @@
-import {PropertiesLazyStrictParameters} from '../../dist/properties-lazy-strict';
+import {PropertiesLazyStrictParameters} from '../../dist/properties-lazy-strict.js';
 
 it('enable console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -6,9 +6,9 @@ describe('plain', () => {
 
     let called = 0;
     let result : string;
-    let soruce = {};
+    const soruce = {};
 
-    let object = PropertiesLazyStrictParameters(
+    const object = PropertiesLazyStrictParameters(
         soruce,
         {
             get 'data' () {
@@ -72,10 +72,10 @@ describe('class', () => {
         }
     }
 
-    let source = new Test();
+    const source = new Test();
 
 
-    let object = PropertiesLazyStrictParameters(
+    const object = PropertiesLazyStrictParameters(
         source,
         {
             // @ts-expect-errors

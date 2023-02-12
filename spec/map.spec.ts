@@ -1,5 +1,5 @@
-import Map from '../dist/map-callback';
-import Convert from '../dist/map';
+import Map from '../dist/map-callback.js';
+import Convert from '../dist/map.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -16,12 +16,12 @@ interface Multi extends Single {
 
 it('single dimension', () => {
 
-    let single : Record<string, string> = {
+    const single : Record<string, string> = {
         str : 'string',
         num : 'string',
     };
 
-    let type : Convert<typeof single, boolean> = {
+    const type : Convert<typeof single, boolean> = {
 
         str : true, // Compile Pass
         num : true, // Compile Pass
@@ -30,7 +30,7 @@ it('single dimension', () => {
 
 it('multi dimension', () => {
 
-    let single  = {
+    const single  = {
         str : 'string',
         num : 'string',
         child : {
@@ -43,7 +43,7 @@ it('multi dimension', () => {
         }
     };
 
-    let type : Convert<typeof single, boolean> =  {
+    const type : Convert<typeof single, boolean> =  {
 
         str : true,
         num : true,
@@ -51,7 +51,7 @@ it('multi dimension', () => {
     };
 
 
-    let invalid : Convert<typeof single, boolean> =  {
+    const invalid : Convert<typeof single, boolean> =  {
         str : true,
         num : true,
         // @ts-expect-error
@@ -75,7 +75,7 @@ it('complex', () => {
         number : number;
     }
 
-    let convert : Convert<Data, boolean> = {
+    const convert : Convert<Data, boolean> = {
         string : true,
         number : false,
     };
@@ -83,7 +83,7 @@ it('complex', () => {
 });
 
 
-let data = {
+const data = {
     property1 : 1,
     property2 : 'string',
     property3 : true,
@@ -91,7 +91,7 @@ let data = {
 
 describe('implicit', function () {
 
-    let result = Map<typeof data, string>(data,  (v:any) => 'data');
+    const result = Map<typeof data, string>(data,  (v:any) => 'data');
 
     it(`check value`, () => {
 
@@ -103,7 +103,7 @@ describe('implicit', function () {
 
 describe('explicit', function () {
 
-    let result = Map(data,  (v:any) => 'data');
+    const result = Map(data,  (v:any) => 'data');
 
     it(`check value`, () => {
         expect(result.property1).toBe('data', 'property1');

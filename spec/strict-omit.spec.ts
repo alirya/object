@@ -1,4 +1,4 @@
-import StrictOmit from '../dist/strict-omit';
+import StrictOmit from '../dist/strict-omit.js';
 import {Omit as UtilityTypesOmit} from 'utility-types';
 import {Object} from 'ts-toolbelt';
 
@@ -22,7 +22,7 @@ it('compiler compatibility', function () {
     // @ts-expect-error
     let nonmembers : StrictOmit<Test, 'non'|'non2'>;
 
-    let withValue : StrictOmit<Test, 'string'> = {
+    const withValue : StrictOmit<Test, 'string'> = {
         boolean : true,
         number : 1,
     };
@@ -37,7 +37,7 @@ it('utility types compiler compatibility', function () {
     let nonmember : UtilityTypesOmit<Test, 'non'>;
     let nonmembers : UtilityTypesOmit<Test, 'non'|'non2'>;
 
-    let withValue : UtilityTypesOmit<Test, 'string'> = {
+    const withValue : UtilityTypesOmit<Test, 'string'> = {
         boolean : true,
         number : 1,
     };
@@ -52,7 +52,7 @@ it('ts toolbelt compiler compatibility', function () {
     let nonmember : Object.Omit<Test, 'non'>;
     let nonmembers : Object.Omit<Test, 'non'|'non2'>;
 
-    let withValue : Object.Omit<Test, 'string'> = {
+    const withValue : Object.Omit<Test, 'string'> = {
         boolean : true,
         number : 1,
     };
@@ -67,7 +67,7 @@ it('native compiler compatibility', function () {
     let nonmember : globalThis.Omit<Test, 'non'>;
     let nonmembers : globalThis.Omit<Test, 'non'|'non2'>;
 
-    let withValue : globalThis.Omit<Test, 'string'> = {
+    const withValue : globalThis.Omit<Test, 'string'> = {
         boolean : true,
         number : 1,
     };

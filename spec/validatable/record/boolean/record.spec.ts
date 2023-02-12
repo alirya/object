@@ -1,20 +1,20 @@
-import Record from '../../../../dist/validatable/record/boolean/record';
-import And from '../../../../dist/validatable/and';
+import Record from '../../../../dist/validatable/record/boolean/record.js';
+import And from '../../../../dist/validatable/and.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('compiler compatible', function () {
 
-    let record = {
+    const record = {
         valid :  {valid:true},
         invalid :  {valid:false},
     };
 
-    let object : object = record;
+    const object : object = record;
 
     it('check result', () => {
 
-        let result = Record(object);
+        const result = Record(object);
         expect(result).toBeTrue();
     });
 
@@ -67,16 +67,16 @@ describe('compiler compatible', function () {
 
 describe('valid single dimension', function () {
 
-    let record = {
+    const record = {
         valid :  {valid:true},
         invalid :  {valid:false},
     };
 
-    let object : object = record;
+    const object : object = record;
 
     it('check result', () => {
 
-        let result = Record(object);
+        const result = Record(object);
         expect(result).toBeTrue();
     });
 
@@ -92,17 +92,17 @@ describe('valid single dimension', function () {
 
 describe('invalid single dimension', function () {
 
-    let record = {
+    const record = {
         valid :  {valid:true},
         invalid : {valid:false},
         wrong : 1
     };
 
-    let object : object = record;
+    const object : object = record;
 
     it('check result', () => {
 
-        let result = Record(object);
+        const result = Record(object);
         expect(result).toBeFalse();
     });
 });
@@ -111,7 +111,7 @@ describe('invalid single dimension', function () {
 describe('valid multi dimension', function () {
 
 
-    let record = {
+    const record = {
         valid :  {valid:true},
         invalid : {valid:false},
         valids : And({
@@ -128,12 +128,12 @@ describe('valid multi dimension', function () {
         })
     };
 
-    let object : object = record;
+    const object : object = record;
 
 
     it('valid', () => {
 
-        let result = Record(object);
+        const result = Record(object);
         expect(result).toBeTrue();
     });
 

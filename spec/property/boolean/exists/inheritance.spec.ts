@@ -1,4 +1,4 @@
-import {ExistsParameters} from '../../../../dist/property/boolean/exists';
+import {ExistsParameters} from '../../../../dist/property/boolean/exists.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -34,7 +34,7 @@ it(`method`, () => {
         }
     }
 
-    let object = new Children(1, 2);
+    const object = new Children(1, 2);
     expect(ExistsParameters(object, 'parent')).toBe(true);
     expect(ExistsParameters(object, 'children')).toBe(true);
 });

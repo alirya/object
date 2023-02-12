@@ -1,6 +1,6 @@
-import Guard from '../boolean/empty';
-import Callback from '@alirya/function/assert/callback';
-import EmptyError from './throwable/empty';
+import Guard from '../boolean/empty.js';
+import Callback from '@alirya/function/assert/callback.js';
+import EmptyError from './throwable/empty.js';
 
 export default function Empty(
     value : object,

@@ -1,5 +1,5 @@
-import MapCallback from '../../dist/map-callback';
-import {KeysParameters} from '../../dist/keys';
+import MapCallback from '../../dist/map-callback.js';
+import {KeysParameters} from '../../dist/keys.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -29,7 +29,7 @@ class Test {
 
 it('all false', () => {
 
-    let map = KeysParameters(new Test(), false, false);
+    const map = KeysParameters(new Test(), false, false);
 
     expect(map).toEqual([  ]);
 
@@ -37,7 +37,7 @@ it('all false', () => {
 
 it('all false', () => {
 
-    let map = KeysParameters(new Test(), true, false);
+    const map = KeysParameters(new Test(), true, false);
 
     expect(map).toEqual([ 'number', 'string', 'boolean' ]);
 
@@ -45,7 +45,7 @@ it('all false', () => {
 
 it('all false', () => {
 
-    let map = KeysParameters(new Test(), false, true);
+    const map = KeysParameters(new Test(), false, true);
 
     expect(map).toEqual([ Symbol.iterator ]);
 

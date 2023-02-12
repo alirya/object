@@ -1,6 +1,6 @@
-import {TypeParameters} from '@alirya/type/validator/type';
-import {RecordValueParameters} from '../../../../dist/validator/validatable/record/record-value';
-import Validator from '@alirya/validator/validator';
+import {TypeParameters} from '@alirya/type/validator/type.js';
+import {RecordValueParameters} from '../../../../dist/validator/validatable/record/record-value.js';
+import Validator from '@alirya/validator/validator.js';
 
 it('force console log', () => spyOn(console, 'log').and.callThrough());
 
@@ -15,9 +15,9 @@ describe('compiler compatibility', function() {
             validator2 : number,
         };
 
-        let value : ValueValidator = TypeParameters('number');
+        const value : ValueValidator = TypeParameters('number');
 
-        let record : Value = {
+        const record : Value = {
             validator1 : 10,
             validator2 : 10,
         };
@@ -27,9 +27,9 @@ describe('compiler compatibility', function() {
 
     it('implicit', function() {
 
-        let value = TypeParameters('number');
+        const value = TypeParameters('number');
 
-        let record = {
+        const record = {
             validator1 : 10,
             validator2 : 10,
         };
@@ -39,9 +39,9 @@ describe('compiler compatibility', function() {
 
     it('auto', function() {
 
-        let value = TypeParameters('number');
+        const value = TypeParameters('number');
 
-        let record = {
+        const record = {
             validator1 : 10,
             validator2 : 10,
         };

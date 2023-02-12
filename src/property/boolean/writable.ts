@@ -1,9 +1,9 @@
-import SetDescriptor from '../../descriptor/boolean/setter';
-import PropertyDescriptor from '../../descriptor/boolean/property';
-import Descriptor from '../../descriptor/from-object';
-import HasProperty from './exists';
-import Value from '@alirya/value/value';
-import Property from '../property/property';
+import SetDescriptor from '../../descriptor/boolean/setter.js';
+import PropertyDescriptor from '../../descriptor/boolean/property.js';
+import Descriptor from '../../descriptor/from-object.js';
+import HasProperty from './exists.js';
+import Value from '@alirya/value/value.js';
+import Property from '../property/property.js';
 
 
 /**
@@ -11,7 +11,7 @@ import Property from '../property/property';
  */
 export function WritableParameters (value : object, property : PropertyKey) : boolean {
 
-    let descriptor = Descriptor.Parameters(value, property);
+    const descriptor = Descriptor.Parameters(value, property);
 
     if(!descriptor) {
 
