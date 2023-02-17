@@ -6,7 +6,7 @@ import CaseInsensitiveObject from 'case-insensitive-object';
 import MapCallback from './map-callback.js';
 import Object_ from './boolean/object.js';
 import {IsFunction} from '@alirya/function/boolean/function.js';
-import CaseInsensitive from './case-insensitive';
+import CaseInsensitive from './case-insensitive.js';
 
 
 export type InflateType<
