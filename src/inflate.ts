@@ -5,14 +5,9 @@ import NotEmpty from '@alirya/string/ensure/not-empty.js';
 import CaseInsensitiveObject from 'case-insensitive-object';
 import MapCallback from './map-callback.js';
 import Object_ from './boolean/object.js';
-import {IsFunction} from '../../function/dist/boolean/function.js';
+import {IsFunction} from '@alirya/function/boolean/function.js';
+import CaseInsensitive from './case-insensitive';
 
-let CaseInsensitiveObjectFunction = CaseInsensitiveObject;
-if(!IsFunction(CaseInsensitiveObjectFunction)) {
-    if(IsFunction((CaseInsensitiveObjectFunction as any).default)) {
-        CaseInsensitiveObjectFunction = (CaseInsensitiveObjectFunction as any).default;
-    }
-}
 
 export type InflateType<
     Flat extends Record<string, unknown>,
@@ -135,7 +130,7 @@ export function InflateInsensitive<Type extends unknown>(
 
     if(Object_(object)) {
 
-        return CaseInsensitiveObjectFunction(MapCallback(object, InflateInsensitive)) as Type;
+        return CaseInsensitive(MapCallback(object, InflateInsensitive)) as Type;
     }
 
     return object;
