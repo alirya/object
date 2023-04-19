@@ -45,3 +45,4 @@ export default function MapCallback<
     return <Map<Object, Replace>> result;
 }
 
+export {MapCallback as ObjectMapCallback};

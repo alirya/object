@@ -45,3 +45,13 @@ describe('invalid', ()=>{
     });
 });
 
+describe('invalid recursive', ()=>{
+
+    it('non exists', ()=>{
+
+        const source = {};
+
+        expect(SetPathParameters(source, [], 'data', 'data', 'array').data.data.array).toBe((source.data.data as any).array);
+    });
+});
+

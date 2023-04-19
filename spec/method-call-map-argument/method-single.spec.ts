@@ -2,6 +2,11 @@ import {MethodCallMapArgumentParameters} from '../../dist/method-call-map-argume
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
+interface TestInterface {
+    string: string;
+    number: number;
+    boolean: boolean;
+}
 
 class Test {
 

@@ -24,7 +24,7 @@ export function MethodCallMapArgumentParameters<
     Type extends ArgumentMapClass<Argument> = ArgumentMapClass<Argument>,
 >(
     object : Type,
-    argument : Argument
+    argument : Partial<Argument>
 ) : MethodCallMapArgumentType<Argument, Type> {
 
     const result : Partial<MethodCallMapArgumentType<Argument, Type>> = {};
@@ -33,7 +33,7 @@ export function MethodCallMapArgumentParameters<
 
         if(object[property]) {
 
-            result[property] = object[property](argument[property]);
+            result[property] = object[property]((argument as Argument)[property]);
         }
     }
 
@@ -55,7 +55,7 @@ export type MethodCallMapArgumentArgument<
     Type extends ArgumentMapClass<Argument>,
 > =
     Value<Type> &
-    ArgumentContainer<Argument>;
+    ArgumentContainer<Partial<Argument>>;
 
 export function MethodCallMapArgumentParameter<
     Argument extends Record<PropertyKey, unknown>,

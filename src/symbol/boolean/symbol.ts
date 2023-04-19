@@ -7,3 +7,5 @@ export default function Symbol (value : any) : value is Symbol {
     return typeof value === 'symbol'
         || typeof value === 'object' && Object.prototype.toString.call (value) === '[object Symbol]';
 }
+
+export {Symbol as IsSymbol}
