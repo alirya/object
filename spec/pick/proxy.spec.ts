@@ -1,6 +1,6 @@
 import {PickParameters} from '../../dist/pick.js';
-import List from '@alirya/proxy/list.js';
-import GetListFirst from '@alirya/proxy/handler/get-list-first.js';
+import List from '@axiona/proxy/list.js';
+import GetListFirst from '@axiona/proxy/handler/get-list-first.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

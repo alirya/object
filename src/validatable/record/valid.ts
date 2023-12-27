@@ -1,7 +1,7 @@
-import Validatable from '@alirya/validatable/validatable.js';
-import GuardValidatable from '@alirya/validatable/boolean/validatable.js';
+import Validatable from '@axiona/validatable/validatable.js';
+import GuardValidatable from '@axiona/validatable/boolean/validatable.js';
 import Filter from '../../filter.js';
-import ValidatableValid from '@alirya/validatable/boolean/value.js';
+import ValidatableValid from '@axiona/validatable/boolean/value.js';
 /**
  * filter all valid {@link Validatable} while retain its original structure
  */

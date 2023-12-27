@@ -1,10 +1,10 @@
-import Value from '@alirya/value/value.js';
-import Validatable from '@alirya/validatable/validatable.js';
-import ValidatorValidatable from '@alirya/validator/validatable/validatable.js';
-import Message from '@alirya/message/message.js';
+import Value from '@axiona/value/value.js';
+import Validatable from '@axiona/validatable/validatable.js';
+import ValidatorValidatable from '@axiona/validator/validatable/validatable.js';
+import Message from '@axiona/message/message.js';
 import NotEmptyArgument from '../boolean/not-empty.js';
 import MemoizeAccessor from '../function/memoize-accessor.js';
-import Dynamic from '@alirya/validator/message/function/validatable.js';
+import Dynamic from '@axiona/validator/message/function/validatable.js';
 
 export type NotEmptyType<ValueType extends object, MessageType> = ValidatorValidatable<ValueType, MessageType>;
 

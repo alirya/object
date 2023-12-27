@@ -1,5 +1,5 @@
 import Validators from '../../../dist/validator/validators/validators.js';
-import Validator from '@alirya/validator/validator.js';
+import Validator from '@axiona/validator/validator.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

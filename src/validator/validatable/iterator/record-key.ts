@@ -1,7 +1,7 @@
-import Validator from '@alirya/validator/validator.js';
-import Return from '@alirya/validator/validatable/infer-static.js';
-import Value from '@alirya/value/value.js';
-import ValidatorContainer from '@alirya/validator/validator/validator.js';
+import Validator from '@axiona/validator/validator.js';
+import Return from '@axiona/validator/validatable/infer-static.js';
+import Value from '@axiona/value/value.js';
+import ValidatorContainer from '@axiona/validator/validator/validator.js';
 
 export function * RecordKeyParameters<
     RecordType extends Record<PropertyKey, any>,

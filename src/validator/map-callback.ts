@@ -1,11 +1,11 @@
-import Validator from '@alirya/validator/validator.js';
-import Validatable from '@alirya/validatable/validatable.js';
+import Validator from '@axiona/validator/validator.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import RecordParameter from './subject/record/allow.js';
 import ValidatableMapCallback, {MapCallbackContext} from '../validatable/map-callback.js';
-import Instance from '@alirya/validator/validatable/validatable.js';
+import Instance from '@axiona/validator/validatable/validatable.js';
 import ValidatorsContainer from './validators/validators.js';
-import Message from '@alirya/message/message.js';
-import ValidatorSimple from '@alirya/validator/simple.js';
+import Message from '@axiona/message/message.js';
+import ValidatorSimple from '@axiona/validator/simple.js';
 // import ValidatableMap from '../validatable/map.js';
 import RecordBase from './subject/record/allow.js';
 import RecordType from './subject/record/expectation.js';

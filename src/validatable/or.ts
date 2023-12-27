@@ -1,4 +1,4 @@
-import Validatable from '@alirya/validatable/validatable.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import OrBoolean from './record/boolean/or.js';
 import Validatables, {ValidatablesType as OrReturn} from './validatables.js';
 

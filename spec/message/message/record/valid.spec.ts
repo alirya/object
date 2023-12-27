@@ -1,4 +1,4 @@
-import {TypeParameters} from '@alirya/type/validator/type.js';
+import {TypeParameters} from '@axiona/type/validator/type.js';
 import {ValueAllParameters} from '../../../../dist/validator/value-all.js';
 import {ValueCallbackParameters} from '../../../../dist/validator/value-callback.js';
 import {MapAllParameters} from '../../../../dist/validator/map-all.js';
@@ -8,7 +8,7 @@ import Valid from '../../../../dist/message/message/record/valid.js';
 import MessageMap from '../../../../dist/message/message/record/map.js';
 import ValidatorValidatable from '../../../../dist/validator/validatable/record/infer.js';
 import {ValuePartialParameters} from '../../../../dist/validator/validatable/record/value-partial.js';
-import Instance from '@alirya/validator/validatable/validatable.js';
+import Instance from '@axiona/validator/validatable/validatable.js';
 
 it('force console log', () => {spyOn(console, 'log').and.callThrough();});
 

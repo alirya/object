@@ -1,12 +1,12 @@
 import {RecordKeyPartialParameters} from '../../dist/validator/record-key-partial.js';
 import And from '../../dist/validatable/and.js';
 import Or from '../../dist/validatable/or.js';
-import Validatable from '@alirya/validatable/validatable.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import MessageMap from '../../dist/message/message/record/map.js';
-import {TypeParameters} from '@alirya/type/validator/type.js';
-import ValidatorInterface from '@alirya/validator/simple.js';
-import Instance from '@alirya/validator/validatable/validatable.js';
-import {CallbackParameters} from '@alirya/validator/callback.js';
+import {TypeParameters} from '@axiona/type/validator/type.js';
+import ValidatorInterface from '@axiona/validator/simple.js';
+import Instance from '@axiona/validator/validatable/validatable.js';
+import {CallbackParameters} from '@axiona/validator/callback.js';
 
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});

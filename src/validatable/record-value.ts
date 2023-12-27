@@ -1,10 +1,10 @@
-// import Validator from '@alirya/validator/validator.js';
-// import Validatable from '@alirya/validatable/validatable.js';
-// import ValidatableContainer from '@alirya/validatable/validatable/validatable.js';
-// import ValidatorContainer from '@alirya/validator/validator/validator.js';
-// import Value from '@alirya/value/value.js';
+// import Validator from '@axiona/validator/validator.js';
+// import Validatable from '@axiona/validatable/validatable.js';
+// import ValidatableContainer from '@axiona/validatable/validatable/validatable.js';
+// import ValidatorContainer from '@axiona/validator/validator/validator.js';
+// import Value from '@axiona/value/value.js';
 // import Validatables from './validatables/validatables.js';
-// import Message from '@alirya/message/message.js';
+// import Message from '@axiona/message/message.js';
 // import {O} from 'ts-toolbelt';
 //
 // export default interface RecordValue<

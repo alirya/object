@@ -1,7 +1,7 @@
-import Callable from '@alirya/function/callable.js';
+import Callable from '@axiona/function/callable.js';
 import Object_ from './boolean/object.js';
-import IsArray from '@alirya/array/boolean/array.js';
-import {TrimParameters} from '@alirya/string/trim.js';
+import IsArray from '@axiona/array/boolean/array.js';
+import {TrimParameters} from '@axiona/string/trim.js';
 
 
 /**

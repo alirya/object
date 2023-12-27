@@ -1,5 +1,5 @@
 import CaseInsensitiveObject from 'case-insensitive-object';
-import {IsFunction} from '@alirya/function/boolean/function.js';
+import {IsFunction} from '@axiona/function/boolean/function.js';
 
 let CaseInsensitiveObjectFunction = CaseInsensitiveObject;
 if(!IsFunction(CaseInsensitiveObjectFunction)) {

@@ -1,5 +1,5 @@
 import Property from '../property/property.js';
-import Guard from '@alirya/boolean/validation/guard.js';
+import Guard from '@axiona/boolean/validation/guard.js';
 export type ReadableTypeStatic<
     ObjectType extends object,
     PropertyType extends keyof ObjectType,

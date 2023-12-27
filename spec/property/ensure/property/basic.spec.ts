@@ -1,5 +1,5 @@
 import {PropertyParameters} from '../../../../dist/property/ensure/property.js';
-import String from '@alirya/string/ensure/string.js';
+import String from '@axiona/string/ensure/string.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

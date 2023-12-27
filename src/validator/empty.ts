@@ -1,9 +1,9 @@
-import Validator from '@alirya/validator/validator.js';
+import Validator from '@axiona/validator/validator.js';
 import EmptyValidatable, {EmptyType as EmptyParametersReturn} from '../validatable/empty.js';
 import EmptyString from '../assert/string/empty.js';
-import {ValidatableParameters} from '@alirya/validator/message/function/validatable.js';
+import {ValidatableParameters} from '@axiona/validator/message/function/validatable.js';
 import {EmptyType as EmptyParameterReturn} from '../validatable/empty.js';
-import {ValidatableParameter} from '@alirya/validator/message/function/validatable.js';
+import {ValidatableParameter} from '@axiona/validator/message/function/validatable.js';
 
 
 export function EmptyParameters() : Validator<object, object, boolean, boolean, string>;

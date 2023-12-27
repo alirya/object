@@ -9,7 +9,7 @@ export function EmptyParameters(
 }
 
 
-import Value from '@alirya/value/value.js';
+import Value from '@axiona/value/value.js';
 
 export type EmptyArgument = Value<object> & {subject?: string};
 

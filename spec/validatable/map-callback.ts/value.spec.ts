@@ -2,7 +2,7 @@ import {MapCallbackParameters} from '../../../dist/validatable/map-callback.js';
 import {MapParameters} from '../../../dist/validator/validatable/record/map.js';
 import And from '../../../dist/validatable/and.js';
 import MessageMap from '../../../dist/message/message/record/map.js';
-import {TypeParameters} from '@alirya/type/validator/type.js';
+import {TypeParameters} from '@axiona/type/validator/type.js';
 
 const validator = {
     name : TypeParameters('string'),

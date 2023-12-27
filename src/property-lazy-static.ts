@@ -1,7 +1,7 @@
 import {O} from 'ts-toolbelt';
 import {Required} from 'utility-types';
 import {PropertyLazyDynamicParameters} from './property-lazy-dynamic.js';
-import Callable from '@alirya/function/callable.js';
+import Callable from '@axiona/function/callable.js';
 
 export type PropertyLazyStaticReadonlyReturn<
     This extends object,

@@ -1,12 +1,12 @@
-import Validator from '@alirya/validator/validator.js';
-import Validatable from '@alirya/validatable/validatable.js';
+import Validator from '@axiona/validator/validator.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import ValidatableValueCallback, {ValueCallbackContext} from '../validatable/value-callback.js';
-import Instance from '@alirya/validator/validatable/validatable.js';
-import BaseValue from '@alirya/value/value.js';
+import Instance from '@axiona/validator/validatable/validatable.js';
+import BaseValue from '@axiona/value/value.js';
 import ValidatorsContainer from './validators/validators.js';
-import Message from '@alirya/message/message.js';
+import Message from '@axiona/message/message.js';
 // import ValidatableValue from '../validatable/value.js';
-import Dynamic from '@alirya/validator/validatable/validatable.js';
+import Dynamic from '@axiona/validator/validatable/validatable.js';
 
 
 /**

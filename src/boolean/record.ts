@@ -1,4 +1,4 @@
-import Value from '@alirya/value/value.js';
+import Value from '@axiona/value/value.js';
 import StrictOmit from '../strict-omit.js';
 /**
  * check if {@param object} is certain type of record

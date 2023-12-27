@@ -1,8 +1,8 @@
-import Validator from '@alirya/validator/simple.js';
+import Validator from '@axiona/validator/simple.js';
 import ObjectValidatable from '../validatable/object.js';
-import Instance from '@alirya/validator/validatable/validatable.js';
+import Instance from '@axiona/validator/validatable/validatable.js';
 import ObjectString from '../assert/string/object.js';
-import Simple from '@alirya/validator/message/function/simple.js';
+import Simple from '@axiona/validator/message/function/simple.js';
 
 export function ObjectParameters() : Validator<unknown, object, string>;
 

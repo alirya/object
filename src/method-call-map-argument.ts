@@ -1,8 +1,8 @@
 import MapReturn from './map-return.js';
 import {O} from 'ts-toolbelt';
 import ArgumentMapClass from './argument-map-class.js';
-import Value from '@alirya/value/value.js';
-import ArgumentContainer from '@alirya/function/argument/argument.js';
+import Value from '@axiona/value/value.js';
+import ArgumentContainer from '@axiona/function/argument/argument.js';
 import ArgumentsMapClass from './arguments-map-class.js';
 
 

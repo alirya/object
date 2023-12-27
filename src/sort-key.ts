@@ -1,4 +1,4 @@
-import Callable from '@alirya/function/callable.js';
+import Callable from '@axiona/function/callable.js';
 
 export function SortKeyParameters<
     Type extends object

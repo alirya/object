@@ -1,15 +1,15 @@
-import Validator from '@alirya/validator/validator.js';
-import Validatable from '@alirya/validatable/validatable.js';
+import Validator from '@axiona/validator/validator.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import {O} from 'ts-toolbelt';
 // import RecordValue from './record-value.js';
 import MemoizeAccessor from '../function/memoize-accessor.js';
-import ValidatorContainer from '@alirya/validator/validator/validator.js';
-import MessageBase from '@alirya/message/message.js';
-import Value from '@alirya/value/value.js';
+import ValidatorContainer from '@axiona/validator/validator/validator.js';
+import MessageBase from '@axiona/message/message.js';
+import Value from '@axiona/value/value.js';
 import Validatables from './validatables/validatables.js';
-import Message from '@alirya/message/message.js';
-import ValidatableContainer from '@alirya/validatable/validatable/validatable.js';
-import ValidatorValidatable from '@alirya/validator/validatable/validatable.js';
+import Message from '@axiona/message/message.js';
+import ValidatableContainer from '@axiona/validatable/validatable/validatable.js';
+import ValidatorValidatable from '@axiona/validator/validatable/validatable.js';
 
 export interface RecordValueCallbackContext<
     // MessageType = unknown,

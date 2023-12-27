@@ -1,7 +1,7 @@
 import {Object} from 'ts-toolbelt';
 import {set} from 'lodash-es';
 import Object_ from './object/object.js';
-import Value from '@alirya/value/value.js';
+import Value from '@axiona/value/value.js';
 
 export function SetPathParameters<
     Properties extends ReadonlyArray<PropertyKey>,

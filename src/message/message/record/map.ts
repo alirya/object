@@ -1,8 +1,8 @@
-import Message from '@alirya/message/message.js';
+import Message from '@axiona/message/message.js';
 import RecordInfer from './infer.js';
 import RecordInferPartial from './infer-partial.js';
 import MapCallbackGuard from '../../../map-callback.js';
-import ValueMessage from '@alirya/message/message/value.js';
+import ValueMessage from '@axiona/message/message/value.js';
 
 export default function Map<
     Instance extends Record<PropertyKey, Message> = Record<PropertyKey, Message>

@@ -1,7 +1,7 @@
 import GetDescriptor from '../../descriptor/boolean/getter.js';
 import Descriptor from '../../descriptor/from-object.js';
 import HasProperty from './exists.js';
-import Value from '@alirya/value/value.js';
+import Value from '@axiona/value/value.js';
 import Property from '../property/property.js';
 
 /**

@@ -1,4 +1,4 @@
-import Callable from '@alirya/function/callable.js';
+import Callable from '@axiona/function/callable.js';
 
 export default function CatchError<Callback extends Callable>(callback: Callback) : ReturnType<Callback>|Error {
 

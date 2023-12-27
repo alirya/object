@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 import {Required} from 'utility-types';
-import Callable from '@alirya/function/callable.js';
+import Callable from '@axiona/function/callable.js';
 
 
 export function PropertyParameters<

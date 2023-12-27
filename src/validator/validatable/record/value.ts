@@ -1,8 +1,8 @@
 import ValidatableRecord from './infer.js';
-import Validator from '@alirya/validator/validator.js';
+import Validator from '@axiona/validator/validator.js';
 import IteratorValue from '../iterator/value.js';
 import ValidatorsContainer from '../../validators/validators.js';
-import Value from '@alirya/value/value.js';
+import Value from '@axiona/value/value.js';
 
 export function ValueParameters<
     ValueType,

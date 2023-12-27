@@ -1,11 +1,11 @@
-import Validator from '@alirya/validator/simple.js';
-import Validatable from '@alirya/validatable/validatable.js';
+import Validator from '@axiona/validator/simple.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import ValidateValue from './validatable/record/value.js';
 import MapReturn from './validatable/record/infer.js';
 import ValueCallback, {ValueCallbackReturn as ValueAllReturn} from './value-callback.js';
 import ValidatorsContainer from './validators/validators.js';
-import Message from '@alirya/message/message.js';
-import Dynamic from '@alirya/validator/validatable/validatable.js';
+import Message from '@axiona/message/message.js';
+import Dynamic from '@axiona/validator/validatable/validatable.js';
 
 /**
  * more specific implementation of {@link ValueCallback}

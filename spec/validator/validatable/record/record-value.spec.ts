@@ -1,6 +1,6 @@
-import {TypeParameters} from '@alirya/type/validator/type.js';
+import {TypeParameters} from '@axiona/type/validator/type.js';
 import {RecordValueParameters} from '../../../../dist/validator/validatable/record/record-value.js';
-import Validator from '@alirya/validator/validator.js';
+import Validator from '@axiona/validator/validator.js';
 
 it('force console log', () => spyOn(console, 'log').and.callThrough());
 

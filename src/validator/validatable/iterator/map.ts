@@ -1,8 +1,8 @@
 import RecordParameter from '../../subject/record/allow.js';
-import Validator from '@alirya/validator/validator.js';
-import InferReturn from '@alirya/validator/validatable/infer-static.js';
+import Validator from '@axiona/validator/validator.js';
+import InferReturn from '@axiona/validator/validatable/infer-static.js';
 import ValidatorsContainer from '../../validators/validators.js';
-import Value from '@alirya/value/value.js';
+import Value from '@axiona/value/value.js';
 
 export function * MapParameters<
     Validators extends Record<PropertyKey, Validator>

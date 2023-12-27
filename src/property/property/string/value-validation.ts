@@ -1,8 +1,8 @@
 import ValueValidationArgumentValidation from '../../../assert/string/value-validation.js';
 import Name from '../../../string/name.js';
 import PropertyInterface from '../property.js';
-import Validatable from '@alirya/validatable/validatable.js';
-import Validation from '@alirya/boolean/validation/validation.js';
+import Validatable from '@axiona/validatable/validatable.js';
+import Validation from '@axiona/boolean/validation/validation.js';
 
 export function ValueValidationParameters(
   property : PropertyKey,

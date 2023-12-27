@@ -1,11 +1,11 @@
-import Validator from '@alirya/validator/validator.js';
-import Validatable from '@alirya/validatable/validatable.js';
+import Validator from '@axiona/validator/validator.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import ReturnInfer from './validatable/record/infer.js';
 import ValidateMap from './validatable/record/map-partial.js';
 import MapCallback, {MapCallbackReturn as MapPartialReturn} from './map-callback.js';
 import ValidatorsContainer from './validators/validators.js';
-import Message from '@alirya/message/message.js';
-import Instance from '@alirya/validator/validatable/validatable.js';
+import Message from '@axiona/message/message.js';
+import Instance from '@axiona/validator/validatable/validatable.js';
 
 export function MapPartialParameters<
     Validators extends Record<PropertyKey, Validator> = Record<PropertyKey, Validator>,

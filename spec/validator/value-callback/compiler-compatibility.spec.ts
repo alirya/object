@@ -1,14 +1,14 @@
-import {TypeParameters} from '@alirya/type/validator/type.js';
+import {TypeParameters} from '@axiona/type/validator/type.js';
 import {ValueCallbackParameters} from '../../../dist/validator/value-callback.js';
 import {ValueParameters} from '../../../dist/validator/validatable/record/value.js';
 import And from '../../../dist/validatable/and.js';
 import MessageMap from '../../../dist/message/message/record/map.js';
-import Validatable from '@alirya/validatable/validatable.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import ValidatablesInterface from '../../../dist/validatable/validatables/validatables.js';
 import {ValidatablesParameters} from '../../../dist/validatable/validatables.js';
 import ValidatorValidatable from '../../../dist/validator/validatable/record/infer.js';
 import {ValuePartialParameters} from '../../../dist/validator/validatable/record/value-partial.js';
-import Message from '@alirya/message/message.js';
+import Message from '@axiona/message/message.js';
 import Infer from '../../../dist/validator/validatable/record/infer.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});

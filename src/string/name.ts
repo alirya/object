@@ -1,4 +1,4 @@
-import Class from '@alirya/class/boolean/class.js';
+import Class from '@axiona/class/boolean/class.js';
 import NameNotFound from './name-not-found.js';
 
 export default function Name(value : any) : string {

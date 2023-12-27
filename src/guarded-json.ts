@@ -1,6 +1,6 @@
-import Value from '@alirya/value/value.js';
-import ToString from '@alirya/string/to-string.js';
-import Guard from '@alirya/boolean/validation/guard.js';
+import Value from '@axiona/value/value.js';
+import ToString from '@axiona/string/to-string.js';
+import Guard from '@axiona/boolean/validation/guard.js';
 
 /**
  * Parse json string to object and check for certain type according to {@param validation}

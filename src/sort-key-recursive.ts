@@ -1,6 +1,6 @@
 import SortKeyParameters from './sort-key.js';
-import Callable from '@alirya/function/callable.js';
-import IsObject from '@alirya/object/boolean/object.js';
+import Callable from '@axiona/function/callable.js';
+import IsObject from '@axiona/object/boolean/object.js';
 
 export function SortKeyRecursiveParameters<
     Type extends object

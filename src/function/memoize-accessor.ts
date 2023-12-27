@@ -1,6 +1,6 @@
 import SetGetter from '../value/value/set-getter.js';
 import Default from '../default.js';
-import Suffix from '@alirya/string/suffix/suffix.js';
+import Suffix from '@axiona/string/suffix/suffix.js';
 
 const defaults = {suffix:'', configurable:true};
 /**

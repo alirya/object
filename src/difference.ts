@@ -1,7 +1,7 @@
-import Equal from '@alirya/boolean/equal.js';
-import Callable from '@alirya/function/callable.js';
+import Equal from '@axiona/boolean/equal.js';
+import Callable from '@axiona/function/callable.js';
 import {A} from 'ts-toolbelt';
-import Compare from '@alirya/boolean/compare/compare.js';
+import Compare from '@axiona/boolean/compare/compare.js';
 
 export type DifferenceParametersArgumentValidation<Type extends object, Compare extends object = Type>
     = Callable<[Type[keyof Type], A.At<Compare, keyof Type>, keyof Type], boolean>;

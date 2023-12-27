@@ -1,10 +1,10 @@
-import {TypeParameters} from '@alirya/type/validator/type.js';
+import {TypeParameters} from '@axiona/type/validator/type.js';
 import {RecordKeyCallbackParameters} from '../../../dist/validator/record-key-callback.js';
 import {RecordKeyParameters} from '../../../dist/validator/validatable/record/record-key.js';
 import And from '../../../dist/validatable/and.js';
 import MessageMap from '../../../dist/message/message/record/map.js';
 import Or from '../../../dist/validatable/or.js';
-import Infer from '@alirya/validator/validatable/infer-static.js';
+import Infer from '@axiona/validator/validatable/infer-static.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

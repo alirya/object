@@ -2,9 +2,9 @@ import {MapAllParameters} from '../../../dist/validator/map-all.js';
 import And from '../../../dist/validatable/and.js';
 import Or from '../../../dist/validatable/or.js';
 import MessageMap from '../../../dist/message/message/record/map.js';
-import {TypeParameters} from '@alirya/type/validator/type.js';
-import TypeClass from '@alirya/type/validator/type.js';
-import TypeString from '@alirya/type/assert/string/type.js';
+import {TypeParameters} from '@axiona/type/validator/type.js';
+import TypeClass from '@axiona/type/validator/type.js';
+import TypeString from '@axiona/type/assert/string/type.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

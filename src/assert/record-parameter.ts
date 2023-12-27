@@ -1,4 +1,4 @@
-import GuardValidation from '@alirya/boolean/validation/guard.js';
+import GuardValidation from '@axiona/boolean/validation/guard.js';
 import RecordParameters from './record-parameters.js';
 
 /**

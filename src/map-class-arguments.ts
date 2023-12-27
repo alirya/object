@@ -1,4 +1,4 @@
-import Callable from '@alirya/function/callable.js';
+import Callable from '@axiona/function/callable.js';
 
 /**
  * get record of parameters from record of function

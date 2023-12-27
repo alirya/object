@@ -1,13 +1,13 @@
-import Validator from '@alirya/validator/validator.js';
-import Validatable from '@alirya/validatable/validatable.js';
-import ReturnInfer from '@alirya/validator/validatable/infer-static.js';
+import Validator from '@axiona/validator/validator.js';
+import Validatable from '@axiona/validatable/validatable.js';
+import ReturnInfer from '@axiona/validator/validatable/infer-static.js';
 import ValidateMap from './validatable/record/record-value-partial.js';
 import RecordValueCallback, {
     RecordValueCallbackReturn as RecordValuePartialReturn
 } from './record-value-callback.js';
-import ValidatorContainer from '@alirya/validator/validator/validator.js';
-import Message from '@alirya/message/message.js';
-import Instance from '@alirya/validator/validatable/validatable.js';
+import ValidatorContainer from '@axiona/validator/validator/validator.js';
+import Message from '@axiona/message/message.js';
+import Instance from '@axiona/validator/validatable/validatable.js';
 
 
 export function RecordValuePartialParameters<

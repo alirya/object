@@ -1,11 +1,11 @@
-import Validator from '@alirya/validator/validator.js';
-import ValidatorValidatable from '@alirya/validator/validatable/validatable.js';
-import Validatable from '@alirya/validatable/validatable.js';
+import Validator from '@axiona/validator/validator.js';
+import ValidatorValidatable from '@axiona/validator/validatable/validatable.js';
+import Validatable from '@axiona/validatable/validatable.js';
 // import Value from './value.js';
 import MemoizeAccessor from '../function/memoize-accessor.js';
-import BaseValue from '@alirya/value/value.js';
+import BaseValue from '@axiona/value/value.js';
 import Validators from '../validator/validators/validators.js';
-import Message from '@alirya/message/message.js';
+import Message from '@axiona/message/message.js';
 import Validatables from './validatables/validatables.js';
 import Messages from '../message/messages/messages.js';
 

@@ -1,5 +1,5 @@
 import {DifferenceBothParameters} from '../../dist/difference-both.js';
-import {TypeEqualParameters} from '@alirya/type/boolean/type-equal.js';
+import {TypeEqualParameters} from '@axiona/type/boolean/type-equal.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

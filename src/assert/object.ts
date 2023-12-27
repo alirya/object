@@ -1,5 +1,5 @@
 import Guard from '../boolean/object.js';
-import Callback from '@alirya/function/assert/callback.js';
+import Callback from '@axiona/function/assert/callback.js';
 import StringError from './throwable/object.js';
 
 export default function Object_(

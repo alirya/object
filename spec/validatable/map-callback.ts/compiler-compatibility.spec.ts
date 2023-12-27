@@ -1,12 +1,12 @@
-import ValidatorInterface from '@alirya/validator/simple.js';
-import Instance from '@alirya/validator/validatable/validatable.js';
+import ValidatorInterface from '@axiona/validator/simple.js';
+import Instance from '@axiona/validator/validatable/validatable.js';
 import {MapCallbackParameters} from '../../../dist/validatable/map-callback.js';
 import {MapParameters} from '../../../dist/validator/validatable/record/map.js';
 import ValidatableInfer from '../../../dist/validator/validatable/record/infer.js';
 import And from '../../../dist/validatable/and.js';
 import MessageMap from '../../../dist/message/message/record/map.js';
-import Validatable from '@alirya/validatable/validatable.js';
-import {TypeParameters} from '@alirya/type/validator/type.js';
+import Validatable from '@axiona/validatable/validatable.js';
+import {TypeParameters} from '@axiona/type/validator/type.js';
 
 const validator = {
     name : TypeParameters('string'),

@@ -1,4 +1,4 @@
-import Validatable from '@alirya/validatable/validatable.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import Property from '../../property/property/property.js';
 /**
  * {@param valid} type is valid or not

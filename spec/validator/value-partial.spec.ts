@@ -1,10 +1,10 @@
 import {ValuePartialParameters} from '../../dist/validator/value-partial.js';
 import And from '../../dist/validatable/and.js';
 import Or from '../../dist/validatable/or.js';
-import Validatable from '@alirya/validatable/validatable.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import MessageMap from '../../dist/message/message/record/map.js';
-import {TypeParameters} from '@alirya/type/validator/type.js';
-import Message from '@alirya/message/message.js';
+import {TypeParameters} from '@axiona/type/validator/type.js';
+import Message from '@axiona/message/message.js';
 
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});

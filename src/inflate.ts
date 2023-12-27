@@ -1,11 +1,11 @@
-import Callable from '@alirya/function/callable.js';
+import Callable from '@axiona/function/callable.js';
 import {SetPathParameters} from './set-path.js';
-import Escape from '@alirya/string/pattern/escape.js';
-import NotEmpty from '@alirya/string/ensure/not-empty.js';
+import Escape from '@axiona/string/pattern/escape.js';
+import NotEmpty from '@axiona/string/ensure/not-empty.js';
 import CaseInsensitiveObject from 'case-insensitive-object';
 import MapCallback from './map-callback.js';
 import Object_ from './boolean/object.js';
-import {IsFunction} from '@alirya/function/boolean/function.js';
+import {IsFunction} from '@axiona/function/boolean/function.js';
 import CaseInsensitive from './case-insensitive.js';
 
 

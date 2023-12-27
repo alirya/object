@@ -2,10 +2,10 @@ import {MapCallbackParameters} from '../../../dist/validator/map-callback.js';
 import {MapPartialParameters} from '../../../dist/validator/validatable/record/map-partial.js';
 import And from '../../../dist/validatable/and.js';
 import Or from '../../../dist/validatable/or.js';
-import Validatable from '@alirya/validatable/validatable.js';
+import Validatable from '@axiona/validatable/validatable.js';
 import MessageMap from '../../../dist/message/message/record/map.js';
-import {TypeParameters} from '@alirya/type/validator/type.js';
-import Instance from '@alirya/validator/validatable/validatable.js';
+import {TypeParameters} from '@axiona/type/validator/type.js';
+import Instance from '@axiona/validator/validatable/validatable.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

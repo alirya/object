@@ -1,5 +1,5 @@
 import {EnsureRecordParameters} from '../../dist/ensure-record.js';
-import Boolean from '@alirya/boolean/boolean.js';
+import Boolean from '@axiona/boolean/boolean.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

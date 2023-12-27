@@ -1,6 +1,6 @@
-import {CallbackParameters} from '@alirya/function/assert/callback.js';
+import {CallbackParameters} from '@axiona/function/assert/callback.js';
 import Guard from '../boolean/record.js';
-import GuardValidation from '@alirya/boolean/validation/guard.js';
+import GuardValidation from '@axiona/boolean/validation/guard.js';
 
 
 /**

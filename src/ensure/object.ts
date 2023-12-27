@@ -1,6 +1,6 @@
 import AssertObject from '../assert/object.js';
 import ObjectError from '../assert/throwable/object.js';
-import Value from '@alirya/value/value.js';
+import Value from '@axiona/value/value.js';
 
 
 export function ObjectParameters(

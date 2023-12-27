@@ -1,6 +1,6 @@
 import FilterRecursive from '../dist/filter-recursive.js';
-import NotEmpty from '@alirya/string/boolean/not-empty.js';
-import String from '@alirya/string/boolean/string.js';
+import NotEmpty from '@axiona/string/boolean/not-empty.js';
+import String from '@axiona/string/boolean/string.js';
 import NotEmptyObject from '../dist/boolean/not-empty.js';
 import Object from '../dist/boolean/object.js';
 
