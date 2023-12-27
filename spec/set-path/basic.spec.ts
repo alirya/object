@@ -51,7 +51,10 @@ describe('invalid recursive', ()=>{
 
         const source = {};
 
-        expect(SetPathParameters(source, [], 'data', 'data', 'array').data.data.array).toBe((source.data.data as any).array);
+        expect(SetPathParameters(source, [], 'data', 'data', 'array').data.data.array).toBe(
+            // @ts-ignore
+            (source.data.data as any).array
+        );
     });
 });
 
